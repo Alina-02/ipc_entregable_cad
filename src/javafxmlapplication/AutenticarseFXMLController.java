@@ -13,7 +13,7 @@ import javafx.fxml.Initializable;
  *
  * @author nymok
  */
-public class FXMLDocumentController implements Initializable {
+public class AutenticarseFXMLController implements Initializable {
 
     /**
      * Initializes the controller class.
