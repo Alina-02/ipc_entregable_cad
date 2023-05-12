@@ -611,7 +611,7 @@
                               </HBox>
                               <HBox alignment="TOP_RIGHT" prefHeight="61.0" prefWidth="30.0" AnchorPane.rightAnchor="30.0">
                                  <children>
-                                    <Button fx:id="exit_button" mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: transparent;">
+                                    <Button fx:id="exit_button" mnemonicParsing="false" onMouseClicked="#exit_clicked" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: transparent;">
                                        <HBox.margin>
                                           <Insets top="15.0" />
                                        </HBox.margin>
@@ -661,14 +661,10 @@
                                     <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                                  </VBox.margin>
                               </ToggleButton>
-                              <ToggleButton fx:id="pista4_toggle_button" mnemonicParsing="false" prefHeight="180.0" prefWidth="180.0" styleClass="button_pistas" text="Pista 4">
+                              <ToggleButton fx:id="pista4_toggle_button" mnemonicParsing="false" prefHeight="180.0" prefWidth="180.0" styleClass="button_pistas" stylesheets="@../values/reservarfxml.css" text="Pista 4">
                                  <VBox.margin>
                                     <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                                  </VBox.margin>
-                                 <stylesheets>
-                                    <URL value="@../values/style.css" />
-                                    <URL value="@../values/reservarfxml.css" />
-                                 </stylesheets>
                               </ToggleButton>
                            </children>
                         </VBox>
@@ -677,23 +673,15 @@
                               <Insets bottom="20.0" left="5.0" right="5.0" top="20.0" />
                            </HBox.margin>
                            <children>
-                              <ToggleButton fx:id="pista2_toggle_button" mnemonicParsing="false" prefHeight="180.0" prefWidth="180.0" styleClass="button_pistas" text="Pista 2">
+                              <ToggleButton fx:id="pista2_toggle_button" mnemonicParsing="false" prefHeight="180.0" prefWidth="180.0" styleClass="button_pistas" stylesheets="@../values/reservarfxml.css" text="Pista 2">
                                  <VBox.margin>
                                     <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                                  </VBox.margin>
-                                 <stylesheets>
-                                    <URL value="@../values/style.css" />
-                                    <URL value="@../values/reservarfxml.css" />
-                                 </stylesheets>
                               </ToggleButton>
-                              <ToggleButton fx:id="pista5_toggle_button" mnemonicParsing="false" prefHeight="180.0" prefWidth="180.0" styleClass="button_pistas" text="Pista 5">
+                              <ToggleButton fx:id="pista5_toggle_button" mnemonicParsing="false" prefHeight="180.0" prefWidth="180.0" styleClass="button_pistas" stylesheets="@../values/reservarfxml.css" text="Pista 5">
                                  <VBox.margin>
                                     <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                                  </VBox.margin>
-                                 <stylesheets>
-                                    <URL value="@../values/style.css" />
-                                    <URL value="@../values/reservarfxml.css" />
-                                 </stylesheets>
                               </ToggleButton>
                            </children>
                         </VBox>
@@ -702,23 +690,15 @@
                               <Insets bottom="20.0" left="5.0" right="40.0" top="20.0" />
                            </HBox.margin>
                            <children>
-                              <ToggleButton fx:id="pista3_toggle_button" mnemonicParsing="false" prefHeight="180.0" prefWidth="180.0" styleClass="button_pistas" text="PIsta 3">
+                              <ToggleButton fx:id="pista3_toggle_button" mnemonicParsing="false" prefHeight="180.0" prefWidth="180.0" styleClass="button_pistas" stylesheets="@../values/reservarfxml.css" text="PIsta 3">
                                  <VBox.margin>
                                     <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                                  </VBox.margin>
-                                 <stylesheets>
-                                    <URL value="@../values/style.css" />
-                                    <URL value="@../values/reservarfxml.css" />
-                                 </stylesheets>
                               </ToggleButton>
-                              <ToggleButton fx:id="pista6_toggle_button" mnemonicParsing="false" prefHeight="180.0" prefWidth="180.0" styleClass="button_pistas" text="Pista 6">
+                              <ToggleButton fx:id="pista6_toggle_button" mnemonicParsing="false" prefHeight="180.0" prefWidth="180.0" styleClass="button_pistas" stylesheets="@../values/reservarfxml.css" text="Pista 6">
                                  <VBox.margin>
                                     <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                                  </VBox.margin>
-                                 <stylesheets>
-                                    <URL value="@../values/style.css" />
-                                    <URL value="@../values/reservarfxml.css" />
-                                 </stylesheets>
                               </ToggleButton>
                            </children>
                         </VBox>

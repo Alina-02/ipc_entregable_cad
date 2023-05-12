@@ -5,14 +5,21 @@
 package javafxmlapplication;
 
 import java.net.URL;
+import java.util.Hashtable;
+import java.util.Optional;
 import java.util.ResourceBundle;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
+import javafx.scene.input.MouseEvent;
+import model.Club;
 
 /**
  * FXML Controller class
@@ -77,9 +84,43 @@ public class ReservarFXMLController implements Initializable {
     /**
      * Initializes the controller class.
      */
+    
+    Hashtable used = new Hashtable();
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        try{
+        Club club = Club.getInstance();
+        }catch(Exception e){}
+        
+        used.put(910, false);
+        used.put(1011, false);
+        used.put(1112, false);
+        used.put(1213, false);
+        used.put(1314, false);
+        used.put(1415, false);
+        used.put(1516, false);
+        used.put(1617, false);
+        used.put(1718, false);
+        used.put(1920, false);
+        used.put(2021, false);
+        used.put(2122, false);
     }    
+
+    @FXML
+    private void exit_clicked(MouseEvent event) {
+        Platform.exit();
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
 }
