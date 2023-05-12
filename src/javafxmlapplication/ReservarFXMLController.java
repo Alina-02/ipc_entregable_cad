@@ -11,15 +11,20 @@ import java.util.ResourceBundle;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.OverrunStyle;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import model.Club;
 
@@ -86,6 +91,18 @@ public class ReservarFXMLController implements Initializable {
      */
     
     Hashtable used = new Hashtable();
+    @FXML
+    private GridPane nine_ten_gridpane;
+    @FXML
+    private Label nine_ten_ocupado_label;
+    @FXML
+    private Button nine_ten_button1;
+    @FXML
+    private GridPane nine_ten_gridpane1;
+    @FXML
+    private Label nine_ten_ocupado_label1;
+    @FXML
+    private VBox nine_ten_vbox;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -116,15 +133,22 @@ public class ReservarFXMLController implements Initializable {
     @FXML
     private void nine_ten_clicked(MouseEvent event) {
         
-        Label nickname = new Label("nickname");
-        nickname.setAlignment(Pos.CENTER);
-        nickname.setFont(new Font("System", 20));
+        
         
     }
     
     
     
-    
+    private void  cambiar_ocupado(VBox vbox){
+        Label nickname = new Label("Label");
+        nickname.setAlignment(Pos.CENTER);
+        nickname.setFont(new Font("System", 15));
+        nickname.setStyle("-fx-text-fill: #3b3b3b");
+        nickname.setContentDisplay(ContentDisplay.LEFT);
+        nickname.setTextOverrun(OverrunStyle.ELLIPSIS);
+        nickname.setPadding(new Insets(0, 10, 0, 0));
+        vbox.getChildren().add(1,nickname);
+    }
     
     
     
