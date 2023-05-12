@@ -3,5 +3,21 @@
  */
 
 .mainFxmlClass {
+    
+    
+
+    .darkpurple-button{
+        -fx-background-color: #4E0250;
+        -fx-background-radius: 30;
+    }
+    
+    .shadow{
+        -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10.0, 0.0, 0.0, 10.0);
+    }
+    
+    .purple-button{
+        -fx-background-color: #801A86;
+        -fx-background-radius: 30;
+    }
 
 }
