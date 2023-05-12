@@ -13,18 +13,21 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmlapplication.DisponibilidadDelDiaFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="810.0" prefWidth="1450.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19" fx:controller="javafxmlapplication.DisponibilidadDelDiaFXMLController">
     <stylesheets>
-        <URL value="@disponibilidaddeldiafxml.css"/>
+        <URL value="@disponibilidaddeldiafxml.css" />
     </stylesheets>
     <children>
       <BorderPane prefHeight="200.0" prefWidth="200.0" stylesheets="@../values/style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <left>
-            <VBox prefHeight="810.0" prefWidth="490.0" styleClass="green-background" BorderPane.alignment="CENTER">
+            <VBox prefHeight="810.0" prefWidth="550.0" styleClass="green-background" BorderPane.alignment="CENTER">
                <children>
                   <HBox alignment="CENTER" cache="true" prefHeight="110.0" prefWidth="200.0">
                      <children>
@@ -75,81 +78,74 @@
                            <children>
                               <ScrollPane prefHeight="430.0" prefWidth="284.0" stylesheets="@../values/style.css">
                                 <content>
-                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1225.0" prefWidth="326.0" styleClass="white_background" stylesheets="@../values/style.css">
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1225.0" prefWidth="383.0" styleClass="white_background" stylesheets="@../values/style.css">
                                        <children>
-                                          <VBox layoutY="2.0" prefHeight="1221.0" prefWidth="332.0">
+                                          <VBox prefHeight="1229.0" prefWidth="388.0">
                                              <children>
-                                                <Button fx:id="nine_ten_button" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="100.0" prefWidth="322.0" styleClass="hbox_scroll_pane" stylesheets="@../values/style.css">
+                                                <Button fx:id="nine_ten_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#nine_ten_clicked" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/style.css">
                                                    <graphic>
-                                                      <VBox prefHeight="114.0" prefWidth="275.0">
+                                                      <GridPane alignment="CENTER">
+                                                        <columnConstraints>
+                                                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="179.2" minWidth="10.0" prefWidth="179.2" />
+                                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="110.19998168945312" minWidth="10.0" prefWidth="94.40000000000003" />
+                                                        </columnConstraints>
+                                                        <rowConstraints>
+                                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                        </rowConstraints>
                                                          <children>
-                                                            <HBox alignment="CENTER" prefHeight="57.0" prefWidth="280.0">
+                                                            <Label text="10:00 - 11:00">
+                                                               <font>
+                                                                  <Font name="SansSerif Regular" size="20.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
                                                                <children>
-                                                                  <Label text="09:00 - 10:00">
-                                                                     <font>
-                                                                        <Font name="SansSerif Regular" size="20.0" />
-                                                                     </font>
-                                                                  </Label>
-                                                               </children>
-                                                               <padding>
-                                                                  <Insets top="5.0" />
-                                                               </padding>
-                                                            </HBox>
-                                                            <HBox alignment="CENTER" prefHeight="57.0" prefWidth="280.0">
-                                                               <children>
-                                                                  <Label text="Libre">
+                                                                  <Label text="Ocupado">
                                                                      <font>
                                                                         <Font name="SansSerif Italic" size="20.0" />
                                                                      </font>
-                                                                     <HBox.margin>
-                                                                        <Insets top="5.0" />
-                                                                     </HBox.margin>
+                                                                     <VBox.margin>
+                                                                        <Insets top="20.0" />
+                                                                     </VBox.margin>
+                                                                  </Label>
+                                                                  <Label text="Label" textFill="#3b3b3b">
+                                                                     <font>
+                                                                        <Font size="15.0" />
+                                                                     </font>
                                                                   </Label>
                                                                </children>
-                                                               <VBox.margin>
-                                                                  <Insets bottom="5.0" />
-                                                               </VBox.margin>
-                                                            </HBox>
+                                                            </VBox>
                                                          </children>
-                                                      </VBox>
+                                                      </GridPane>
                                                    </graphic>
                                                 </Button>
-                                                <Button fx:id="ten_eleven_button" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="100.0" prefWidth="322.0" styleClass="hbox_scroll_pane" stylesheets="@../values/style.css">
+                                                <Button fx:id="nine_ten_button1" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="74.0" prefWidth="378.0" styleClass="hbox_scroll_pane" stylesheets="@../values/style.css">
                                                    <graphic>
-                                                      <VBox prefHeight="114.0" prefWidth="275.0">
+                                                      <GridPane>
+                                                         <columnConstraints>
+                                                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="162.99998474121094" minWidth="10.0" prefWidth="162.19998168945312" />
+                                                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="110.19998168945312" minWidth="10.0" prefWidth="85.20004272460938" />
+                                                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="101.19998168945312" minWidth="10.0" prefWidth="94.79995727539062" />
+                                                         </columnConstraints>
+                                                         <rowConstraints>
+                                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                         </rowConstraints>
                                                          <children>
-                                                            <HBox alignment="CENTER" prefHeight="57.0" prefWidth="280.0">
-                                                               <children>
-                                                                  <Label text="10:00 - 11:00">
-                                                                     <font>
-                                                                        <Font name="SansSerif Regular" size="20.0" />
-                                                                     </font>
-                                                                  </Label>
-                                                               </children>
-                                                               <padding>
-                                                                  <Insets top="5.0" />
-                                                               </padding>
-                                                            </HBox>
-                                                            <HBox alignment="CENTER" prefHeight="57.0" prefWidth="280.0">
-                                                               <children>
-                                                                  <Label text="Libre">
-                                                                     <font>
-                                                                        <Font name="SansSerif Italic" size="20.0" />
-                                                                     </font>
-                                                                     <HBox.margin>
-                                                                        <Insets top="5.0" />
-                                                                     </HBox.margin>
-                                                                  </Label>
-                                                               </children>
-                                                               <VBox.margin>
-                                                                  <Insets bottom="5.0" />
-                                                               </VBox.margin>
-                                                            </HBox>
+                                                            <Label text="10:00 - 11:00">
+                                                               <font>
+                                                                  <Font name="SansSerif Regular" size="20.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label text="Ocupado" GridPane.columnIndex="1" GridPane.columnSpan="2">
+                                                               <font>
+                                                                  <Font name="SansSerif Italic" size="20.0" />
+                                                               </font>
+                                                            </Label>
                                                          </children>
-                                                      </VBox>
+                                                      </GridPane>
                                                    </graphic>
                                                 </Button>
-                                                <Button fx:id="eleven_twelve_button" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="100.0" prefWidth="322.0" styleClass="hbox_scroll_pane" stylesheets="@../values/style.css">
+                                                <Button fx:id="eleven_twelve_button" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="94.0" prefWidth="388.0" styleClass="hbox_scroll_pane" stylesheets="@../values/style.css">
                                                    <graphic>
                                                       <VBox prefHeight="114.0" prefWidth="275.0">
                                                          <children>
@@ -184,7 +180,7 @@
                                                       </VBox>
                                                    </graphic>
                                                 </Button>
-                                                <Button fx:id="twelve_thirteen_button" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="100.0" prefWidth="322.0" styleClass="hbox_scroll_pane" stylesheets="@../values/style.css">
+                                                <Button fx:id="twelve_thirteen_button" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="100.0" prefWidth="388.0" styleClass="hbox_scroll_pane" stylesheets="@../values/style.css">
                                                    <graphic>
                                                       <VBox prefHeight="114.0" prefWidth="275.0">
                                                          <children>
@@ -202,7 +198,7 @@
                                                             </HBox>
                                                             <HBox alignment="CENTER" prefHeight="57.0" prefWidth="280.0">
                                                                <children>
-                                                                  <Label text="Libre">
+                                                                  <Label text="Ocupado     label">
                                                                      <font>
                                                                         <Font name="SansSerif Italic" size="20.0" />
                                                                      </font>
@@ -219,7 +215,7 @@
                                                       </VBox>
                                                    </graphic>
                                                 </Button>
-                                                <Button fx:id="thirteen_fourteen_button" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="100.0" prefWidth="322.0" styleClass="hbox_scroll_pane" stylesheets="@../values/style.css">
+                                                <Button fx:id="thirteen_fourteen_button" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="100.0" prefWidth="388.0" styleClass="hbox_scroll_pane" stylesheets="@../values/style.css">
                                                    <graphic>
                                                       <VBox prefHeight="114.0" prefWidth="275.0">
                                                          <children>
@@ -632,7 +628,7 @@
                         </AnchorPane>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                  <HBox alignment="CENTER" prefHeight="102.0" prefWidth="900.0">
                      <children>
                         <Label text="Pistas">
                            <font>
@@ -652,7 +648,7 @@
                         <Insets />
                      </VBox.margin>
                   </HBox>
-                  <HBox alignment="CENTER" prefHeight="536.0" prefWidth="840.0">
+                  <HBox alignment="CENTER" prefHeight="474.0" prefWidth="860.0">
                      <children>
                         <VBox alignment="CENTER" prefHeight="590.0" prefWidth="270.0">
                            <HBox.margin>

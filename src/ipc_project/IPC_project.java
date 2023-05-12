@@ -42,8 +42,9 @@ public class IPC_project extends Application{
         //     - configuracion del stage
         //     - se muestra el stage de manera no modal mediante el metodo show()
         stage.setScene(scene);
+        stage.setMinHeight(1315);
+        stage.setMinWidth(810);
         stage.setTitle("Reservar");
-        stage.setResizable(false);
         stage.show();
     }
 

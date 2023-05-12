@@ -11,6 +11,7 @@ import java.util.ResourceBundle;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
@@ -19,6 +20,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Font;
 import model.Club;
 
 /**
@@ -58,8 +60,6 @@ public class ReservarFXMLController implements Initializable {
     private Button nineteen_twenty_button;
     @FXML
     private Button twenty_twentyone_button;
-    @FXML
-    private Button twentyone_twentytwo_button;
     @FXML
     private Button check_button;
     @FXML
@@ -111,6 +111,15 @@ public class ReservarFXMLController implements Initializable {
     @FXML
     private void exit_clicked(MouseEvent event) {
         Platform.exit();
+    }
+
+    @FXML
+    private void nine_ten_clicked(MouseEvent event) {
+        
+        Label nickname = new Label("nickname");
+        nickname.setAlignment(Pos.CENTER);
+        nickname.setFont(new Font("System", 20));
+        
     }
     
     
