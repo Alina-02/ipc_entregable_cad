@@ -119,13 +119,26 @@
     -fx-background-color: #FFFFFF;
 }
 
-.button_pistas{
+/* TOGGLE BUTTON PISTAS*/
+
+.button_pistas:selected {
+    -fx-background-color: #ccde59;
+    -fx-text-fill: black;
     -fx-background-insets: 0,1,2;
     -fx-background-radius: 3,2,1;
-    -fx-background-color: #ccde59;
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10.0, 0.0, 0.0, 10.0);
 
 }
+
+.button_pistas {
+    -fx-background-color: #cdd97e;
+    -fx-text-fill: black;
+    -fx-background-insets: 0,1,2;
+    -fx-background-radius: 3,2,1;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10.0, 0.0, 0.0, 10.0);
+
+}
+
 
 /*Date Picker*/
 
