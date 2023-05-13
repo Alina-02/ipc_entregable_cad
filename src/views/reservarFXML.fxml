@@ -90,7 +90,7 @@
                                                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                          </rowConstraints>
                                                          <children>
-                                                            <Label text="09:00 - 10:00">
+                                                            <Label fx:id="nine_ten_label" text="09:00 - 10:00">
                                                                <font>
                                                                   <Font name="SansSerif Regular" size="20.0" />
                                                                </font>
@@ -125,7 +125,7 @@
                                                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                          </rowConstraints>
                                                          <children>
-                                                            <Label text="10:00 - 11:00">
+                                                            <Label fx:id="ten_eleven_label" text="10:00 - 11:00">
                                                                <font>
                                                                   <Font name="SansSerif Regular" size="20.0" />
                                                                </font>
@@ -160,7 +160,7 @@
                                                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                          </rowConstraints>
                                                          <children>
-                                                            <Label text="11:00 - 12:00">
+                                                            <Label fx:id="eleven_twelve_label" text="11:00 - 12:00">
                                                                <font>
                                                                   <Font name="SansSerif Regular" size="20.0" />
                                                                </font>
@@ -195,7 +195,7 @@
                                                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                          </rowConstraints>
                                                          <children>
-                                                            <Label text="12:00 - 13:00">
+                                                            <Label fx:id="twelve_thirdteen_label" text="12:00 - 13:00">
                                                                <font>
                                                                   <Font name="SansSerif Regular" size="20.0" />
                                                                </font>
@@ -230,7 +230,7 @@
                                                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                          </rowConstraints>
                                                          <children>
-                                                            <Label text="13:00 - 14:00">
+                                                            <Label fx:id="thirdteen_fourteen_label" text="13:00 - 14:00">
                                                                <font>
                                                                   <Font name="SansSerif Regular" size="20.0" />
                                                                </font>
@@ -265,7 +265,7 @@
                                                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                          </rowConstraints>
                                                          <children>
-                                                            <Label text="14:00 - 15:00">
+                                                            <Label fx:id="fourteen_fiveteen_label" text="14:00 - 15:00">
                                                                <font>
                                                                   <Font name="SansSerif Regular" size="20.0" />
                                                                </font>
@@ -300,7 +300,7 @@
                                                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                          </rowConstraints>
                                                          <children>
-                                                            <Label text="15:00 - 16:00">
+                                                            <Label fx:id="fiveteen_sixteen_label" text="15:00 - 16:00">
                                                                <font>
                                                                   <Font name="SansSerif Regular" size="20.0" />
                                                                </font>
@@ -335,7 +335,7 @@
                                                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                          </rowConstraints>
                                                          <children>
-                                                            <Label text="16:00 - 17:00">
+                                                            <Label fx:id="sixteen_seventeen_label" text="16:00 - 17:00">
                                                                <font>
                                                                   <Font name="SansSerif Regular" size="20.0" />
                                                                </font>
@@ -370,7 +370,7 @@
                                                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                          </rowConstraints>
                                                          <children>
-                                                            <Label text="17:00 - 18:00">
+                                                            <Label fx:id="seventeen_eighteen_label" text="17:00 - 18:00">
                                                                <font>
                                                                   <Font name="SansSerif Regular" size="20.0" />
                                                                </font>
@@ -405,7 +405,7 @@
                                                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                          </rowConstraints>
                                                          <children>
-                                                            <Label text="18:00 - 19:00">
+                                                            <Label fx:id="eigthteen_nineteen_label" text="18:00 - 19:00">
                                                                <font>
                                                                   <Font name="SansSerif Regular" size="20.0" />
                                                                </font>
@@ -440,7 +440,7 @@
                                                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                          </rowConstraints>
                                                          <children>
-                                                            <Label text="19:00 - 20:00">
+                                                            <Label fx:id="nineteen_twenty_label" text="19:00 - 20:00">
                                                                <font>
                                                                   <Font name="SansSerif Regular" size="20.0" />
                                                                </font>
@@ -475,7 +475,7 @@
                                                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                          </rowConstraints>
                                                          <children>
-                                                            <Label text="20:00 - 21:00">
+                                                            <Label fx:id="twenty_twentyone_label" text="20:00 - 21:00">
                                                                <font>
                                                                   <Font name="SansSerif Regular" size="20.0" />
                                                                </font>
@@ -510,7 +510,7 @@
                                                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                          </rowConstraints>
                                                          <children>
-                                                            <Label text="21:00 - 22:00">
+                                                            <Label fx:id="twentyone_twentytwo_label" text="21:00 - 22:00">
                                                                <font>
                                                                   <Font name="SansSerif Regular" size="20.0" />
                                                                </font>

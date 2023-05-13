@@ -6,8 +6,10 @@ package javafxmlapplication;
 
 import java.net.URL;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Hashtable;
+import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
@@ -32,6 +34,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import model.Booking;
 import model.Club;
+import model.Court;
 
 
 /**
@@ -168,8 +171,33 @@ public class ReservarFXMLController implements Initializable {
     private VBox twentyone_twentytwo_vbox;
     @FXML
     private Label nine_ten_ocupado_label12;
+    @FXML
+    private Label nine_ten_label;
+    @FXML
+    private Label ten_eleven_label;
+    @FXML
+    private Label eleven_twelve_label;
+    @FXML
+    private Label twelve_thirdteen_label;
+    @FXML
+    private Label thirdteen_fourteen_label;
+    @FXML
+    private Label fourteen_fiveteen_label;
+    @FXML
+    private Label fiveteen_sixteen_label;
+    @FXML
+    private Label sixteen_seventeen_label;
+    @FXML
+    private Label seventeen_eighteen_label;
+    @FXML
+    private Label eigthteen_nineteen_label;
+    @FXML
+    private Label nineteen_twenty_label;
+    @FXML
+    private Label twenty_twentyone_label;
+    @FXML
+    private Label twentyone_twentytwo_label;
     
-
     /**
      * Initializes the controller class.
      */
@@ -183,33 +211,70 @@ public class ReservarFXMLController implements Initializable {
     
     ToggleGroup pistas = new ToggleGroup(); //grupo pistas
     LocalDate date = LocalDate.now(); //fecha de las pistas
+    String pista = "Pista 1";
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         try{
         Club club = Club.getInstance();
-        }catch(Exception e){}
         
+        //coloca todas las pistas en el toggle group pistas
         pista1_toggle_button.setToggleGroup(pistas);
         pista2_toggle_button.setToggleGroup(pistas);
         pista3_toggle_button.setToggleGroup(pistas);
         pista4_toggle_button.setToggleGroup(pistas);
         pista5_toggle_button.setToggleGroup(pistas);
         pista6_toggle_button.setToggleGroup(pistas);
-
+        //establece la primera pista como seleccionada de serie
         pista1_toggle_button.setSelected(true);
        
-
-        //getCourtBookings(String courtName, LocalDate madeForDay)
+        //al clicar en el calendario se cambia la fecha
         calendar_date_picker.setOnAction(e -> {
             date = calendar_date_picker.getValue();
         });
         
-        //ArrayList<Booking> today = getCourtBookings("pista 1", date);
-        
         //comprobar qué horas del día están ocupadas y cambiar los botones
         //correspondientes :)
+        
+        List<Booking> today = club.getCourtBookings(pista, date);
+        
+        //recorrer la lista de reservas del día para configurar los botones
+        for(Booking book : today){
+            LocalTime time = book.getFromTime();
+            int hour = time.getHour();
+            if(hour == 9){
+            switch(hour){
+                case 9: cambiar_ocupado(nine_ten_vbox,  nine_ten_label,nine_ten_button);
+                    break;
+                case 10: cambiar_ocupado(ten_eleven_vbox,  ten_eleven_label,ten_eleven_button);
+                    break;
+                case 11: cambiar_ocupado(eleven_twelve_vbox,  eleven_twelve_label,eleven_twelve_button);
+                    break;
+                case 12: cambiar_ocupado(twelve_thirdteen_vbox,  twelve_thirdteen_label,twelve_thirdteen_button);
+                    break;
+                case 13: cambiar_ocupado(thirdteen_fourteen_vbox,  thirdteen_fourteen_label,thirdteen_fourteen_button);
+                    break;
+                case 14: cambiar_ocupado(fourteen_fifthteen_vbox,  fourteen_fiveteen_label,fourteen_fifthteen_button);
+                    break;
+                case 15: cambiar_ocupado(fifthteen_sixteen_vbox,  fiveteen_sixteen_label,fifthteen_sixteen_button);
+                    break;
+                case 16: cambiar_ocupado(sixteen_seventeen_vbox,  sixteen_seventeen_label,sixteen_seventeen_button);
+                    break;
+                case 17: cambiar_ocupado(seventeen_eighteen_vbox,  seventeen_eighteen_label,seventeen_eigtheen_button);
+                    break;
+                case 18: cambiar_ocupado(eighteen_nineteen_vbox,  eigthteen_nineteen_label,eighteen_nineteen_button);
+                    break;
+                case 19: cambiar_ocupado(nineteen_twenty_vbox,  nineteen_twenty_label,nineteen_twenty_button);
+                    break;
+                case 20: cambiar_ocupado(twenty_twentyone_vbox,  twenty_twentyone_label,twenty_twentyone_button);
+                    break;
+                 case 21: cambiar_ocupado(twentyone_twentytwo_vbox,  twentyone_twentytwo_label,twentyone_twentytwo_button);
+                    break;
+                }
+            }
+            
+        }
 
         
         used.put(910, false);
@@ -226,7 +291,10 @@ public class ReservarFXMLController implements Initializable {
         used.put(2122, false);
         
         
-        
+        }catch(Exception e){
+            System.out.println("problemos");
+        }
+         
     } 
     
     
@@ -239,7 +307,9 @@ public class ReservarFXMLController implements Initializable {
     
     
     
-    private void  cambiar_ocupado(VBox vbox){
+    private void  cambiar_ocupado(VBox vbox, Label l, Button b){
+        b.setDisable(false);
+        l.setText("Ocupado");
         Label nickname = new Label("Label");
         nickname.setAlignment(Pos.CENTER);
         nickname.setFont(new Font("System", 15));
@@ -257,26 +327,32 @@ public class ReservarFXMLController implements Initializable {
 
     @FXML
     private void pista1_toggle_button_clicked(MouseEvent event) {
+        pista = "Pista 1";
     }
 
     @FXML
     private void pista4_toggle_button_clicked(MouseEvent event) {
+        pista = "Pista 4";
     }
 
     @FXML
     private void pista2_toggle_button_clicked(MouseEvent event) {
+        pista = "Pista 2";
     }
 
     @FXML
     private void pista5_toggle_button_clicked(MouseEvent event) {
+        pista = "Pista 5";
     }
 
     @FXML
     private void pista3_toggle_button_clicked(MouseEvent event) {
+        pista = "Pista 3";
     }
 
     @FXML
     private void pista6_toggle_button_clicked(MouseEvent event) {
+        pista = "Pista 6";
     }
 
     @FXML
