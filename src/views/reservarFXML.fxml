@@ -100,7 +100,7 @@
                                                             </Label>
                                                             <VBox fx:id="nine_ten_vbox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
                                                                <children>
-                                                                  <Label fx:id="nine_ten_ocupado_label" text="Libre">
+                                                                  <Label fx:id="ocupado_9" text="Libre">
                                                                      <font>
                                                                         <Font name="SansSerif Italic" size="20.0" />
                                                                      </font>
@@ -135,7 +135,7 @@
                                                             </Label>
                                                             <VBox fx:id="ten_eleven_vbox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
                                                                <children>
-                                                                  <Label fx:id="nine_ten_ocupado_label1" text="Libre">
+                                                                  <Label fx:id="ocupado_10" text="Libre">
                                                                      <font>
                                                                         <Font name="SansSerif Italic" size="20.0" />
                                                                      </font>
@@ -170,7 +170,7 @@
                                                             </Label>
                                                             <VBox fx:id="eleven_twelve_vbox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
                                                                <children>
-                                                                  <Label fx:id="nine_ten_ocupado_label2" text="Libre">
+                                                                  <Label fx:id="ocupado_11" text="Libre">
                                                                      <font>
                                                                         <Font name="SansSerif Italic" size="20.0" />
                                                                      </font>
@@ -205,7 +205,7 @@
                                                             </Label>
                                                             <VBox fx:id="twelve_thirdteen_vbox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
                                                                <children>
-                                                                  <Label fx:id="nine_ten_ocupado_label3" text="Libre">
+                                                                  <Label fx:id="ocupado_12" text="Libre">
                                                                      <font>
                                                                         <Font name="SansSerif Italic" size="20.0" />
                                                                      </font>
@@ -240,7 +240,7 @@
                                                             </Label>
                                                             <VBox fx:id="thirdteen_fourteen_vbox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
                                                                <children>
-                                                                  <Label fx:id="nine_ten_ocupado_label4" text="Libre">
+                                                                  <Label fx:id="ocupado_13" text="Libre">
                                                                      <font>
                                                                         <Font name="SansSerif Italic" size="20.0" />
                                                                      </font>
@@ -275,7 +275,7 @@
                                                             </Label>
                                                             <VBox fx:id="fourteen_fifthteen_vbox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
                                                                <children>
-                                                                  <Label fx:id="nine_ten_ocupado_label5" text="Libre">
+                                                                  <Label fx:id="ocupado_14" text="Libre">
                                                                      <font>
                                                                         <Font name="SansSerif Italic" size="20.0" />
                                                                      </font>
@@ -310,7 +310,7 @@
                                                             </Label>
                                                             <VBox fx:id="fifthteen_sixteen_vbox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
                                                                <children>
-                                                                  <Label fx:id="nine_ten_ocupado_label6" text="Ocupado">
+                                                                  <Label fx:id="ocupado_15" text="Libre">
                                                                      <font>
                                                                         <Font name="SansSerif Italic" size="20.0" />
                                                                      </font>
@@ -345,7 +345,7 @@
                                                             </Label>
                                                             <VBox fx:id="sixteen_seventeen_vbox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
                                                                <children>
-                                                                  <Label fx:id="nine_ten_ocupado_label7" text="Ocupado">
+                                                                  <Label fx:id="ocupado_16" text="Libre">
                                                                      <font>
                                                                         <Font name="SansSerif Italic" size="20.0" />
                                                                      </font>
@@ -380,7 +380,7 @@
                                                             </Label>
                                                             <VBox fx:id="seventeen_eighteen_vbox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
                                                                <children>
-                                                                  <Label fx:id="nine_ten_ocupado_label8" text="Ocupado">
+                                                                  <Label fx:id="ocupado_17" text="Libre">
                                                                      <font>
                                                                         <Font name="SansSerif Italic" size="20.0" />
                                                                      </font>
@@ -415,7 +415,7 @@
                                                             </Label>
                                                             <VBox fx:id="eighteen_nineteen_vbox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
                                                                <children>
-                                                                  <Label fx:id="nine_ten_ocupado_label9" text="Ocupado">
+                                                                  <Label fx:id="ocupado_18" text="Libre">
                                                                      <font>
                                                                         <Font name="SansSerif Italic" size="20.0" />
                                                                      </font>
@@ -450,7 +450,7 @@
                                                             </Label>
                                                             <VBox fx:id="nineteen_twenty_vbox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
                                                                <children>
-                                                                  <Label fx:id="nine_ten_ocupado_label10" text="Ocupado">
+                                                                  <Label fx:id="ocupado_19" text="Libre">
                                                                      <font>
                                                                         <Font name="SansSerif Italic" size="20.0" />
                                                                      </font>
@@ -485,7 +485,7 @@
                                                             </Label>
                                                             <VBox fx:id="twenty_twentyone_vbox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
                                                                <children>
-                                                                  <Label fx:id="nine_ten_ocupado_label11" text="Ocupado">
+                                                                  <Label fx:id="ocupado_20" text="Libre">
                                                                      <font>
                                                                         <Font name="SansSerif Italic" size="20.0" />
                                                                      </font>
@@ -520,7 +520,7 @@
                                                             </Label>
                                                             <VBox fx:id="twentyone_twentytwo_vbox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
                                                                <children>
-                                                                  <Label fx:id="nine_ten_ocupado_label12" text="Ocupado">
+                                                                  <Label fx:id="ocupado_21" text="Libre">
                                                                      <font>
                                                                         <Font name="SansSerif Italic" size="20.0" />
                                                                      </font>
@@ -569,7 +569,7 @@
                   </VBox>
                   <HBox alignment="CENTER_RIGHT" prefHeight="62.0" prefWidth="435.0">
                      <children>
-                        <Button fx:id="check_button" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" styleClass="purple-button" stylesheets="@../values/style.css" text="Reservar" textFill="WHITE">
+                        <Button fx:id="reservar_button" mnemonicParsing="false" onMouseClicked="#reservar_clicked" prefHeight="40.0" prefWidth="100.0" styleClass="purple-button" stylesheets="@../values/style.css" text="Reservar" textFill="WHITE">
                            <font>
                               <Font name="SansSerif Bold" size="16.0" />
                            </font>

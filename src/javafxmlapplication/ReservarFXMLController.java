@@ -67,8 +67,6 @@ public class ReservarFXMLController implements Initializable {
     @FXML
     private Button twenty_twentyone_button;
     @FXML
-    private Button check_button;
-    @FXML
     private Button back_button;
     @FXML
     private Button exit_button;
@@ -88,11 +86,7 @@ public class ReservarFXMLController implements Initializable {
     @FXML
     private GridPane nine_ten_gridpane;
     @FXML
-    private Label nine_ten_ocupado_label;
-    @FXML
     private GridPane nine_ten_gridpane1;
-    @FXML
-    private Label nine_ten_ocupado_label1;
     @FXML
     private VBox nine_ten_vbox;
     @FXML
@@ -102,15 +96,11 @@ public class ReservarFXMLController implements Initializable {
     @FXML
     private VBox eleven_twelve_vbox;
     @FXML
-    private Label nine_ten_ocupado_label2;
-    @FXML
     private Button twelve_thirdteen_button;
     @FXML
     private GridPane nine_ten_gridpane3;
     @FXML
     private VBox twelve_thirdteen_vbox;
-    @FXML
-    private Label nine_ten_ocupado_label3;
     @FXML
     private Button thirdteen_fourteen_button;
     @FXML
@@ -118,13 +108,9 @@ public class ReservarFXMLController implements Initializable {
     @FXML
     private VBox thirdteen_fourteen_vbox;
     @FXML
-    private Label nine_ten_ocupado_label4;
-    @FXML
     private GridPane nine_ten_gridpane5;
     @FXML
     private VBox fourteen_fifthteen_vbox;
-    @FXML
-    private Label nine_ten_ocupado_label5;
     @FXML
     private Button fifthteen_sixteen_button;
     @FXML
@@ -132,45 +118,31 @@ public class ReservarFXMLController implements Initializable {
     @FXML
     private VBox fifthteen_sixteen_vbox;
     @FXML
-    private Label nine_ten_ocupado_label6;
-    @FXML
     private GridPane nine_ten_gridpane7;
     @FXML
     private VBox sixteen_seventeen_vbox;
-    @FXML
-    private Label nine_ten_ocupado_label7;
     @FXML
     private Button seventeen_eigtheen_button;
     @FXML
     private VBox seventeen_eighteen_vbox;
     @FXML
-    private Label nine_ten_ocupado_label8;
-    @FXML
     private GridPane nine_ten_gridpane9;
     @FXML
     private VBox eighteen_nineteen_vbox;
-    @FXML
-    private Label nine_ten_ocupado_label9;
     @FXML
     private GridPane nine_ten_gridpane10;
     @FXML
     private VBox nineteen_twenty_vbox;
     @FXML
-    private Label nine_ten_ocupado_label10;
-    @FXML
     private GridPane nine_ten_gridpane11;
     @FXML
     private VBox twenty_twentyone_vbox;
-    @FXML
-    private Label nine_ten_ocupado_label11;
     @FXML
     private Button twentyone_twentytwo_button;
     @FXML
     private GridPane nine_ten_gridpane12;
     @FXML
     private VBox twentyone_twentytwo_vbox;
-    @FXML
-    private Label nine_ten_ocupado_label12;
     @FXML
     private Label nine_ten_label;
     @FXML
@@ -198,7 +170,35 @@ public class ReservarFXMLController implements Initializable {
     @FXML
     private Label twentyone_twentytwo_label;
     
-    /**
+   
+    @FXML
+    private Label ocupado_9;
+    @FXML
+    private Label ocupado_10;
+    @FXML
+    private Label ocupado_11;
+    @FXML
+    private Label ocupado_12;
+    @FXML
+    private Label ocupado_13;
+    @FXML
+    private Label ocupado_14;
+    @FXML
+    private Label ocupado_15;
+    @FXML
+    private Label ocupado_16;
+    @FXML
+    private Label ocupado_17;
+    @FXML
+    private Label ocupado_18;
+    @FXML
+    private Label ocupado_19;
+    @FXML
+    private Label ocupado_20;
+    @FXML
+    private Label ocupado_21;
+    
+     /**
      * Initializes the controller class.
      */
     
@@ -212,12 +212,16 @@ public class ReservarFXMLController implements Initializable {
     ToggleGroup pistas = new ToggleGroup(); //grupo pistas
     LocalDate date = LocalDate.now(); //fecha de las pistas
     String pista = "Pista 1";
+    @FXML
+    private Button reservar_button;
+    Club club;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         try{
-        Club club = Club.getInstance();
+        club = Club.getInstance();
+        
         
         //coloca todas las pistas en el toggle group pistas
         pista1_toggle_button.setToggleGroup(pistas);
@@ -234,47 +238,7 @@ public class ReservarFXMLController implements Initializable {
             date = calendar_date_picker.getValue();
         });
         
-        //comprobar qué horas del día están ocupadas y cambiar los botones
-        //correspondientes :)
-        
-        List<Booking> today = club.getCourtBookings(pista, date);
-        
-        //recorrer la lista de reservas del día para configurar los botones
-        for(Booking book : today){
-            LocalTime time = book.getFromTime();
-            int hour = time.getHour();
-            if(hour == 9){
-            switch(hour){
-                case 9: cambiar_ocupado(nine_ten_vbox,  nine_ten_label,nine_ten_button);
-                    break;
-                case 10: cambiar_ocupado(ten_eleven_vbox,  ten_eleven_label,ten_eleven_button);
-                    break;
-                case 11: cambiar_ocupado(eleven_twelve_vbox,  eleven_twelve_label,eleven_twelve_button);
-                    break;
-                case 12: cambiar_ocupado(twelve_thirdteen_vbox,  twelve_thirdteen_label,twelve_thirdteen_button);
-                    break;
-                case 13: cambiar_ocupado(thirdteen_fourteen_vbox,  thirdteen_fourteen_label,thirdteen_fourteen_button);
-                    break;
-                case 14: cambiar_ocupado(fourteen_fifthteen_vbox,  fourteen_fiveteen_label,fourteen_fifthteen_button);
-                    break;
-                case 15: cambiar_ocupado(fifthteen_sixteen_vbox,  fiveteen_sixteen_label,fifthteen_sixteen_button);
-                    break;
-                case 16: cambiar_ocupado(sixteen_seventeen_vbox,  sixteen_seventeen_label,sixteen_seventeen_button);
-                    break;
-                case 17: cambiar_ocupado(seventeen_eighteen_vbox,  seventeen_eighteen_label,seventeen_eigtheen_button);
-                    break;
-                case 18: cambiar_ocupado(eighteen_nineteen_vbox,  eigthteen_nineteen_label,eighteen_nineteen_button);
-                    break;
-                case 19: cambiar_ocupado(nineteen_twenty_vbox,  nineteen_twenty_label,nineteen_twenty_button);
-                    break;
-                case 20: cambiar_ocupado(twenty_twentyone_vbox,  twenty_twentyone_label,twenty_twentyone_button);
-                    break;
-                 case 21: cambiar_ocupado(twentyone_twentytwo_vbox,  twentyone_twentytwo_label,twentyone_twentytwo_button);
-                    break;
-                }
-            }
-            
-        }
+        comprobarPista(pista, date);
 
         
         used.put(910, false);
@@ -306,11 +270,120 @@ public class ReservarFXMLController implements Initializable {
 
     
     
+
+
     
-    private void  cambiar_ocupado(VBox vbox, Label l, Button b){
+    Button clicked1;
+    Button clicked2;
+    
+    @FXML
+    private void hour_clicked(MouseEvent event) {
+        
+        //se guarda la hora seleccionada en una variable (puede haber hasta dos)
+        event.getSource();
+        
+        
+    }
+
+    @FXML
+    private void pista1_toggle_button_clicked(MouseEvent event) {
+        pista = "Pista 1";
+        comprobarPista(pista, date);
+    }
+
+    @FXML
+    private void pista4_toggle_button_clicked(MouseEvent event) {
+        pista = "Pista 4";
+        comprobarPista(pista, date);
+    }
+
+    @FXML
+    private void pista2_toggle_button_clicked(MouseEvent event) {
+        pista = "Pista 2";
+        comprobarPista(pista, date);
+    }
+
+    @FXML
+    private void pista5_toggle_button_clicked(MouseEvent event) {
+        pista = "Pista 5";
+        comprobarPista(pista, date);
+    }
+
+    @FXML
+    private void pista3_toggle_button_clicked(MouseEvent event) {
+        pista = "Pista 3";
+        comprobarPista(pista, date);
+    }
+
+    @FXML
+    private void pista6_toggle_button_clicked(MouseEvent event) {
+        pista = "Pista 6";
+        comprobarPista(pista, date);
+    }
+
+    @FXML
+    private void calendar_on_action(ActionEvent event) {
+    }
+
+    @FXML
+    private void reservar_clicked(MouseEvent event) {
+        
+        Court court = club.getCourt(pista);
+        
+    }
+    
+
+    public void comprobarPista(String pista, LocalDate date){
+        //comprobar qué horas del día están ocupadas y cambiar los botones
+        //correspondientes :)
+        
+        List<Booking> today = club.getCourtBookings(pista, date);
+        
+        //recorrer la lista de reservas del día para configurar los botones
+        for(Booking book : today){
+            LocalTime time = book.getFromTime();
+            int hour = time.getHour();
+            String nickname = book.getMember().getNickName();
+            
+            switch(hour){
+                case 9: cambiar_ocupado(nine_ten_vbox,  ocupado_9,nine_ten_button, nickname);
+                    break;
+                case 10: cambiar_ocupado(ten_eleven_vbox,  ocupado_10,ten_eleven_button, nickname);
+                    break;
+                case 11: cambiar_ocupado(eleven_twelve_vbox,  ocupado_11,eleven_twelve_button, nickname);
+                    break;
+                case 12: cambiar_ocupado(twelve_thirdteen_vbox,  ocupado_12,twelve_thirdteen_button, nickname);
+                    break;
+                case 13: cambiar_ocupado(thirdteen_fourteen_vbox,  ocupado_13,thirdteen_fourteen_button, nickname);
+                    break;
+                case 14: cambiar_ocupado(fourteen_fifthteen_vbox,  ocupado_14,fourteen_fifthteen_button, nickname);
+                    break;
+                case 15: cambiar_ocupado(fifthteen_sixteen_vbox,  ocupado_15,fifthteen_sixteen_button, nickname);
+                    break;
+                case 16: cambiar_ocupado(sixteen_seventeen_vbox,  ocupado_16,sixteen_seventeen_button, nickname);
+                    break;
+                case 17: cambiar_ocupado(seventeen_eighteen_vbox,  ocupado_17,seventeen_eigtheen_button, nickname);
+                    break;
+                case 18: cambiar_ocupado(eighteen_nineteen_vbox,  ocupado_18,eighteen_nineteen_button, nickname);
+                    break;
+                case 19: cambiar_ocupado(nineteen_twenty_vbox,  ocupado_19,nineteen_twenty_button, nickname);
+                    break;
+                case 20: cambiar_ocupado(twenty_twentyone_vbox,  ocupado_20,twenty_twentyone_button, nickname);
+                    break;
+                 case 21: cambiar_ocupado(twentyone_twentytwo_vbox,  ocupado_21,twentyone_twentytwo_button, nickname);
+                    break;
+                
+               }
+        }
+    }
+    
+        
+    private void  cambiar_ocupado(VBox vbox, Label l, Button b, String id){
         b.setDisable(false);
         l.setText("Ocupado");
-        Label nickname = new Label("Label");
+        
+        
+        Label nickname = new Label(id);
         nickname.setAlignment(Pos.CENTER);
         nickname.setFont(new Font("System", 15));
         nickname.setStyle("-fx-text-fill: #3b3b3b");
@@ -319,48 +392,6 @@ public class ReservarFXMLController implements Initializable {
         nickname.setPadding(new Insets(0, 10, 0, 0));
         vbox.getChildren().add(1,nickname);
     }
-
-    @FXML
-    private void hour_clicked(MouseEvent event) {
-        
-    }
-
-    @FXML
-    private void pista1_toggle_button_clicked(MouseEvent event) {
-        pista = "Pista 1";
-    }
-
-    @FXML
-    private void pista4_toggle_button_clicked(MouseEvent event) {
-        pista = "Pista 4";
-    }
-
-    @FXML
-    private void pista2_toggle_button_clicked(MouseEvent event) {
-        pista = "Pista 2";
-    }
-
-    @FXML
-    private void pista5_toggle_button_clicked(MouseEvent event) {
-        pista = "Pista 5";
-    }
-
-    @FXML
-    private void pista3_toggle_button_clicked(MouseEvent event) {
-        pista = "Pista 3";
-    }
-
-    @FXML
-    private void pista6_toggle_button_clicked(MouseEvent event) {
-        pista = "Pista 6";
-    }
-
-    @FXML
-    private void calendar_on_action(ActionEvent event) {
-    }
-    
-
-    
     
     
     
