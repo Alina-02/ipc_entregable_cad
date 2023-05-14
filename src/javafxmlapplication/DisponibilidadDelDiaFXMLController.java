@@ -19,6 +19,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ContentDisplay;
+import javafx.scene.control.DateCell;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.OverrunStyle;
@@ -278,6 +279,19 @@ public class DisponibilidadDelDiaFXMLController implements Initializable {
         }
         
         comprobarPista(pista, date);
+        
+        
+        calendar_date_picker.setDayCellFactory((DatePicker picker) -> {
+           return new DateCell() {
+               @Override
+               public void updateItem(LocalDate date, boolean empty){
+                   super.updateItem(date, empty);
+                   LocalDate today = LocalDate.now();
+                   setDisable(empty || date.compareTo(today) < 0);
+               }
+           }; 
+        });
+        
         
         
         }catch(Exception e){
