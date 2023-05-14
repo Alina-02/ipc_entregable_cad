@@ -213,11 +213,14 @@ public class ReservarFXMLController implements Initializable {
     ToggleGroup pistas = new ToggleGroup(); //grupo pistas
     List<VBox> nicknames = new ArrayList<>();
     List<Label> ocupado = new ArrayList<>();
+    List<Button> horas = new ArrayList<>();
     LocalDate date = LocalDate.now(); //fecha de las pistas
     String pista = "Pista 1";
     @FXML
     private Button reservar_button;
     Club club;
+    @FXML
+    private VBox hour_buttons_vbox;
     
     
     @Override
@@ -266,22 +269,24 @@ public class ReservarFXMLController implements Initializable {
         ocupado.add(ocupado_20);
         ocupado.add(ocupado_21);
        
+        //coloca los botones en la lista
+        horas.add(nine_ten_button);
+        horas.add(ten_eleven_button);
+        horas.add(eleven_twelve_button);
+        horas.add(twelve_thirdteen_button);
+        horas.add(thirdteen_fourteen_button);
+        horas.add(fourteen_fifthteen_button);
+        horas.add(fifthteen_sixteen_button);
+        horas.add(sixteen_seventeen_button);
+        horas.add(seventeen_eigtheen_button);
+        horas.add(eighteen_nineteen_button);
+        horas.add(nineteen_twenty_button);
+        horas.add(twenty_twentyone_button);
+        horas.add(twentyone_twentytwo_button);
         
+        //comprueba la pista
         comprobarPista(pista, date);
 
-        
-        used.put(910, false);
-        used.put(1011, false);
-        used.put(1112, false);
-        used.put(1213, false);
-        used.put(1314, false);
-        used.put(1415, false);
-        used.put(1516, false);
-        used.put(1617, false);
-        used.put(1718, false);
-        used.put(1920, false);
-        used.put(2021, false);
-        used.put(2122, false);
         
         
         }catch(Exception e){
@@ -317,36 +322,42 @@ public class ReservarFXMLController implements Initializable {
     @FXML
     private void pista1_toggle_button_clicked(MouseEvent event) {
         pista = "Pista 1";
+        title_num_pista_label.setText("01");
         comprobarPista(pista, date);
     }
 
     @FXML
     private void pista4_toggle_button_clicked(MouseEvent event) {
         pista = "Pista 4";
+        title_num_pista_label.setText("04");
         comprobarPista(pista, date);
     }
 
     @FXML
     private void pista2_toggle_button_clicked(MouseEvent event) {
         pista = "Pista 2";
+        title_num_pista_label.setText("02");
         comprobarPista(pista, date);
     }
 
     @FXML
     private void pista5_toggle_button_clicked(MouseEvent event) {
         pista = "Pista 5";
+        title_num_pista_label.setText("05");
         comprobarPista(pista, date);
     }
 
     @FXML
     private void pista3_toggle_button_clicked(MouseEvent event) {
         pista = "Pista 3";
+        title_num_pista_label.setText("03");
         comprobarPista(pista, date);
     }
 
     @FXML
     private void pista6_toggle_button_clicked(MouseEvent event) {
         pista = "Pista 6";
+        title_num_pista_label.setText("06");
         comprobarPista(pista, date);
     }
 
@@ -415,7 +426,7 @@ public class ReservarFXMLController implements Initializable {
     
         
     private void  cambiar_ocupado(VBox vbox, Label l, Button b, String id){
-        b.setDisable(false);
+        b.setDisable(true);
         l.setText("Ocupado");
         
         
@@ -433,6 +444,10 @@ public class ReservarFXMLController implements Initializable {
     private void resetButtons(){
         //comprobar todos los vbox
         
+        for(Button button: horas){
+            button.setDisable(false);
+        }
+        
         for(Label label: ocupado){
             label.setText("Libre");
         }
@@ -448,6 +463,30 @@ public class ReservarFXMLController implements Initializable {
             if(node instanceof Label &&  node.getId().equals("nickname")){
                 v.getChildren().remove(node);
                 break;
+            }
+        }
+        
+    }
+
+    @FXML
+    private void find_hour_clicked(MouseEvent event) {
+        
+        String hour = find_hour_textfield.getText();
+        
+    }
+    
+    private void find_hour(String hour){
+        
+        List<Button> searchHour = new ArrayList<>();
+        
+        for(Node node: hour_buttons_vbox.getChildren()){
+            if(node instanceof Button){
+                Button button = (Button) node;
+                Label label = (Label) button.lookup(".button-label");
+                
+                if(label != null && label.getText().contains(hour)){
+                    searchHour.add(button);
+                }
             }
         }
         
