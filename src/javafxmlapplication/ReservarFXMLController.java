@@ -18,6 +18,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
@@ -210,11 +211,14 @@ public class ReservarFXMLController implements Initializable {
     //VARIABLES
     
     ToggleGroup pistas = new ToggleGroup(); //grupo pistas
+    List<VBox> nicknames = new ArrayList<>();
+    List<Label> ocupado = new ArrayList<>();
     LocalDate date = LocalDate.now(); //fecha de las pistas
     String pista = "Pista 1";
     @FXML
     private Button reservar_button;
     Club club;
+    
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -232,11 +236,36 @@ public class ReservarFXMLController implements Initializable {
         pista6_toggle_button.setToggleGroup(pistas);
         //establece la primera pista como seleccionada de serie
         pista1_toggle_button.setSelected(true);
+        
+        //coloca los vbox en la lista 
+        nicknames.add(nine_ten_vbox);
+        nicknames.add(ten_eleven_vbox);
+        nicknames.add(eleven_twelve_vbox);
+        nicknames.add(twelve_thirdteen_vbox);
+        nicknames.add(thirdteen_fourteen_vbox);
+        nicknames.add(fourteen_fifthteen_vbox);
+        nicknames.add(fifthteen_sixteen_vbox);
+        nicknames.add(sixteen_seventeen_vbox);
+        nicknames.add(seventeen_eighteen_vbox);
+        nicknames.add(eighteen_nineteen_vbox);
+        nicknames.add(nineteen_twenty_vbox);
+        nicknames.add(twenty_twentyone_vbox);
+        
+        //coloca los labels en la lista
+        ocupado.add(ocupado_9);
+        ocupado.add(ocupado_10);
+        ocupado.add(ocupado_11);
+        ocupado.add(ocupado_12);
+        ocupado.add(ocupado_13);
+        ocupado.add(ocupado_14);
+        ocupado.add(ocupado_15);
+        ocupado.add(ocupado_16);
+        ocupado.add(ocupado_17);
+        ocupado.add(ocupado_18);
+        ocupado.add(ocupado_19);
+        ocupado.add(ocupado_20);
+        ocupado.add(ocupado_21);
        
-        //al clicar en el calendario se cambia la fecha
-        calendar_date_picker.setOnAction(e -> {
-            date = calendar_date_picker.getValue();
-        });
         
         comprobarPista(pista, date);
 
@@ -323,6 +352,11 @@ public class ReservarFXMLController implements Initializable {
 
     @FXML
     private void calendar_on_action(ActionEvent event) {
+        
+        date = calendar_date_picker.getValue();
+        resetButtons();
+        comprobarPista(pista, date);
+        
     }
 
     @FXML
@@ -336,6 +370,8 @@ public class ReservarFXMLController implements Initializable {
     public void comprobarPista(String pista, LocalDate date){
         //comprobar qué horas del día están ocupadas y cambiar los botones
         //correspondientes :)
+        
+        resetButtons();
         
         List<Booking> today = club.getCourtBookings(pista, date);
         
@@ -384,6 +420,7 @@ public class ReservarFXMLController implements Initializable {
         
         
         Label nickname = new Label(id);
+        nickname.setId("nickname");
         nickname.setAlignment(Pos.CENTER);
         nickname.setFont(new Font("System", 15));
         nickname.setStyle("-fx-text-fill: #3b3b3b");
@@ -393,7 +430,28 @@ public class ReservarFXMLController implements Initializable {
         vbox.getChildren().add(1,nickname);
     }
     
+    private void resetButtons(){
+        //comprobar todos los vbox
+        
+        for(Label label: ocupado){
+            label.setText("Libre");
+        }
+        
+        for(VBox vbox: nicknames){
+            resetButton(vbox);
+        }
+    }
     
+    private void resetButton(VBox v){
+        
+        for(Node node:v.getChildren()){
+            if(node instanceof Label &&  node.getId().equals("nickname")){
+                v.getChildren().remove(node);
+                break;
+            }
+        }
+        
+    }
     
     
 }
