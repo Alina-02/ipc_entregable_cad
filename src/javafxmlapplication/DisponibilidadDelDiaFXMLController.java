@@ -38,6 +38,7 @@ import javafx.stage.Stage;
 import model.Booking;
 import model.Club;
 import ipc_project.*;
+import javafx.scene.Cursor;
 
 /**
  * FXML Controller class
@@ -301,7 +302,6 @@ public class DisponibilidadDelDiaFXMLController implements Initializable {
         });
         
         
-        
         }catch(Exception e){
             System.out.println("problemos");
         }
@@ -494,6 +494,13 @@ public class DisponibilidadDelDiaFXMLController implements Initializable {
         }catch(Exception e){System.out.println(e);}
         
         
+    }
+
+    @FXML
+    private void iniciar_sesion_entered(MouseEvent event) {
+        
+        Cursor actual = iniciar_sesion_button.getCursor();
+        iniciar_sesion_button.setCursor(Cursor.CLOSED_HAND);
     }
         
     

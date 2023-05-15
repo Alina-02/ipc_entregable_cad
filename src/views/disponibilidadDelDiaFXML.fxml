@@ -722,7 +722,7 @@
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="960.0">
                      <children>
                         <Button fx:id="actualizar_datos" mnemonicParsing="false" onMouseClicked="#actualizar_datos_clicked" text="Actualizar Datos" />
-                        <Button fx:id="iniciar_sesion_button" mnemonicParsing="false" onMouseClicked="#iniciar_sesion_clicked" prefHeight="50.0" prefWidth="150.0" styleClass="purple-button" stylesheets="@../values/reservarfxml.css" text="Iniciar Sesión" textFill="WHITE">
+                        <Button fx:id="iniciar_sesion_button" mnemonicParsing="false" onMouseClicked="#iniciar_sesion_clicked" onMouseEntered="#iniciar_sesion_entered" prefHeight="50.0" prefWidth="150.0" styleClass="purple-button" stylesheets="@../values/reservarfxml.css" text="Iniciar Sesión" textFill="WHITE">
                            <font>
                               <Font name="SansSerif Bold" size="16.0" />
                            </font>

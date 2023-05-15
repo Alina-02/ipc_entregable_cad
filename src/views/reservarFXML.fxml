@@ -20,7 +20,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" minHeight="810.0" minWidth="1315.0" prefHeight="810.0" prefWidth="1315.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmlapplication.ReservarFXMLController">
+<AnchorPane id="AnchorPane" minHeight="750.0" minWidth="1200.0" prefHeight="750.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmlapplication.ReservarFXMLController">
    <children>
       <BorderPane prefHeight="200.0" prefWidth="200.0" stylesheets="@../values/style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <left>
@@ -40,7 +40,7 @@
                         </Label>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER" prefHeight="65.0" prefWidth="200.0" stylesheets="@../values/reservarfxml.css">
+                  <HBox alignment="CENTER" prefHeight="36.0" prefWidth="430.0" stylesheets="@../values/reservarfxml.css">
                      <VBox.margin>
                         <Insets left="30.0" right="30.0" />
                      </VBox.margin>
@@ -53,7 +53,7 @@
                               <Font name="Cambria" size="18.0" />
                            </font>
                         </TextField>
-                        <Button fx:id="find_hour_button" mnemonicParsing="false" onMouseClicked="#find_hour_clicked" prefHeight="40.0" prefWidth="100.0" styleClass="purple-button" stylesheets="@../values/style.css" text="Buscar" textFill="WHITE">
+                        <Button fx:id="find_hour_button" mnemonicParsing="false" onMouseClicked="#find_hour_clicked" prefHeight="27.0" prefWidth="100.0" styleClass="purple-button" stylesheets="@../values/style.css" text="Buscar" textFill="WHITE">
                            <font>
                               <Font name="SansSerif Bold" size="14.0" />
                            </font>
@@ -66,7 +66,7 @@
                         <String fx:value="shadow" />
                      </styleClass>
                   </HBox>
-                  <VBox alignment="TOP_CENTER" prefHeight="488.0" prefWidth="335.0" stylesheets="@../values/style.css">
+                  <VBox alignment="TOP_CENTER" prefHeight="463.0" prefWidth="390.0" stylesheets="@../values/style.css">
                      <VBox.margin>
                         <Insets bottom="20.0" left="50.0" right="50.0" top="35.0" />
                      </VBox.margin>
@@ -659,7 +659,7 @@
                               <Insets bottom="20.0" left="40.0" right="5.0" top="20.0" />
                            </HBox.margin>
                            <children>
-                              <ToggleButton fx:id="pista1_toggle_button" mnemonicParsing="false" onMouseClicked="#pista1_toggle_button_clicked" prefHeight="180.0" prefWidth="180.0" styleClass="button_pistas" stylesheets="@../values/reservarfxml.css" text="Pista 1">
+                              <ToggleButton fx:id="pista1_toggle_button" mnemonicParsing="false" onMouseClicked="#pista1_toggle_button_clicked" prefHeight="150.0" prefWidth="150.0" styleClass="button_pistas" stylesheets="@../values/reservarfxml.css" text="Pista 1">
                                  <VBox.margin>
                                     <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                                  </VBox.margin>
@@ -667,7 +667,7 @@
                                     <Font size="30.0" />
                                  </font>
                               </ToggleButton>
-                              <ToggleButton fx:id="pista4_toggle_button" mnemonicParsing="false" onMouseClicked="#pista4_toggle_button_clicked" prefHeight="180.0" prefWidth="180.0" styleClass="button_pistas" stylesheets="@../values/reservarfxml.css" text="Pista 4">
+                              <ToggleButton fx:id="pista4_toggle_button" mnemonicParsing="false" onMouseClicked="#pista4_toggle_button_clicked" prefHeight="150.0" prefWidth="150.0" styleClass="button_pistas" stylesheets="@../values/reservarfxml.css" text="Pista 4">
                                  <VBox.margin>
                                     <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                                  </VBox.margin>
@@ -682,7 +682,7 @@
                               <Insets bottom="20.0" left="5.0" right="5.0" top="20.0" />
                            </HBox.margin>
                            <children>
-                              <ToggleButton fx:id="pista2_toggle_button" mnemonicParsing="false" onMouseClicked="#pista2_toggle_button_clicked" prefHeight="180.0" prefWidth="180.0" styleClass="button_pistas" stylesheets="@../values/reservarfxml.css" text="Pista 2">
+                              <ToggleButton fx:id="pista2_toggle_button" mnemonicParsing="false" onMouseClicked="#pista2_toggle_button_clicked" prefHeight="150.0" prefWidth="150.0" styleClass="button_pistas" stylesheets="@../values/reservarfxml.css" text="Pista 2">
                                  <VBox.margin>
                                     <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                                  </VBox.margin>
@@ -690,7 +690,7 @@
                                     <Font size="30.0" />
                                  </font>
                               </ToggleButton>
-                              <ToggleButton fx:id="pista5_toggle_button" mnemonicParsing="false" onMouseClicked="#pista5_toggle_button_clicked" prefHeight="180.0" prefWidth="180.0" styleClass="button_pistas" stylesheets="@../values/reservarfxml.css" text="Pista 5">
+                              <ToggleButton fx:id="pista5_toggle_button" mnemonicParsing="false" onMouseClicked="#pista5_toggle_button_clicked" prefHeight="150.0" prefWidth="150.0" styleClass="button_pistas" stylesheets="@../values/reservarfxml.css" text="Pista 5">
                                  <VBox.margin>
                                     <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                                  </VBox.margin>
@@ -705,7 +705,7 @@
                               <Insets bottom="20.0" left="5.0" right="40.0" top="20.0" />
                            </HBox.margin>
                            <children>
-                              <ToggleButton fx:id="pista3_toggle_button" mnemonicParsing="false" onMouseClicked="#pista3_toggle_button_clicked" prefHeight="180.0" prefWidth="180.0" styleClass="button_pistas" stylesheets="@../values/reservarfxml.css" text="Pista 3">
+                              <ToggleButton fx:id="pista3_toggle_button" mnemonicParsing="false" onMouseClicked="#pista3_toggle_button_clicked" prefHeight="150.0" prefWidth="150.0" styleClass="button_pistas" stylesheets="@../values/reservarfxml.css" text="Pista 3">
                                  <VBox.margin>
                                     <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                                  </VBox.margin>
@@ -713,7 +713,7 @@
                                     <Font size="30.0" />
                                  </font>
                               </ToggleButton>
-                              <ToggleButton fx:id="pista6_toggle_button" mnemonicParsing="false" onMouseClicked="#pista6_toggle_button_clicked" prefHeight="180.0" prefWidth="180.0" styleClass="button_pistas" stylesheets="@../values/reservarfxml.css" text="Pista 6">
+                              <ToggleButton fx:id="pista6_toggle_button" mnemonicParsing="false" onMouseClicked="#pista6_toggle_button_clicked" prefHeight="150.0" prefWidth="150.0" styleClass="button_pistas" stylesheets="@../values/reservarfxml.css" text="Pista 6">
                                  <VBox.margin>
                                     <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                                  </VBox.margin>
@@ -732,7 +732,7 @@
                      <children>
                         <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="275.0">
                            <children>
-                              <Button fx:id="reservar_button1" mnemonicParsing="false" onMouseClicked="#reservar_clicked" prefHeight="75.0" prefWidth="150.0" styleClass="purple-button" stylesheets="@../values/reservarfxml.css" text="Reservar" textFill="WHITE">
+                              <Button fx:id="reservar_button1" mnemonicParsing="false" onMouseClicked="#reservar_clicked" prefHeight="75.0" prefWidth="150.0" styleClass="purple-button" stylesheets="@../values/reservarfxml.css" text="Actualizar &#10;Datos" textAlignment="CENTER" textFill="WHITE">
                                  <font>
                                     <Font name="SansSerif Bold" size="16.0" />
                                  </font>
@@ -753,7 +753,7 @@
                         </HBox>
                         <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="275.0">
                            <children>
-                              <Button fx:id="reservar_button3" mnemonicParsing="false" onMouseClicked="#reservar_clicked" prefHeight="75.0" prefWidth="150.0" styleClass="purple-button" stylesheets="@../values/reservarfxml.css" text="Reservar" textFill="WHITE">
+                              <Button fx:id="reservar_button3" mnemonicParsing="false" onMouseClicked="#reservar_clicked" prefHeight="75.0" prefWidth="150.0" styleClass="purple-button" stylesheets="@../values/reservarfxml.css" text="Mis &#10;Reservas" textAlignment="CENTER" textFill="WHITE">
                                  <font>
                                     <Font name="SansSerif Bold" size="16.0" />
                                  </font>
