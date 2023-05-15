@@ -40,9 +40,6 @@ import javafx.stage.FileChooser.ExtensionFilter;
 import model.*;
 import javafx.scene.layout.GridPane;
 
-
-
-
 /**
  * FXML Controller class
  *
@@ -79,13 +76,13 @@ public class RegistroFXMLController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        /*// TODO
+        // TODO
         //Inicializa el club
         try{club = Club.getInstance();
         }catch (ClubDAOException ex){
             Logger.getLogger(RegistroFXMLController.class.getName()).log(Level.SEVERE, null, ex);
         }catch (IOException ex){
-            Logger.getLogger(RegistroFXMLController.class.getName()).log(Level.SEVERE, null, ex);}*/
+            Logger.getLogger(RegistroFXMLController.class.getName()).log(Level.SEVERE, null, ex);}
     }    
 
     @FXML
