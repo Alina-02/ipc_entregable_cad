@@ -474,7 +474,7 @@ public class DisponibilidadDelDiaFXMLController implements Initializable {
             
             FXMLLoader loader= new  FXMLLoader(getClass().getResource("/views/aCtualizarDatosFXML.fxml"));
             Parent root = loader.load();
-            Scene scene = new Scene(root, height,width);
+            Scene scene = new Scene(root, 1315,810);
             stage.setScene(scene);
             
         }catch(Exception e){}
