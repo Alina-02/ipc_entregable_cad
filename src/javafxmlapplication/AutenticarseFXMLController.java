@@ -16,6 +16,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -32,16 +33,22 @@ public class AutenticarseFXMLController implements Initializable {
 
     @FXML
     private AnchorPane anchorPane;
-    @FXML
     private TextField userTF;
-    @FXML
     private TextField passwordTF;
-    @FXML
-    private Button logginB;
-    @FXML
-    private Text registerB;
     
     private Club club;
+    @FXML
+    private TextField usuario_text_field;
+    @FXML
+    private TextField contraseña_text_field;
+    @FXML
+    private Button inicia_sesion_button;
+    @FXML
+    private Text registrarse_text;
+    @FXML
+    private Label usuario_mal_button;
+    @FXML
+    private Label contraseña_mal_button;
 
 
     /**
@@ -78,4 +85,8 @@ public class AutenticarseFXMLController implements Initializable {
         } catch(Exception e) {
             e.printStackTrace();
         }    }
+
+    @FXML
+    private void iniciar_sesion_clicked(MouseEvent event) {
+    }
 }

@@ -41,7 +41,7 @@
                                           <Font size="18.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="passwordTF1" prefHeight="35.0" prefWidth="250.0" style="-fx-background-radius: 100;" />
+                                    <TextField fx:id="usuario_text_field" prefHeight="35.0" prefWidth="250.0" style="-fx-background-radius: 100;" />
                                  </children>
                               </HBox>
                               <HBox alignment="CENTER_LEFT" prefHeight="38.0" prefWidth="714.0">
@@ -51,10 +51,10 @@
                                           <Font size="18.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="passwordTF" prefHeight="35.0" prefWidth="250.0" style="-fx-background-radius: 100;" />
+                                    <TextField fx:id="contraseña_text_field" prefHeight="35.0" prefWidth="250.0" style="-fx-background-radius: 100;" />
                                  </children>
                               </HBox>
-                              <Button fx:id="logginB" mnemonicParsing="false" onAction="#login" prefHeight="39.0" prefWidth="360.0" styleClass="purple-button" text="Iniciar sesion " textFill="WHITE">
+                              <Button fx:id="inicia_sesion_button" mnemonicParsing="false" onAction="#login" onMouseClicked="#iniciar_sesion_clicked" prefHeight="39.0" prefWidth="360.0" styleClass="purple-button" text="Iniciar sesion " textFill="WHITE">
                                  <VBox.margin>
                                     <Insets top="30.0" />
                                  </VBox.margin>
@@ -71,7 +71,7 @@
                                                 <Font size="21.0" />
                                              </font>
                                           </Text>
-                                          <Text fx:id="registerB" onMouseClicked="#registerUser" strokeType="OUTSIDE" strokeWidth="0.0" text="aqui" underline="true" wrappingWidth="48.24151611328125">
+                                          <Text fx:id="registrarse_text" onMouseClicked="#registerUser" strokeType="OUTSIDE" strokeWidth="0.0" text="aqui" underline="true" wrappingWidth="48.24151611328125">
                                              <font>
                                                 <Font size="13.0" />
                                              </font>
@@ -80,6 +80,8 @@
                                     </HBox>
                                  </children>
                               </VBox>
+                              <Label fx:id="usuario_mal_button" text="Label" />
+                              <Label fx:id="contraseña_mal_button" text="Label" />
                            </children>
                         </VBox>
                         <ImageView fitHeight="225.0" fitWidth="178.0" pickOnBounds="true" preserveRatio="true">
