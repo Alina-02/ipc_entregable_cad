@@ -20,7 +20,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="810.0" prefWidth="1450.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmlapplication.DisponibilidadDelDiaFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="810.0" prefWidth="1315.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmlapplication.DisponibilidadDelDiaFXMLController">
     <stylesheets>
         <URL value="@disponibilidaddeldiafxml.css" />
     </stylesheets>
