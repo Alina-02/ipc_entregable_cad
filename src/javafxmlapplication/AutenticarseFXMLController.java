@@ -4,6 +4,9 @@
  */
 package javafxmlapplication;
 
+import com.sun.javafx.logging.PlatformLogger.Level;
+import java.io.IOException;
+import java.lang.System.Logger;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -18,6 +21,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import model.*;
 
 /**
  * FXML Controller class
@@ -36,6 +40,9 @@ public class AutenticarseFXMLController implements Initializable {
     private Button logginB;
     @FXML
     private Text registerB;
+    
+    private Club club;
+
 
     /**
      * Initializes the controller class.
@@ -43,12 +50,20 @@ public class AutenticarseFXMLController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        /*        try{club = Club.getInstance();
+        }catch (ClubDAOException ex){
+            Logger.getLogger(RegistroFXMLController.class.getName()).log(Level.SEVERE, null, ex);
+        }catch (IOException ex){
+            Logger.getLogger(RegistroFXMLController.class.getName()).log(Level.SEVERE, null, ex);}*/
     }    
 
     @FXML
     private void login(ActionEvent event) {
-            String name = userTF.getText();
-            String password = passwordTF.getText();
+        String name = userTF.getText();
+        String password = passwordTF.getText();
+        /*if(Club.getMemberByCredentials(name, password) instanceof Member){
+            
+            }*/
             
     }
 
