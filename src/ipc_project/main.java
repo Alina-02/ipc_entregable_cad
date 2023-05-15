@@ -16,7 +16,9 @@ import javafx.stage.Stage;
  *
  * @author nymok
  */
-public class IPC_project extends Application{
+public class main extends Application{
+    
+    private static Stage stage;
 
      
     @Override
@@ -25,6 +27,10 @@ public class IPC_project extends Application{
         //Locale locale = Locale.getDefault();
         //Cargar el bundle 
         //ResourceBundle bundle = ResourceBundle.getBundle("src.javafxmlapplication.strings_es_ES.properties");
+        
+        
+        this.stage = stage;
+       
         
        
         //======================================================================
@@ -48,6 +54,10 @@ public class IPC_project extends Application{
         stage.show();
     }
 
+    public static Stage getStage(){
+        return stage;
+    }
+    
     /**
      * @param args the command line arguments
      */

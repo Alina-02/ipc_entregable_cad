@@ -732,6 +732,7 @@
                               <Font name="SansSerif Bold" size="14.0" />
                            </font>
                         </Button>
+                        <Button fx:id="actualizar_datos" mnemonicParsing="false" onMouseClicked="#actualizar_datos_clicked" text="Actualizar Datos" />
                      </children>
                   </HBox>
                </children>

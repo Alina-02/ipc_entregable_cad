@@ -13,10 +13,13 @@ import java.util.ResourceBundle;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.DateCell;
@@ -28,10 +31,13 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
+import javafx.stage.Stage;
 import model.Booking;
 import model.Club;
+import ipc_project.*;
 
 /**
  * FXML Controller class
@@ -209,6 +215,10 @@ public class DisponibilidadDelDiaFXMLController implements Initializable {
     private Button seventeen_eighteen_button;
     @FXML
     private Label twentyone_twentytwo_label1;
+    @FXML
+    private Button find_hour_button1;
+    @FXML
+    private Button actualizar_datos;
     
     
     @Override
@@ -449,6 +459,27 @@ public class DisponibilidadDelDiaFXMLController implements Initializable {
         date = calendar_date_picker.getValue();
         resetButtons();
         comprobarPista(pista, date);
+        
+    }
+
+    @FXML
+    private void actualizar_datos_clicked(MouseEvent event) {
+        
+        try{
+            
+            Stage stage;
+            stage = main.getStage();
+            double height = stage.getHeight();
+            double width = stage.getWidth();
+            
+            FXMLLoader loader= new  FXMLLoader(getClass().getResource("/views/aCtualizarDatosFXML.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root, height,width);
+            stage.setScene(scene);
+            
+        }catch(Exception e){}
+        
+        
         
     }
         
