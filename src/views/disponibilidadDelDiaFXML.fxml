@@ -536,11 +536,6 @@
                                                                   </Label>
                                                                </children>
                                                             </VBox>
-                                                            <Label fx:id="twentyone_twentytwo_label1" layoutX="20.0" layoutY="29.0" text="21:00 - 22:00">
-                                                               <font>
-                                                                  <Font name="SansSerif Regular" size="20.0" />
-                                                               </font>
-                                                            </Label>
                                                          </children>
                                                       </GridPane>
                                                    </graphic>
@@ -575,7 +570,6 @@
                         <String fx:value="shadow" />
                      </styleClass>
                   </VBox>
-                  <HBox alignment="CENTER_RIGHT" prefHeight="62.0" prefWidth="435.0" />
                </children>
                <stylesheets>
                   <URL value="@../values/style.css" />

@@ -48,8 +48,11 @@ public class main extends Application{
         //     - configuracion del stage
         //     - se muestra el stage de manera no modal mediante el metodo show()
         stage.setScene(scene);
-        stage.setMinHeight(1315);
-        stage.setMinWidth(810);
+        
+        
+        stage.setMinWidth(1315);
+        stage.setMinHeight(810);
+        
         stage.setTitle("Reservar");
         stage.show();
     }
