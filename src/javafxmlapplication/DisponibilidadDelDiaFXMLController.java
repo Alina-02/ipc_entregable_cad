@@ -214,11 +214,9 @@ public class DisponibilidadDelDiaFXMLController implements Initializable {
     @FXML
     private Button seventeen_eighteen_button;
     @FXML
-    private Label twentyone_twentytwo_label1;
-    @FXML
-    private Button find_hour_button1;
-    @FXML
     private Button actualizar_datos;
+    @FXML
+    private Button iniciar_sesion_button;
     
     
     @Override
@@ -469,16 +467,25 @@ public class DisponibilidadDelDiaFXMLController implements Initializable {
             
             Stage stage;
             stage = main.getStage();
-            double height = stage.getHeight();
-            double width = stage.getWidth();
             
             FXMLLoader loader= new  FXMLLoader(getClass().getResource("/views/aCtualizarDatosFXML.fxml"));
             Parent root = loader.load();
             Scene scene = new Scene(root, 1315,810);
             stage.setScene(scene);
             
-        }catch(Exception e){}
+        }catch(Exception e){System.out.println("la cagaste");}
         
+        
+        
+    }
+
+    @FXML
+    private void iniciar_sesion_clicked(MouseEvent event) {
+        
+        try{
+            Stage stage;
+            stage = main.getStage();
+        }catch(Exception e){System.out.println("la cagaste");}
         
         
     }
