@@ -468,9 +468,9 @@ public class DisponibilidadDelDiaFXMLController implements Initializable {
             Stage stage;
             stage = main.getStage();
             
-            FXMLLoader loader= new  FXMLLoader(getClass().getResource("/views/aCtualizarDatosFXML.fxml"));
+            FXMLLoader loader= new  FXMLLoader(getClass().getResource("/views/ActualizarDatosFXML.fxml"));
             Parent root = loader.load();
-            Scene scene = new Scene(root, 1315,810);
+            Scene scene = new Scene(root, 1200,750);
             stage.setScene(scene);
             
         }catch(Exception e){System.out.println("la cagaste");}
@@ -485,7 +485,13 @@ public class DisponibilidadDelDiaFXMLController implements Initializable {
         try{
             Stage stage;
             stage = main.getStage();
-        }catch(Exception e){System.out.println("la cagaste");}
+            
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/autenticarseFXML.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root, 1200, 750);
+            stage.setScene(scene);
+                    
+        }catch(Exception e){System.out.println(e);}
         
         
     }

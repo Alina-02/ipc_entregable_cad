@@ -50,8 +50,8 @@ public class main extends Application{
         stage.setScene(scene);
         
         
-        stage.setMinWidth(1315);
-        stage.setMinHeight(810);
+        stage.setMinWidth(1200);
+        stage.setMinHeight(750);
         
         stage.setTitle("Reservar");
         stage.show();
