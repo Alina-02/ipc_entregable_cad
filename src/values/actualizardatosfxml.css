@@ -3,5 +3,199 @@
  */
 
 .mainFxmlClass {
+    .search-box{
+    -fx-background-color:#FFFFFF;
+    -fx-background-radius: 100;
+}
+
+.transparent{
+    -fx-background-color: rgba(0,0,0,0);
+}
+
+.search-button{
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 30;
+}
+
+.right-bar{
+    -fx-background-color: #D3D3D3;
+}
+
+.shadow{
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10.0, 0.0, 0.0, 10.0);
+}
+
+.green-button{
+    -fx-background-color: #C9E325;
+    -fx-background-radius: 30;
+}
+
+.white-button{
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 30;
+}
+
+.darkpurple-button{
+    -fx-background-color: #4E0250;
+    -fx-background-radius: 30;
+}
+
+.purple-button{
+    -fx-background-color: #801A86;
+    -fx-background-radius: 30;
+}
+
+.green-background{
+    -fx-background-color: #ccde59;
+}
+
+/* fondo de la barra de scroll */
+.scroll-bar:vertical .track{
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #FFFFFF;
+    -fx-background-radius: 2.0em;
+    
+}
+
+/* selector de la barra de scroll */
+.scroll-bar:horizontal .track{
+    
+}
+
+/* botón para incrementar y decrementar*/
+.scroll-bar:vertical *.increment-button,
+.scroll-bar:vertical *.decrement-button{
+    -fx-background-color :transparent;
+    -fx-background-radius : 0.0em;
+    -fx-padding :0.0 10.0 0.0 0.0;
+}
+
+/* flechas de los botones de incremento y decremento */
+.scroll-bar:vertical *.increment-arrow, 
+.scroll-bar:vertical *.decrement-arrow{
+    -fx-shape : " ";
+    -fx-padding :0.0 0.15em;
+}
+    
+
+.scroll-bar{
+   -fx-background-color: transparent;
+   -fx-background-radius: 2em;
+   -fx-focus-color: transparent;
+   -fx-background-inets: -1.4, 0, 1, 2;
+   -fx-faint-focus-color: transparent;
+}
+
+.scroll-bar:vertical:focused {
+   -fx-background-color: transparent;
+}
+
+.scroll-bar:horizontal .thumb,
+.scroll-bar:vertical .thumb {
+    -fx-background-color : #801a86;
+    -fx-background-insets : 2.0, 0.0, 0.0;
+    -fx-background-radius : 2.0em;
+}
+
+.scroll-pane{}
+
+.scroll-fondo{
+    -fx-background-color:#FFFFFF;
+    -fx-background-radius: 30;
+}
+
+.white_background{
+    -fx-background-color:#FFFFFF;
+}
+
+.hbox_scroll_pane{
+    -fx-padding: 10;
+    -fx-border-style: solid inside;
+    -fx-border-width: 2;
+    -fx-border-insets: 5;
+    -fx-border-radius: 5;
+    -fx-border-color: #801a86;
+    -fx-border-opacity: 0.5;
+    -fx-background-color: #FFFFFF;
+}
+
+/* TOGGLE BUTTON PISTAS*/
+
+.button_pistas:selected {
+    -fx-background-color: #ccde59;
+    -fx-text-fill: black;
+    -fx-background-insets: 0,1,2;
+    -fx-background-radius: 3,2,1;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10.0, 0.0, 0.0, 10.0);
+
+}
+
+.button_pistas {
+    -fx-background-color: #cdd97e;
+    -fx-text-fill: black;
+    -fx-background-insets: 0,1,2;
+    -fx-background-radius: 3,2,1;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10.0, 0.0, 0.0, 10.0);
+
+}
+
+
+/*Date Picker*/
+
+* {
+	-fx-primary-color: #801a86;
+	-fx-secondary-color: #822f87;
+	-fx-light-grey-color: #d1d1d1;
+    
+	-fx-focus-color: -fx-secondary-color;
+}
+
+.date-picker .arrow-button {
+	-fx-background-color: -fx-primary-color;
+	-fx-background-radius: 0;
+}
+.date-picker .arrow-button:hover {
+	-fx-background-color: -fx-secondary-color;
+}
+.date-picker .arrow-button .arrow {
+	-fx-background-color: white;
+}
+.date-picker .cell {
+	-fx-background-color: white;
+}
+.date-picker .cell:hover {
+	-fx-background-color: -fx-light-grey-color;
+}
+.date-picker .cell:focused {
+	-fx-background-color: -fx-light-grey-color;
+}
+.date-picker .selected {
+	-fx-background-color: -fx-primary-color;
+	-fx-text-fill: white;
+}
+.date-picker .selected:focused {
+	-fx-background-color: -fx-primary-color;
+	-fx-text-fill: white;
+}
+.date-picker-popup  {
+	-fx-border-color: transparent;
+}
+.date-picker-popup .month-year-pane {
+	-fx-background-color: -fx-primary-color;
+}
+.date-picker-popup .month-year-pane .label {
+	-fx-text-fill: white;
+}
+.date-picker-popup .week-number-cell {
+	-fx-text-fill: -fx-secondary-color;
+}
+.date-picker-popup .spinner .button .left-arrow,
+.date-picker-popup .spinner .button .right-arrow {
+	-fx-background-color: white;
+}
+
+.image-button{
+    
+}
 
 }
