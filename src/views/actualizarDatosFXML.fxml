@@ -73,22 +73,11 @@
                         </AnchorPane>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
-                     <children>
-                        <Label text="Datos Personales">
-                           <font>
-                              <Font name="SansSerif Bold" size="48.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets left="200.0" right="60.0" />
-                           </HBox.margin>
-                        </Label>
-                     </children>
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                  </HBox>
-                  <Label fx:id="name_label" text="Label" />
+                  <Label text="Informacion Personales">
+                     <font>
+                        <Font name="SansSerif Bold" size="48.0" />
+                     </font>
+                  </Label>
                </children>
             </VBox>
          </center>
