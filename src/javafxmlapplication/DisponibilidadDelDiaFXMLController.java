@@ -39,6 +39,7 @@ import model.Booking;
 import model.Club;
 import ipc_project.*;
 import javafx.scene.Cursor;
+import javafx.scene.input.DragEvent;
 
 /**
  * FXML Controller class
@@ -301,6 +302,16 @@ public class DisponibilidadDelDiaFXMLController implements Initializable {
            }; 
         });
         
+        iniciar_sesion_button.setOnMouseEntered(event -> {
+                iniciar_sesion_button.setCursor(Cursor.HAND);
+                iniciar_sesion_button.setStyle("-fx-background-color: #98609c");
+        });
+        
+        iniciar_sesion_button.setOnMouseExited(event ->{
+                iniciar_sesion_button.setCursor(Cursor.DEFAULT);
+                iniciar_sesion_button.setStyle("-fx-background-color: #822f87");
+        });
+        
         
         }catch(Exception e){
             System.out.println("problemos");
@@ -495,13 +506,47 @@ public class DisponibilidadDelDiaFXMLController implements Initializable {
         
         
     }
+    
+    // CAMBIAR BOTONES
 
     @FXML
-    private void iniciar_sesion_entered(MouseEvent event) {
+    private void hour_button_exited(MouseEvent event) {
+        Object source = event.getSource();
+        if(source instanceof Button){
+            Button hour = (Button) source;
+            utils.cambiarCursor(event, hour);
+        }
         
-        Cursor actual = iniciar_sesion_button.getCursor();
-        iniciar_sesion_button.setCursor(Cursor.CLOSED_HAND);
     }
+
+    @FXML
+    private void hour_button_entered(MouseEvent event) {
+        Object source = event.getSource();
+        if(source instanceof Button){
+            Button hour = (Button) source;
+            utils.cambiarCursor(event, hour);
+        }
+        
+    }
+
+    private void pista_toggle_entered(DragEvent event) {
+        
+        
+    }
+
+    @FXML
+    private void pista_toggle_entered(MouseEvent event) {
+        Object source = event.getSource();
+        if(source instanceof ToggleButton){
+            ToggleButton pista = (ToggleButton) source;
+            utils.cambiarCursor(event, pista);
+        }
+    }
+
+    @FXML
+    private void pìsta_toggle_entered(MouseEvent event) {
+    }
+
         
     
 }

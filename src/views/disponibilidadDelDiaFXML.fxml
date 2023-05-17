@@ -25,9 +25,9 @@
         <URL value="@disponibilidaddeldiafxml.css" />
     </stylesheets>
     <children>
-      <BorderPane prefHeight="200.0" prefWidth="200.0" stylesheets="@../values/style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <left>
-            <VBox prefHeight="810.0" prefWidth="490.0" styleClass="green-background" BorderPane.alignment="CENTER">
+            <VBox prefHeight="810.0" prefWidth="490.0" styleClass="green-background" stylesheets="@../values/reservarfxml.css" BorderPane.alignment="CENTER">
                <children>
                   <HBox alignment="CENTER" cache="true" prefHeight="110.0" prefWidth="200.0">
                      <children>
@@ -43,12 +43,12 @@
                         </Label>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER" prefHeight="65.0" prefWidth="200.0" stylesheets="@../values/reservarfxml.css">
+                  <HBox alignment="CENTER" prefHeight="65.0" prefWidth="200.0" stylesheets="@../values/disponibilidaddeldiafxml.css">
                      <VBox.margin>
                         <Insets left="30.0" right="30.0" />
                      </VBox.margin>
                      <children>
-                        <TextField fx:id="find_hour_textfield" prefHeight="40.0" prefWidth="222.0" promptText="Busque una hora..." styleClass="transparent" stylesheets="@../values/style.css">
+                        <TextField fx:id="find_hour_textfield" prefHeight="40.0" prefWidth="222.0" promptText="Busque una hora..." styleClass="transparent" stylesheets="@../values/disponibilidaddeldiafxml.css">
                            <HBox.margin>
                               <Insets left="20.0" />
                            </HBox.margin>
@@ -56,7 +56,7 @@
                               <Font name="Cambria" size="18.0" />
                            </font>
                         </TextField>
-                        <Button fx:id="find_hour_button" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" styleClass="purple-button" stylesheets="@../values/style.css" text="Buscar" textFill="WHITE">
+                        <Button fx:id="find_hour_button" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" styleClass="purple-button" stylesheets="@../values/disponibilidaddeldiafxml.css" text="Buscar" textFill="WHITE">
                            <font>
                               <Font name="SansSerif Bold" size="14.0" />
                            </font>
@@ -69,23 +69,23 @@
                         <String fx:value="shadow" />
                      </styleClass>
                   </HBox>
-                  <VBox alignment="TOP_CENTER" prefHeight="488.0" prefWidth="335.0" stylesheets="@../values/style.css">
+                  <VBox alignment="TOP_CENTER" prefHeight="488.0" prefWidth="335.0" stylesheets="@../values/disponibilidaddeldiafxml.css">
                      <VBox.margin>
                         <Insets bottom="20.0" left="50.0" right="50.0" top="35.0" />
                      </VBox.margin>
                      <children>
                         <VBox prefHeight="554.0" prefWidth="335.0">
                            <children>
-                              <ScrollPane prefHeight="430.0" prefWidth="284.0" stylesheets="@../values/style.css">
+                              <ScrollPane prefHeight="434.0" prefWidth="248.0" stylesheets="@../values/disponibilidaddeldiafxml.css">
                                 <content>
-                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1225.0" prefWidth="383.0" styleClass="white_background" stylesheets="@../values/style.css">
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1221.0" prefWidth="326.0" styleClass="white_background" stylesheets="@../values/disponibilidaddeldiafxml.css">
                                        <children>
                                           <VBox prefHeight="1221.0" prefWidth="332.0">
                                              <padding>
                                                 <Insets right="10.0" />
                                              </padding>
                                              <children>
-                                                <Button fx:id="nine_ten_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/style.css">
+                                                <Button fx:id="nine_ten_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" onMouseEntered="#hour_button_entered" onMouseExited="#hour_button_exited" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/disponibilidaddeldiafxml.css">
                                                    <graphic>
                                                       <GridPane fx:id="nine_ten_gridpane" alignment="CENTER">
                                                          <columnConstraints>
@@ -120,7 +120,7 @@
                                                       </GridPane>
                                                    </graphic>
                                                 </Button>
-                                                <Button fx:id="ten_eleven_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/style.css">
+                                                <Button fx:id="ten_eleven_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" onMouseEntered="#hour_button_entered" onMouseExited="#hour_button_exited" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/disponibilidaddeldiafxml.css">
                                                    <graphic>
                                                       <GridPane fx:id="nine_ten_gridpane11" alignment="CENTER">
                                                          <columnConstraints>
@@ -155,7 +155,7 @@
                                                       </GridPane>
                                                    </graphic>
                                                 </Button>
-                                                <Button fx:id="eleven_twelve_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/style.css">
+                                                <Button fx:id="eleven_twelve_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" onMouseEntered="#hour_button_entered" onMouseExited="#hour_button_exited" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/disponibilidaddeldiafxml.css">
                                                    <graphic>
                                                       <GridPane fx:id="nine_ten_gridpane1" alignment="CENTER">
                                                          <columnConstraints>
@@ -190,7 +190,7 @@
                                                       </GridPane>
                                                    </graphic>
                                                 </Button>
-                                                <Button fx:id="twelve_thirdteen_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/style.css">
+                                                <Button fx:id="twelve_thirdteen_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" onMouseEntered="#hour_button_entered" onMouseExited="#hour_button_exited" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/disponibilidaddeldiafxml.css">
                                                    <graphic>
                                                       <GridPane fx:id="nine_ten_gridpane3" alignment="CENTER">
                                                          <columnConstraints>
@@ -225,7 +225,7 @@
                                                       </GridPane>
                                                    </graphic>
                                                 </Button>
-                                                <Button fx:id="thirdteen_fourteen_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/style.css">
+                                                <Button fx:id="thirdteen_fourteen_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" onMouseEntered="#hour_button_entered" onMouseExited="#hour_button_exited" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/disponibilidaddeldiafxml.css">
                                                    <graphic>
                                                       <GridPane fx:id="nine_ten_gridpane4" alignment="CENTER">
                                                          <columnConstraints>
@@ -260,7 +260,7 @@
                                                       </GridPane>
                                                    </graphic>
                                                 </Button>
-                                                <Button fx:id="fourteen_fifthteen_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/style.css">
+                                                <Button fx:id="fourteen_fifthteen_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" onMouseEntered="#hour_button_entered" onMouseExited="#hour_button_exited" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/disponibilidaddeldiafxml.css">
                                                    <graphic>
                                                       <GridPane fx:id="nine_ten_gridpane5" alignment="CENTER">
                                                          <columnConstraints>
@@ -295,7 +295,7 @@
                                                       </GridPane>
                                                    </graphic>
                                                 </Button>
-                                                <Button fx:id="fifthteen_sixteen_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/style.css">
+                                                <Button fx:id="fifthteen_sixteen_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" onMouseEntered="#hour_button_entered" onMouseExited="#hour_button_exited" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/disponibilidaddeldiafxml.css">
                                                    <graphic>
                                                       <GridPane fx:id="nine_ten_gridpane6" alignment="CENTER">
                                                          <columnConstraints>
@@ -330,7 +330,7 @@
                                                       </GridPane>
                                                    </graphic>
                                                 </Button>
-                                                <Button fx:id="sixteen_seventeen_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/style.css">
+                                                <Button fx:id="sixteen_seventeen_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" onMouseEntered="#hour_button_entered" onMouseExited="#hour_button_exited" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/disponibilidaddeldiafxml.css">
                                                    <graphic>
                                                       <GridPane fx:id="nine_ten_gridpane7" alignment="CENTER">
                                                          <columnConstraints>
@@ -365,7 +365,7 @@
                                                       </GridPane>
                                                    </graphic>
                                                 </Button>
-                                                <Button fx:id="seventeen_eighteen_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/style.css">
+                                                <Button fx:id="seventeen_eighteen_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" onMouseEntered="#hour_button_entered" onMouseExited="#hour_button_exited" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/disponibilidaddeldiafxml.css">
                                                    <graphic>
                                                       <GridPane alignment="CENTER">
                                                          <columnConstraints>
@@ -400,7 +400,7 @@
                                                       </GridPane>
                                                    </graphic>
                                                 </Button>
-                                                <Button fx:id="eighteen_nineteen_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/style.css">
+                                                <Button fx:id="eighteen_nineteen_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" onMouseEntered="#hour_button_entered" onMouseExited="#hour_button_exited" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/disponibilidaddeldiafxml.css">
                                                    <graphic>
                                                       <GridPane fx:id="nine_ten_gridpane9" alignment="CENTER">
                                                          <columnConstraints>
@@ -435,7 +435,7 @@
                                                       </GridPane>
                                                    </graphic>
                                                 </Button>
-                                                <Button fx:id="nineteen_twenty_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/style.css">
+                                                <Button fx:id="nineteen_twenty_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" onMouseEntered="#hour_button_entered" onMouseExited="#hour_button_exited" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/disponibilidaddeldiafxml.css">
                                                    <graphic>
                                                       <GridPane fx:id="nine_ten_gridpane10" alignment="CENTER">
                                                          <columnConstraints>
@@ -470,7 +470,7 @@
                                                       </GridPane>
                                                    </graphic>
                                                 </Button>
-                                                <Button fx:id="twenty_twentyone_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/style.css">
+                                                <Button fx:id="twenty_twentyone_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" onMouseEntered="#hour_button_entered" onMouseExited="#hour_button_exited" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/disponibilidaddeldiafxml.css">
                                                    <graphic>
                                                       <GridPane fx:id="nine_ten_gridpane111" alignment="CENTER">
                                                          <columnConstraints>
@@ -505,7 +505,7 @@
                                                       </GridPane>
                                                    </graphic>
                                                 </Button>
-                                                <Button fx:id="twentyone_twentytwo_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/style.css">
+                                                <Button fx:id="twentyone_twentytwo_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" onMouseEntered="#hour_button_entered" onMouseExited="#hour_button_exited" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/disponibilidaddeldiafxml.css">
                                                    <graphic>
                                                       <GridPane fx:id="nine_ten_gridpane12" alignment="CENTER">
                                                          <columnConstraints>
@@ -571,10 +571,6 @@
                      </styleClass>
                   </VBox>
                </children>
-               <stylesheets>
-                  <URL value="@../values/style.css" />
-                  <URL value="@../values/reservarfxml.css" />
-               </stylesheets>
             </VBox>
          </left>
          <center>
@@ -589,7 +585,7 @@
                            <children>
                               <HBox alignment="BOTTOM_LEFT" prefHeight="60.0" prefWidth="60.0" AnchorPane.leftAnchor="25.0">
                                  <children>
-                                    <Button fx:id="back_button" mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: transparent;">
+                                    <Button fx:id="back_button" mnemonicParsing="false" onMouseEntered="#hour_button_entered" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: transparent;">
                                        <HBox.margin>
                                           <Insets top="15.0" />
                                        </HBox.margin>
@@ -605,7 +601,7 @@
                               </HBox>
                               <HBox alignment="TOP_RIGHT" prefHeight="61.0" prefWidth="30.0" AnchorPane.rightAnchor="30.0">
                                  <children>
-                                    <Button fx:id="exit_button" mnemonicParsing="false" onMouseClicked="#exit_clicked" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: transparent;">
+                                    <Button fx:id="exit_button" mnemonicParsing="false" onMouseClicked="#exit_clicked" onMouseEntered="#hour_button_entered" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: transparent;">
                                        <HBox.margin>
                                           <Insets top="15.0" />
                                        </HBox.margin>
@@ -619,6 +615,7 @@
                                     </Button>
                                  </children>
                               </HBox>
+                              <Button fx:id="actualizar_datos" layoutX="163.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#actualizar_datos_clicked" onMouseEntered="#hour_button_entered" text="Actualizar Datos" />
                            </children>
                         </AnchorPane>
                      </children>
@@ -650,7 +647,7 @@
                               <Insets bottom="20.0" left="40.0" right="5.0" top="20.0" />
                            </HBox.margin>
                            <children>
-                              <ToggleButton fx:id="pista1_toggle_button" mnemonicParsing="false" onMouseClicked="#pista1_toggle_button_clicked" prefHeight="150.0" prefWidth="150.0" styleClass="button_pistas" stylesheets="@../values/reservarfxml.css" text="Pista 1">
+                              <ToggleButton fx:id="pista1_toggle_button" mnemonicParsing="false" onMouseClicked="#pista1_toggle_button_clicked" onMouseEntered="#pista_toggle_entered" prefHeight="150.0" prefWidth="150.0" styleClass="button_pistas" stylesheets="@../values/reservarfxml.css" text="Pista 1">
                                  <VBox.margin>
                                     <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                                  </VBox.margin>
@@ -658,7 +655,7 @@
                                     <Font size="30.0" />
                                  </font>
                               </ToggleButton>
-                              <ToggleButton fx:id="pista4_toggle_button" mnemonicParsing="false" onMouseClicked="#pista4_toggle_button_clicked" prefHeight="150.0" prefWidth="150.0" styleClass="button_pistas" stylesheets="@../values/reservarfxml.css" text="Pista 4">
+                              <ToggleButton fx:id="pista4_toggle_button" mnemonicParsing="false" onMouseClicked="#pista4_toggle_button_clicked" onMouseEntered="#pista_toggle_entered" prefHeight="150.0" prefWidth="150.0" styleClass="button_pistas" stylesheets="@../values/reservarfxml.css" text="Pista 4">
                                  <VBox.margin>
                                     <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                                  </VBox.margin>
@@ -673,7 +670,7 @@
                               <Insets bottom="20.0" left="5.0" right="5.0" top="20.0" />
                            </HBox.margin>
                            <children>
-                              <ToggleButton fx:id="pista2_toggle_button" mnemonicParsing="false" onMouseClicked="#pista2_toggle_button_clicked" prefHeight="150.0" prefWidth="150.0" styleClass="button_pistas" stylesheets="@../values/reservarfxml.css" text="Pista 2">
+                              <ToggleButton fx:id="pista2_toggle_button" mnemonicParsing="false" onMouseClicked="#pista2_toggle_button_clicked" onMouseEntered="#pista_toggle_entered" prefHeight="150.0" prefWidth="150.0" styleClass="button_pistas" stylesheets="@../values/reservarfxml.css" text="Pista 2">
                                  <VBox.margin>
                                     <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                                  </VBox.margin>
@@ -681,7 +678,7 @@
                                     <Font size="30.0" />
                                  </font>
                               </ToggleButton>
-                              <ToggleButton fx:id="pista5_toggle_button" mnemonicParsing="false" onMouseClicked="#pista5_toggle_button_clicked" prefHeight="150.0" prefWidth="150.0" styleClass="button_pistas" stylesheets="@../values/reservarfxml.css" text="Pista 5">
+                              <ToggleButton fx:id="pista5_toggle_button" mnemonicParsing="false" onMouseClicked="#pista5_toggle_button_clicked" onMouseEntered="#pista_toggle_entered" prefHeight="150.0" prefWidth="150.0" styleClass="button_pistas" stylesheets="@../values/reservarfxml.css" text="Pista 5">
                                  <VBox.margin>
                                     <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                                  </VBox.margin>
@@ -696,7 +693,7 @@
                               <Insets bottom="20.0" left="5.0" right="40.0" top="20.0" />
                            </HBox.margin>
                            <children>
-                              <ToggleButton fx:id="pista3_toggle_button" mnemonicParsing="false" onMouseClicked="#pista3_toggle_button_clicked" prefHeight="150.0" prefWidth="150.0" styleClass="button_pistas" stylesheets="@../values/reservarfxml.css" text="Pista 3">
+                              <ToggleButton fx:id="pista3_toggle_button" mnemonicParsing="false" onMouseClicked="#pista3_toggle_button_clicked" onMouseEntered="#pista_toggle_entered" prefHeight="150.0" prefWidth="150.0" styleClass="button_pistas" stylesheets="@../values/reservarfxml.css" text="Pista 3">
                                  <VBox.margin>
                                     <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                                  </VBox.margin>
@@ -704,7 +701,7 @@
                                     <Font size="30.0" />
                                  </font>
                               </ToggleButton>
-                              <ToggleButton fx:id="pista6_toggle_button" mnemonicParsing="false" onMouseClicked="#pista6_toggle_button_clicked" prefHeight="150.0" prefWidth="150.0" styleClass="button_pistas" stylesheets="@../values/reservarfxml.css" text="Pista 6">
+                              <ToggleButton fx:id="pista6_toggle_button" mnemonicParsing="false" onMouseClicked="#pista6_toggle_button_clicked" onMouseEntered="#pìsta_toggle_entered" prefHeight="150.0" prefWidth="150.0" styleClass="button_pistas" stylesheets="@../values/reservarfxml.css" text="Pista 6">
                                  <VBox.margin>
                                     <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                                  </VBox.margin>
@@ -716,16 +713,18 @@
                         </VBox>
                      </children>
                      <VBox.margin>
-                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
                      </VBox.margin>
                   </HBox>
-                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="960.0">
+                  <HBox alignment="CENTER" prefHeight="104.0" prefWidth="710.0">
                      <children>
-                        <Button fx:id="actualizar_datos" mnemonicParsing="false" onMouseClicked="#actualizar_datos_clicked" text="Actualizar Datos" />
-                        <Button fx:id="iniciar_sesion_button" mnemonicParsing="false" onMouseClicked="#iniciar_sesion_clicked" onMouseEntered="#iniciar_sesion_entered" prefHeight="50.0" prefWidth="150.0" styleClass="purple-button" stylesheets="@../values/reservarfxml.css" text="Iniciar Sesión" textFill="WHITE">
+                        <Button fx:id="iniciar_sesion_button" mnemonicParsing="false" onMouseClicked="#iniciar_sesion_clicked" prefHeight="50.0" prefWidth="150.0" styleClass="purple-button" stylesheets="@../values/reservarfxml.css" text="Iniciar Sesión" textFill="WHITE">
                            <font>
                               <Font name="SansSerif Bold" size="16.0" />
                            </font>
+                           <HBox.margin>
+                              <Insets bottom="40.0" />
+                           </HBox.margin>
                         </Button>
                      </children>
                   </HBox>

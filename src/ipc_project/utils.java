@@ -6,6 +6,8 @@ package ipc_project;
 
 import javafx.scene.Cursor;
 import javafx.scene.control.Button;
+import javafx.scene.control.ToggleButton;
+import javafx.scene.input.DragEvent;
 import javafx.scene.input.MouseEvent;
 
 /**
@@ -14,11 +16,27 @@ import javafx.scene.input.MouseEvent;
  */
 public class utils {
     
-       public void cambiarCursor(MouseEvent event, Button button) {
+    
+        
+    
+    public static void cambiarCursor(MouseEvent event, Button button) {
         
         Cursor actual = button.getCursor();
-        button.setCursor(Cursor.CLOSED_HAND);
+        button.setCursor(Cursor.HAND);
         
+    }
+    
+    public static void cambiarCursor(MouseEvent event, ToggleButton button) {
+        
+        Cursor actual = button.getCursor();
+        button.setCursor(Cursor.HAND);
+        
+    }
+    
+    public static void devolverCursor(MouseEvent event, Button button){
+        
+        Cursor actual = button.getCursor();
+        button.setCursor(Cursor.DEFAULT);
     }
     
 }

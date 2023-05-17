@@ -47,66 +47,111 @@ import model.Court;
  */
 public class ReservarFXMLController implements Initializable {
 
+    @FXML
     private Label title_num_pista_label;
+    @FXML
     private TextField find_hour_textfield;
+    @FXML
     private Button nine_ten_button;
+    @FXML
     private Button ten_eleven_button;
+    @FXML
     private Button eleven_twelve_button;
+    @FXML
     private Button fourteen_fifthteen_button;
+    @FXML
     private Button sixteen_seventeen_button;
+    @FXML
     private Button eighteen_nineteen_button;
+    @FXML
     private Button nineteen_twenty_button;
+    @FXML
     private Button twenty_twentyone_button;
     @FXML
     private Button back_button;
     @FXML
     private Button exit_button;
+    @FXML
     private DatePicker calendar_date_picker;
+    @FXML
     private ToggleButton pista4_toggle_button;
+    @FXML
     private ToggleButton pista2_toggle_button;
+    @FXML
     private ToggleButton pista5_toggle_button;
+    @FXML
     private ToggleButton pista3_toggle_button;
+    @FXML
     private ToggleButton pista6_toggle_button;
-    
+    @FXML
     private VBox nine_ten_vbox;
+    @FXML
     private VBox ten_eleven_vbox;
+    @FXML
     private VBox eleven_twelve_vbox;
+    @FXML
     private Button twelve_thirdteen_button;
+    @FXML
     private VBox twelve_thirdteen_vbox;
+    @FXML
     private Button thirdteen_fourteen_button;
+    @FXML
     private VBox thirdteen_fourteen_vbox;
+    @FXML
     private VBox fourteen_fifthteen_vbox;
+    @FXML
     private Button fifthteen_sixteen_button;
+    @FXML
     private VBox fifthteen_sixteen_vbox;
+    @FXML
     private VBox sixteen_seventeen_vbox;
+    @FXML
     private Button seventeen_eigtheen_button;
+    @FXML
     private VBox seventeen_eighteen_vbox;
+    @FXML
     private VBox eighteen_nineteen_vbox;
+    @FXML
     private VBox nineteen_twenty_vbox;
+    @FXML
     private VBox twenty_twentyone_vbox;
+    @FXML
     private Button twentyone_twentytwo_button;
+    @FXML
     private VBox twentyone_twentytwo_vbox;
     
-   
+    @FXML
     private Label ocupado_9;
+    @FXML
     private Label ocupado_10;
+    @FXML
     private Label ocupado_11;
+    @FXML
     private Label ocupado_12;
+    @FXML
     private Label ocupado_13;
+    @FXML
     private Label ocupado_14;
+    @FXML
     private Label ocupado_15;
+    @FXML
     private Label ocupado_16;
+    @FXML
     private Label ocupado_17;
+    @FXML
     private Label ocupado_18;
+    @FXML
     private Label ocupado_19;
+    @FXML
     private Label ocupado_20;
+    @FXML
     private Label ocupado_21;
     
      /**
      * Initializes the controller class.
      */
     
-    Hashtable used = new Hashtable();
+    @FXML
     private ToggleButton pista1_toggle_button;
     
     
@@ -119,6 +164,7 @@ public class ReservarFXMLController implements Initializable {
     LocalDate date = LocalDate.now(); //fecha de las pistas
     String pista = "Pista 1";
     Club club;
+    @FXML
     private VBox hour_buttons_vbox;
    
     
@@ -219,7 +265,7 @@ public class ReservarFXMLController implements Initializable {
     
     Button clicked1;
     Button clicked2;
-    
+    @FXML
     private void hour_clicked(MouseEvent event) {
         
         //se guarda la hora seleccionada en una variable (puede haber hasta dos)
@@ -227,43 +273,43 @@ public class ReservarFXMLController implements Initializable {
         
         
     }
-
+    @FXML
     private void pista1_toggle_button_clicked(MouseEvent event) {
         pista = "Pista 1";
         title_num_pista_label.setText("01");
         comprobarPista(pista, date);
     }
-
+    @FXML
     private void pista4_toggle_button_clicked(MouseEvent event) {
         pista = "Pista 4";
         title_num_pista_label.setText("04");
         comprobarPista(pista, date);
     }
-
+    @FXML
     private void pista2_toggle_button_clicked(MouseEvent event) {
         pista = "Pista 2";
         title_num_pista_label.setText("02");
         comprobarPista(pista, date);
     }
-
+    @FXML
     private void pista5_toggle_button_clicked(MouseEvent event) {
         pista = "Pista 5";
         title_num_pista_label.setText("05");
         comprobarPista(pista, date);
     }
-
+    @FXML
     private void pista3_toggle_button_clicked(MouseEvent event) {
         pista = "Pista 3";
         title_num_pista_label.setText("03");
         comprobarPista(pista, date);
     }
-
+    @FXML
     private void pista6_toggle_button_clicked(MouseEvent event) {
         pista = "Pista 6";
         title_num_pista_label.setText("06");
         comprobarPista(pista, date);
     }
-
+    @FXML
     private void calendar_on_action(ActionEvent event) {
         
         date = calendar_date_picker.getValue();
@@ -271,7 +317,7 @@ public class ReservarFXMLController implements Initializable {
         comprobarPista(pista, date);
         
     }
-
+    @FXML
     private void reservar_clicked(MouseEvent event) {
         
         Court court = club.getCourt(pista);
@@ -368,7 +414,8 @@ public class ReservarFXMLController implements Initializable {
         }
         
     }
-
+    
+    @FXML
     private void find_hour_clicked(MouseEvent event) {
         
         String hour = find_hour_textfield.getText();

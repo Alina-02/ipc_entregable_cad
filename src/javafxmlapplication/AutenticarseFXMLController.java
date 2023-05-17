@@ -5,9 +5,11 @@
 package javafxmlapplication;
 
 import com.sun.javafx.logging.PlatformLogger.Level;
+import ipc_project.main;
 import java.io.IOException;
 import java.lang.System.Logger;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -54,39 +56,77 @@ public class AutenticarseFXMLController implements Initializable {
     /**
      * Initializes the controller class.
      */
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        /*        try{club = Club.getInstance();
-        }catch (ClubDAOException ex){
-            Logger.getLogger(RegistroFXMLController.class.getName()).log(Level.SEVERE, null, ex);
-        }catch (IOException ex){
-            Logger.getLogger(RegistroFXMLController.class.getName()).log(Level.SEVERE, null, ex);}*/
+        try{
+            club = Club.getInstance(); 
+        }catch(Exception e){
+          System.out.println("cagaste");
+        }
     }    
 
     @FXML
-    private void login(ActionEvent event) {
-        String name = userTF.getText();
-        String password = passwordTF.getText();
-        /*if(Club.getMemberByCredentials(name, password) instanceof Member){
-            
-            }*/
-            
-    }
+    private void login(ActionEvent event) {}
 
     @FXML
-    private void registerUser(MouseEvent event) throws Exception {
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/views/registroFXML.fxml"));
-            Parent root1 = (Parent) fxmlLoader.load();
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root1));  
-            stage.show();
-        } catch(Exception e) {
-            e.printStackTrace();
-        }    }
+    private void registerUser(MouseEvent event) throws Exception {}
+    
+    Member member;
 
     @FXML
     private void iniciar_sesion_clicked(MouseEvent event) {
+        
+        contraseña_mal_button.setText("");
+        usuario_mal_button.setText("");
+        
+        String nickname = usuario_text_field.getText();
+        String password = contraseña_text_field.getText();
+        List<Member> members = club.getMembers();
+        //List<Member> iterator = members.iterator();
+        Boolean esta = false;
+        Boolean contraseñaCorrecta = false;
+        for(Member member: members){
+            String existe = member.getNickName();
+            String contraseña = member.getPassword();
+            if(existe.equals(nickname) && contraseña.equals(password)){
+                esta = true;
+                contraseñaCorrecta = true;
+                break;
+            }else if(existe.equals(nickname) && !contraseña.equals(password)){
+                esta = true;
+                break;
+            }      
+        }
+        
+        if(esta && contraseñaCorrecta){
+            
+            //hay que comprobar si la contraseña es correcta
+            
+            member = club.getMemberByCredentials(nickname, password);
+            try{
+                Stage stage;
+                stage = main.getStage();
+            
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/reservarFXML.fxml"));
+                Parent root = loader.load();
+                  
+                Scene scene = new Scene(root, 1200, 750);
+                stage.setScene(scene);
+
+                    
+            }catch(Exception e){System.out.println(e);}
+        
+        }else if(esta){
+            contraseña_mal_button.setText("La contraseña es incorrecta.");
+        }else{
+            usuario_mal_button.setText("Las credenciales están mal.");
+        }
+        
+    }
+    
+    public Member getMember(){
+        return member;
     }
 }
