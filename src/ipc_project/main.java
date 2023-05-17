@@ -11,6 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import model.Member;
 
 /**
  *
@@ -19,6 +20,8 @@ import javafx.stage.Stage;
 public class main extends Application{
     
     private static Stage stage;
+    
+    public static Member logedMember; 
 
      
     @Override
@@ -35,8 +38,9 @@ public class main extends Application{
        
         //======================================================================
         // 1- creación del grafo de escena a partir del fichero FXML
-        FXMLLoader loader= new  FXMLLoader(getClass().getResource("/views/DisponibilidadDelDiaFXML.fxml"));
+        FXMLLoader loader= new  FXMLLoader(getClass().getResource("/views/VerMisReservasFXML.fxml"));
         Parent root = loader.load();
+        
         //======================================================================
         // 2- creación de la escena con el nodo raiz del grafo de escena
         Scene scene = new Scene(root);
