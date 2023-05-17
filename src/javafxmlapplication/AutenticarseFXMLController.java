@@ -73,7 +73,7 @@ public class AutenticarseFXMLController implements Initializable {
     @FXML
     private void registerUser(MouseEvent event) throws Exception {}
     
-    Member member;
+    private static Member member;
 
     @FXML
     private void iniciar_sesion_clicked(MouseEvent event) {
@@ -126,7 +126,7 @@ public class AutenticarseFXMLController implements Initializable {
         
     }
     
-    public Member getMember(){
+    public static Member getMember(){
         return member;
     }
 }

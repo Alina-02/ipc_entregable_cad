@@ -4,8 +4,11 @@
  */
 package javafxmlapplication;
 
+import ipc_project.main;
+import ipc_project.utils;
 import java.net.URL;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Hashtable;
@@ -15,10 +18,13 @@ import java.util.ResourceBundle;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
@@ -35,9 +41,12 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
+import javafx.stage.Stage;
 import model.Booking;
 import model.Club;
 import model.Court;
+import model.Member;
+import javafxmlapplication.*;
 
 
 /**
@@ -166,6 +175,66 @@ public class ReservarFXMLController implements Initializable {
     Club club;
     @FXML
     private VBox hour_buttons_vbox;
+    @FXML
+    private Button find_hour_button;
+    @FXML
+    private GridPane nine_ten_gridpane;
+    @FXML
+    private Label nine_ten_label;
+    @FXML
+    private GridPane nine_ten_gridpane1;
+    @FXML
+    private Label ten_eleven_label;
+    @FXML
+    private GridPane nine_ten_gridpane2;
+    @FXML
+    private Label eleven_twelve_label;
+    @FXML
+    private GridPane nine_ten_gridpane3;
+    @FXML
+    private Label twelve_thirdteen_label;
+    @FXML
+    private GridPane nine_ten_gridpane4;
+    @FXML
+    private Label thirdteen_fourteen_label;
+    @FXML
+    private GridPane nine_ten_gridpane5;
+    @FXML
+    private Label fourteen_fiveteen_label;
+    @FXML
+    private GridPane nine_ten_gridpane6;
+    @FXML
+    private Label fiveteen_sixteen_label;
+    @FXML
+    private GridPane nine_ten_gridpane7;
+    @FXML
+    private Label sixteen_seventeen_label;
+    @FXML
+    private Label seventeen_eighteen_label;
+    @FXML
+    private GridPane nine_ten_gridpane9;
+    @FXML
+    private Label eigthteen_nineteen_label;
+    @FXML
+    private GridPane nine_ten_gridpane10;
+    @FXML
+    private Label nineteen_twenty_label;
+    @FXML
+    private GridPane nine_ten_gridpane11;
+    @FXML
+    private Label twenty_twentyone_label;
+    @FXML
+    private GridPane nine_ten_gridpane12;
+    @FXML
+    private Label twentyone_twentytwo_label;
+    @FXML
+    private Button reservar_button;
+    @FXML
+    private Button actualizar_datos_button;
+    @FXML
+    private Button mis_reservar_button;
+    @FXML
+    private Button cerrar_sesion_button;
    
     
     @Override
@@ -317,10 +386,19 @@ public class ReservarFXMLController implements Initializable {
         comprobarPista(pista, date);
         
     }
+    
+    // RESERVAR UNA PISTA
     @FXML
     private void reservar_clicked(MouseEvent event) {
         
         Court court = club.getCourt(pista);
+        Member member = AutenticarseFXMLController.getMember();
+        //registerBooking(LocalDateTime bookingDate, LocalDate madeForDay, LocalTime fromHour, boolean paid, Court court, Member member)
+        //LocalDateTime localDateTime = new LocalDateTime();
+        LocalDate day = date;
+        LocalTime hour;
+        Boolean paid = member.checkHasCreditInfo();
+        
         
     }
     
@@ -437,6 +515,53 @@ public class ReservarFXMLController implements Initializable {
             }
         }
         
+    }
+
+    @FXML
+    private void button_entered(MouseEvent event) {
+        
+        Object source = event.getSource();
+        if(source instanceof Button){
+            Button hour = (Button) source;
+            utils.cambiarCursor(event, hour);
+        }
+        
+    }
+
+    @FXML
+    private void actualizar_datos_clicked(MouseEvent event) {
+        
+        try{
+            Stage stage;
+            stage = main.getStage();
+            
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/actualizarDatosFXML.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root, 1200, 750);
+            stage.setScene(scene);
+                    
+        }catch(Exception e){System.out.println(e);}
+        
+    }
+
+    @FXML
+    private void mis_reservar_clicked(MouseEvent event) {
+        
+        try{
+            Stage stage;
+            stage = main.getStage();
+            
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/verMisReservasFXML.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root, 1200, 750);
+            stage.setScene(scene);
+                    
+        }catch(Exception e){System.out.println(e);}
+        
+    }
+
+    @FXML
+    private void cerrar_sesion_clicked(MouseEvent event) {
     }
     
     
