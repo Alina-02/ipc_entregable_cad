@@ -173,6 +173,8 @@ public class ReservarFXMLController implements Initializable {
     LocalDate date = LocalDate.now(); //fecha de las pistas
     String pista = "Pista 1";
     Club club;
+    int clicked1 = -1;
+    int clicked2 = -1;
     @FXML
     private VBox hour_buttons_vbox;
     @FXML
@@ -234,7 +236,7 @@ public class ReservarFXMLController implements Initializable {
     @FXML
     private Button mis_reservar_button;
     @FXML
-    private Button cerrar_sesion_button;
+    private Button reservar_pistas_button;
    
     
     @Override
@@ -332,13 +334,72 @@ public class ReservarFXMLController implements Initializable {
 
 
     
-    Button clicked1;
-    Button clicked2;
+
     @FXML
     private void hour_clicked(MouseEvent event) {
         
+        Button button = null;
         //se guarda la hora seleccionada en una variable (puede haber hasta dos)
-        event.getSource();
+        if(event.getSource() instanceof Button){
+            button = (Button) event.getSource(); 
+        }
+        String id = button.getId();
+        button.setStyle("-fx-background-color: #d5dce6");
+        
+        switch(id){
+            case "nine_ten_button": 
+                if(clicked1 != -1){clicked2 = 9;}
+                else{clicked1 = 9;}
+                break;
+            case "ten_eleven_button": 
+                if(clicked1 != -1){clicked2 = 10;}
+                else{clicked1 = 10;}
+                break;
+            case "eleven_twelve_button": 
+                if(clicked1 != -1){clicked2 = 11;}
+                else{clicked1 = 11;}
+                break;
+            case "twelve_thirdteen_button": 
+                if(clicked1 != -1){clicked2 = 12;}
+                else{clicked1 = 12;}
+                break;
+            case "thirdteen_fourteen_button": 
+                if(clicked1 != -1){clicked2 = 13;}
+                else{clicked1 = 13;}
+                break;
+            case "fourteen_fiveteen_button": 
+                if(clicked1 != -1){clicked2 = 14;}
+                else{clicked1 = 14;} 
+                break;
+            case "fiveteen_sixteen_button": 
+                if(clicked1 != -1){clicked2 = 15;}
+                else{clicked1 = 15;} 
+                break;
+            case "sixteen_seventeen_button": 
+                if(clicked1 != -1){clicked2 = 16;}
+                else{clicked1 = 16;}
+                break;
+            case "seventeen_eighteen_button": 
+                if(clicked1 != -1){clicked2 = 17;}
+                else{clicked1 = 17;}
+                break;
+            case "eighteen_nineteen_button": 
+                if(clicked1 != -1){clicked2 = 18;}
+                else{clicked1 = 18;}
+                break;
+            case "nineteen_twenty_button": 
+                if(clicked1 != -1){clicked2 = 19;}
+                else{clicked1 = 19;}
+                break;
+            case "twenty_twentyone_button": 
+                if(clicked1 != -1){clicked2 = 20;}
+                else{clicked1 = 20;}
+                break;
+            case "twentyone_twentytwo_button": 
+                if(clicked1 != -1){clicked2 = 21;}
+                else{clicked1 = 21;}
+                break;
+        }
         
         
     }
@@ -394,10 +455,23 @@ public class ReservarFXMLController implements Initializable {
         Court court = club.getCourt(pista);
         Member member = AutenticarseFXMLController.getMember();
         //registerBooking(LocalDateTime bookingDate, LocalDate madeForDay, LocalTime fromHour, boolean paid, Court court, Member member)
-        //LocalDateTime localDateTime = new LocalDateTime();
+        
         LocalDate day = date;
-        LocalTime hour;
+        LocalTime hour = LocalTime.of(clicked1, 0);
+        LocalDateTime bookingDate = LocalDateTime.of(LocalDate.now(), LocalTime.now());
         Boolean paid = member.checkHasCreditInfo();
+        try{
+        if(clicked2 != -1){
+            club.registerBooking(bookingDate, day, hour, paid, court, member);
+            hour = LocalTime.of(clicked2, 0);
+            club.registerBooking(bookingDate, day, hour, paid, court, member);
+        }else{
+            club.registerBooking(bookingDate, day, hour, paid, court, member);
+
+        }
+        }catch(Exception e){
+            System.out.println("efe");
+        }
         
         
     }
@@ -561,7 +635,18 @@ public class ReservarFXMLController implements Initializable {
     }
 
     @FXML
+    private void reservar_pistas_cliked(MouseEvent event) {
+    }
+
+    @FXML
     private void cerrar_sesion_clicked(MouseEvent event) {
+    }
+
+    @FXML
+    private void hour_entered(MouseEvent event) {
+        
+
+        
     }
     
     
