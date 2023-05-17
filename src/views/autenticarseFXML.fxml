@@ -19,7 +19,7 @@
          <left>
             <VBox alignment="CENTER" prefHeight="750.0" prefWidth="490.0" styleClass="green-background" BorderPane.alignment="CENTER">
                <children>
-                  <ImageView fitHeight="696.0" fitWidth="434.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="750.0" fitWidth="490.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../img/Recurso%203.png" />
                      </image>
@@ -52,6 +52,7 @@
                                     <TextField fx:id="usuario_text_field" prefHeight="35.0" prefWidth="250.0" style="-fx-background-radius: 100;" />
                                  </children>
                               </HBox>
+                              <Label fx:id="usuario_mal_button" text="Label" />
                               <HBox alignment="CENTER_LEFT" prefHeight="38.0" prefWidth="714.0">
                                  <children>
                                     <Label prefHeight="18.0" prefWidth="103.0" text="Contraseña">
@@ -62,6 +63,7 @@
                                     <TextField fx:id="contraseña_text_field" prefHeight="35.0" prefWidth="250.0" style="-fx-background-radius: 100;" />
                                  </children>
                               </HBox>
+                              <Label fx:id="contraseña_mal_button" text="Label" />
                               <Button fx:id="inicia_sesion_button" mnemonicParsing="false" onAction="#login" onMouseClicked="#iniciar_sesion_clicked" prefHeight="39.0" prefWidth="360.0" styleClass="purple-button" text="Iniciar sesion " textFill="WHITE">
                                  <VBox.margin>
                                     <Insets top="30.0" />
@@ -88,8 +90,6 @@
                                     </HBox>
                                  </children>
                               </VBox>
-                              <Label fx:id="usuario_mal_button" text="Label" />
-                              <Label fx:id="contraseña_mal_button" text="Label" />
                            </children>
                         </VBox>
                         <ImageView fitHeight="225.0" fitWidth="178.0" pickOnBounds="true" preserveRatio="true">
