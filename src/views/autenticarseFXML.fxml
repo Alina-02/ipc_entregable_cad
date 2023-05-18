@@ -37,7 +37,7 @@
                      <children>
                         <Button mnemonicParsing="false" prefHeight="36.0" prefWidth="39.0" styleClass="transparent">
                            <graphic>
-                              <ImageView fitHeight="53.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true" styleClass="transparent">
+                              <ImageView fitHeight="42.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true" styleClass="transparent">
                                  <image>
                                     <Image url="@../img/hoi.png" />
                                  </image>
@@ -89,7 +89,7 @@
                                                 <Font size="20.0" />
                                              </font>
                                              <VBox.margin>
-                                                <Insets top="10.0" />
+                                                <Insets top="15.0" />
                                              </VBox.margin>
                                           </Label>
                                           <PasswordField fx:id="contraseña_text_field" prefHeight="35.0" prefWidth="334.0" style="-fx-background-radius: 100;" />
