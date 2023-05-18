@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -19,7 +20,7 @@
          <left>
             <VBox alignment="CENTER" prefHeight="750.0" prefWidth="490.0" styleClass="green-background" BorderPane.alignment="CENTER">
                <children>
-                  <ImageView fitHeight="696.0" fitWidth="434.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="750.0" fitWidth="496.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../img/Recurso%203.png" />
                      </image>
@@ -29,74 +30,74 @@
          <center>
             <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="650.0" prefWidth="540.0" BorderPane.alignment="CENTER">
                <children>
-                  <ImageView fitHeight="93.0" fitWidth="540.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="93.0" fitWidth="542.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../img/Letras.png" />
                      </image>
                   </ImageView>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Cuidamos de ti" wrappingWidth="404.0034065246582" />
                   <HBox spacing="30.0">
                      <VBox.margin>
                         <Insets top="70.0" />
                      </VBox.margin>
                      <children>
-                        <VBox prefHeight="378.0" prefWidth="365.0" spacing="10.0">
+                        <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="378.0" prefWidth="334.0" spacing="10.0">
                            <children>
-                              <HBox alignment="CENTER_LEFT" prefHeight="37.0" prefWidth="714.0">
+                              <VBox>
                                  <children>
                                     <Label prefHeight="18.0" prefWidth="103.0" text="Usuario">
                                        <font>
-                                          <Font size="18.0" />
+                                          <Font size="20.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="usuario_text_field" prefHeight="35.0" prefWidth="250.0" style="-fx-background-radius: 100;" />
-                                 </children>
-                              </HBox>
-                              <HBox alignment="CENTER_LEFT" prefHeight="38.0" prefWidth="714.0">
-                                 <children>
+                                    <TextField fx:id="usuario_text_field" maxWidth="-Infinity" prefHeight="30.0" prefWidth="350.0" style="-fx-background-radius: 100;" />
+                                    <Label fx:id="usuario_mal_button1" alignment="TOP_LEFT" prefHeight="26.0" prefWidth="211.0" text="Las credenciales están mal." textFill="#801a86">
+                                       <font>
+                                          <Font name="System Italic" size="16.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="10.0" />
+                                       </padding>
+                                    </Label>
                                     <Label prefHeight="18.0" prefWidth="103.0" text="Contraseña">
                                        <font>
-                                          <Font size="18.0" />
+                                          <Font size="20.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="contraseña_text_field" prefHeight="35.0" prefWidth="250.0" style="-fx-background-radius: 100;" />
-                                 </children>
-                              </HBox>
-                              <Button fx:id="inicia_sesion_button" mnemonicParsing="false" onAction="#login" onMouseClicked="#iniciar_sesion_clicked" prefHeight="39.0" prefWidth="360.0" styleClass="purple-button" text="Iniciar sesion " textFill="WHITE">
-                                 <VBox.margin>
-                                    <Insets top="30.0" />
-                                 </VBox.margin>
-                                 <font>
-                                    <Font name="System Bold" size="21.0" />
-                                 </font>
-                              </Button>
-                              <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="77.0" prefWidth="430.0">
-                                 <children>
-                                    <HBox alignment="CENTER" prefHeight="45.0" prefWidth="200.0">
-                                       <children>
-                                          <Text fill="#c9e325" strokeType="OUTSIDE" strokeWidth="0.0" text="No estas registrado? Registrate ">
-                                             <font>
-                                                <Font size="21.0" />
-                                             </font>
-                                          </Text>
-                                          <Text fx:id="registrarse_text" onMouseClicked="#registerUser" strokeType="OUTSIDE" strokeWidth="0.0" text="aqui" underline="true" wrappingWidth="48.24151611328125">
-                                             <font>
-                                                <Font size="13.0" />
-                                             </font>
-                                          </Text>
-                                       </children>
-                                    </HBox>
+                                    <PasswordField fx:id="contraseña_text_field" prefHeight="30.0" prefWidth="224.0" style="-fx-background-radius: 100;" />
+                                    <Label fx:id="usuario_mal_button" alignment="TOP_LEFT" prefHeight="26.0" prefWidth="220.0" text="La contraseña es incorrecta." textFill="#801a86">
+                                       <font>
+                                          <Font name="System Italic" size="16.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="10.0" />
+                                       </padding>
+                                    </Label>
+                                    <Button fx:id="inicia_sesion_button" mnemonicParsing="false" onAction="#login" onMouseClicked="#iniciar_sesion_clicked" prefHeight="46.0" prefWidth="330.0" styleClass="purple-button" text="Iniciar sesion " textFill="WHITE">
+                                       <VBox.margin>
+                                          <Insets top="30.0" />
+                                       </VBox.margin>
+                                       <font>
+                                          <Font name="System Bold" size="21.0" />
+                                       </font>
+                                    </Button>
                                  </children>
                               </VBox>
-                              <Label fx:id="usuario_mal_button" text="Label" />
-                              <Label fx:id="contraseña_mal_button" text="Label" />
+                              <Text fx:id="registrarse_text" onMouseClicked="#registerUser" strokeType="OUTSIDE" strokeWidth="0.0" text="¿No tienes cuenta? Registrate " underline="true" wrappingWidth="176.24151992797852">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Text>
                            </children>
                         </VBox>
-                        <ImageView fitHeight="225.0" fitWidth="178.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../img/PelotaEco.png" />
-                           </image>
-                        </ImageView>
+                        <VBox alignment="TOP_CENTER" prefHeight="378.0" prefWidth="181.0">
+                           <children>
+                              <ImageView fitHeight="229.0" fitWidth="149.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../img/PelotaEco.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </VBox>
                      </children>
                   </HBox>
                   <VBox>

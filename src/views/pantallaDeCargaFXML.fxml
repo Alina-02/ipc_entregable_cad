@@ -2,38 +2,25 @@
 
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.Group?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane id="AnchorPane" prefHeight="810.0" prefWidth="1315.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19" fx:controller="views.PantallaDeCargaFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="750.0" prefWidth="1200.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.PantallaDeCargaFXMLController">
     <stylesheets>
         <URL value="@pantalladecargafxml.css" />
     </stylesheets>
    <children>
-      <VBox alignment="CENTER" layoutX="8.0" layoutY="16.0" prefHeight="810.0" prefWidth="1315.0" AnchorPane.bottomAnchor="-16.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="-8.0" AnchorPane.topAnchor="16.0">
-         <children>
-            <ImageView fitHeight="408.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../img/LogoApp.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="111.0" fitWidth="742.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../img/Letras.png" />
-               </image>
-               <VBox.margin>
-                  <Insets top="40.0" />
-               </VBox.margin>
-            </ImageView>
-         </children>
+      <VBox alignment="CENTER" layoutX="3.0" layoutY="-4.0" prefHeight="810.0" prefWidth="1315.0" style="-fx-background-image: img\hola.svg;" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="-3.0" AnchorPane.topAnchor="-4.0">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
          <padding>
             <Insets top="50.0" />
          </padding>
+         <children>
+            <Group styleClass="group" stylesheets="@../values/pantalladecargafxml.css" />
+         </children>
       </VBox>
    </children>
 </AnchorPane>

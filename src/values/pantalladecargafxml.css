@@ -5,3 +5,10 @@
 .mainFxmlClass {
 
 }
+
+    .group {
+    -fx-background-color: null;
+    -fx-background-image: url('img/Recurso 6.svg');
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: contain;
+}
