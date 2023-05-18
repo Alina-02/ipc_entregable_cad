@@ -30,8 +30,6 @@ public class ActualizarDatosFXMLController implements Initializable {
     private Button back_button;
     @FXML
     private Button exit_button;
-    @FXML
-    private Label name_label;
 
     /**
      * Initializes the controller class.

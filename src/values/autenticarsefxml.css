@@ -39,7 +39,10 @@
     -fx-background-color: #4E0250;
     -fx-background-radius: 30;
 }
-
+.darkpurple-button{
+    -fx-background-color: #4E0250;
+    -fx-background-radius: 30;
+}
 .purple-button{
     -fx-background-color: #801A86;
     -fx-background-radius: 30;
