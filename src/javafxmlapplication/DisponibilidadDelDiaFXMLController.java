@@ -509,7 +509,6 @@ public class DisponibilidadDelDiaFXMLController implements Initializable {
     
     // CAMBIAR BOTONES
 
-    @FXML
     private void hour_button_exited(MouseEvent event) {
         Object source = event.getSource();
         if(source instanceof Button){

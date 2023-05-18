@@ -22,6 +22,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -341,57 +342,93 @@ public class ReservarFXMLController implements Initializable {
 
     @FXML
     private void hour_clicked(MouseEvent event) {
-        if(clicked1 == -1 || clicked2 == -1){
+        Button button = null;
         
-            Button button = null;
-            //se guarda la hora seleccionada en una variable (puede haber hasta dos)
-            if(event.getSource() instanceof Button){
-                button = (Button) event.getSource(); 
-            }
-            String id = button.getId();
-            button.setStyle("-fx-background-color: #d5dce6");
+        //se guarda la hora seleccionada en una variable (puede haber hasta dos)
+        if(event.getSource() instanceof Button){
+            button = (Button) event.getSource(); 
+        }
         
-            switch(id){
-                case "nine_ten_button": 
-                    utils.asignarHoras(clicked1, clicked2, clicked1_button, clicked2_button, nine_ten_button, 9);
-                    break;
-                case "ten_eleven_button": 
-                    utils.asignarHoras(clicked1, clicked2, clicked1_button, clicked2_button, ten_eleven_button, 10);
-                    break;
-                case "eleven_twelve_button": 
-                    utils.asignarHoras(clicked1, clicked2, clicked1_button, clicked2_button, eleven_twelve_button, 11);
-                    break;
-                case "twelve_thirdteen_button": 
-                    utils.asignarHoras(clicked1, clicked2, clicked1_button, clicked2_button, twelve_thirdteen_button, 12);
-                    break;
-                case "thirdteen_fourteen_button": 
-                    utils.asignarHoras(clicked1, clicked2, clicked1_button, clicked2_button, thirdteen_fourteen_button, 13);
-                    break;
-                case "fourteen_fifteen_button": 
-                    utils.asignarHoras(clicked1, clicked2, clicked1_button, clicked2_button, fourteen_fifteen_button, 14);
-                    break;
-                case "fifteen_sixteen_button": 
-                    utils.asignarHoras(clicked1, clicked2, clicked1_button, clicked2_button, fifteen_sixteen_button, 15);
-                    break;
-                case "sixteen_seventeen_button": 
-                    utils.asignarHoras(clicked1, clicked2, clicked1_button, clicked2_button, sixteen_seventeen_button, 16);
-                    break;
-                case "seventeen_eighteen_button": 
-                    utils.asignarHoras(clicked1, clicked2, clicked1_button, clicked2_button, seventeen_eighteen_button, 17);
-                    break;
-                case "eighteen_nineteen_button": 
-                    utils.asignarHoras(clicked1, clicked2, clicked1_button, clicked2_button, eighteen_nineteen_button, 18);
-                    break;
-                case "nineteen_twenty_button": 
-                    utils.asignarHoras(clicked1, clicked2, clicked1_button, clicked2_button, nineteen_twenty_button, 19);
-                    break;
-                case "twenty_twentyone_button": 
-                    utils.asignarHoras(clicked1, clicked2, clicked1_button, clicked2_button, twenty_twentyone_button, 20);
-                    break;
-                case "twentyone_twentytwo_button": 
-                    utils.asignarHoras(clicked1, clicked2, clicked1_button, clicked2_button, twentyone_twentytwo_button, 21);
-                    break;
+        if(button.equals(clicked1_button) || button.equals(clicked2_button)){
+                button.setStyle("-fx-background-color: #FFFFFF");
+                
+                if(button.equals(clicked1_button)){
+                    if(clicked2 != -1){
+                        clicked1 = clicked2;
+                        clicked1_button = clicked2_button;
+                        clicked2 = -1;
+                        clicked2_button = null;
+                    }else{
+                        clicked1 = -1;
+                        clicked1_button = null;
+                    }
+                }else{
+                    clicked2 = -1;
+                    clicked2_button = null;
                 }
+            }else{
+        
+                if(clicked1 == -1 || clicked2 == -1){
+        
+            
+                String id = button.getId();
+                button.setStyle("-fx-background-color: #d5dce6");
+        
+                switch(id){
+                    case "nine_ten_button": 
+                        if(clicked1 != -1){clicked2 = 9; clicked2_button = nine_ten_button;}
+                        else{clicked1 = 9; clicked1_button = nine_ten_button;}
+                        break;
+                    case "ten_eleven_button": 
+                        if(clicked1 != -1){clicked2 = 10; clicked2_button = ten_eleven_button;}
+                        else{clicked1 = 10; clicked1_button = ten_eleven_button;}
+                        break;
+                    case "eleven_twelve_button": 
+                        if(clicked1 != -1){clicked2 = 11; clicked2_button = eleven_twelve_button;}
+                        else{clicked1 = 11; clicked1_button = eleven_twelve_button;}
+                        break;
+                    case "twelve_thirdteen_button": 
+                        if(clicked1 != -1){clicked2 = 12; clicked2_button = twelve_thirdteen_button;}
+                        else{clicked1 = 12; clicked1_button = twelve_thirdteen_button;}
+                        break;
+                    case "thirdteen_fourteen_button": 
+                        if(clicked1 != -1){clicked2 = 13; clicked2_button = thirdteen_fourteen_button;}
+                        else{clicked1 = 13; clicked1_button = thirdteen_fourteen_button;}
+                        break;
+                    case "fourteen_fifteen_button": 
+                        if(clicked1 != -1){clicked2 = 14; clicked2_button = fourteen_fifteen_button;}
+                        else{clicked1 = 14; clicked1_button = fourteen_fifteen_button;}
+                        break;
+                    case "fifteen_sixteen_button": 
+                        if(clicked1 != -1){clicked2 = 15; clicked2_button = fifteen_sixteen_button;}
+                        else{clicked1 = 15; clicked1_button = fifteen_sixteen_button;}
+                        break;
+                    case "sixteen_seventeen_button": 
+                        if(clicked1 != -1){clicked2 = 16; clicked2_button = sixteen_seventeen_button;}
+                        else{clicked1 = 16; clicked1_button = sixteen_seventeen_button;}
+                        break;
+                    case "seventeen_eighteen_button": 
+                        if(clicked1 != -1){clicked2 = 17; clicked2_button = seventeen_eighteen_button;}
+                        else{clicked1 = 17; clicked1_button = seventeen_eighteen_button;}
+                        break;
+                    case "eighteen_nineteen_button": 
+                        if(clicked1 != -1){clicked2 = 18; clicked2_button = eighteen_nineteen_button;}
+                        else{clicked1 = 18; clicked1_button = eighteen_nineteen_button;}
+                        break;
+                    case "nineteen_twenty_button": 
+                        if(clicked1 != -1){clicked2 = 19; clicked2_button = nineteen_twenty_button;}
+                        else{clicked1 = 19; clicked1_button = nineteen_twenty_button;}
+                        break;
+                    case "twenty_twentyone_button": 
+                        if(clicked1 != -1){clicked2 = 20; clicked2_button = twenty_twentyone_button;}
+                        else{clicked1 = 20; clicked1_button = twenty_twentyone_button;}
+                        break;
+                    case "twentyone_twentytwo_button": 
+                        if(clicked1 != -1){clicked2 = 21; clicked2_button = twentyone_twentytwo_button;}
+                        else{clicked1 = 21; clicked1_button = twentyone_twentytwo_button;}
+                        break;
+                }
+            }
          }
         
     }
@@ -447,36 +484,58 @@ public class ReservarFXMLController implements Initializable {
     // RESERVAR UNA PISTA
     @FXML
     private void reservar_clicked(MouseEvent event) {
+       
         if(clicked1 != -1){
-        Court court = club.getCourt(pista);
-        Member member = AutenticarseFXMLController.getMember();
-        //registerBooking(LocalDateTime bookingDate, LocalDate madeForDay, LocalTime fromHour, boolean paid, Court court, Member member)
-        
-        LocalDate day = date;
-        LocalTime hour = LocalTime.of(clicked1, 0);
-        LocalDateTime bookingDate = LocalDateTime.of(LocalDate.now(), LocalTime.now());
-        Boolean paid = member.checkHasCreditInfo();
-        try{
-        if(clicked2 != -1){
-            club.registerBooking(bookingDate, day, hour, paid, court, member);
-            hour = LocalTime.of(clicked2, 0);
-            club.registerBooking(bookingDate, day, hour, paid, court, member);
-        }else{
-            club.registerBooking(bookingDate, day, hour, paid, court, member);
+            Court court = club.getCourt(pista);
+            Member member = AutenticarseFXMLController.getMember();
+            //registerBooking(LocalDateTime bookingDate, LocalDate madeForDay, LocalTime fromHour, boolean paid, Court court, Member member)
 
-        }
-        }catch(Exception e){
-            System.out.println("efe");
-        }finally{
-            clicked1_button.setStyle("-fx-background-color: #FFFFFF");
-            if(clicked2_button != null){
-                clicked2_button.setStyle("-fx-background-color: #FFFFFF");
+            LocalDate day = date;
+            LocalTime hour = LocalTime.of(clicked1, 0);
+            LocalDateTime bookingDate = LocalDateTime.of(LocalDate.now(), LocalTime.now());
+            Boolean paid = member.checkHasCreditInfo();
+            if(paid){
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Aviso de Reserva");
+                alert.setHeaderText("Al darle a aceptar la reserva se pagará automáticamente.");
+                alert.setContentText("¿Está seguro de que quiere realizarla?");
+                alert.getDialogPane().getStylesheets().add(getClass().getResource("reservarfxml.css").toExternalForm());
+                alert.getDialogPane().getStyleClass().add("my-alert");
+                alert.showAndWait();
+                    
+            }else{
+            
+                try{
+                    if(clicked2 != -1){
+                        club.registerBooking(bookingDate, day, hour, paid, court, member);
+                        hour = LocalTime.of(clicked2, 0);
+                        club.registerBooking(bookingDate, day, hour, paid, court, member);
+                        comprobarPista(pista, date);
+                    }else{
+                        club.registerBooking(bookingDate, day, hour, paid, court, member);
+                        comprobarPista(pista, date);
+
+                    }
+                }catch(Exception e){
+                    System.out.println("efe");
+                }
             }
-            clicked1 = -1;
-            clicked2 = -1;
-        }
         }
         
+        
+        
+        
+        //vuelve a poner el fondo de los botones a blanco
+        if(clicked1_button != null){
+            clicked1_button.setStyle("-fx-background-color: #FFFFFF");
+        }
+        if(clicked2_button != null){
+            clicked2_button.setStyle("-fx-background-color: #FFFFFF");
+        }
+        
+        //restablece las variables para próximas reservas
+        clicked1 = -1;
+        clicked2 = -1;
         
     }
     
@@ -601,17 +660,30 @@ public class ReservarFXMLController implements Initializable {
         
     }
     
-    // CAMBIAR EL CURSOR AL PASAR SOBRE UN BOTÓN
+    // CAMBIAR EL CURSOR Y EL COLOR AL PASAR SOBRE UN BOTÓN
     @FXML
     private void button_entered(MouseEvent event) {
         
         Object source = event.getSource();
         if(source instanceof Button){
             Button hour = (Button) source;
+            hour.setStyle("-fx-background-color: #98609c");
             utils.cambiarCursor(event, hour);
         }
         
     }
+    
+    // CANBUAR EL CURSOR Y EL COLOR AL SALIR DEL BOTÓN
+    @FXML
+    private void button_exited(MouseEvent event) {
+        
+        Object source = event.getSource();
+        if(source instanceof Button){
+            Button hour = (Button) source;
+            hour.setStyle("-fx-background-color: #822f87");
+        }
+    }
+    
     
     // IR A ACTUALIZAR DATOS
     @FXML
@@ -661,6 +733,7 @@ public class ReservarFXMLController implements Initializable {
 
         
     }
-    
+
+
     
 }

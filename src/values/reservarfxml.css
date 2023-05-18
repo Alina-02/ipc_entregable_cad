@@ -199,4 +199,24 @@
     -fx-background-radius: 50;
 }
 
+/* ALERTA */
+
+.my-alert{
+    -fx-background-color: #FFFFFF;
+    -fx-font-size: 14px
+}
+
+.my-alert .alert-header{
+    -fx-font-weight: bold;
+}
+
+.my-alert .alert-content{
+    -fx-font-style: italix;
+}
+
+.my-alert .button{
+    -fx-background-color: #801A86;
+    -fx-text-fill: while;
+}
+
 }

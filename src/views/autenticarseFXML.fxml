@@ -50,7 +50,7 @@
                                        </font>
                                     </Label>
                                     <TextField fx:id="usuario_text_field" maxWidth="-Infinity" prefHeight="30.0" prefWidth="350.0" style="-fx-background-radius: 100;" />
-                                    <Label fx:id="usuario_mal_button1" alignment="TOP_LEFT" prefHeight="26.0" prefWidth="211.0" text="Las credenciales están mal." textFill="#801a86">
+                                    <Label fx:id="usuario_mal_button" alignment="TOP_LEFT" prefHeight="26.0" prefWidth="211.0" text="Las credenciales están mal." textFill="#801a86">
                                        <font>
                                           <Font name="System Italic" size="16.0" />
                                        </font>
@@ -64,7 +64,7 @@
                                        </font>
                                     </Label>
                                     <PasswordField fx:id="contraseña_text_field" prefHeight="30.0" prefWidth="224.0" style="-fx-background-radius: 100;" />
-                                    <Label fx:id="usuario_mal_button" alignment="TOP_LEFT" prefHeight="26.0" prefWidth="220.0" text="La contraseña es incorrecta." textFill="#801a86">
+                                    <Label fx:id="contraseña_mal_button" alignment="TOP_LEFT" prefHeight="26.0" prefWidth="220.0" text="La contraseña es incorrecta." textFill="#801a86">
                                        <font>
                                           <Font name="System Italic" size="16.0" />
                                        </font>
