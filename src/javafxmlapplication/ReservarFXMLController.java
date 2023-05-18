@@ -67,8 +67,6 @@ public class ReservarFXMLController implements Initializable {
     @FXML
     private Button eleven_twelve_button;
     @FXML
-    private Button fourteen_fifthteen_button;
-    @FXML
     private Button sixteen_seventeen_button;
     @FXML
     private Button eighteen_nineteen_button;
@@ -109,13 +107,9 @@ public class ReservarFXMLController implements Initializable {
     @FXML
     private VBox fourteen_fifthteen_vbox;
     @FXML
-    private Button fifthteen_sixteen_button;
-    @FXML
     private VBox fifthteen_sixteen_vbox;
     @FXML
     private VBox sixteen_seventeen_vbox;
-    @FXML
-    private Button seventeen_eigtheen_button;
     @FXML
     private VBox seventeen_eighteen_vbox;
     @FXML
@@ -175,6 +169,8 @@ public class ReservarFXMLController implements Initializable {
     Club club;
     int clicked1 = -1;
     int clicked2 = -1;
+    Button clicked1_button = null;
+    Button clicked2_button = null;
     @FXML
     private VBox hour_buttons_vbox;
     @FXML
@@ -237,6 +233,12 @@ public class ReservarFXMLController implements Initializable {
     private Button mis_reservar_button;
     @FXML
     private Button reservar_pistas_button;
+    @FXML
+    private Button fourteen_fifteen_button;
+    @FXML
+    private Button fifteen_sixteen_button;
+    @FXML
+    private Button seventeen_eighteen_button;
    
     
     @Override
@@ -245,6 +247,8 @@ public class ReservarFXMLController implements Initializable {
         try{
         club = Club.getInstance();
         
+        clicked1 = -1;
+        clicked2 = -1;
         
         //coloca todas las pistas en el toggle group pistas
         pista1_toggle_button.setToggleGroup(pistas);
@@ -291,10 +295,10 @@ public class ReservarFXMLController implements Initializable {
         horas.add(eleven_twelve_button);
         horas.add(twelve_thirdteen_button);
         horas.add(thirdteen_fourteen_button);
-        horas.add(fourteen_fifthteen_button);
-        horas.add(fifthteen_sixteen_button);
+        horas.add(fourteen_fifteen_button);
+        horas.add(fifteen_sixteen_button);
         horas.add(sixteen_seventeen_button);
-        horas.add(seventeen_eigtheen_button);
+        horas.add(seventeen_eighteen_button);
         horas.add(eighteen_nineteen_button);
         horas.add(nineteen_twenty_button);
         horas.add(twenty_twentyone_button);
@@ -333,76 +337,66 @@ public class ReservarFXMLController implements Initializable {
     
 
 
-    
+    // CUANDO PULSAS UNA HORA
 
     @FXML
     private void hour_clicked(MouseEvent event) {
+        if(clicked1 == -1 || clicked2 == -1){
         
-        Button button = null;
-        //se guarda la hora seleccionada en una variable (puede haber hasta dos)
-        if(event.getSource() instanceof Button){
-            button = (Button) event.getSource(); 
-        }
-        String id = button.getId();
-        button.setStyle("-fx-background-color: #d5dce6");
+            Button button = null;
+            //se guarda la hora seleccionada en una variable (puede haber hasta dos)
+            if(event.getSource() instanceof Button){
+                button = (Button) event.getSource(); 
+            }
+            String id = button.getId();
+            button.setStyle("-fx-background-color: #d5dce6");
         
-        switch(id){
-            case "nine_ten_button": 
-                if(clicked1 != -1){clicked2 = 9;}
-                else{clicked1 = 9;}
-                break;
-            case "ten_eleven_button": 
-                if(clicked1 != -1){clicked2 = 10;}
-                else{clicked1 = 10;}
-                break;
-            case "eleven_twelve_button": 
-                if(clicked1 != -1){clicked2 = 11;}
-                else{clicked1 = 11;}
-                break;
-            case "twelve_thirdteen_button": 
-                if(clicked1 != -1){clicked2 = 12;}
-                else{clicked1 = 12;}
-                break;
-            case "thirdteen_fourteen_button": 
-                if(clicked1 != -1){clicked2 = 13;}
-                else{clicked1 = 13;}
-                break;
-            case "fourteen_fiveteen_button": 
-                if(clicked1 != -1){clicked2 = 14;}
-                else{clicked1 = 14;} 
-                break;
-            case "fiveteen_sixteen_button": 
-                if(clicked1 != -1){clicked2 = 15;}
-                else{clicked1 = 15;} 
-                break;
-            case "sixteen_seventeen_button": 
-                if(clicked1 != -1){clicked2 = 16;}
-                else{clicked1 = 16;}
-                break;
-            case "seventeen_eighteen_button": 
-                if(clicked1 != -1){clicked2 = 17;}
-                else{clicked1 = 17;}
-                break;
-            case "eighteen_nineteen_button": 
-                if(clicked1 != -1){clicked2 = 18;}
-                else{clicked1 = 18;}
-                break;
-            case "nineteen_twenty_button": 
-                if(clicked1 != -1){clicked2 = 19;}
-                else{clicked1 = 19;}
-                break;
-            case "twenty_twentyone_button": 
-                if(clicked1 != -1){clicked2 = 20;}
-                else{clicked1 = 20;}
-                break;
-            case "twentyone_twentytwo_button": 
-                if(clicked1 != -1){clicked2 = 21;}
-                else{clicked1 = 21;}
-                break;
-        }
-        
+            switch(id){
+                case "nine_ten_button": 
+                    utils.asignarHoras(clicked1, clicked2, clicked1_button, clicked2_button, nine_ten_button, 9);
+                    break;
+                case "ten_eleven_button": 
+                    utils.asignarHoras(clicked1, clicked2, clicked1_button, clicked2_button, ten_eleven_button, 10);
+                    break;
+                case "eleven_twelve_button": 
+                    utils.asignarHoras(clicked1, clicked2, clicked1_button, clicked2_button, eleven_twelve_button, 11);
+                    break;
+                case "twelve_thirdteen_button": 
+                    utils.asignarHoras(clicked1, clicked2, clicked1_button, clicked2_button, twelve_thirdteen_button, 12);
+                    break;
+                case "thirdteen_fourteen_button": 
+                    utils.asignarHoras(clicked1, clicked2, clicked1_button, clicked2_button, thirdteen_fourteen_button, 13);
+                    break;
+                case "fourteen_fifteen_button": 
+                    utils.asignarHoras(clicked1, clicked2, clicked1_button, clicked2_button, fourteen_fifteen_button, 14);
+                    break;
+                case "fifteen_sixteen_button": 
+                    utils.asignarHoras(clicked1, clicked2, clicked1_button, clicked2_button, fifteen_sixteen_button, 15);
+                    break;
+                case "sixteen_seventeen_button": 
+                    utils.asignarHoras(clicked1, clicked2, clicked1_button, clicked2_button, sixteen_seventeen_button, 16);
+                    break;
+                case "seventeen_eighteen_button": 
+                    utils.asignarHoras(clicked1, clicked2, clicked1_button, clicked2_button, seventeen_eighteen_button, 17);
+                    break;
+                case "eighteen_nineteen_button": 
+                    utils.asignarHoras(clicked1, clicked2, clicked1_button, clicked2_button, eighteen_nineteen_button, 18);
+                    break;
+                case "nineteen_twenty_button": 
+                    utils.asignarHoras(clicked1, clicked2, clicked1_button, clicked2_button, nineteen_twenty_button, 19);
+                    break;
+                case "twenty_twentyone_button": 
+                    utils.asignarHoras(clicked1, clicked2, clicked1_button, clicked2_button, twenty_twentyone_button, 20);
+                    break;
+                case "twentyone_twentytwo_button": 
+                    utils.asignarHoras(clicked1, clicked2, clicked1_button, clicked2_button, twentyone_twentytwo_button, 21);
+                    break;
+                }
+         }
         
     }
+    
+    // CAMBIAR DE PISTA
     @FXML
     private void pista1_toggle_button_clicked(MouseEvent event) {
         pista = "Pista 1";
@@ -439,6 +433,8 @@ public class ReservarFXMLController implements Initializable {
         title_num_pista_label.setText("06");
         comprobarPista(pista, date);
     }
+    
+    // CAMBIAR DE FECHA EN EL CALENDARIO
     @FXML
     private void calendar_on_action(ActionEvent event) {
         
@@ -451,7 +447,7 @@ public class ReservarFXMLController implements Initializable {
     // RESERVAR UNA PISTA
     @FXML
     private void reservar_clicked(MouseEvent event) {
-        
+        if(clicked1 != -1){
         Court court = club.getCourt(pista);
         Member member = AutenticarseFXMLController.getMember();
         //registerBooking(LocalDateTime bookingDate, LocalDate madeForDay, LocalTime fromHour, boolean paid, Court court, Member member)
@@ -471,12 +467,21 @@ public class ReservarFXMLController implements Initializable {
         }
         }catch(Exception e){
             System.out.println("efe");
+        }finally{
+            clicked1_button.setStyle("-fx-background-color: #FFFFFF");
+            if(clicked2_button != null){
+                clicked2_button.setStyle("-fx-background-color: #FFFFFF");
+            }
+            clicked1 = -1;
+            clicked2 = -1;
+        }
         }
         
         
     }
     
-
+    
+    // COMPROBAR SI UNA PISTA ESTÁ OCUPADA O NO
     public void comprobarPista(String pista, LocalDate date){
         //comprobar qué horas del día están ocupadas y cambiar los botones
         //correspondientes :)
@@ -502,13 +507,13 @@ public class ReservarFXMLController implements Initializable {
                     break;
                 case 13: cambiar_ocupado(thirdteen_fourteen_vbox,  ocupado_13,thirdteen_fourteen_button, nickname);
                     break;
-                case 14: cambiar_ocupado(fourteen_fifthteen_vbox,  ocupado_14,fourteen_fifthteen_button, nickname);
+                case 14: cambiar_ocupado(fourteen_fifthteen_vbox,  ocupado_14,fourteen_fifteen_button, nickname);
                     break;
-                case 15: cambiar_ocupado(fifthteen_sixteen_vbox,  ocupado_15,fifthteen_sixteen_button, nickname);
+                case 15: cambiar_ocupado(fifthteen_sixteen_vbox,  ocupado_15,fifteen_sixteen_button, nickname);
                     break;
                 case 16: cambiar_ocupado(sixteen_seventeen_vbox,  ocupado_16,sixteen_seventeen_button, nickname);
                     break;
-                case 17: cambiar_ocupado(seventeen_eighteen_vbox,  ocupado_17,seventeen_eigtheen_button, nickname);
+                case 17: cambiar_ocupado(seventeen_eighteen_vbox,  ocupado_17,seventeen_eighteen_button, nickname);
                     break;
                 case 18: cambiar_ocupado(eighteen_nineteen_vbox,  ocupado_18,eighteen_nineteen_button, nickname);
                     break;
@@ -523,7 +528,7 @@ public class ReservarFXMLController implements Initializable {
         }
     }
     
-        
+    // CAMBIAR UN BOTÓN AL ESTADO DE OCUPADO
     private void  cambiar_ocupado(VBox vbox, Label l, Button b, String id){
         b.setDisable(true);
         l.setText("Ocupado");
@@ -540,6 +545,7 @@ public class ReservarFXMLController implements Initializable {
         vbox.getChildren().add(1,nickname);
     }
     
+    // RESETEAR TODOS LOS BOTONES
     private void resetButtons(){
         //comprobar todos los vbox
         
@@ -556,6 +562,7 @@ public class ReservarFXMLController implements Initializable {
         }
     }
     
+    // RESETEAR UN BOTÓN
     private void resetButton(VBox v){
         
         for(Node node:v.getChildren()){
@@ -567,6 +574,7 @@ public class ReservarFXMLController implements Initializable {
         
     }
     
+    // BOTÓN BUSCAR HORA
     @FXML
     private void find_hour_clicked(MouseEvent event) {
         
@@ -574,6 +582,8 @@ public class ReservarFXMLController implements Initializable {
         
     }
     
+    
+    // BUSCADOR DE LA HORA
     private void find_hour(String hour){
         
         List<Button> searchHour = new ArrayList<>();
@@ -590,7 +600,8 @@ public class ReservarFXMLController implements Initializable {
         }
         
     }
-
+    
+    // CAMBIAR EL CURSOR AL PASAR SOBRE UN BOTÓN
     @FXML
     private void button_entered(MouseEvent event) {
         
@@ -601,7 +612,8 @@ public class ReservarFXMLController implements Initializable {
         }
         
     }
-
+    
+    // IR A ACTUALIZAR DATOS
     @FXML
     private void actualizar_datos_clicked(MouseEvent event) {
         
@@ -618,6 +630,7 @@ public class ReservarFXMLController implements Initializable {
         
     }
 
+    // IR A MIS RESERVAS
     @FXML
     private void mis_reservar_clicked(MouseEvent event) {
         
