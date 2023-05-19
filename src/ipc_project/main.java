@@ -5,13 +5,18 @@
 package ipc_project;
 
 
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import model.Member;
+import javafxmlapplication.VerMisReservasFXMLController;
+import model.Club;
+import model.ClubDAOException;
 
 /**
  *
@@ -20,10 +25,7 @@ import model.Member;
 public class main extends Application{
     
     private static Stage stage;
-    
-    public static Member logedMember; 
-
-     
+         
     @Override
     public void start(Stage stage) throws Exception {
         //Seleccionar el locale  por defecto
@@ -33,14 +35,12 @@ public class main extends Application{
         
         
         this.stage = stage;
-       
         
        
         //======================================================================
         // 1- creación del grafo de escena a partir del fichero FXML
-        FXMLLoader loader= new  FXMLLoader(getClass().getResource("/views/VerMisReservasFXML.fxml"));
+        FXMLLoader loader= new  FXMLLoader(getClass().getResource("/views/verMisReservasFXML.fxml"));
         Parent root = loader.load();
-        
         //======================================================================
         // 2- creación de la escena con el nodo raiz del grafo de escena
         Scene scene = new Scene(root);
