@@ -568,7 +568,7 @@
                   </VBox>
                   <HBox alignment="CENTER_RIGHT" prefHeight="62.0" prefWidth="435.0">
                      <children>
-                        <Button fx:id="reservar_button" mnemonicParsing="false" onMouseClicked="#reservar_clicked" onMouseEntered="#button_entered" prefHeight="40.0" prefWidth="100.0" styleClass="purple-button" stylesheets="@../values/reservarfxml.css" text="Reservar" textFill="WHITE">
+                        <Button fx:id="reservar_button" mnemonicParsing="false" onMouseClicked="#reservar_clicked" onMouseEntered="#button_entered" onMouseExited="#button_exited" prefHeight="40.0" prefWidth="100.0" styleClass="purple-button" stylesheets="@../values/reservarfxml.css" text="Reservar" textFill="WHITE">
                            <font>
                               <Font name="SansSerif Bold" size="16.0" />
                            </font>
@@ -727,7 +727,7 @@
                      <children>
                         <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="275.0">
                            <children>
-                              <Button fx:id="actualizar_datos_button" mnemonicParsing="false" onMouseClicked="#actualizar_datos_clicked" onMouseEntered="#button_entered" prefHeight="75.0" prefWidth="150.0" styleClass="purple-button" stylesheets="@../values/reservarfxml.css" text="Actualizar &#10;Datos" textAlignment="CENTER" textFill="WHITE">
+                              <Button fx:id="actualizar_datos_button" mnemonicParsing="false" onMouseClicked="#actualizar_datos_clicked" onMouseEntered="#button_entered" onMouseExited="#button_exited" prefHeight="75.0" prefWidth="150.0" styleClass="purple-button" stylesheets="@../values/reservarfxml.css" text="Actualizar &#10;Datos" textAlignment="CENTER" textFill="WHITE">
                                  <font>
                                     <Font name="SansSerif Bold" size="16.0" />
                                  </font>
@@ -739,7 +739,7 @@
                         </HBox>
                         <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="275.0">
                            <children>
-                              <Button fx:id="reservar_pistas_button" mnemonicParsing="false" onMouseClicked="#reservar_pistas_cliked" onMouseEntered="#button_entered" prefHeight="75.0" prefWidth="150.0" styleClass="purple-button" stylesheets="@../values/reservarfxml.css" text="Reservar&#10;Pistas&#10;" textAlignment="CENTER" textFill="WHITE">
+                              <Button fx:id="reservar_pistas_button" mnemonicParsing="false" onMouseClicked="#reservar_pistas_cliked" onMouseEntered="#button_entered" onMouseExited="#button_exited" prefHeight="75.0" prefWidth="150.0" styleClass="purple-button" stylesheets="@../values/reservarfxml.css" text="Reservar&#10;Pistas&#10;" textAlignment="CENTER" textFill="WHITE">
                                  <font>
                                     <Font name="SansSerif Bold" size="16.0" />
                                  </font>
@@ -748,7 +748,7 @@
                         </HBox>
                         <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="275.0">
                            <children>
-                              <Button fx:id="mis_reservar_button" mnemonicParsing="false" onMouseClicked="#mis_reservar_clicked" onMouseEntered="#button_entered" prefHeight="75.0" prefWidth="150.0" styleClass="purple-button" stylesheets="@../values/reservarfxml.css" text="Mis &#10;Reservas" textAlignment="CENTER" textFill="WHITE">
+                              <Button fx:id="mis_reservar_button" mnemonicParsing="false" onMouseClicked="#mis_reservar_clicked" onMouseEntered="#button_entered" onMouseExited="#button_exited" prefHeight="75.0" prefWidth="150.0" styleClass="purple-button" stylesheets="@../values/reservarfxml.css" text="Mis &#10;Reservas" textAlignment="CENTER" textFill="WHITE">
                                  <font>
                                     <Font name="SansSerif Bold" size="16.0" />
                                  </font>

@@ -85,7 +85,7 @@
                                                 <Insets right="10.0" />
                                              </padding>
                                              <children>
-                                                <Button fx:id="nine_ten_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" onMouseEntered="#hour_button_entered" onMouseExited="#hour_button_exited" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/disponibilidaddeldiafxml.css">
+                                                <Button fx:id="nine_ten_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/disponibilidaddeldiafxml.css">
                                                    <graphic>
                                                       <GridPane fx:id="nine_ten_gridpane" alignment="CENTER">
                                                          <columnConstraints>
@@ -120,7 +120,7 @@
                                                       </GridPane>
                                                    </graphic>
                                                 </Button>
-                                                <Button fx:id="ten_eleven_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" onMouseEntered="#hour_button_entered" onMouseExited="#hour_button_exited" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/disponibilidaddeldiafxml.css">
+                                                <Button fx:id="ten_eleven_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/disponibilidaddeldiafxml.css">
                                                    <graphic>
                                                       <GridPane fx:id="nine_ten_gridpane11" alignment="CENTER">
                                                          <columnConstraints>
@@ -155,7 +155,7 @@
                                                       </GridPane>
                                                    </graphic>
                                                 </Button>
-                                                <Button fx:id="eleven_twelve_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" onMouseEntered="#hour_button_entered" onMouseExited="#hour_button_exited" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/disponibilidaddeldiafxml.css">
+                                                <Button fx:id="eleven_twelve_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/disponibilidaddeldiafxml.css">
                                                    <graphic>
                                                       <GridPane fx:id="nine_ten_gridpane1" alignment="CENTER">
                                                          <columnConstraints>
@@ -190,7 +190,7 @@
                                                       </GridPane>
                                                    </graphic>
                                                 </Button>
-                                                <Button fx:id="twelve_thirdteen_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" onMouseEntered="#hour_button_entered" onMouseExited="#hour_button_exited" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/disponibilidaddeldiafxml.css">
+                                                <Button fx:id="twelve_thirdteen_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/disponibilidaddeldiafxml.css">
                                                    <graphic>
                                                       <GridPane fx:id="nine_ten_gridpane3" alignment="CENTER">
                                                          <columnConstraints>
@@ -225,7 +225,7 @@
                                                       </GridPane>
                                                    </graphic>
                                                 </Button>
-                                                <Button fx:id="thirdteen_fourteen_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" onMouseEntered="#hour_button_entered" onMouseExited="#hour_button_exited" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/disponibilidaddeldiafxml.css">
+                                                <Button fx:id="thirdteen_fourteen_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/disponibilidaddeldiafxml.css">
                                                    <graphic>
                                                       <GridPane fx:id="nine_ten_gridpane4" alignment="CENTER">
                                                          <columnConstraints>
@@ -260,7 +260,7 @@
                                                       </GridPane>
                                                    </graphic>
                                                 </Button>
-                                                <Button fx:id="fourteen_fifthteen_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" onMouseEntered="#hour_button_entered" onMouseExited="#hour_button_exited" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/disponibilidaddeldiafxml.css">
+                                                <Button fx:id="fourteen_fifthteen_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/disponibilidaddeldiafxml.css">
                                                    <graphic>
                                                       <GridPane fx:id="nine_ten_gridpane5" alignment="CENTER">
                                                          <columnConstraints>
@@ -295,7 +295,7 @@
                                                       </GridPane>
                                                    </graphic>
                                                 </Button>
-                                                <Button fx:id="fifthteen_sixteen_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" onMouseEntered="#hour_button_entered" onMouseExited="#hour_button_exited" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/disponibilidaddeldiafxml.css">
+                                                <Button fx:id="fifthteen_sixteen_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/disponibilidaddeldiafxml.css">
                                                    <graphic>
                                                       <GridPane fx:id="nine_ten_gridpane6" alignment="CENTER">
                                                          <columnConstraints>
@@ -330,7 +330,7 @@
                                                       </GridPane>
                                                    </graphic>
                                                 </Button>
-                                                <Button fx:id="sixteen_seventeen_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" onMouseEntered="#hour_button_entered" onMouseExited="#hour_button_exited" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/disponibilidaddeldiafxml.css">
+                                                <Button fx:id="sixteen_seventeen_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/disponibilidaddeldiafxml.css">
                                                    <graphic>
                                                       <GridPane fx:id="nine_ten_gridpane7" alignment="CENTER">
                                                          <columnConstraints>
@@ -365,7 +365,7 @@
                                                       </GridPane>
                                                    </graphic>
                                                 </Button>
-                                                <Button fx:id="seventeen_eighteen_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" onMouseEntered="#hour_button_entered" onMouseExited="#hour_button_exited" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/disponibilidaddeldiafxml.css">
+                                                <Button fx:id="seventeen_eighteen_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/disponibilidaddeldiafxml.css">
                                                    <graphic>
                                                       <GridPane alignment="CENTER">
                                                          <columnConstraints>
@@ -400,7 +400,7 @@
                                                       </GridPane>
                                                    </graphic>
                                                 </Button>
-                                                <Button fx:id="eighteen_nineteen_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" onMouseEntered="#hour_button_entered" onMouseExited="#hour_button_exited" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/disponibilidaddeldiafxml.css">
+                                                <Button fx:id="eighteen_nineteen_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/disponibilidaddeldiafxml.css">
                                                    <graphic>
                                                       <GridPane fx:id="nine_ten_gridpane9" alignment="CENTER">
                                                          <columnConstraints>
@@ -435,7 +435,7 @@
                                                       </GridPane>
                                                    </graphic>
                                                 </Button>
-                                                <Button fx:id="nineteen_twenty_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" onMouseEntered="#hour_button_entered" onMouseExited="#hour_button_exited" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/disponibilidaddeldiafxml.css">
+                                                <Button fx:id="nineteen_twenty_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/disponibilidaddeldiafxml.css">
                                                    <graphic>
                                                       <GridPane fx:id="nine_ten_gridpane10" alignment="CENTER">
                                                          <columnConstraints>
@@ -470,7 +470,7 @@
                                                       </GridPane>
                                                    </graphic>
                                                 </Button>
-                                                <Button fx:id="twenty_twentyone_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" onMouseEntered="#hour_button_entered" onMouseExited="#hour_button_exited" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/disponibilidaddeldiafxml.css">
+                                                <Button fx:id="twenty_twentyone_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/disponibilidaddeldiafxml.css">
                                                    <graphic>
                                                       <GridPane fx:id="nine_ten_gridpane111" alignment="CENTER">
                                                          <columnConstraints>
@@ -505,7 +505,7 @@
                                                       </GridPane>
                                                    </graphic>
                                                 </Button>
-                                                <Button fx:id="twentyone_twentytwo_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" onMouseEntered="#hour_button_entered" onMouseExited="#hour_button_exited" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/disponibilidaddeldiafxml.css">
+                                                <Button fx:id="twentyone_twentytwo_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/disponibilidaddeldiafxml.css">
                                                    <graphic>
                                                       <GridPane fx:id="nine_ten_gridpane12" alignment="CENTER">
                                                          <columnConstraints>

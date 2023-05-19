@@ -143,15 +143,15 @@ public class VerMisReservasFXMLController implements Initializable {
         for(int i = 0; i < bb.length; i++){
             bb[i] = new bookingButton(buttons[i], buttonsTime[i], buttonsCourt[i]);
         }
-        
+        /*
         System.out.println("bien 2");
         //Consigue al miembro loggeado e inicializa club
         Member logedMember = AutenticarseFXMLController.getMember();
         
         System.out.println("bien 3");
         //Consigue las reservas del miembro
-        String login = logedMember.getNickName();
-        List<Booking> bookingList = club.getUserBookings(login);
+        //String login = logedMember.getNickName();
+        //List<Booking> bookingList = club.getUserBookings(login);
         
         
         //asigna cada boton a una reserva
@@ -161,7 +161,7 @@ public class VerMisReservasFXMLController implements Initializable {
             //Le asigna al boton las caracteristicas de la reserva (no estoy del todo seguro de como funciona getFromTime())
             bb[i].setTime(aux.getFromTime().toString());
             bb[i].setCourt(aux.getCourt().getName());
-        }
+        }*/
 
 
         
