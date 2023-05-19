@@ -499,9 +499,28 @@ public class ReservarFXMLController implements Initializable {
                 alert.setTitle("Aviso de Reserva");
                 alert.setHeaderText("Al darle a aceptar la reserva se pagará automáticamente.");
                 alert.setContentText("¿Está seguro de que quiere realizarla?");
-                alert.getDialogPane().getStylesheets().add(getClass().getResource("reservarfxml.css").toExternalForm());
-                alert.getDialogPane().getStyleClass().add("my-alert");
-                alert.showAndWait();
+                //alert.getDialogPane().getStylesheets().add(getClass().getResource("reservarfxml.css").toExternalForm());
+                //alert.getDialogPane().getStyleClass().add("my-alert");
+                ButtonType result = alert.showAndWait().orElse(ButtonType.CANCEL);
+                if(result == ButtonType.OK){
+                    try{
+                        if(clicked2 != -1){
+                            club.registerBooking(bookingDate, day, hour, paid, court, member);
+                            hour = LocalTime.of(clicked2, 0);
+                            club.registerBooking(bookingDate, day, hour, paid, court, member);
+                            comprobarPista(pista, date);
+                        }else{
+                            club.registerBooking(bookingDate, day, hour, paid, court, member);
+                            comprobarPista(pista, date);
+
+                        }
+                    }catch(Exception e){
+                        System.out.println("efe");
+                    }
+                }else{
+                    alert.close();
+                }
+                
                     
             }else{
             
