@@ -122,55 +122,42 @@ public class VerMisReservasFXMLController implements Initializable {
     
     
     public void initialize(URL url, ResourceBundle rb) {
-        try
-        {
-            // try{
-            club = Club.getInstance();
-        } catch (ClubDAOException | IOException ex)
-        {
+
+        //Consigue al miembro loggeado e inicializa club
+        Member logedMember = AutenticarseFXMLController.getMember();
+        try{club = Club.getInstance(); } 
+        catch (ClubDAOException | IOException ex){
             Logger.getLogger(VerMisReservasFXMLController.class.getName()).log(Level.SEVERE, null, ex);
         }
-            System.out.println("Instanciado guachin");
-        //}
-        //catch(Exception e){Logger.getLogger(VerMisReservasFXMLController.class.getName()).log(Level.SEVERE, null, e);}
         
-        System.out.println("bien 1");
-        
+        //Consigue las reservas del miembro
+        String login = logedMember.getNickName();
+        List<Booking> bookingList = club.getUserBookings(login);
+                
         //Mete todos los valores que hay dentro del boton en un array de bookingButtons
         Button[] buttons = {B1, B2, B3, B4, B5, B6, B7, B8, B9, B10};
         Label[] buttonsTime = {B1Time, B2Time, B3Time, B4Time, B5Time, B6Time, B7Time, B8Time, B9Time, B10Time};
         Label[] buttonsCourt = {B1Court, B2Court, B3Court, B4Court, B5Court, B6Court, B7Court, B8Court, B9Court, B10Court};
         for(int i = 0; i < bb.length; i++){
-            bb[i] = new bookingButton(buttons[i], buttonsTime[i], buttonsCourt[i]);
+            //bb[i] = new bookingButton(buttons[i], bookingList.get(i));
         }
-        /*
-        System.out.println("bien 2");
-        //Consigue al miembro loggeado e inicializa club
-        Member logedMember = AutenticarseFXMLController.getMember();
-        
-        System.out.println("bien 3");
-        //Consigue las reservas del miembro
-        //String login = logedMember.getNickName();
-        //List<Booking> bookingList = club.getUserBookings(login);
-        
         
         //asigna cada boton a una reserva
         for(int i = 0; i < bb.length && i < bookingList.size(); i++){
             //Busca una reserva de la persona loggeada
             Booking aux = bookingList.get(i);
             //Le asigna al boton las caracteristicas de la reserva (no estoy del todo seguro de como funciona getFromTime())
-            bb[i].setTime(aux.getFromTime().toString());
-            bb[i].setCourt(aux.getCourt().getName());
-        }*/
+            //bb[i].setTime(aux.getFromTime().toString());
+            //bb[i].setCourt(aux.getCourt().getName());
+        }
 
-
-        
     }  
 
     @FXML
-    private void showData(ActionEvent event) {
-        
-        
+    private void showData(ActionEvent event){
+        dayL.setText("");
+        timeL.setText("");
+        paymentL.setText("");
     }
 
     @FXML

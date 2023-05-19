@@ -6,6 +6,7 @@ package ipc_project;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import model.Booking;
 
 /**
  *
@@ -14,11 +15,13 @@ import javafx.scene.control.Label;
 
 public class bookingButton {
     public Button button;
+    public Booking booking;
     public Label time;
     public Label court;
     
-    public bookingButton(Button b, Label t, Label c){
-        button = b;
+    public bookingButton(Button bu, Booking bo, Label t, Label c){
+        button = bu;
+        booking = bo;
         time = t;
         court = c;
     }
@@ -27,22 +30,15 @@ public class bookingButton {
         return this.button;
     }
     
-    public Label getTime(){
-        return this.time;
+    public Booking getBooking(){
+        return this.booking;
     }
     
-    public Label getCourt(){
-        return this.court;
+    public void setButton(Button bu){
+        this.button = bu;
     }
-    
-    public void setButton(Button b){
-        this.button = b;
-    }
-    public void setTime(String t){
-        this.time.setText(t);
-    }
-    public void setCourt(String c){
-        this.court.setText(c);
+    public void setTime(Booking bo){
+        this.booking = bo;
     }
 
 }
