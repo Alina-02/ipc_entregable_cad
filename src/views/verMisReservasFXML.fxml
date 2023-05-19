@@ -75,7 +75,7 @@
                                                          <children>
                                                             <HBox alignment="CENTER" prefHeight="57.0" prefWidth="280.0">
                                                                <children>
-                                                                  <Label text="09:00 - 10:00">
+                                                                  <Label fx:id="B1Time" text="09:00 - 10:00">
                                                                      <font>
                                                                         <Font name="SansSerif Regular" size="20.0" />
                                                                      </font>
@@ -87,7 +87,7 @@
                                                             </HBox>
                                                             <HBox alignment="CENTER" prefHeight="57.0" prefWidth="280.0">
                                                                <children>
-                                                                  <Label text="Libre">
+                                                                  <Label fx:id="B1Court" text="Libre">
                                                                      <font>
                                                                         <Font name="SansSerif Italic" size="20.0" />
                                                                      </font>
@@ -110,7 +110,7 @@
                                                          <children>
                                                             <HBox alignment="CENTER" prefHeight="57.0" prefWidth="280.0">
                                                                <children>
-                                                                  <Label text="10:00 - 11:00">
+                                                                  <Label fx:id="B2Time" text="10:00 - 11:00">
                                                                      <font>
                                                                         <Font name="SansSerif Regular" size="20.0" />
                                                                      </font>
@@ -122,7 +122,7 @@
                                                             </HBox>
                                                             <HBox alignment="CENTER" prefHeight="57.0" prefWidth="280.0">
                                                                <children>
-                                                                  <Label text="Libre">
+                                                                  <Label fx:id="B2Court" text="Libre">
                                                                      <font>
                                                                         <Font name="SansSerif Italic" size="20.0" />
                                                                      </font>
@@ -145,7 +145,7 @@
                                                          <children>
                                                             <HBox alignment="CENTER" prefHeight="57.0" prefWidth="280.0">
                                                                <children>
-                                                                  <Label text="11:00 - 12:00">
+                                                                  <Label fx:id="B3Time" text="11:00 - 12:00">
                                                                      <font>
                                                                         <Font name="SansSerif Regular" size="20.0" />
                                                                      </font>
@@ -157,7 +157,7 @@
                                                             </HBox>
                                                             <HBox alignment="CENTER" prefHeight="57.0" prefWidth="280.0">
                                                                <children>
-                                                                  <Label text="Libre">
+                                                                  <Label fx:id="B3Court" text="Libre">
                                                                      <font>
                                                                         <Font name="SansSerif Italic" size="20.0" />
                                                                      </font>
@@ -180,7 +180,7 @@
                                                          <children>
                                                             <HBox alignment="CENTER" prefHeight="57.0" prefWidth="280.0">
                                                                <children>
-                                                                  <Label text="12:00 - 13:00">
+                                                                  <Label fx:id="B4Time" text="12:00 - 13:00">
                                                                      <font>
                                                                         <Font name="SansSerif Regular" size="20.0" />
                                                                      </font>
@@ -192,7 +192,7 @@
                                                             </HBox>
                                                             <HBox alignment="CENTER" prefHeight="57.0" prefWidth="280.0">
                                                                <children>
-                                                                  <Label text="Libre">
+                                                                  <Label fx:id="B4Court" text="Libre">
                                                                      <font>
                                                                         <Font name="SansSerif Italic" size="20.0" />
                                                                      </font>
@@ -215,7 +215,7 @@
                                                          <children>
                                                             <HBox alignment="CENTER" prefHeight="57.0" prefWidth="280.0">
                                                                <children>
-                                                                  <Label text="13:00 - 14:00">
+                                                                  <Label fx:id="B5Time" text="13:00 - 14:00">
                                                                      <font>
                                                                         <Font name="SansSerif Regular" size="20.0" />
                                                                      </font>
@@ -227,7 +227,7 @@
                                                             </HBox>
                                                             <HBox alignment="CENTER" prefHeight="57.0" prefWidth="280.0">
                                                                <children>
-                                                                  <Label text="Libre">
+                                                                  <Label fx:id="B5Court" text="Libre">
                                                                      <font>
                                                                         <Font name="SansSerif Italic" size="20.0" />
                                                                      </font>
@@ -250,7 +250,7 @@
                                                          <children>
                                                             <HBox alignment="CENTER" prefHeight="57.0" prefWidth="280.0">
                                                                <children>
-                                                                  <Label text="14:00 - 15:00">
+                                                                  <Label fx:id="B6Time" text="14:00 - 15:00">
                                                                      <font>
                                                                         <Font name="SansSerif Regular" size="20.0" />
                                                                      </font>
@@ -262,7 +262,7 @@
                                                             </HBox>
                                                             <HBox alignment="CENTER" prefHeight="57.0" prefWidth="280.0">
                                                                <children>
-                                                                  <Label text="Libre">
+                                                                  <Label fx:id="B6Court" text="Libre">
                                                                      <font>
                                                                         <Font name="SansSerif Italic" size="20.0" />
                                                                      </font>
@@ -285,7 +285,7 @@
                                                          <children>
                                                             <HBox alignment="CENTER" prefHeight="57.0" prefWidth="280.0">
                                                                <children>
-                                                                  <Label text="15:00 - 16:00">
+                                                                  <Label fx:id="B7Time" text="15:00 - 16:00">
                                                                      <font>
                                                                         <Font name="SansSerif Regular" size="20.0" />
                                                                      </font>
@@ -297,7 +297,7 @@
                                                             </HBox>
                                                             <HBox alignment="CENTER" prefHeight="57.0" prefWidth="280.0">
                                                                <children>
-                                                                  <Label text="Libre">
+                                                                  <Label fx:id="B7Court" text="Libre">
                                                                      <font>
                                                                         <Font name="SansSerif Italic" size="20.0" />
                                                                      </font>
@@ -320,7 +320,7 @@
                                                          <children>
                                                             <HBox alignment="CENTER" prefHeight="57.0" prefWidth="280.0">
                                                                <children>
-                                                                  <Label text="16:00 - 17:00">
+                                                                  <Label fx:id="B8Time" text="16:00 - 17:00">
                                                                      <font>
                                                                         <Font name="SansSerif Regular" size="20.0" />
                                                                      </font>
@@ -332,7 +332,7 @@
                                                             </HBox>
                                                             <HBox alignment="CENTER" prefHeight="57.0" prefWidth="280.0">
                                                                <children>
-                                                                  <Label text="Libre">
+                                                                  <Label fx:id="B8Court" text="Libre">
                                                                      <font>
                                                                         <Font name="SansSerif Italic" size="20.0" />
                                                                      </font>
@@ -355,7 +355,7 @@
                                                          <children>
                                                             <HBox alignment="CENTER" prefHeight="57.0" prefWidth="280.0">
                                                                <children>
-                                                                  <Label text="17:00 - 18:00">
+                                                                  <Label fx:id="B9Time" text="17:00 - 18:00">
                                                                      <font>
                                                                         <Font name="SansSerif Regular" size="20.0" />
                                                                      </font>
@@ -367,7 +367,7 @@
                                                             </HBox>
                                                             <HBox alignment="CENTER" prefHeight="57.0" prefWidth="280.0">
                                                                <children>
-                                                                  <Label text="Libre">
+                                                                  <Label fx:id="B9Court" text="Libre">
                                                                      <font>
                                                                         <Font name="SansSerif Italic" size="20.0" />
                                                                      </font>
@@ -390,7 +390,7 @@
                                                          <children>
                                                             <HBox alignment="CENTER" prefHeight="57.0" prefWidth="280.0">
                                                                <children>
-                                                                  <Label text="18:00 - 19:00">
+                                                                  <Label fx:id="B10Time" text="18:00 - 19:00">
                                                                      <font>
                                                                         <Font name="SansSerif Regular" size="20.0" />
                                                                      </font>
@@ -402,7 +402,7 @@
                                                             </HBox>
                                                             <HBox alignment="CENTER" prefHeight="57.0" prefWidth="280.0">
                                                                <children>
-                                                                  <Label text="Libre">
+                                                                  <Label fx:id="B10Court" text="Libre">
                                                                      <font>
                                                                         <Font name="SansSerif Italic" size="20.0" />
                                                                      </font>
@@ -506,7 +506,7 @@
                         </AnchorPane>
                      </children>
                   </HBox>
-                  <HBox fx:id="B3" alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
                         <Label text="Pista">
                            <font>

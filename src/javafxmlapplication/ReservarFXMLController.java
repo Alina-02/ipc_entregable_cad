@@ -234,15 +234,15 @@ public class ReservarFXMLController implements Initializable {
     @FXML
     private Button mis_reservar_button;
     @FXML
-    private Button cerrar_sesion_button;
+    private Button reservar_pistas_button;
    
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         try{
-        club = Club.getInstance();
-        
+        club = Club.getInstance(); 
+        System.out.println("Se instancio el club guachin");
         
         //coloca todas las pistas en el toggle group pistas
         pista1_toggle_button.setToggleGroup(pistas);
@@ -315,7 +315,7 @@ public class ReservarFXMLController implements Initializable {
         
         
         }catch(Exception e){
-            System.out.println("problemos");
+            System.out.println("Problemos");
         }
          
     } 
@@ -562,6 +562,10 @@ public class ReservarFXMLController implements Initializable {
 
     @FXML
     private void cerrar_sesion_clicked(MouseEvent event) {
+    }
+
+    @FXML
+    private void reservar_pistas_cliked(MouseEvent event) {
     }
     
     

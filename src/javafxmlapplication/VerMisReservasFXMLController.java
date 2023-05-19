@@ -4,6 +4,7 @@
  */
 package javafxmlapplication;
 
+import ipc_project.bookingButton;
 import ipc_project.main;
 import java.io.IOException;
 import java.net.URL;
@@ -24,6 +25,7 @@ import model.Booking;
 import model.Club;
 import model.ClubDAOException;
 import model.Member;
+
 
 /**
  * FXML Controller class
@@ -70,29 +72,100 @@ public class VerMisReservasFXMLController implements Initializable {
     private Button B10;
 
     private Club club;
+    @FXML
+    private Label B1Time;
+    @FXML
+    private Label B1Court;
+    @FXML
+    private Label B2Time;
+    @FXML
+    private Label B2Court;
+    @FXML
+    private Label B3Time;
+    @FXML
+    private Label B3Court;
+    @FXML
+    private Label B4Time;
+    @FXML
+    private Label B4Court;
+    @FXML
+    private Label B5Time;
+    @FXML
+    private Label B5Court;
+    @FXML
+    private Label B6Time;
+    @FXML
+    private Label B6Court;
+    @FXML
+    private Label B7Time;
+    @FXML
+    private Label B7Court;
+    @FXML
+    private Label B8Time;
+    @FXML
+    private Label B8Court;
+    @FXML
+    private Label B9Time;
+    @FXML
+    private Label B9Court;
+    @FXML
+    private Label B10Time;
+    @FXML
+    private Label B10Court;
+    
+    private bookingButton[] bb = new bookingButton[10];
     /**
      * Initializes the controller class.
      */
     @Override
+    
+    
+    
     public void initialize(URL url, ResourceBundle rb) {
+        try
+        {
+            // try{
+            club = Club.getInstance();
+        } catch (ClubDAOException | IOException ex)
+        {
+            Logger.getLogger(VerMisReservasFXMLController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            System.out.println("Instanciado guachin");
+        //}
+        //catch(Exception e){Logger.getLogger(VerMisReservasFXMLController.class.getName()).log(Level.SEVERE, null, e);}
         
+        System.out.println("bien 1");
+        
+        //Mete todos los valores que hay dentro del boton en un array de bookingButtons
         Button[] buttons = {B1, B2, B3, B4, B5, B6, B7, B8, B9, B10};
-        
-        //Consigue al miembro loggeado e inicializa club
-        Member logedMember = main.logedMember;
-        try{club = Club.getInstance();} 
-        catch (ClubDAOException | IOException ex){Logger.getLogger(VerMisReservasFXMLController.class.getName()).log(Level.SEVERE, null, ex);}
-        
-        //Consigue las reservas del miembro
-        String login = logedMember.getNickName();
-        List<Booking> alm = club.getUserBookings(login);
-        
-        //asigna cada boton a una resserva
-        for(int i = 0; i < 10 && i < alm.size(); i++){
-            //buttons[i]
+        Label[] buttonsTime = {B1Time, B2Time, B3Time, B4Time, B5Time, B6Time, B7Time, B8Time, B9Time, B10Time};
+        Label[] buttonsCourt = {B1Court, B2Court, B3Court, B4Court, B5Court, B6Court, B7Court, B8Court, B9Court, B10Court};
+        for(int i = 0; i < bb.length; i++){
+            bb[i] = new bookingButton(buttons[i], buttonsTime[i], buttonsCourt[i]);
         }
         
-    }    
+        System.out.println("bien 2");
+        //Consigue al miembro loggeado e inicializa club
+        Member logedMember = AutenticarseFXMLController.getMember();
+        
+        System.out.println("bien 3");
+        //Consigue las reservas del miembro
+        String login = logedMember.getNickName();
+        List<Booking> bookingList = club.getUserBookings(login);
+        
+        
+        //asigna cada boton a una reserva
+        for(int i = 0; i < bb.length && i < bookingList.size(); i++){
+            //Busca una reserva de la persona loggeada
+            Booking aux = bookingList.get(i);
+            //Le asigna al boton las caracteristicas de la reserva (no estoy del todo seguro de como funciona getFromTime())
+            bb[i].setTime(aux.getFromTime().toString());
+            bb[i].setCourt(aux.getCourt().getName());
+        }
+
+
+        
+    }  
 
     @FXML
     private void showData(ActionEvent event) {
