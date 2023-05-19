@@ -78,7 +78,7 @@
                                        <children>
                                           <VBox fx:id="hour_buttons_vbox" layoutY="2.0" prefHeight="1221.0" prefWidth="332.0">
                                              <children>
-                                                <Button fx:id="nine_ten_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/reservarfxml.css">
+                                                <Button fx:id="nine_ten_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" onMouseEntered="#hour_entered" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/reservarfxml.css">
                                                    <graphic>
                                                       <GridPane fx:id="nine_ten_gridpane" alignment="CENTER">
                                                          <columnConstraints>
@@ -113,7 +113,7 @@
                                                       </GridPane>
                                                    </graphic>
                                                 </Button>
-                                                <Button fx:id="ten_eleven_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/reservarfxml.css">
+                                                <Button fx:id="ten_eleven_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" onMouseEntered="#hour_entered" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/reservarfxml.css">
                                                    <graphic>
                                                       <GridPane fx:id="nine_ten_gridpane1" alignment="CENTER">
                                                          <columnConstraints>
@@ -148,7 +148,7 @@
                                                       </GridPane>
                                                    </graphic>
                                                 </Button>
-                                                <Button fx:id="eleven_twelve_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/reservarfxml.css">
+                                                <Button fx:id="eleven_twelve_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" onMouseEntered="#hour_entered" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/reservarfxml.css">
                                                    <graphic>
                                                       <GridPane fx:id="nine_ten_gridpane2" alignment="CENTER">
                                                          <columnConstraints>
@@ -183,7 +183,7 @@
                                                       </GridPane>
                                                    </graphic>
                                                 </Button>
-                                                <Button fx:id="twelve_thirdteen_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/reservarfxml.css">
+                                                <Button fx:id="twelve_thirdteen_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" onMouseEntered="#hour_entered" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/reservarfxml.css">
                                                    <graphic>
                                                       <GridPane fx:id="nine_ten_gridpane3" alignment="CENTER">
                                                          <columnConstraints>
@@ -218,7 +218,7 @@
                                                       </GridPane>
                                                    </graphic>
                                                 </Button>
-                                                <Button fx:id="thirdteen_fourteen_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/reservarfxml.css">
+                                                <Button fx:id="thirdteen_fourteen_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" onMouseEntered="#hour_entered" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/reservarfxml.css">
                                                    <graphic>
                                                       <GridPane fx:id="nine_ten_gridpane4" alignment="CENTER">
                                                          <columnConstraints>
@@ -253,7 +253,7 @@
                                                       </GridPane>
                                                    </graphic>
                                                 </Button>
-                                                <Button fx:id="fourteen_fifthteen_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/reservarfxml.css">
+                                                <Button fx:id="fourteen_fifteen_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" onMouseEntered="#hour_entered" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/reservarfxml.css">
                                                    <graphic>
                                                       <GridPane fx:id="nine_ten_gridpane5" alignment="CENTER">
                                                          <columnConstraints>
@@ -288,7 +288,7 @@
                                                       </GridPane>
                                                    </graphic>
                                                 </Button>
-                                                <Button fx:id="fifthteen_sixteen_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/reservarfxml.css">
+                                                <Button fx:id="fifteen_sixteen_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/reservarfxml.css">
                                                    <graphic>
                                                       <GridPane fx:id="nine_ten_gridpane6" alignment="CENTER">
                                                          <columnConstraints>
@@ -323,7 +323,7 @@
                                                       </GridPane>
                                                    </graphic>
                                                 </Button>
-                                                <Button fx:id="sixteen_seventeen_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/reservarfxml.css">
+                                                <Button fx:id="sixteen_seventeen_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" onMouseEntered="#hour_entered" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/reservarfxml.css">
                                                    <graphic>
                                                       <GridPane fx:id="nine_ten_gridpane7" alignment="CENTER">
                                                          <columnConstraints>
@@ -358,7 +358,7 @@
                                                       </GridPane>
                                                    </graphic>
                                                 </Button>
-                                                <Button fx:id="seventeen_eigtheen_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/reservarfxml.css">
+                                                <Button fx:id="seventeen_eighteen_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" onMouseEntered="#hour_entered" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/reservarfxml.css">
                                                    <graphic>
                                                       <GridPane alignment="CENTER">
                                                          <columnConstraints>
@@ -393,7 +393,7 @@
                                                       </GridPane>
                                                    </graphic>
                                                 </Button>
-                                                <Button fx:id="eighteen_nineteen_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/reservarfxml.css">
+                                                <Button fx:id="eighteen_nineteen_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" onMouseEntered="#hour_entered" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/reservarfxml.css">
                                                    <graphic>
                                                       <GridPane fx:id="nine_ten_gridpane9" alignment="CENTER">
                                                          <columnConstraints>
@@ -428,7 +428,7 @@
                                                       </GridPane>
                                                    </graphic>
                                                 </Button>
-                                                <Button fx:id="nineteen_twenty_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/reservarfxml.css">
+                                                <Button fx:id="nineteen_twenty_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" onMouseEntered="#hour_entered" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/reservarfxml.css">
                                                    <graphic>
                                                       <GridPane fx:id="nine_ten_gridpane10" alignment="CENTER">
                                                          <columnConstraints>
@@ -463,7 +463,7 @@
                                                       </GridPane>
                                                    </graphic>
                                                 </Button>
-                                                <Button fx:id="twenty_twentyone_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/reservarfxml.css">
+                                                <Button fx:id="twenty_twentyone_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" onMouseEntered="#hour_entered" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/reservarfxml.css">
                                                    <graphic>
                                                       <GridPane fx:id="nine_ten_gridpane11" alignment="CENTER">
                                                          <columnConstraints>
@@ -498,7 +498,7 @@
                                                       </GridPane>
                                                    </graphic>
                                                 </Button>
-                                                <Button fx:id="twentyone_twentytwo_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/reservarfxml.css">
+                                                <Button fx:id="twentyone_twentytwo_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" onMouseEntered="#hour_entered" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/reservarfxml.css">
                                                    <graphic>
                                                       <GridPane fx:id="nine_ten_gridpane12" alignment="CENTER">
                                                          <columnConstraints>
@@ -568,7 +568,7 @@
                   </VBox>
                   <HBox alignment="CENTER_RIGHT" prefHeight="62.0" prefWidth="435.0">
                      <children>
-                        <Button fx:id="reservar_button" mnemonicParsing="false" onMouseClicked="#reservar_clicked" prefHeight="40.0" prefWidth="100.0" styleClass="purple-button" stylesheets="@../values/reservarfxml.css" text="Reservar" textFill="WHITE">
+                        <Button fx:id="reservar_button" mnemonicParsing="false" onMouseClicked="#reservar_clicked" onMouseEntered="#button_entered" prefHeight="40.0" prefWidth="100.0" styleClass="purple-button" stylesheets="@../values/reservarfxml.css" text="Reservar" textFill="WHITE">
                            <font>
                               <Font name="SansSerif Bold" size="16.0" />
                            </font>

@@ -49,8 +49,9 @@ public class AutenticarseFXMLController implements Initializable {
     private Text registrarse_text;
     @FXML
     private Label usuario_mal_button;
-    @FXML
     private Label contraseña_mal_button;
+    @FXML
+    private Label usuario_mal_button1;
 
 
     /**

@@ -194,6 +194,9 @@
 	-fx-background-color: white;
 }
 
-
+.gray-button{
+    -fx-background-color: #858585;
+    -fx-background-radius: 50;
+}
 
 }
