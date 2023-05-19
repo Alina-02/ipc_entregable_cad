@@ -69,13 +69,13 @@
                                        <children>
                                           <VBox layoutY="2.0" prefHeight="1221.0" prefWidth="332.0">
                                              <children>
-                                                <Button fx:id="nine_ten_button" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="100.0" prefWidth="322.0" styleClass="hbox_scroll_pane" stylesheets="@../values/style.css">
+                                                <Button fx:id="B1" contentDisplay="CENTER" mnemonicParsing="false" onAction="#showData" prefHeight="100.0" prefWidth="322.0" styleClass="hbox_scroll_pane" stylesheets="@../values/style.css">
                                                    <graphic>
                                                       <VBox prefHeight="114.0" prefWidth="275.0">
                                                          <children>
                                                             <HBox alignment="CENTER" prefHeight="57.0" prefWidth="280.0">
                                                                <children>
-                                                                  <Label text="09:00 - 10:00">
+                                                                  <Label fx:id="B1Time" text="09:00 - 10:00">
                                                                      <font>
                                                                         <Font name="SansSerif Regular" size="20.0" />
                                                                      </font>
@@ -87,7 +87,7 @@
                                                             </HBox>
                                                             <HBox alignment="CENTER" prefHeight="57.0" prefWidth="280.0">
                                                                <children>
-                                                                  <Label text="Libre">
+                                                                  <Label fx:id="B1Court" text="Libre">
                                                                      <font>
                                                                         <Font name="SansSerif Italic" size="20.0" />
                                                                      </font>
@@ -104,13 +104,13 @@
                                                       </VBox>
                                                    </graphic>
                                                 </Button>
-                                                <Button fx:id="ten_eleven_button" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="100.0" prefWidth="322.0" styleClass="hbox_scroll_pane" stylesheets="@../values/style.css">
+                                                <Button fx:id="B2" contentDisplay="CENTER" mnemonicParsing="false" onAction="#showData" prefHeight="100.0" prefWidth="322.0" styleClass="hbox_scroll_pane" stylesheets="@../values/style.css">
                                                    <graphic>
                                                       <VBox prefHeight="114.0" prefWidth="275.0">
                                                          <children>
                                                             <HBox alignment="CENTER" prefHeight="57.0" prefWidth="280.0">
                                                                <children>
-                                                                  <Label text="10:00 - 11:00">
+                                                                  <Label fx:id="B2Time" text="10:00 - 11:00">
                                                                      <font>
                                                                         <Font name="SansSerif Regular" size="20.0" />
                                                                      </font>
@@ -122,7 +122,7 @@
                                                             </HBox>
                                                             <HBox alignment="CENTER" prefHeight="57.0" prefWidth="280.0">
                                                                <children>
-                                                                  <Label text="Libre">
+                                                                  <Label fx:id="B2Court" text="Libre">
                                                                      <font>
                                                                         <Font name="SansSerif Italic" size="20.0" />
                                                                      </font>
@@ -139,13 +139,13 @@
                                                       </VBox>
                                                    </graphic>
                                                 </Button>
-                                                <Button fx:id="eleven_twelve_button" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="100.0" prefWidth="322.0" styleClass="hbox_scroll_pane" stylesheets="@../values/style.css">
+                                                <Button fx:id="B3" contentDisplay="CENTER" mnemonicParsing="false" onAction="#showData" prefHeight="100.0" prefWidth="322.0" styleClass="hbox_scroll_pane" stylesheets="@../values/style.css">
                                                    <graphic>
                                                       <VBox prefHeight="114.0" prefWidth="275.0">
                                                          <children>
                                                             <HBox alignment="CENTER" prefHeight="57.0" prefWidth="280.0">
                                                                <children>
-                                                                  <Label text="11:00 - 12:00">
+                                                                  <Label fx:id="B3Time" text="11:00 - 12:00">
                                                                      <font>
                                                                         <Font name="SansSerif Regular" size="20.0" />
                                                                      </font>
@@ -157,7 +157,7 @@
                                                             </HBox>
                                                             <HBox alignment="CENTER" prefHeight="57.0" prefWidth="280.0">
                                                                <children>
-                                                                  <Label text="Libre">
+                                                                  <Label fx:id="B3Court" text="Libre">
                                                                      <font>
                                                                         <Font name="SansSerif Italic" size="20.0" />
                                                                      </font>
@@ -174,13 +174,13 @@
                                                       </VBox>
                                                    </graphic>
                                                 </Button>
-                                                <Button fx:id="twelve_thirteen_button" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="100.0" prefWidth="322.0" styleClass="hbox_scroll_pane" stylesheets="@../values/style.css">
+                                                <Button fx:id="B4" contentDisplay="CENTER" mnemonicParsing="false" onAction="#showData" prefHeight="100.0" prefWidth="322.0" styleClass="hbox_scroll_pane" stylesheets="@../values/style.css">
                                                    <graphic>
                                                       <VBox prefHeight="114.0" prefWidth="275.0">
                                                          <children>
                                                             <HBox alignment="CENTER" prefHeight="57.0" prefWidth="280.0">
                                                                <children>
-                                                                  <Label text="12:00 - 13:00">
+                                                                  <Label fx:id="B4Time" text="12:00 - 13:00">
                                                                      <font>
                                                                         <Font name="SansSerif Regular" size="20.0" />
                                                                      </font>
@@ -192,7 +192,7 @@
                                                             </HBox>
                                                             <HBox alignment="CENTER" prefHeight="57.0" prefWidth="280.0">
                                                                <children>
-                                                                  <Label text="Libre">
+                                                                  <Label fx:id="B4Court" text="Libre">
                                                                      <font>
                                                                         <Font name="SansSerif Italic" size="20.0" />
                                                                      </font>
@@ -209,13 +209,13 @@
                                                       </VBox>
                                                    </graphic>
                                                 </Button>
-                                                <Button fx:id="thirteen_fourteen_button" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="100.0" prefWidth="322.0" styleClass="hbox_scroll_pane" stylesheets="@../values/style.css">
+                                                <Button fx:id="B5" contentDisplay="CENTER" mnemonicParsing="false" onAction="#showData" prefHeight="100.0" prefWidth="322.0" styleClass="hbox_scroll_pane" stylesheets="@../values/style.css">
                                                    <graphic>
                                                       <VBox prefHeight="114.0" prefWidth="275.0">
                                                          <children>
                                                             <HBox alignment="CENTER" prefHeight="57.0" prefWidth="280.0">
                                                                <children>
-                                                                  <Label text="13:00 - 14:00">
+                                                                  <Label fx:id="B5Time" text="13:00 - 14:00">
                                                                      <font>
                                                                         <Font name="SansSerif Regular" size="20.0" />
                                                                      </font>
@@ -227,7 +227,7 @@
                                                             </HBox>
                                                             <HBox alignment="CENTER" prefHeight="57.0" prefWidth="280.0">
                                                                <children>
-                                                                  <Label text="Libre">
+                                                                  <Label fx:id="B5Court" text="Libre">
                                                                      <font>
                                                                         <Font name="SansSerif Italic" size="20.0" />
                                                                      </font>
@@ -244,13 +244,13 @@
                                                       </VBox>
                                                    </graphic>
                                                 </Button>
-                                                <Button fx:id="fourteen_fifthteen_button" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="100.0" prefWidth="322.0" styleClass="hbox_scroll_pane" stylesheets="@../values/style.css">
+                                                <Button fx:id="B6" contentDisplay="CENTER" mnemonicParsing="false" onAction="#showData" prefHeight="100.0" prefWidth="322.0" styleClass="hbox_scroll_pane" stylesheets="@../values/style.css">
                                                    <graphic>
                                                       <VBox prefHeight="114.0" prefWidth="275.0">
                                                          <children>
                                                             <HBox alignment="CENTER" prefHeight="57.0" prefWidth="280.0">
                                                                <children>
-                                                                  <Label text="14:00 - 15:00">
+                                                                  <Label fx:id="B6Time" text="14:00 - 15:00">
                                                                      <font>
                                                                         <Font name="SansSerif Regular" size="20.0" />
                                                                      </font>
@@ -262,7 +262,7 @@
                                                             </HBox>
                                                             <HBox alignment="CENTER" prefHeight="57.0" prefWidth="280.0">
                                                                <children>
-                                                                  <Label text="Libre">
+                                                                  <Label fx:id="B6Court" text="Libre">
                                                                      <font>
                                                                         <Font name="SansSerif Italic" size="20.0" />
                                                                      </font>
@@ -279,13 +279,13 @@
                                                       </VBox>
                                                    </graphic>
                                                 </Button>
-                                                <Button fx:id="fithteen_sixteen_button" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="100.0" prefWidth="322.0" styleClass="hbox_scroll_pane" stylesheets="@../values/style.css">
+                                                <Button fx:id="B7" contentDisplay="CENTER" mnemonicParsing="false" onAction="#showData" prefHeight="100.0" prefWidth="322.0" styleClass="hbox_scroll_pane" stylesheets="@../values/style.css">
                                                    <graphic>
                                                       <VBox prefHeight="114.0" prefWidth="275.0">
                                                          <children>
                                                             <HBox alignment="CENTER" prefHeight="57.0" prefWidth="280.0">
                                                                <children>
-                                                                  <Label text="15:00 - 16:00">
+                                                                  <Label fx:id="B7Time" text="15:00 - 16:00">
                                                                      <font>
                                                                         <Font name="SansSerif Regular" size="20.0" />
                                                                      </font>
@@ -297,7 +297,7 @@
                                                             </HBox>
                                                             <HBox alignment="CENTER" prefHeight="57.0" prefWidth="280.0">
                                                                <children>
-                                                                  <Label text="Libre">
+                                                                  <Label fx:id="B7Court" text="Libre">
                                                                      <font>
                                                                         <Font name="SansSerif Italic" size="20.0" />
                                                                      </font>
@@ -314,13 +314,13 @@
                                                       </VBox>
                                                    </graphic>
                                                 </Button>
-                                                <Button fx:id="sixteen_seventeen_button" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="100.0" prefWidth="322.0" styleClass="hbox_scroll_pane" stylesheets="@../values/style.css">
+                                                <Button fx:id="B8" contentDisplay="CENTER" mnemonicParsing="false" onAction="#showData" prefHeight="100.0" prefWidth="322.0" styleClass="hbox_scroll_pane" stylesheets="@../values/style.css">
                                                    <graphic>
                                                       <VBox prefHeight="114.0" prefWidth="275.0">
                                                          <children>
                                                             <HBox alignment="CENTER" prefHeight="57.0" prefWidth="280.0">
                                                                <children>
-                                                                  <Label text="16:00 - 17:00">
+                                                                  <Label fx:id="B8Time" text="16:00 - 17:00">
                                                                      <font>
                                                                         <Font name="SansSerif Regular" size="20.0" />
                                                                      </font>
@@ -332,7 +332,7 @@
                                                             </HBox>
                                                             <HBox alignment="CENTER" prefHeight="57.0" prefWidth="280.0">
                                                                <children>
-                                                                  <Label text="Libre">
+                                                                  <Label fx:id="B8Court" text="Libre">
                                                                      <font>
                                                                         <Font name="SansSerif Italic" size="20.0" />
                                                                      </font>
@@ -349,13 +349,13 @@
                                                       </VBox>
                                                    </graphic>
                                                 </Button>
-                                                <Button fx:id="seventeen_eighteen_button" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="100.0" prefWidth="322.0" styleClass="hbox_scroll_pane" stylesheets="@../values/style.css">
+                                                <Button fx:id="B9" contentDisplay="CENTER" mnemonicParsing="false" onAction="#showData" prefHeight="100.0" prefWidth="322.0" styleClass="hbox_scroll_pane" stylesheets="@../values/style.css">
                                                    <graphic>
                                                       <VBox prefHeight="114.0" prefWidth="275.0">
                                                          <children>
                                                             <HBox alignment="CENTER" prefHeight="57.0" prefWidth="280.0">
                                                                <children>
-                                                                  <Label text="17:00 - 18:00">
+                                                                  <Label fx:id="B9Time" text="17:00 - 18:00">
                                                                      <font>
                                                                         <Font name="SansSerif Regular" size="20.0" />
                                                                      </font>
@@ -367,7 +367,7 @@
                                                             </HBox>
                                                             <HBox alignment="CENTER" prefHeight="57.0" prefWidth="280.0">
                                                                <children>
-                                                                  <Label text="Libre">
+                                                                  <Label fx:id="B9Court" text="Libre">
                                                                      <font>
                                                                         <Font name="SansSerif Italic" size="20.0" />
                                                                      </font>
@@ -384,13 +384,13 @@
                                                       </VBox>
                                                    </graphic>
                                                 </Button>
-                                                <Button fx:id="eighteen_nineteen_button" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="100.0" prefWidth="322.0" styleClass="hbox_scroll_pane" stylesheets="@../values/style.css">
+                                                <Button fx:id="B10" contentDisplay="CENTER" mnemonicParsing="false" onAction="#showData" prefHeight="100.0" prefWidth="322.0" styleClass="hbox_scroll_pane" stylesheets="@../values/style.css">
                                                    <graphic>
                                                       <VBox prefHeight="114.0" prefWidth="275.0">
                                                          <children>
                                                             <HBox alignment="CENTER" prefHeight="57.0" prefWidth="280.0">
                                                                <children>
-                                                                  <Label text="18:00 - 19:00">
+                                                                  <Label fx:id="B10Time" text="18:00 - 19:00">
                                                                      <font>
                                                                         <Font name="SansSerif Regular" size="20.0" />
                                                                      </font>
@@ -402,7 +402,7 @@
                                                             </HBox>
                                                             <HBox alignment="CENTER" prefHeight="57.0" prefWidth="280.0">
                                                                <children>
-                                                                  <Label text="Libre">
+                                                                  <Label fx:id="B10Court" text="Libre">
                                                                      <font>
                                                                         <Font name="SansSerif Italic" size="20.0" />
                                                                      </font>
@@ -537,7 +537,7 @@
                                           <Font size="20.0" />
                                        </font>
                                     </Label>
-                                    <Label text="Label">
+                                    <Label fx:id="dayL" text="Label">
                                        <HBox.margin>
                                           <Insets left="30.0" />
                                        </HBox.margin>
@@ -554,7 +554,7 @@
                                           <Font size="20.0" />
                                        </font>
                                     </Label>
-                                    <Label text="Label">
+                                    <Label fx:id="timeL" text="Label">
                                        <HBox.margin>
                                           <Insets left="30.0" />
                                        </HBox.margin>
@@ -571,7 +571,7 @@
                                           <Font size="20.0" />
                                        </font>
                                     </Label>
-                                    <Label text="Label">
+                                    <Label fx:id="paymentL" text="Label">
                                        <HBox.margin>
                                           <Insets left="30.0" />
                                        </HBox.margin>
@@ -588,7 +588,7 @@
                   </HBox>
                   <HBox alignment="TOP_RIGHT" prefHeight="104.0" prefWidth="825.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" styleClass="purple-button" stylesheets="@../values/vermisreservasfxml.css" text="Anular" textFill="WHITE">
+                        <Button fx:id="cancelB" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" styleClass="purple-button" stylesheets="@../values/vermisreservasfxml.css" text="Anular" textFill="WHITE">
                            <font>
                               <Font name="SansSerif Regular" size="14.0" />
                            </font>

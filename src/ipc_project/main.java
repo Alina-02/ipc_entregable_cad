@@ -5,12 +5,18 @@
 package ipc_project;
 
 
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafxmlapplication.VerMisReservasFXMLController;
+import model.Club;
+import model.ClubDAOException;
 
 /**
  *
@@ -19,8 +25,7 @@ import javafx.stage.Stage;
 public class main extends Application{
     
     private static Stage stage;
-
-     
+         
     @Override
     public void start(Stage stage) throws Exception {
         //Seleccionar el locale  por defecto
@@ -30,7 +35,6 @@ public class main extends Application{
         
         
         this.stage = stage;
-       
         
        
         //======================================================================
