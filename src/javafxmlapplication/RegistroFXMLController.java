@@ -5,6 +5,7 @@
 package javafxmlapplication;
 
 import com.sun.tools.javac.Main;
+import ipc_project.main;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
@@ -20,14 +21,19 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Cursor;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleButton;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -39,6 +45,8 @@ import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import model.*;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -70,7 +78,12 @@ public class RegistroFXMLController implements Initializable {
     
     private Club club;
     private Image im;
-       
+    
+    @FXML
+    private Button return_button;
+    @FXML
+    private Button exit_button_autenticarse;
+    
     /**
      * Initializes the controller class.
      */
@@ -83,6 +96,8 @@ public class RegistroFXMLController implements Initializable {
             Logger.getLogger(RegistroFXMLController.class.getName()).log(Level.SEVERE, null, ex);
         }catch (IOException ex){
             Logger.getLogger(RegistroFXMLController.class.getName()).log(Level.SEVERE, null, ex);}
+    
+    
     }    
 
     @FXML
@@ -190,5 +205,15 @@ public class RegistroFXMLController implements Initializable {
         alert.showAndWait();
 
     }
+
+
+    @FXML
+    private void returnAut(MouseEvent event) {
+    }
+
+    @FXML
+    private void closeWin(MouseEvent event) {
+    }
+
 }
 

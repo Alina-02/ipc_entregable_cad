@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
 package javafxmlapplication;
 
 import ipc_project.main;
@@ -38,6 +34,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
@@ -240,6 +237,12 @@ public class ReservarFXMLController implements Initializable {
     private Button fifteen_sixteen_button;
     @FXML
     private Button seventeen_eighteen_button;
+    @FXML
+    private Button menu_button1;
+    @FXML
+    private AnchorPane pane_slide;
+    @FXML
+    private Button menu_button2;
    
     
     @Override

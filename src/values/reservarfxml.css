@@ -71,11 +71,11 @@
 }
 
 /* flechas de los botones de incremento y decremento */
-.scroll-bar:vertical *.increment-arrow, 
+/**.scroll-bar:vertical *.increment-arrow, 
 .scroll-bar:vertical *.decrement-arrow{
     -fx-shape : " ";
-    -fx-padding :0.0 0.15em;
-}
+    -fx-padding :0.0 0.15 em;
+}*/
     
 
 .scroll-bar{

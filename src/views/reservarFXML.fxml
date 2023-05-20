@@ -16,6 +16,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -23,563 +24,590 @@
    <children>
       <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <left>
-            <VBox prefHeight="810.0" prefWidth="490.0" styleClass="green-background" stylesheets="@../values/reservarfxml.css" BorderPane.alignment="CENTER">
+            <StackPane BorderPane.alignment="CENTER">
                <children>
-                  <HBox alignment="CENTER" cache="true" prefHeight="110.0" prefWidth="200.0">
+                  <VBox prefHeight="810.0" prefWidth="490.0" styleClass="green-background" stylesheets="@../values/reservarfxml.css">
                      <children>
-                        <Label alignment="TOP_LEFT" prefHeight="50.0" prefWidth="139.0" text="Pista">
-                           <font>
-                              <Font name="SansSerif Bold" size="40.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="title_num_pista_label" alignment="TOP_LEFT" text="01">
-                           <font>
-                              <Font name="Cambria" size="40.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </HBox>
-                  <HBox alignment="CENTER" prefHeight="36.0" prefWidth="430.0" stylesheets="@../values/reservarfxml.css">
-                     <VBox.margin>
-                        <Insets left="30.0" right="30.0" />
-                     </VBox.margin>
-                     <children>
-                        <TextField fx:id="find_hour_textfield" prefHeight="40.0" prefWidth="222.0" promptText="Introduzca una hora..." styleClass="transparent" stylesheets="@../values/reservarfxml.css">
-                           <HBox.margin>
-                              <Insets left="20.0" />
-                           </HBox.margin>
-                           <font>
-                              <Font name="Cambria" size="18.0" />
-                           </font>
-                        </TextField>
-                        <Button fx:id="find_hour_button" mnemonicParsing="false" onMouseClicked="#find_hour_clicked" prefHeight="27.0" prefWidth="100.0" styleClass="purple-button" stylesheets="@../values/reservarfxml.css" text="Buscar" textFill="WHITE">
-                           <font>
-                              <Font name="SansSerif Bold" size="14.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets left="35.0" />
-                           </HBox.margin></Button>
-                     </children>
-                     <styleClass>
-                        <String fx:value="search-button" />
-                        <String fx:value="shadow" />
-                     </styleClass>
-                  </HBox>
-                  <VBox alignment="TOP_CENTER" prefHeight="463.0" prefWidth="390.0" stylesheets="@../values/reservarfxml.css">
-                     <VBox.margin>
-                        <Insets bottom="20.0" left="50.0" right="50.0" top="35.0" />
-                     </VBox.margin>
-                     <children>
-                        <VBox prefHeight="554.0" prefWidth="335.0">
+                        <Button fx:id="menu_button1" mnemonicParsing="false" prefHeight="30.0" prefWidth="33.0" styleClass="transparent">
+                           <graphic>
+                              <ImageView fitHeight="41.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../img/ccccc.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <HBox alignment="CENTER" cache="true" prefHeight="110.0" prefWidth="200.0">
                            <children>
-                              <ScrollPane prefHeight="430.0" prefWidth="284.0" stylesheets="@../values/reservarfxml.css">
-                                <content>
-                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1225.0" prefWidth="326.0" styleClass="white_background" stylesheets="@../values/reservarfxml.css">
-                                       <children>
-                                          <VBox fx:id="hour_buttons_vbox" layoutY="2.0" prefHeight="1221.0" prefWidth="332.0">
-                                             <children>
-                                                <Button fx:id="nine_ten_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" onMouseEntered="#hour_entered" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/reservarfxml.css">
-                                                   <graphic>
-                                                      <GridPane fx:id="nine_ten_gridpane" alignment="CENTER">
-                                                         <columnConstraints>
-                                                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="179.2" minWidth="10.0" prefWidth="179.2" />
-                                                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="110.19998168945312" minWidth="10.0" prefWidth="94.40000000000003" />
-                                                         </columnConstraints>
-                                                         <rowConstraints>
-                                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                         </rowConstraints>
-                                                         <children>
-                                                            <Label fx:id="nine_ten_label" text="09:00 - 10:00">
-                                                               <font>
-                                                                  <Font name="SansSerif Regular" size="20.0" />
-                                                               </font>
-                                                               <GridPane.margin>
-                                                                  <Insets left="10.0" />
-                                                               </GridPane.margin>
-                                                            </Label>
-                                                            <VBox fx:id="nine_ten_vbox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
-                                                               <children>
-                                                                  <Label fx:id="ocupado_9" text="Libre">
-                                                                     <font>
-                                                                        <Font name="SansSerif Italic" size="20.0" />
-                                                                     </font>
-                                                                     <VBox.margin>
-                                                                        <Insets right="10.0" />
-                                                                     </VBox.margin>
-                                                                  </Label>
-                                                               </children>
-                                                            </VBox>
-                                                         </children>
-                                                      </GridPane>
-                                                   </graphic>
-                                                </Button>
-                                                <Button fx:id="ten_eleven_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" onMouseEntered="#hour_entered" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/reservarfxml.css">
-                                                   <graphic>
-                                                      <GridPane fx:id="nine_ten_gridpane1" alignment="CENTER">
-                                                         <columnConstraints>
-                                                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="179.2" minWidth="10.0" prefWidth="179.2" />
-                                                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="110.19998168945312" minWidth="10.0" prefWidth="94.40000000000003" />
-                                                         </columnConstraints>
-                                                         <rowConstraints>
-                                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                         </rowConstraints>
-                                                         <children>
-                                                            <Label fx:id="ten_eleven_label" text="10:00 - 11:00">
-                                                               <font>
-                                                                  <Font name="SansSerif Regular" size="20.0" />
-                                                               </font>
-                                                               <GridPane.margin>
-                                                                  <Insets left="10.0" />
-                                                               </GridPane.margin>
-                                                            </Label>
-                                                            <VBox fx:id="ten_eleven_vbox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
-                                                               <children>
-                                                                  <Label fx:id="ocupado_10" text="Libre">
-                                                                     <font>
-                                                                        <Font name="SansSerif Italic" size="20.0" />
-                                                                     </font>
-                                                                     <VBox.margin>
-                                                                        <Insets right="10.0" />
-                                                                     </VBox.margin>
-                                                                  </Label>
-                                                               </children>
-                                                            </VBox>
-                                                         </children>
-                                                      </GridPane>
-                                                   </graphic>
-                                                </Button>
-                                                <Button fx:id="eleven_twelve_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" onMouseEntered="#hour_entered" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/reservarfxml.css">
-                                                   <graphic>
-                                                      <GridPane fx:id="nine_ten_gridpane2" alignment="CENTER">
-                                                         <columnConstraints>
-                                                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="179.2" minWidth="10.0" prefWidth="179.2" />
-                                                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="110.19998168945312" minWidth="10.0" prefWidth="94.40000000000003" />
-                                                         </columnConstraints>
-                                                         <rowConstraints>
-                                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                         </rowConstraints>
-                                                         <children>
-                                                            <Label fx:id="eleven_twelve_label" text="11:00 - 12:00">
-                                                               <font>
-                                                                  <Font name="SansSerif Regular" size="20.0" />
-                                                               </font>
-                                                               <GridPane.margin>
-                                                                  <Insets left="10.0" />
-                                                               </GridPane.margin>
-                                                            </Label>
-                                                            <VBox fx:id="eleven_twelve_vbox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
-                                                               <children>
-                                                                  <Label fx:id="ocupado_11" text="Libre">
-                                                                     <font>
-                                                                        <Font name="SansSerif Italic" size="20.0" />
-                                                                     </font>
-                                                                     <VBox.margin>
-                                                                        <Insets right="10.0" />
-                                                                     </VBox.margin>
-                                                                  </Label>
-                                                               </children>
-                                                            </VBox>
-                                                         </children>
-                                                      </GridPane>
-                                                   </graphic>
-                                                </Button>
-                                                <Button fx:id="twelve_thirdteen_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" onMouseEntered="#hour_entered" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/reservarfxml.css">
-                                                   <graphic>
-                                                      <GridPane fx:id="nine_ten_gridpane3" alignment="CENTER">
-                                                         <columnConstraints>
-                                                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="179.2" minWidth="10.0" prefWidth="179.2" />
-                                                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="110.19998168945312" minWidth="10.0" prefWidth="94.40000000000003" />
-                                                         </columnConstraints>
-                                                         <rowConstraints>
-                                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                         </rowConstraints>
-                                                         <children>
-                                                            <Label fx:id="twelve_thirdteen_label" text="12:00 - 13:00">
-                                                               <font>
-                                                                  <Font name="SansSerif Regular" size="20.0" />
-                                                               </font>
-                                                               <GridPane.margin>
-                                                                  <Insets left="10.0" />
-                                                               </GridPane.margin>
-                                                            </Label>
-                                                            <VBox fx:id="twelve_thirdteen_vbox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
-                                                               <children>
-                                                                  <Label fx:id="ocupado_12" text="Libre">
-                                                                     <font>
-                                                                        <Font name="SansSerif Italic" size="20.0" />
-                                                                     </font>
-                                                                     <VBox.margin>
-                                                                        <Insets right="10.0" />
-                                                                     </VBox.margin>
-                                                                  </Label>
-                                                               </children>
-                                                            </VBox>
-                                                         </children>
-                                                      </GridPane>
-                                                   </graphic>
-                                                </Button>
-                                                <Button fx:id="thirdteen_fourteen_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" onMouseEntered="#hour_entered" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/reservarfxml.css">
-                                                   <graphic>
-                                                      <GridPane fx:id="nine_ten_gridpane4" alignment="CENTER">
-                                                         <columnConstraints>
-                                                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="179.2" minWidth="10.0" prefWidth="179.2" />
-                                                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="110.19998168945312" minWidth="10.0" prefWidth="94.40000000000003" />
-                                                         </columnConstraints>
-                                                         <rowConstraints>
-                                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                         </rowConstraints>
-                                                         <children>
-                                                            <Label fx:id="thirdteen_fourteen_label" text="13:00 - 14:00">
-                                                               <font>
-                                                                  <Font name="SansSerif Regular" size="20.0" />
-                                                               </font>
-                                                               <GridPane.margin>
-                                                                  <Insets left="10.0" />
-                                                               </GridPane.margin>
-                                                            </Label>
-                                                            <VBox fx:id="thirdteen_fourteen_vbox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
-                                                               <children>
-                                                                  <Label fx:id="ocupado_13" text="Libre">
-                                                                     <font>
-                                                                        <Font name="SansSerif Italic" size="20.0" />
-                                                                     </font>
-                                                                     <VBox.margin>
-                                                                        <Insets right="10.0" />
-                                                                     </VBox.margin>
-                                                                  </Label>
-                                                               </children>
-                                                            </VBox>
-                                                         </children>
-                                                      </GridPane>
-                                                   </graphic>
-                                                </Button>
-                                                <Button fx:id="fourteen_fifteen_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" onMouseEntered="#hour_entered" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/reservarfxml.css">
-                                                   <graphic>
-                                                      <GridPane fx:id="nine_ten_gridpane5" alignment="CENTER">
-                                                         <columnConstraints>
-                                                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="179.2" minWidth="10.0" prefWidth="179.2" />
-                                                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="110.19998168945312" minWidth="10.0" prefWidth="94.40000000000003" />
-                                                         </columnConstraints>
-                                                         <rowConstraints>
-                                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                         </rowConstraints>
-                                                         <children>
-                                                            <Label fx:id="fourteen_fiveteen_label" text="14:00 - 15:00">
-                                                               <font>
-                                                                  <Font name="SansSerif Regular" size="20.0" />
-                                                               </font>
-                                                               <GridPane.margin>
-                                                                  <Insets left="10.0" />
-                                                               </GridPane.margin>
-                                                            </Label>
-                                                            <VBox fx:id="fourteen_fifthteen_vbox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
-                                                               <children>
-                                                                  <Label fx:id="ocupado_14" text="Libre">
-                                                                     <font>
-                                                                        <Font name="SansSerif Italic" size="20.0" />
-                                                                     </font>
-                                                                     <VBox.margin>
-                                                                        <Insets right="10.0" />
-                                                                     </VBox.margin>
-                                                                  </Label>
-                                                               </children>
-                                                            </VBox>
-                                                         </children>
-                                                      </GridPane>
-                                                   </graphic>
-                                                </Button>
-                                                <Button fx:id="fifteen_sixteen_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/reservarfxml.css">
-                                                   <graphic>
-                                                      <GridPane fx:id="nine_ten_gridpane6" alignment="CENTER">
-                                                         <columnConstraints>
-                                                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="179.2" minWidth="10.0" prefWidth="179.2" />
-                                                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="110.19998168945312" minWidth="10.0" prefWidth="94.40000000000003" />
-                                                         </columnConstraints>
-                                                         <rowConstraints>
-                                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                         </rowConstraints>
-                                                         <children>
-                                                            <Label fx:id="fiveteen_sixteen_label" text="15:00 - 16:00">
-                                                               <font>
-                                                                  <Font name="SansSerif Regular" size="20.0" />
-                                                               </font>
-                                                               <GridPane.margin>
-                                                                  <Insets left="10.0" />
-                                                               </GridPane.margin>
-                                                            </Label>
-                                                            <VBox fx:id="fifthteen_sixteen_vbox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
-                                                               <children>
-                                                                  <Label fx:id="ocupado_15" text="Libre">
-                                                                     <font>
-                                                                        <Font name="SansSerif Italic" size="20.0" />
-                                                                     </font>
-                                                                     <VBox.margin>
-                                                                        <Insets right="10.0" />
-                                                                     </VBox.margin>
-                                                                  </Label>
-                                                               </children>
-                                                            </VBox>
-                                                         </children>
-                                                      </GridPane>
-                                                   </graphic>
-                                                </Button>
-                                                <Button fx:id="sixteen_seventeen_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" onMouseEntered="#hour_entered" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/reservarfxml.css">
-                                                   <graphic>
-                                                      <GridPane fx:id="nine_ten_gridpane7" alignment="CENTER">
-                                                         <columnConstraints>
-                                                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="179.2" minWidth="10.0" prefWidth="179.2" />
-                                                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="110.19998168945312" minWidth="10.0" prefWidth="94.40000000000003" />
-                                                         </columnConstraints>
-                                                         <rowConstraints>
-                                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                         </rowConstraints>
-                                                         <children>
-                                                            <Label fx:id="sixteen_seventeen_label" text="16:00 - 17:00">
-                                                               <font>
-                                                                  <Font name="SansSerif Regular" size="20.0" />
-                                                               </font>
-                                                               <GridPane.margin>
-                                                                  <Insets left="10.0" />
-                                                               </GridPane.margin>
-                                                            </Label>
-                                                            <VBox fx:id="sixteen_seventeen_vbox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
-                                                               <children>
-                                                                  <Label fx:id="ocupado_16" text="Libre">
-                                                                     <font>
-                                                                        <Font name="SansSerif Italic" size="20.0" />
-                                                                     </font>
-                                                                     <VBox.margin>
-                                                                        <Insets right="10.0" />
-                                                                     </VBox.margin>
-                                                                  </Label>
-                                                               </children>
-                                                            </VBox>
-                                                         </children>
-                                                      </GridPane>
-                                                   </graphic>
-                                                </Button>
-                                                <Button fx:id="seventeen_eighteen_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" onMouseEntered="#hour_entered" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/reservarfxml.css">
-                                                   <graphic>
-                                                      <GridPane alignment="CENTER">
-                                                         <columnConstraints>
-                                                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="179.2" minWidth="10.0" prefWidth="179.2" />
-                                                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="110.19998168945312" minWidth="10.0" prefWidth="94.40000000000003" />
-                                                         </columnConstraints>
-                                                         <rowConstraints>
-                                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                         </rowConstraints>
-                                                         <children>
-                                                            <Label fx:id="seventeen_eighteen_label" text="17:00 - 18:00">
-                                                               <font>
-                                                                  <Font name="SansSerif Regular" size="20.0" />
-                                                               </font>
-                                                               <GridPane.margin>
-                                                                  <Insets left="10.0" />
-                                                               </GridPane.margin>
-                                                            </Label>
-                                                            <VBox fx:id="seventeen_eighteen_vbox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
-                                                               <children>
-                                                                  <Label fx:id="ocupado_17" text="Libre">
-                                                                     <font>
-                                                                        <Font name="SansSerif Italic" size="20.0" />
-                                                                     </font>
-                                                                     <VBox.margin>
-                                                                        <Insets right="10.0" />
-                                                                     </VBox.margin>
-                                                                  </Label>
-                                                               </children>
-                                                            </VBox>
-                                                         </children>
-                                                      </GridPane>
-                                                   </graphic>
-                                                </Button>
-                                                <Button fx:id="eighteen_nineteen_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" onMouseEntered="#hour_entered" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/reservarfxml.css">
-                                                   <graphic>
-                                                      <GridPane fx:id="nine_ten_gridpane9" alignment="CENTER">
-                                                         <columnConstraints>
-                                                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="179.2" minWidth="10.0" prefWidth="179.2" />
-                                                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="110.19998168945312" minWidth="10.0" prefWidth="94.40000000000003" />
-                                                         </columnConstraints>
-                                                         <rowConstraints>
-                                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                         </rowConstraints>
-                                                         <children>
-                                                            <Label fx:id="eigthteen_nineteen_label" text="18:00 - 19:00">
-                                                               <font>
-                                                                  <Font name="SansSerif Regular" size="20.0" />
-                                                               </font>
-                                                               <GridPane.margin>
-                                                                  <Insets left="10.0" />
-                                                               </GridPane.margin>
-                                                            </Label>
-                                                            <VBox fx:id="eighteen_nineteen_vbox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
-                                                               <children>
-                                                                  <Label fx:id="ocupado_18" text="Libre">
-                                                                     <font>
-                                                                        <Font name="SansSerif Italic" size="20.0" />
-                                                                     </font>
-                                                                     <VBox.margin>
-                                                                        <Insets right="10.0" />
-                                                                     </VBox.margin>
-                                                                  </Label>
-                                                               </children>
-                                                            </VBox>
-                                                         </children>
-                                                      </GridPane>
-                                                   </graphic>
-                                                </Button>
-                                                <Button fx:id="nineteen_twenty_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" onMouseEntered="#hour_entered" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/reservarfxml.css">
-                                                   <graphic>
-                                                      <GridPane fx:id="nine_ten_gridpane10" alignment="CENTER">
-                                                         <columnConstraints>
-                                                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="179.2" minWidth="10.0" prefWidth="179.2" />
-                                                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="110.19998168945312" minWidth="10.0" prefWidth="94.40000000000003" />
-                                                         </columnConstraints>
-                                                         <rowConstraints>
-                                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                         </rowConstraints>
-                                                         <children>
-                                                            <Label fx:id="nineteen_twenty_label" text="19:00 - 20:00">
-                                                               <font>
-                                                                  <Font name="SansSerif Regular" size="20.0" />
-                                                               </font>
-                                                               <GridPane.margin>
-                                                                  <Insets left="10.0" />
-                                                               </GridPane.margin>
-                                                            </Label>
-                                                            <VBox fx:id="nineteen_twenty_vbox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
-                                                               <children>
-                                                                  <Label fx:id="ocupado_19" text="Libre">
-                                                                     <font>
-                                                                        <Font name="SansSerif Italic" size="20.0" />
-                                                                     </font>
-                                                                     <VBox.margin>
-                                                                        <Insets right="10.0" />
-                                                                     </VBox.margin>
-                                                                  </Label>
-                                                               </children>
-                                                            </VBox>
-                                                         </children>
-                                                      </GridPane>
-                                                   </graphic>
-                                                </Button>
-                                                <Button fx:id="twenty_twentyone_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" onMouseEntered="#hour_entered" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/reservarfxml.css">
-                                                   <graphic>
-                                                      <GridPane fx:id="nine_ten_gridpane11" alignment="CENTER">
-                                                         <columnConstraints>
-                                                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="179.2" minWidth="10.0" prefWidth="179.2" />
-                                                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="110.19998168945312" minWidth="10.0" prefWidth="94.40000000000003" />
-                                                         </columnConstraints>
-                                                         <rowConstraints>
-                                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                         </rowConstraints>
-                                                         <children>
-                                                            <Label fx:id="twenty_twentyone_label" text="20:00 - 21:00">
-                                                               <font>
-                                                                  <Font name="SansSerif Regular" size="20.0" />
-                                                               </font>
-                                                               <GridPane.margin>
-                                                                  <Insets left="10.0" />
-                                                               </GridPane.margin>
-                                                            </Label>
-                                                            <VBox fx:id="twenty_twentyone_vbox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
-                                                               <children>
-                                                                  <Label fx:id="ocupado_20" text="Libre">
-                                                                     <font>
-                                                                        <Font name="SansSerif Italic" size="20.0" />
-                                                                     </font>
-                                                                     <VBox.margin>
-                                                                        <Insets right="10.0" />
-                                                                     </VBox.margin>
-                                                                  </Label>
-                                                               </children>
-                                                            </VBox>
-                                                         </children>
-                                                      </GridPane>
-                                                   </graphic>
-                                                </Button>
-                                                <Button fx:id="twentyone_twentytwo_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" onMouseEntered="#hour_entered" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/reservarfxml.css">
-                                                   <graphic>
-                                                      <GridPane fx:id="nine_ten_gridpane12" alignment="CENTER">
-                                                         <columnConstraints>
-                                                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="179.2" minWidth="10.0" prefWidth="179.2" />
-                                                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="110.19998168945312" minWidth="10.0" prefWidth="94.40000000000003" />
-                                                         </columnConstraints>
-                                                         <rowConstraints>
-                                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                         </rowConstraints>
-                                                         <children>
-                                                            <Label fx:id="twentyone_twentytwo_label" text="21:00 - 22:00">
-                                                               <font>
-                                                                  <Font name="SansSerif Regular" size="20.0" />
-                                                               </font>
-                                                               <GridPane.margin>
-                                                                  <Insets left="10.0" />
-                                                               </GridPane.margin>
-                                                            </Label>
-                                                            <VBox fx:id="twentyone_twentytwo_vbox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
-                                                               <children>
-                                                                  <Label fx:id="ocupado_21" text="Libre">
-                                                                     <font>
-                                                                        <Font name="SansSerif Italic" size="20.0" />
-                                                                     </font>
-                                                                     <VBox.margin>
-                                                                        <Insets right="10.0" />
-                                                                     </VBox.margin>
-                                                                  </Label>
-                                                               </children>
-                                                            </VBox>
-                                                         </children>
-                                                      </GridPane>
-                                                   </graphic>
-                                                </Button>
-                                             </children>
-                                             <padding>
-                                                <Insets right="10.0" />
-                                             </padding>
-                                          </VBox>
-                                       </children>
-                                       <opaqueInsets>
-                                          <Insets bottom="20.0" top="20.0" />
-                                       </opaqueInsets>
-                                    </AnchorPane>
-                                </content>
-                                 <VBox.margin>
-                                    <Insets bottom="20.0" left="5.0" right="10.0" top="20.0" />
-                                 </VBox.margin>
-                                 <styleClass>
-                                    <String fx:value="decrement-arrow" />
-                                    <String fx:value="decrement-button" />
-                                    <String fx:value="increment-arrow" />
-                                    <String fx:value="increment-button" />
-                                    <String fx:value="scroll-bar" />
-                                 </styleClass>
-                              </ScrollPane>
+                              <Label alignment="TOP_LEFT" prefHeight="50.0" prefWidth="139.0" text="Pista">
+                                 <font>
+                                    <Font name="SansSerif Bold" size="40.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="title_num_pista_label" alignment="TOP_LEFT" text="01">
+                                 <font>
+                                    <Font name="Cambria" size="40.0" />
+                                 </font>
+                              </Label>
                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="36.0" prefWidth="430.0" stylesheets="@../values/reservarfxml.css">
                            <VBox.margin>
-                              <Insets bottom="15.0" left="20.0" right="10.0" top="5.0" />
+                              <Insets left="30.0" right="30.0" />
                            </VBox.margin>
+                           <children>
+                              <TextField fx:id="find_hour_textfield" prefHeight="40.0" prefWidth="222.0" promptText="Introduzca una hora..." styleClass="transparent" stylesheets="@../values/reservarfxml.css">
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="Cambria" size="18.0" />
+                                 </font>
+                              </TextField>
+                              <Button fx:id="find_hour_button" mnemonicParsing="false" onMouseClicked="#find_hour_clicked" prefHeight="27.0" prefWidth="100.0" styleClass="purple-button" stylesheets="@../values/reservarfxml.css" text="Buscar" textFill="WHITE">
+                                 <font>
+                                    <Font name="SansSerif Bold" size="14.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="35.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                           <styleClass>
+                              <String fx:value="search-button" />
+                              <String fx:value="shadow" />
+                           </styleClass>
+                        </HBox>
+                        <VBox alignment="TOP_CENTER" prefHeight="463.0" prefWidth="390.0" stylesheets="@../values/reservarfxml.css">
+                           <VBox.margin>
+                              <Insets bottom="20.0" left="50.0" right="50.0" top="35.0" />
+                           </VBox.margin>
+                           <children>
+                              <VBox prefHeight="554.0" prefWidth="335.0">
+                                 <children>
+                                    <ScrollPane prefHeight="430.0" prefWidth="284.0" stylesheets="@../values/reservarfxml.css">
+                                      <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1225.0" prefWidth="326.0" styleClass="white_background" stylesheets="@../values/reservarfxml.css">
+                                             <children>
+                                                <VBox fx:id="hour_buttons_vbox" layoutY="2.0" prefHeight="1221.0" prefWidth="332.0">
+                                                   <children>
+                                                      <Button fx:id="nine_ten_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" onMouseEntered="#hour_entered" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/reservarfxml.css">
+                                                         <graphic>
+                                                            <GridPane fx:id="nine_ten_gridpane" alignment="CENTER">
+                                                               <columnConstraints>
+                                                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="179.2" minWidth="10.0" prefWidth="179.2" />
+                                                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="110.19998168945312" minWidth="10.0" prefWidth="94.40000000000003" />
+                                                               </columnConstraints>
+                                                               <rowConstraints>
+                                                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                               </rowConstraints>
+                                                               <children>
+                                                                  <Label fx:id="nine_ten_label" text="09:00 - 10:00">
+                                                                     <font>
+                                                                        <Font name="SansSerif Regular" size="20.0" />
+                                                                     </font>
+                                                                     <GridPane.margin>
+                                                                        <Insets left="10.0" />
+                                                                     </GridPane.margin>
+                                                                  </Label>
+                                                                  <VBox fx:id="nine_ten_vbox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
+                                                                     <children>
+                                                                        <Label fx:id="ocupado_9" text="Libre">
+                                                                           <font>
+                                                                              <Font name="SansSerif Italic" size="20.0" />
+                                                                           </font>
+                                                                           <VBox.margin>
+                                                                              <Insets right="10.0" />
+                                                                           </VBox.margin>
+                                                                        </Label>
+                                                                     </children>
+                                                                  </VBox>
+                                                               </children>
+                                                            </GridPane>
+                                                         </graphic>
+                                                      </Button>
+                                                      <Button fx:id="ten_eleven_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" onMouseEntered="#hour_entered" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/reservarfxml.css">
+                                                         <graphic>
+                                                            <GridPane fx:id="nine_ten_gridpane1" alignment="CENTER">
+                                                               <columnConstraints>
+                                                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="179.2" minWidth="10.0" prefWidth="179.2" />
+                                                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="110.19998168945312" minWidth="10.0" prefWidth="94.40000000000003" />
+                                                               </columnConstraints>
+                                                               <rowConstraints>
+                                                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                               </rowConstraints>
+                                                               <children>
+                                                                  <Label fx:id="ten_eleven_label" text="10:00 - 11:00">
+                                                                     <font>
+                                                                        <Font name="SansSerif Regular" size="20.0" />
+                                                                     </font>
+                                                                     <GridPane.margin>
+                                                                        <Insets left="10.0" />
+                                                                     </GridPane.margin>
+                                                                  </Label>
+                                                                  <VBox fx:id="ten_eleven_vbox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
+                                                                     <children>
+                                                                        <Label fx:id="ocupado_10" text="Libre">
+                                                                           <font>
+                                                                              <Font name="SansSerif Italic" size="20.0" />
+                                                                           </font>
+                                                                           <VBox.margin>
+                                                                              <Insets right="10.0" />
+                                                                           </VBox.margin>
+                                                                        </Label>
+                                                                     </children>
+                                                                  </VBox>
+                                                               </children>
+                                                            </GridPane>
+                                                         </graphic>
+                                                      </Button>
+                                                      <Button fx:id="eleven_twelve_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" onMouseEntered="#hour_entered" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/reservarfxml.css">
+                                                         <graphic>
+                                                            <GridPane fx:id="nine_ten_gridpane2" alignment="CENTER">
+                                                               <columnConstraints>
+                                                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="179.2" minWidth="10.0" prefWidth="179.2" />
+                                                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="110.19998168945312" minWidth="10.0" prefWidth="94.40000000000003" />
+                                                               </columnConstraints>
+                                                               <rowConstraints>
+                                                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                               </rowConstraints>
+                                                               <children>
+                                                                  <Label fx:id="eleven_twelve_label" text="11:00 - 12:00">
+                                                                     <font>
+                                                                        <Font name="SansSerif Regular" size="20.0" />
+                                                                     </font>
+                                                                     <GridPane.margin>
+                                                                        <Insets left="10.0" />
+                                                                     </GridPane.margin>
+                                                                  </Label>
+                                                                  <VBox fx:id="eleven_twelve_vbox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
+                                                                     <children>
+                                                                        <Label fx:id="ocupado_11" text="Libre">
+                                                                           <font>
+                                                                              <Font name="SansSerif Italic" size="20.0" />
+                                                                           </font>
+                                                                           <VBox.margin>
+                                                                              <Insets right="10.0" />
+                                                                           </VBox.margin>
+                                                                        </Label>
+                                                                     </children>
+                                                                  </VBox>
+                                                               </children>
+                                                            </GridPane>
+                                                         </graphic>
+                                                      </Button>
+                                                      <Button fx:id="twelve_thirdteen_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" onMouseEntered="#hour_entered" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/reservarfxml.css">
+                                                         <graphic>
+                                                            <GridPane fx:id="nine_ten_gridpane3" alignment="CENTER">
+                                                               <columnConstraints>
+                                                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="179.2" minWidth="10.0" prefWidth="179.2" />
+                                                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="110.19998168945312" minWidth="10.0" prefWidth="94.40000000000003" />
+                                                               </columnConstraints>
+                                                               <rowConstraints>
+                                                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                               </rowConstraints>
+                                                               <children>
+                                                                  <Label fx:id="twelve_thirdteen_label" text="12:00 - 13:00">
+                                                                     <font>
+                                                                        <Font name="SansSerif Regular" size="20.0" />
+                                                                     </font>
+                                                                     <GridPane.margin>
+                                                                        <Insets left="10.0" />
+                                                                     </GridPane.margin>
+                                                                  </Label>
+                                                                  <VBox fx:id="twelve_thirdteen_vbox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
+                                                                     <children>
+                                                                        <Label fx:id="ocupado_12" text="Libre">
+                                                                           <font>
+                                                                              <Font name="SansSerif Italic" size="20.0" />
+                                                                           </font>
+                                                                           <VBox.margin>
+                                                                              <Insets right="10.0" />
+                                                                           </VBox.margin>
+                                                                        </Label>
+                                                                     </children>
+                                                                  </VBox>
+                                                               </children>
+                                                            </GridPane>
+                                                         </graphic>
+                                                      </Button>
+                                                      <Button fx:id="thirdteen_fourteen_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" onMouseEntered="#hour_entered" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/reservarfxml.css">
+                                                         <graphic>
+                                                            <GridPane fx:id="nine_ten_gridpane4" alignment="CENTER">
+                                                               <columnConstraints>
+                                                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="179.2" minWidth="10.0" prefWidth="179.2" />
+                                                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="110.19998168945312" minWidth="10.0" prefWidth="94.40000000000003" />
+                                                               </columnConstraints>
+                                                               <rowConstraints>
+                                                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                               </rowConstraints>
+                                                               <children>
+                                                                  <Label fx:id="thirdteen_fourteen_label" text="13:00 - 14:00">
+                                                                     <font>
+                                                                        <Font name="SansSerif Regular" size="20.0" />
+                                                                     </font>
+                                                                     <GridPane.margin>
+                                                                        <Insets left="10.0" />
+                                                                     </GridPane.margin>
+                                                                  </Label>
+                                                                  <VBox fx:id="thirdteen_fourteen_vbox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
+                                                                     <children>
+                                                                        <Label fx:id="ocupado_13" text="Libre">
+                                                                           <font>
+                                                                              <Font name="SansSerif Italic" size="20.0" />
+                                                                           </font>
+                                                                           <VBox.margin>
+                                                                              <Insets right="10.0" />
+                                                                           </VBox.margin>
+                                                                        </Label>
+                                                                     </children>
+                                                                  </VBox>
+                                                               </children>
+                                                            </GridPane>
+                                                         </graphic>
+                                                      </Button>
+                                                      <Button fx:id="fourteen_fifteen_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" onMouseEntered="#hour_entered" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/reservarfxml.css">
+                                                         <graphic>
+                                                            <GridPane fx:id="nine_ten_gridpane5" alignment="CENTER">
+                                                               <columnConstraints>
+                                                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="179.2" minWidth="10.0" prefWidth="179.2" />
+                                                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="110.19998168945312" minWidth="10.0" prefWidth="94.40000000000003" />
+                                                               </columnConstraints>
+                                                               <rowConstraints>
+                                                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                               </rowConstraints>
+                                                               <children>
+                                                                  <Label fx:id="fourteen_fiveteen_label" text="14:00 - 15:00">
+                                                                     <font>
+                                                                        <Font name="SansSerif Regular" size="20.0" />
+                                                                     </font>
+                                                                     <GridPane.margin>
+                                                                        <Insets left="10.0" />
+                                                                     </GridPane.margin>
+                                                                  </Label>
+                                                                  <VBox fx:id="fourteen_fifthteen_vbox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
+                                                                     <children>
+                                                                        <Label fx:id="ocupado_14" text="Libre">
+                                                                           <font>
+                                                                              <Font name="SansSerif Italic" size="20.0" />
+                                                                           </font>
+                                                                           <VBox.margin>
+                                                                              <Insets right="10.0" />
+                                                                           </VBox.margin>
+                                                                        </Label>
+                                                                     </children>
+                                                                  </VBox>
+                                                               </children>
+                                                            </GridPane>
+                                                         </graphic>
+                                                      </Button>
+                                                      <Button fx:id="fifteen_sixteen_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/reservarfxml.css">
+                                                         <graphic>
+                                                            <GridPane fx:id="nine_ten_gridpane6" alignment="CENTER">
+                                                               <columnConstraints>
+                                                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="179.2" minWidth="10.0" prefWidth="179.2" />
+                                                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="110.19998168945312" minWidth="10.0" prefWidth="94.40000000000003" />
+                                                               </columnConstraints>
+                                                               <rowConstraints>
+                                                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                               </rowConstraints>
+                                                               <children>
+                                                                  <Label fx:id="fiveteen_sixteen_label" text="15:00 - 16:00">
+                                                                     <font>
+                                                                        <Font name="SansSerif Regular" size="20.0" />
+                                                                     </font>
+                                                                     <GridPane.margin>
+                                                                        <Insets left="10.0" />
+                                                                     </GridPane.margin>
+                                                                  </Label>
+                                                                  <VBox fx:id="fifthteen_sixteen_vbox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
+                                                                     <children>
+                                                                        <Label fx:id="ocupado_15" text="Libre">
+                                                                           <font>
+                                                                              <Font name="SansSerif Italic" size="20.0" />
+                                                                           </font>
+                                                                           <VBox.margin>
+                                                                              <Insets right="10.0" />
+                                                                           </VBox.margin>
+                                                                        </Label>
+                                                                     </children>
+                                                                  </VBox>
+                                                               </children>
+                                                            </GridPane>
+                                                         </graphic>
+                                                      </Button>
+                                                      <Button fx:id="sixteen_seventeen_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" onMouseEntered="#hour_entered" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/reservarfxml.css">
+                                                         <graphic>
+                                                            <GridPane fx:id="nine_ten_gridpane7" alignment="CENTER">
+                                                               <columnConstraints>
+                                                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="179.2" minWidth="10.0" prefWidth="179.2" />
+                                                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="110.19998168945312" minWidth="10.0" prefWidth="94.40000000000003" />
+                                                               </columnConstraints>
+                                                               <rowConstraints>
+                                                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                               </rowConstraints>
+                                                               <children>
+                                                                  <Label fx:id="sixteen_seventeen_label" text="16:00 - 17:00">
+                                                                     <font>
+                                                                        <Font name="SansSerif Regular" size="20.0" />
+                                                                     </font>
+                                                                     <GridPane.margin>
+                                                                        <Insets left="10.0" />
+                                                                     </GridPane.margin>
+                                                                  </Label>
+                                                                  <VBox fx:id="sixteen_seventeen_vbox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
+                                                                     <children>
+                                                                        <Label fx:id="ocupado_16" text="Libre">
+                                                                           <font>
+                                                                              <Font name="SansSerif Italic" size="20.0" />
+                                                                           </font>
+                                                                           <VBox.margin>
+                                                                              <Insets right="10.0" />
+                                                                           </VBox.margin>
+                                                                        </Label>
+                                                                     </children>
+                                                                  </VBox>
+                                                               </children>
+                                                            </GridPane>
+                                                         </graphic>
+                                                      </Button>
+                                                      <Button fx:id="seventeen_eighteen_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" onMouseEntered="#hour_entered" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/reservarfxml.css">
+                                                         <graphic>
+                                                            <GridPane alignment="CENTER">
+                                                               <columnConstraints>
+                                                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="179.2" minWidth="10.0" prefWidth="179.2" />
+                                                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="110.19998168945312" minWidth="10.0" prefWidth="94.40000000000003" />
+                                                               </columnConstraints>
+                                                               <rowConstraints>
+                                                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                               </rowConstraints>
+                                                               <children>
+                                                                  <Label fx:id="seventeen_eighteen_label" text="17:00 - 18:00">
+                                                                     <font>
+                                                                        <Font name="SansSerif Regular" size="20.0" />
+                                                                     </font>
+                                                                     <GridPane.margin>
+                                                                        <Insets left="10.0" />
+                                                                     </GridPane.margin>
+                                                                  </Label>
+                                                                  <VBox fx:id="seventeen_eighteen_vbox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
+                                                                     <children>
+                                                                        <Label fx:id="ocupado_17" text="Libre">
+                                                                           <font>
+                                                                              <Font name="SansSerif Italic" size="20.0" />
+                                                                           </font>
+                                                                           <VBox.margin>
+                                                                              <Insets right="10.0" />
+                                                                           </VBox.margin>
+                                                                        </Label>
+                                                                     </children>
+                                                                  </VBox>
+                                                               </children>
+                                                            </GridPane>
+                                                         </graphic>
+                                                      </Button>
+                                                      <Button fx:id="eighteen_nineteen_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" onMouseEntered="#hour_entered" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/reservarfxml.css">
+                                                         <graphic>
+                                                            <GridPane fx:id="nine_ten_gridpane9" alignment="CENTER">
+                                                               <columnConstraints>
+                                                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="179.2" minWidth="10.0" prefWidth="179.2" />
+                                                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="110.19998168945312" minWidth="10.0" prefWidth="94.40000000000003" />
+                                                               </columnConstraints>
+                                                               <rowConstraints>
+                                                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                               </rowConstraints>
+                                                               <children>
+                                                                  <Label fx:id="eigthteen_nineteen_label" text="18:00 - 19:00">
+                                                                     <font>
+                                                                        <Font name="SansSerif Regular" size="20.0" />
+                                                                     </font>
+                                                                     <GridPane.margin>
+                                                                        <Insets left="10.0" />
+                                                                     </GridPane.margin>
+                                                                  </Label>
+                                                                  <VBox fx:id="eighteen_nineteen_vbox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
+                                                                     <children>
+                                                                        <Label fx:id="ocupado_18" text="Libre">
+                                                                           <font>
+                                                                              <Font name="SansSerif Italic" size="20.0" />
+                                                                           </font>
+                                                                           <VBox.margin>
+                                                                              <Insets right="10.0" />
+                                                                           </VBox.margin>
+                                                                        </Label>
+                                                                     </children>
+                                                                  </VBox>
+                                                               </children>
+                                                            </GridPane>
+                                                         </graphic>
+                                                      </Button>
+                                                      <Button fx:id="nineteen_twenty_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" onMouseEntered="#hour_entered" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/reservarfxml.css">
+                                                         <graphic>
+                                                            <GridPane fx:id="nine_ten_gridpane10" alignment="CENTER">
+                                                               <columnConstraints>
+                                                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="179.2" minWidth="10.0" prefWidth="179.2" />
+                                                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="110.19998168945312" minWidth="10.0" prefWidth="94.40000000000003" />
+                                                               </columnConstraints>
+                                                               <rowConstraints>
+                                                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                               </rowConstraints>
+                                                               <children>
+                                                                  <Label fx:id="nineteen_twenty_label" text="19:00 - 20:00">
+                                                                     <font>
+                                                                        <Font name="SansSerif Regular" size="20.0" />
+                                                                     </font>
+                                                                     <GridPane.margin>
+                                                                        <Insets left="10.0" />
+                                                                     </GridPane.margin>
+                                                                  </Label>
+                                                                  <VBox fx:id="nineteen_twenty_vbox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
+                                                                     <children>
+                                                                        <Label fx:id="ocupado_19" text="Libre">
+                                                                           <font>
+                                                                              <Font name="SansSerif Italic" size="20.0" />
+                                                                           </font>
+                                                                           <VBox.margin>
+                                                                              <Insets right="10.0" />
+                                                                           </VBox.margin>
+                                                                        </Label>
+                                                                     </children>
+                                                                  </VBox>
+                                                               </children>
+                                                            </GridPane>
+                                                         </graphic>
+                                                      </Button>
+                                                      <Button fx:id="twenty_twentyone_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" onMouseEntered="#hour_entered" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/reservarfxml.css">
+                                                         <graphic>
+                                                            <GridPane fx:id="nine_ten_gridpane11" alignment="CENTER">
+                                                               <columnConstraints>
+                                                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="179.2" minWidth="10.0" prefWidth="179.2" />
+                                                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="110.19998168945312" minWidth="10.0" prefWidth="94.40000000000003" />
+                                                               </columnConstraints>
+                                                               <rowConstraints>
+                                                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                               </rowConstraints>
+                                                               <children>
+                                                                  <Label fx:id="twenty_twentyone_label" text="20:00 - 21:00">
+                                                                     <font>
+                                                                        <Font name="SansSerif Regular" size="20.0" />
+                                                                     </font>
+                                                                     <GridPane.margin>
+                                                                        <Insets left="10.0" />
+                                                                     </GridPane.margin>
+                                                                  </Label>
+                                                                  <VBox fx:id="twenty_twentyone_vbox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
+                                                                     <children>
+                                                                        <Label fx:id="ocupado_20" text="Libre">
+                                                                           <font>
+                                                                              <Font name="SansSerif Italic" size="20.0" />
+                                                                           </font>
+                                                                           <VBox.margin>
+                                                                              <Insets right="10.0" />
+                                                                           </VBox.margin>
+                                                                        </Label>
+                                                                     </children>
+                                                                  </VBox>
+                                                               </children>
+                                                            </GridPane>
+                                                         </graphic>
+                                                      </Button>
+                                                      <Button fx:id="twentyone_twentytwo_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" onMouseEntered="#hour_entered" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/reservarfxml.css">
+                                                         <graphic>
+                                                            <GridPane fx:id="nine_ten_gridpane12" alignment="CENTER">
+                                                               <columnConstraints>
+                                                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="179.2" minWidth="10.0" prefWidth="179.2" />
+                                                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="110.19998168945312" minWidth="10.0" prefWidth="94.40000000000003" />
+                                                               </columnConstraints>
+                                                               <rowConstraints>
+                                                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                               </rowConstraints>
+                                                               <children>
+                                                                  <Label fx:id="twentyone_twentytwo_label" text="21:00 - 22:00">
+                                                                     <font>
+                                                                        <Font name="SansSerif Regular" size="20.0" />
+                                                                     </font>
+                                                                     <GridPane.margin>
+                                                                        <Insets left="10.0" />
+                                                                     </GridPane.margin>
+                                                                  </Label>
+                                                                  <VBox fx:id="twentyone_twentytwo_vbox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
+                                                                     <children>
+                                                                        <Label fx:id="ocupado_21" text="Libre">
+                                                                           <font>
+                                                                              <Font name="SansSerif Italic" size="20.0" />
+                                                                           </font>
+                                                                           <VBox.margin>
+                                                                              <Insets right="10.0" />
+                                                                           </VBox.margin>
+                                                                        </Label>
+                                                                     </children>
+                                                                  </VBox>
+                                                               </children>
+                                                            </GridPane>
+                                                         </graphic>
+                                                      </Button>
+                                                   </children>
+                                                   <padding>
+                                                      <Insets right="10.0" />
+                                                   </padding>
+                                                </VBox>
+                                             </children>
+                                             <opaqueInsets>
+                                                <Insets bottom="20.0" top="20.0" />
+                                             </opaqueInsets>
+                                          </AnchorPane>
+                                      </content>
+                                       <VBox.margin>
+                                          <Insets bottom="20.0" left="5.0" right="10.0" top="20.0" />
+                                       </VBox.margin>
+                                       <styleClass>
+                                          <String fx:value="decrement-arrow" />
+                                          <String fx:value="decrement-button" />
+                                          <String fx:value="increment-arrow" />
+                                          <String fx:value="increment-button" />
+                                          <String fx:value="scroll-bar" />
+                                       </styleClass>
+                                    </ScrollPane>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="15.0" left="20.0" right="10.0" top="5.0" />
+                                 </VBox.margin>
+                              </VBox>
+                           </children>
+                           <styleClass>
+                              <String fx:value="scroll-fondo" />
+                              <String fx:value="shadow" />
+                           </styleClass>
                         </VBox>
+                        <HBox alignment="CENTER_RIGHT" prefHeight="62.0" prefWidth="435.0">
+                           <children>
+                              <Button fx:id="reservar_button" mnemonicParsing="false" onMouseClicked="#reservar_clicked" onMouseEntered="#button_entered" onMouseExited="#button_exited" prefHeight="40.0" prefWidth="100.0" styleClass="purple-button" stylesheets="@../values/reservarfxml.css" text="Reservar" textFill="WHITE">
+                                 <font>
+                                    <Font name="SansSerif Bold" size="16.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets right="60.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                        </HBox>
                      </children>
-                     <styleClass>
-                        <String fx:value="scroll-fondo" />
-                        <String fx:value="shadow" />
-                     </styleClass>
                   </VBox>
-                  <HBox alignment="CENTER_RIGHT" prefHeight="62.0" prefWidth="435.0">
+                  <AnchorPane fx:id="pane_slide" prefHeight="810.0" prefWidth="490.0">
                      <children>
-                        <Button fx:id="reservar_button" mnemonicParsing="false" onMouseClicked="#reservar_clicked" onMouseEntered="#button_entered" onMouseExited="#button_exited" prefHeight="40.0" prefWidth="100.0" styleClass="purple-button" stylesheets="@../values/reservarfxml.css" text="Reservar" textFill="WHITE">
-                           <font>
-                              <Font name="SansSerif Bold" size="16.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets right="60.0" />
-                           </HBox.margin>
+                        <Button fx:id="menu_button2" mnemonicParsing="false" prefHeight="43.0" prefWidth="45.0" styleClass="transparent" stylesheets="@../values/registrofxml.css">
+                           <graphic>
+                              <ImageView fitHeight="47.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../img/vvv.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
                         </Button>
                      </children>
-                  </HBox>
+                  </AnchorPane>
                </children>
-            </VBox>
+            </StackPane>
          </left>
          <center>
             <VBox onMouseClicked="#cerrar_sesion_clicked" onMouseEntered="#button_entered" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
