@@ -313,6 +313,8 @@ public class DisponibilidadDelDiaFXMLController implements Initializable {
         });
         
         
+        
+        
         }catch(Exception e){
             System.out.println("problemos");
         }

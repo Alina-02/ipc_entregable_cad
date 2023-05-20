@@ -202,4 +202,22 @@
 }
 
 
+.basic-text{
+    -fx-background-color: white; /* Color de fondo del TextField */
+    -fx-background-radius: 100; /* Radio de los bordes del TextField */
+    -fx-border-color: #C3C3C3; /* Color del borde del TextField */
+    -fx-border-radius: 100; /* Radio de los bordes del TextField */
+    -fx-border-width: 1; /* Ancho del borde del TextField */
+    -fx-padding: 2px; /* Espacio interno del TextField */
+}
+.boton-personalizado:hover {
+    -fx-background-color: #9a549a; /* Nuevo color de fondo al pasar el cursor */
+    -fx-effect: none; /* Remover efecto al pasar el cursor */
+}
+
+.boton-personalizado:pressed {
+    -fx-effect: dropshadow(gaussian, rgba(78,2,80,0.8), 10, 0, 0, 0); /* Efecto gaussiano al pulsar */
+}
+
+
 }
