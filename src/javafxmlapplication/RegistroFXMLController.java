@@ -90,9 +90,9 @@ public class RegistroFXMLController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         try{club = Club.getInstance();
         }catch (ClubDAOException ex){
-            Logger.getLogger(RegistroFXMLController1.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(RegistroFXMLController.class.getName()).log(Level.SEVERE, null, ex);
         }catch (IOException ex){
-            Logger.getLogger(RegistroFXMLController1.class.getName()).log(Level.SEVERE, null, ex);}
+            Logger.getLogger(RegistroFXMLController.class.getName()).log(Level.SEVERE, null, ex);}
     
         back_button_registro.setOnMouseEntered(event -> {
                 back_button_registro.setCursor(Cursor.HAND);

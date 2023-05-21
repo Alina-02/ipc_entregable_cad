@@ -13,14 +13,23 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Cursor;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.shape.Circle;
+import javafx.stage.Stage;
+import javafx.util.Duration;
 import model.Booking;
 import model.Club;
 import model.ClubDAOException;
@@ -114,6 +123,22 @@ public class VerMisReservasFXMLController implements Initializable {
     private Label B10Court;
     
     private bookingButton[] bb = new bookingButton[10];
+    @FXML
+    private Button menu_button1;
+    @FXML
+    private AnchorPane pane_slide;
+    @FXML
+    private Button menu_button2;
+    @FXML
+    private Circle pictureFrame;
+    @FXML
+    private Button ir_Actualizar;
+    @FXML
+    private Button ir_Ver;
+    @FXML
+    private Button ir_Reservar;
+    @FXML
+    private Label cerrar_sesion_label;
     /**
      * Initializes the controller class.
      */
@@ -150,6 +175,28 @@ public class VerMisReservasFXMLController implements Initializable {
             //bb[i].setTime(aux.getFromTime().toString());
             //bb[i].setCourt(aux.getCourt().getName());
         }
+        
+        pane_slide.setTranslateX(-490);
+        menu_button1.setVisible(true);
+        menu_button2.setVisible(false);
+        
+        ir_Actualizar.setOnMouseExited(event ->{
+                ir_Actualizar.setCursor(Cursor.DEFAULT);
+        });
+        ir_Ver.setOnMouseEntered(event -> {
+                ir_Ver.setCursor(Cursor.HAND);
+        });
+        
+        ir_Ver.setOnMouseExited(event ->{
+                ir_Ver.setCursor(Cursor.DEFAULT);
+        });
+        ir_Reservar.setOnMouseEntered(event -> {
+                ir_Reservar.setCursor(Cursor.HAND);
+        });
+        
+        ir_Reservar.setOnMouseExited(event ->{
+                ir_Reservar.setCursor(Cursor.DEFAULT);
+        });
 
     }  
 
@@ -163,6 +210,96 @@ public class VerMisReservasFXMLController implements Initializable {
     @FXML
     private void exit_clicked(MouseEvent event) {
         
+    }
+
+    @FXML
+    private void run1(MouseEvent event) {
+        TranslateTransition slide = new TranslateTransition();
+        slide.setDuration(Duration.seconds(0.4));
+        slide.setNode(pane_slide);
+        
+        slide.setToX(0);
+        slide.play();
+        
+        pane_slide.setTranslateX(-490);
+        
+        slide.setOnFinished((ActionEvent e)-> {
+            menu_button1.setVisible(false);
+            menu_button2.setVisible(true);
+        });
+    }
+
+    @FXML
+    private void run2(MouseEvent event) {
+        TranslateTransition slide = new TranslateTransition();
+        slide.setDuration(Duration.seconds(0.4));
+        slide.setNode(pane_slide);
+        
+        slide.setToX(-490);
+        slide.play();
+        
+        pane_slide.setTranslateX(0);
+        
+        slide.setOnFinished((ActionEvent e)-> {
+            menu_button1.setVisible(true);
+            menu_button2.setVisible(false);
+        });
+    }
+
+    @FXML
+    private void showChange(MouseEvent event) {
+    }
+
+    @FXML
+    private void changeProfile(MouseEvent event) {
+    }
+
+    @FXML
+    private void irActualizar(MouseEvent event) {
+         try{
+                Stage stage;
+                stage = main.getStage();
+            
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/actualizarDatosFXML.fxml"));
+                Parent root = loader.load();
+                  
+                Scene scene = new Scene(root, 1200, 750);
+                stage.setScene(scene);
+
+                    
+            }catch(Exception e){System.out.println(e);}
+    }
+
+    @FXML
+    private void irVer(MouseEvent event) {
+        try{
+                Stage stage;
+                stage = main.getStage();
+            
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/verMisReservasFXML.fxml"));
+                Parent root = loader.load();
+                  
+                Scene scene = new Scene(root, 1200, 750);
+                stage.setScene(scene);
+
+                    
+            }catch(Exception e){System.out.println(e);}
+    }
+
+    @FXML
+    private void irReservar(MouseEvent event) {
+        try{
+                Stage stage;
+                stage = main.getStage();
+            
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/reservarFXML.fxml"));
+                Parent root = loader.load();
+                  
+                Scene scene = new Scene(root, 1200, 750);
+                stage.setScene(scene);
+
+                    
+            }catch(Exception e){System.out.println(e);}
     }
     
 }
