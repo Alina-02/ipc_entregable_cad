@@ -31,6 +31,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
@@ -60,6 +61,10 @@ public class RegistroFXMLController implements Initializable {
     @FXML
     private Circle pictureFrame;
     @FXML
+    private Button back_button_registro;
+    @FXML
+    private Button exit_button_registro;
+    @FXML
     private TextField nameTF;
     @FXML
     private TextField lastNameTF;
@@ -68,36 +73,26 @@ public class RegistroFXMLController implements Initializable {
     @FXML
     private TextField phoneTF;
     @FXML
+    private PasswordField passwordTF;
+    @FXML
     private TextField creditCardTF;
     @FXML
     private TextField cvvTF;
-    private Button registerB;
     @FXML
-    private TextField passwordTF;
+    private Button register_button;
     
     private Club club;
     private Image im;
     
-
-    @FXML
-    private Button back_button_registro;
-    @FXML
-    private Button exit_button_registro;
-    @FXML
-    private Button register_button;
     
-    /**
-     * Initializes the controller class.
-     */
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-        //Inicializa el club
         try{club = Club.getInstance();
         }catch (ClubDAOException ex){
-            Logger.getLogger(RegistroFXMLController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(RegistroFXMLController1.class.getName()).log(Level.SEVERE, null, ex);
         }catch (IOException ex){
-            Logger.getLogger(RegistroFXMLController.class.getName()).log(Level.SEVERE, null, ex);}
+            Logger.getLogger(RegistroFXMLController1.class.getName()).log(Level.SEVERE, null, ex);}
     
         back_button_registro.setOnMouseEntered(event -> {
                 back_button_registro.setCursor(Cursor.HAND);
@@ -113,21 +108,21 @@ public class RegistroFXMLController implements Initializable {
         exit_button_registro.setOnMouseExited(event ->{
                exit_button_registro.setCursor(Cursor.DEFAULT);
         });
-        registerB.setOnMouseEntered(event -> {
-                registerB.setCursor(Cursor.HAND);
+        register_button.setOnMouseEntered(event -> {
+                register_button.setCursor(Cursor.HAND);
         });
         
-        registerB.setOnMouseExited(event ->{
-               registerB.setCursor(Cursor.DEFAULT);
+        register_button.setOnMouseExited(event ->{
+               register_button.setCursor(Cursor.DEFAULT);
         });
     }    
 
     @FXML
-    private void showChange(MouseEvent event){
+    private void showChange(MouseEvent event) {
     }
 
     @FXML
-    private void changeProfile(MouseEvent event){
+    private void changeProfile(MouseEvent event) {
         //Cuestiones para abrir los archivos
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Abrir fichero");
@@ -143,6 +138,28 @@ public class RegistroFXMLController implements Initializable {
         if(club.existsLogin(userTF.getText())){
             club.getMemberByCredentials(userTF.getText(), passwordTF.getText()).setImage(im);
         }
+    }
+
+    @FXML
+    private void backRegistro(MouseEvent event) {
+        try{
+            Stage stage;
+            stage = main.getStage();
+            
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/autenticarseFXML.fxml"));
+            Parent root = loader.load();
+                  
+            Scene scene = new Scene(root, 1200, 750);
+            stage.setScene(scene);
+
+                    
+            }catch(Exception e){System.out.println(e);}
+    }
+
+    @FXML
+    private void exitRegistro(MouseEvent event) {
+        Stage stage = (Stage) exit_button_registro.getScene().getWindow();
+        stage.close();
     }
 
     @FXML
@@ -166,7 +183,7 @@ public class RegistroFXMLController implements Initializable {
         else errorRegistry();
         System.out.println("Bien");
     }
-    
+ 
     public void errorRegistry(){
         Alert alert = new Alert(AlertType.ERROR);
         alert.setTitle("Diálogo de excepción");
@@ -228,29 +245,6 @@ public class RegistroFXMLController implements Initializable {
 
     }
 
-
-
-    @FXML
-    private void exitRegistro(MouseEvent event) {
-        Stage stage = (Stage) exit_button_registro.getScene().getWindow();
-            stage.close();
-    }
-
-    @FXML
-    private void backRegistro(MouseEvent event) {
-        try{
-            Stage stage;
-            stage = main.getStage();
-            
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/autenticarseFXML.fxml"));
-            Parent root = loader.load();
-                  
-            Scene scene = new Scene(root, 1200, 750);
-            stage.setScene(scene);
-
-                    
-            }catch(Exception e){System.out.println(e);}
-    }
 
 }
 
