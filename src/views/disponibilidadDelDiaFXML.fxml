@@ -48,7 +48,7 @@
                         <Insets left="30.0" right="30.0" />
                      </VBox.margin>
                      <children>
-                        <TextField fx:id="find_hour_textfield" prefHeight="40.0" prefWidth="222.0" promptText="Busque una hora..." styleClass="transparent" stylesheets="@../values/disponibilidaddeldiafxml.css">
+                        <TextField fx:id="find_hour_textfield" prefHeight="40.0" prefWidth="222.0" promptText="09, 10, 11, 12, 13, 14..." styleClass="transparent" stylesheets="@../values/disponibilidaddeldiafxml.css">
                            <HBox.margin>
                               <Insets left="20.0" />
                            </HBox.margin>
@@ -56,13 +56,6 @@
                               <Font name="Cambria" size="18.0" />
                            </font>
                         </TextField>
-                        <Button fx:id="find_hour_button" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" styleClass="purple-button" stylesheets="@../values/disponibilidaddeldiafxml.css" text="Buscar" textFill="WHITE">
-                           <font>
-                              <Font name="SansSerif Bold" size="14.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets left="35.0" />
-                           </HBox.margin></Button>
                      </children>
                      <styleClass>
                         <String fx:value="search-button" />
@@ -74,13 +67,13 @@
                         <Insets bottom="20.0" left="50.0" right="50.0" top="35.0" />
                      </VBox.margin>
                      <children>
-                        <VBox prefHeight="554.0" prefWidth="335.0">
+                        <VBox prefHeight="470.0" prefWidth="354.0">
                            <children>
-                              <ScrollPane prefHeight="434.0" prefWidth="248.0" stylesheets="@../values/disponibilidaddeldiafxml.css">
+                              <ScrollPane prefHeight="430.0" prefWidth="342.0" stylesheets="@../values/disponibilidaddeldiafxml.css">
                                 <content>
-                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1221.0" prefWidth="326.0" styleClass="white_background" stylesheets="@../values/disponibilidaddeldiafxml.css">
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1217.0" prefWidth="319.0" styleClass="white_background" stylesheets="@../values/disponibilidaddeldiafxml.css">
                                        <children>
-                                          <VBox prefHeight="1221.0" prefWidth="332.0">
+                                          <VBox fx:id="hour_buttons_vbox" prefHeight="1221.0" prefWidth="332.0">
                                              <padding>
                                                 <Insets right="10.0" />
                                              </padding>
@@ -131,7 +124,7 @@
                                                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                          </rowConstraints>
                                                          <children>
-                                                            <Label fx:id="ten_eleven_label1" text="10:00 - 11:00">
+                                                            <Label fx:id="ten_eleven_label" text="10:00 - 11:00">
                                                                <font>
                                                                   <Font name="SansSerif Regular" size="20.0" />
                                                                </font>
@@ -271,7 +264,7 @@
                                                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                          </rowConstraints>
                                                          <children>
-                                                            <Label fx:id="fourteen_fiveteen_label" text="14:00 - 15:00">
+                                                            <Label fx:id="fourteen_fifteen_label" text="14:00 - 15:00">
                                                                <font>
                                                                   <Font name="SansSerif Regular" size="20.0" />
                                                                </font>
@@ -306,7 +299,7 @@
                                                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                          </rowConstraints>
                                                          <children>
-                                                            <Label fx:id="fiveteen_sixteen_label" text="15:00 - 16:00">
+                                                            <Label fx:id="fifteen_sixteen_label" text="15:00 - 16:00">
                                                                <font>
                                                                   <Font name="SansSerif Regular" size="20.0" />
                                                                </font>
@@ -583,22 +576,7 @@
                      <children>
                         <AnchorPane prefHeight="61.0" prefWidth="2000.0">
                            <children>
-                              <HBox alignment="BOTTOM_LEFT" prefHeight="60.0" prefWidth="60.0" AnchorPane.leftAnchor="25.0">
-                                 <children>
-                                    <Button fx:id="back_button" mnemonicParsing="false" onMouseEntered="#hour_button_entered" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: transparent;">
-                                       <HBox.margin>
-                                          <Insets top="15.0" />
-                                       </HBox.margin>
-                                       <graphic>
-                                          <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../img/return.png" />
-                                             </image>
-                                          </ImageView>
-                                       </graphic>
-                                    </Button>
-                                 </children>
-                              </HBox>
+                              <HBox alignment="BOTTOM_LEFT" prefHeight="60.0" prefWidth="60.0" AnchorPane.leftAnchor="25.0" />
                               <HBox alignment="TOP_RIGHT" prefHeight="61.0" prefWidth="30.0" AnchorPane.rightAnchor="30.0">
                                  <children>
                                     <Button fx:id="exit_button" mnemonicParsing="false" onMouseClicked="#exit_clicked" onMouseEntered="#hour_button_entered" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: transparent;">
@@ -615,7 +593,6 @@
                                     </Button>
                                  </children>
                               </HBox>
-                              <Button fx:id="actualizar_datos" layoutX="163.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#actualizar_datos_clicked" onMouseEntered="#hour_button_entered" text="Actualizar Datos" />
                            </children>
                         </AnchorPane>
                      </children>

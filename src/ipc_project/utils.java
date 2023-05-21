@@ -43,4 +43,19 @@ public class utils {
         if(clicked1 != -1){clicked2 = first_hour; b2 = hour;}
         else{clicked1 = first_hour; b1 = hour;}
     }
+    
+    public static boolean isNumeric(String string) {
+        int intValue;
+
+        if(string == null || string.equals("")) {
+            return false;
+        }
+
+        try {
+            intValue = Integer.parseInt(string);
+            return true;
+        } catch (NumberFormatException e) {
+        }
+        return false;
+    }
 }

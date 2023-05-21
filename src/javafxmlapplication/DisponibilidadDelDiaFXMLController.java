@@ -38,7 +38,14 @@ import javafx.stage.Stage;
 import model.Booking;
 import model.Club;
 import ipc_project.*;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.function.Predicate;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.collections.ObservableMap;
 import javafx.scene.Cursor;
+import javafx.scene.control.ListView;
 import javafx.scene.input.DragEvent;
 
 /**
@@ -69,8 +76,6 @@ public class DisponibilidadDelDiaFXMLController implements Initializable {
     @FXML
     private Button twentyone_twentytwo_button;
     @FXML
-    private Button back_button;
-    @FXML
     private Button exit_button;
     @FXML
     private DatePicker calendar_date_picker;
@@ -94,8 +99,6 @@ public class DisponibilidadDelDiaFXMLController implements Initializable {
     private Label ocupado_9;
     @FXML
     private GridPane nine_ten_gridpane11;
-    @FXML
-    private Label ten_eleven_label1;
     @FXML
     private Button ten_eleven_button;
     @FXML
@@ -127,8 +130,6 @@ public class DisponibilidadDelDiaFXMLController implements Initializable {
     @FXML
     private GridPane nine_ten_gridpane5;
     @FXML
-    private Label fourteen_fiveteen_label;
-    @FXML
     private VBox fourteen_fifthteen_vbox;
     @FXML
     private Label ocupado_14;
@@ -136,8 +137,6 @@ public class DisponibilidadDelDiaFXMLController implements Initializable {
     private Button fifthteen_sixteen_button;
     @FXML
     private GridPane nine_ten_gridpane6;
-    @FXML
-    private Label fiveteen_sixteen_label;
     @FXML
     private VBox fifthteen_sixteen_vbox;
     @FXML
@@ -201,6 +200,12 @@ public class DisponibilidadDelDiaFXMLController implements Initializable {
     List<Label> ocupado = new ArrayList<>();
     List<Button> horas = new ArrayList<>();
     LocalDate date = LocalDate.now(); //fecha de las pistas
+    ObservableList<Button> horasObservable = FXCollections.observableList(horas);
+    ListView<Button> horasListView = new ListView<Button>(horasObservable);
+    
+    // MAP ENTRE BUTTONS Y VALORES
+    ObservableMap<Button, Integer> map = FXCollections.observableHashMap();
+    
     String pista = "Pista 1";
     Club club;
     @FXML
@@ -216,9 +221,15 @@ public class DisponibilidadDelDiaFXMLController implements Initializable {
     @FXML
     private Button seventeen_eighteen_button;
     @FXML
-    private Button actualizar_datos;
-    @FXML
     private Button iniciar_sesion_button;
+    @FXML
+    private Label ten_eleven_label;
+    @FXML
+    private Label fourteen_fifteen_label;
+    @FXML
+    private Label fifteen_sixteen_label;
+    @FXML
+    private VBox hour_buttons_vbox;
     
     
     @Override
@@ -283,13 +294,33 @@ public class DisponibilidadDelDiaFXMLController implements Initializable {
         horas.add(twenty_twentyone_button);
         horas.add(twentyone_twentytwo_button);
         
+        //llena el map
+        map.put(nine_ten_button, 9);
+        map.put(ten_eleven_button, 10);
+        map.put(eleven_twelve_button, 11);
+        map.put(twelve_thirdteen_button,12);
+        map.put(thirdteen_fourteen_button, 13);
+        map.put(fourteen_fifthteen_button, 14);
+        map.put(fifthteen_sixteen_button, 15);
+        map.put(sixteen_seventeen_button, 16);
+        map.put(seventeen_eighteen_button, 17);
+        map.put(eighteen_nineteen_button, 18);
+        map.put(nineteen_twenty_button, 19);
+        map.put(twenty_twentyone_button, 20);
+        map.put(twentyone_twentytwo_button, 21);
+        
+        
+        // DESHABILITAR LOS BOTONES DE RESERVAR HORAS
         
         for(Button hour: horas){
             hour.setDisable(true);
         }
         
+        // ACTUALIZAR LA DISPONIBILIDAD DE LAS PISTAS
+       
         comprobarPista(pista, date);
         
+        // CONFIGURAR EL CALENDARIO
         
         calendar_date_picker.setDayCellFactory((DatePicker picker) -> {
            return new DateCell() {
@@ -302,6 +333,8 @@ public class DisponibilidadDelDiaFXMLController implements Initializable {
            }; 
         });
         
+        // CURSORES
+        
         iniciar_sesion_button.setOnMouseEntered(event -> {
                 iniciar_sesion_button.setCursor(Cursor.HAND);
                 iniciar_sesion_button.setStyle("-fx-background-color: #98609c");
@@ -312,6 +345,30 @@ public class DisponibilidadDelDiaFXMLController implements Initializable {
                 iniciar_sesion_button.setStyle("-fx-background-color: #822f87");
         });
         
+        // BUSCADOR EN TIEMPO REAL
+        
+        find_hour_textfield.textProperty().addListener((observable, oldValue, newValue) ->{
+            boolean correcto = true;
+        //Comprobar que el formato está bien
+        if(!find_hour_textfield.getText().isEmpty()){
+            String hour = find_hour_textfield.getText();
+            if(hour.equals(null)){verBotones();}
+            if(!utils.isNumeric(hour)){correcto = false;}
+            if(correcto){
+                int hourInt = Integer.parseInt(hour);
+                if(hourInt <= 21){
+                    buscarHora(hour);
+                }else{
+                    // NO ESTÁ EN EL RANGO DE HORAS
+                }
+                
+            }else{
+                // NO HA PUESTO UN NÚMERO
+            }
+            
+            
+        }else{verBotones();}
+        });
         
         
         
@@ -421,6 +478,8 @@ public class DisponibilidadDelDiaFXMLController implements Initializable {
         }
         
     }
+    
+    // BOTONES DE LAS PISTAS
 
     @FXML
     private void pista1_toggle_button_clicked(MouseEvent event) {
@@ -457,6 +516,8 @@ public class DisponibilidadDelDiaFXMLController implements Initializable {
         comprobarPista(pista, date);
     }
 
+    // CALENDARIO
+    
     @FXML
     private void pista6_toggle_button_clicked(MouseEvent event) {
         pista = "Pista 6";
@@ -473,24 +534,8 @@ public class DisponibilidadDelDiaFXMLController implements Initializable {
         
     }
 
-    @FXML
-    private void actualizar_datos_clicked(MouseEvent event) {
-        
-        try{
-            
-            Stage stage;
-            stage = main.getStage();
-            
-            FXMLLoader loader= new  FXMLLoader(getClass().getResource("/views/ActualizarDatosFXML.fxml"));
-            Parent root = loader.load();
-            Scene scene = new Scene(root, 1200,750);
-            stage.setScene(scene);
-            
-        }catch(Exception e){System.out.println("la cagaste");}
-        
-        
-        
-    }
+    
+    // INICIAR SESIÓN
 
     @FXML
     private void iniciar_sesion_clicked(MouseEvent event) {
@@ -546,6 +591,29 @@ public class DisponibilidadDelDiaFXMLController implements Initializable {
 
     @FXML
     private void pìsta_toggle_entered(MouseEvent event) {
+    }
+    
+    
+    private void buscarHora(String hour){
+        
+        for(Button button: horasObservable){
+            String buscar = String.valueOf(map.get(button));
+            if(buscar.startsWith(hour)){
+                button.setVisible(true);
+                button.setManaged(true);
+            }else{
+                button.setVisible(false);
+                button.setManaged(false);
+            }
+        }
+        
+    }
+    
+    private void verBotones(){
+        for(Button button: horasObservable){
+            button.setVisible(true);
+            button.setManaged(true);
+        }
     }
 
         
