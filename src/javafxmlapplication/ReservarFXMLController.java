@@ -11,6 +11,7 @@ import java.util.Hashtable;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -35,11 +36,20 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.CycleMethod;
+import javafx.scene.paint.LinearGradient;
+import javafx.scene.paint.RadialGradient;
+import javafx.scene.paint.Stop;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import model.Booking;
 import model.Club;
 import model.Court;
@@ -72,10 +82,6 @@ public class ReservarFXMLController implements Initializable {
     private Button nineteen_twenty_button;
     @FXML
     private Button twenty_twentyone_button;
-    @FXML
-    private Button back_button;
-    @FXML
-    private Button exit_button;
     @FXML
     private DatePicker calendar_date_picker;
     @FXML
@@ -243,6 +249,20 @@ public class ReservarFXMLController implements Initializable {
     private AnchorPane pane_slide;
     @FXML
     private Button menu_button2;
+    @FXML
+    private Circle pictureFrame;
+    @FXML
+    private Button ir_Actualizar;
+    @FXML
+    private Button ir_Ver;
+    @FXML
+    private Button ir_Reservar;
+    @FXML
+    private Label cerrar_sesion_label;
+    @FXML
+    private Button back_button_reservar;
+    @FXML
+    private Button exit_button_Reservar;
    
     
     @Override
@@ -328,11 +348,56 @@ public class ReservarFXMLController implements Initializable {
             System.out.println("problemos");
         }
          
+        
+        pane_slide.setTranslateX(-490);
+        menu_button1.setVisible(true);
+        menu_button2.setVisible(false);
+        ir_Actualizar.setOnMouseEntered(event -> {
+                ir_Actualizar.setCursor(Cursor.HAND);
+        });
+        
+        ir_Actualizar.setOnMouseExited(event ->{
+                ir_Actualizar.setCursor(Cursor.DEFAULT);
+        });
+        ir_Ver.setOnMouseEntered(event -> {
+                ir_Ver.setCursor(Cursor.HAND);
+        });
+        
+        ir_Ver.setOnMouseExited(event ->{
+                ir_Ver.setCursor(Cursor.DEFAULT);
+        });
+        ir_Reservar.setOnMouseEntered(event -> {
+                ir_Reservar.setCursor(Cursor.HAND);
+        });
+        
+        ir_Reservar.setOnMouseExited(event ->{
+                ir_Reservar.setCursor(Cursor.DEFAULT);
+        });
+        cerrar_sesion_label.setOnMouseEntered(event -> {
+                cerrar_sesion_label.setCursor(Cursor.HAND);
+        });
+        
+        cerrar_sesion_label.setOnMouseExited(event ->{
+                cerrar_sesion_label.setCursor(Cursor.DEFAULT);
+        });
+        back_button_reservar.setOnMouseEntered(event -> {
+                back_button_reservar.setCursor(Cursor.HAND);
+        });
+        
+        back_button_reservar.setOnMouseExited(event ->{
+                back_button_reservar.setCursor(Cursor.DEFAULT);
+        });
+        exit_button_Reservar.setOnMouseEntered(event -> {
+                exit_button_Reservar.setCursor(Cursor.HAND);
+        });
+        
+        exit_button_Reservar.setOnMouseExited(event ->{
+                exit_button_Reservar.setCursor(Cursor.DEFAULT);
+        });
     } 
-    
+ 
     
 
-    @FXML
     private void exit_clicked(MouseEvent event) {
         Platform.exit();
     }
@@ -756,6 +821,106 @@ public class ReservarFXMLController implements Initializable {
         
     }
 
+    @FXML
+    private void run1(MouseEvent event) {
+        TranslateTransition slide = new TranslateTransition();
+        slide.setDuration(Duration.seconds(0.4));
+        slide.setNode(pane_slide);
+        
+        slide.setToX(0);
+        slide.play();
+        
+        pane_slide.setTranslateX(-490);
+        
+        slide.setOnFinished((ActionEvent e)-> {
+            menu_button1.setVisible(false);
+            menu_button2.setVisible(true);
+        });
+    }
 
+    @FXML
+    private void run2(MouseEvent event) {
+        TranslateTransition slide = new TranslateTransition();
+        slide.setDuration(Duration.seconds(0.4));
+        slide.setNode(pane_slide);
+        
+        slide.setToX(-490);
+        slide.play();
+        
+        pane_slide.setTranslateX(0);
+        
+        slide.setOnFinished((ActionEvent e)-> {
+            menu_button1.setVisible(true);
+            menu_button2.setVisible(false);
+        });
+    }
+
+    @FXML
+    private void showChange(MouseEvent event) {
+    }
+
+    @FXML
+    private void changeProfile(MouseEvent event) {
+    }
+
+    @FXML
+    private void irActualizar(MouseEvent event) {
+        try{
+                Stage stage;
+                stage = main.getStage();
+            
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/actualizarDatosFXML.fxml"));
+                Parent root = loader.load();
+                  
+                Scene scene = new Scene(root, 1200, 750);
+                stage.setScene(scene);
+
+                    
+            }catch(Exception e){System.out.println(e);}
+    }
+
+    @FXML
+    private void irVer(MouseEvent event) {
+        try{
+                Stage stage;
+                stage = main.getStage();
+            
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/verMisReservasFXML.fxml"));
+                Parent root = loader.load();
+                  
+                Scene scene = new Scene(root, 1200, 750);
+                stage.setScene(scene);
+
+                    
+            }catch(Exception e){System.out.println(e);}
+    }
+
+    @FXML
+    private void irReservar(MouseEvent event) {
+        try{
+                Stage stage;
+                stage = main.getStage();
+            
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/reservarFXML.fxml"));
+                Parent root = loader.load();
+                  
+                Scene scene = new Scene(root, 1200, 750);
+                stage.setScene(scene);
+
+                    
+            }catch(Exception e){System.out.println(e);}
+    }
+
+    @FXML
+    private void backReservar(MouseEvent event) {
+    }
+
+    @FXML
+    private void exitReservar(MouseEvent event) {
+        Stage stage = (Stage) exit_button_Reservar.getScene().getWindow();
+            stage.close();
+    }
+    
+    
     
 }

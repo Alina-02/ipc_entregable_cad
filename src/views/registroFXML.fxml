@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -26,17 +28,18 @@
                <children>
                   <VBox alignment="CENTER" prefWidth="452.0" styleClass="green-background">
                      <children>
-                        <ImageView fitHeight="67.0" fitWidth="436.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="51.0" fitWidth="399.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../img/Letras.png" />
                            </image>
                         </ImageView>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Vamos  a hacer esto juntos" wrappingWidth="272.9917755126953">
-                           <font>
-                              <Font size="29.0" />
-                           </font>
-                        </Text>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/dddd_1.png" />
+                           </image>
+                        </ImageView>
                         <Circle fx:id="pictureFrame" fill="WHITE" onMouseEntered="#showChange" onMousePressed="#changeProfile" radius="88.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Label text="Label" />
                      </children>
                   </VBox>
                </children>
@@ -45,121 +48,224 @@
          <center>
             <VBox prefHeight="811.0" prefWidth="972.0" BorderPane.alignment="CENTER">
                <children>
-                  <HBox alignment="TOP_RIGHT" prefHeight="40.0" prefWidth="690.0">
+                  <AnchorPane prefHeight="61.0" prefWidth="2000.0">
                      <children>
-                        <Button fx:id="return_button" contentDisplay="RIGHT" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onMouseClicked="#returnAut" styleClass="transparent">
-                           <graphic>
-                              <ImageView fitHeight="35.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../img/Reculllllrso%201.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                        <Button fx:id="exit_button_autenticarse" mnemonicParsing="false" onMouseClicked="#closeWin" prefHeight="36.0" prefWidth="39.0" styleClass="transparent">
-                           <graphic>
-                              <ImageView fitHeight="42.0" fitWidth="28.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true" styleClass="transparent">
-                                 <image>
-                                    <Image url="@../img/hoi.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                     </children>
-                  </HBox>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Registro de usuario" wrappingWidth="490.40338706970215">
-                     <font>
-                        <Font name="Tw Cen MT Condensed Extra Bold" size="55.0" />
-                     </font>
-                  </Text>
-                  <VBox prefHeight="372.0" prefWidth="630.0">
-                     <children>
-                        <GridPane hgap="30.0">
-                          <columnConstraints>
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                          </columnConstraints>
-                          <rowConstraints>
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                          </rowConstraints>
+                        <HBox alignment="BOTTOM_LEFT" prefHeight="60.0" prefWidth="60.0" AnchorPane.leftAnchor="25.0">
                            <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                              </Text>
-                              <TextField fx:id="nameTF" styleClass="search-box2" GridPane.rowIndex="1" />
-                              <TextField fx:id="lastNameTF" styleClass="search-box2" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" Apellido" GridPane.columnIndex="1">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                              </Text>
-                              <TextField fx:id="phoneTF" styleClass="search-box2" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" Telefono" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                              </Text>
-                              <TextField fx:id="userTF" styleClass="search-box2" GridPane.rowIndex="3" />
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario" GridPane.rowIndex="2">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                              </Text>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Contraseña" GridPane.rowIndex="4">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                              </Text>
-                              <PasswordField fx:id="passwordTF" GridPane.rowIndex="5" />
-                              <PasswordField GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Confirmacion" GridPane.columnIndex="1" GridPane.rowIndex="4">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                              </Text>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="numero tarjeta de credito" GridPane.rowIndex="7">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                              </Text>
-                              <TextField fx:id="creditCardTF" styleClass="search-box2" GridPane.rowIndex="8" />
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" CVV" GridPane.columnIndex="1" GridPane.rowIndex="7">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                              </Text>
-                              <TextField fx:id="cvvTF" styleClass="search-box2" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                              <Button fx:id="back_button_registro" mnemonicParsing="false" onMouseClicked="#backRegistro" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: transparent;">
+                                 <HBox.margin>
+                                    <Insets top="15.0" />
+                                 </HBox.margin>
+                                 <graphic>
+                                    <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../img/Reculllllrso%201.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
                            </children>
-                        </GridPane>
+                        </HBox>
+                        <HBox alignment="TOP_RIGHT" prefHeight="61.0" prefWidth="30.0" AnchorPane.rightAnchor="30.0">
+                           <children>
+                              <Button fx:id="exit_button_registro" mnemonicParsing="false" onMouseClicked="#exitRegistro" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: transparent;">
+                                 <HBox.margin>
+                                    <Insets top="15.0" />
+                                 </HBox.margin>
+                                 <graphic>
+                                    <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../img/Salir.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </HBox>
+                     </children>
+                  </AnchorPane>
+                  <VBox>
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Registro de Usuario" wrappingWidth="490.40338706970215">
+                           <font>
+                              <Font name="System Bold" size="44.0" />
+                           </font>
+                        </Text>
+                        <VBox prefHeight="478.0" prefWidth="588.0">
+                           <children>
+                              <GridPane hgap="50.0" prefHeight="415.0" prefWidth="568.0" vgap="15.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="60.0000061035156" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="78.13333740234373" minHeight="10.0" prefHeight="29.599996948242165" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="88.20000305175779" minHeight="10.0" prefHeight="88.20000305175779" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1">
+                                       <children>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre">
+                                             <font>
+                                                <Font size="20.0" />
+                                             </font>
+                                          </Text>
+                                          <TextField fx:id="nameTF" styleClass="basic-text">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                          </TextField>
+                                       </children>
+                                    </VBox>
+                                    <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                       <children>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" Apellido">
+                                             <font>
+                                                <Font size="20.0" />
+                                             </font>
+                                          </Text>
+                                          <TextField fx:id="lastNameTF" styleClass="basic-text">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                          </TextField>
+                                       </children>
+                                    </VBox>
+                                    <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="2">
+                                       <children>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario">
+                                             <font>
+                                                <Font size="20.0" />
+                                             </font>
+                                          </Text>
+                                          <TextField fx:id="userTF" styleClass="basic-text">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                          </TextField>
+                                       </children>
+                                    </VBox>
+                                    <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                       <children>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" Telefono">
+                                             <font>
+                                                <Font size="20.0" />
+                                             </font>
+                                          </Text>
+                                          <TextField fx:id="phoneTF" styleClass="basic-text">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                          </TextField>
+                                       </children>
+                                    </VBox>
+                                    <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="3">
+                                       <children>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Contraseña">
+                                             <font>
+                                                <Font size="20.0" />
+                                             </font>
+                                          </Text>
+                                          <PasswordField fx:id="passwordTF" styleClass="basic-text">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                          </PasswordField>
+                                       </children>
+                                    </VBox>
+                                    <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                       <children>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Confirmacion">
+                                             <font>
+                                                <Font size="20.0" />
+                                             </font>
+                                          </Text>
+                                          <PasswordField styleClass="basic-text">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                          </PasswordField>
+                                       </children>
+                                    </VBox>
+                                    <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="5">
+                                       <children>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nº de tarjeta ">
+                                             <font>
+                                                <Font size="20.0" />
+                                             </font>
+                                          </Text>
+                                          <TextField fx:id="creditCardTF" styleClass="basic-text">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                          </TextField>
+                                       </children>
+                                    </VBox>
+                                    <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                       <children>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" SVC">
+                                             <font>
+                                                <Font size="20.0" />
+                                             </font>
+                                          </Text>
+                                          <TextField fx:id="cvvTF" styleClass="basic-text">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                          </TextField>
+                                       </children>
+                                    </VBox>
+                                    <Text fill="#bdca2e" strokeType="OUTSIDE" strokeWidth="0.0" text="Informacion Basica" wrappingWidth="490.40338706970215" GridPane.valignment="BOTTOM">
+                                       <font>
+                                          <Font name="System Bold" size="30.0" />
+                                       </font>
+                                    </Text>
+                                    <Text fill="#bdca2e" strokeType="OUTSIDE" strokeWidth="0.0" text="Informacion Basica" wrappingWidth="490.40338706970215" GridPane.rowIndex="4" GridPane.valignment="BOTTOM">
+                                       <font>
+                                          <Font name="System Bold" size="30.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets right="20.0" />
+                                 </VBox.margin>
+                              </GridPane>
+                              <HBox alignment="BOTTOM_LEFT" prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <Button fx:id="register_button" mnemonicParsing="false" onAction="#registerMember" prefHeight="46.0" prefWidth="264.0" text="Registrarse" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="22.0" />
+                                       </font>
+                                       <styleClass>
+                                          <String fx:value="purple-button" />
+                                          <String fx:value="boton-personalizado" />
+                                       </styleClass>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="20.0" />
+                           </VBox.margin>
+                        </VBox>
                      </children>
                      <VBox.margin>
-                        <Insets top="20.0" />
+                        <Insets left="90.0" right="90.0" top="45.0" />
                      </VBox.margin>
                   </VBox>
-                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-                     <children>
-                        <Button fx:id="registerB" mnemonicParsing="false" onAction="#registerMember" styleClass="purple-button" text="Registrarse" textFill="WHITE">
-                           <font>
-                              <Font size="22.0" />
-                           </font></Button>
-                     </children>
-                  </HBox>
                </children>
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
                <BorderPane.margin>
-                  <Insets left="40.0" right="40.0" top="90.0" />
+                  <Insets />
                </BorderPane.margin>
             </VBox>
          </center>

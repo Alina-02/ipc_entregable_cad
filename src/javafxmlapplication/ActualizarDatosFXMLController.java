@@ -26,10 +26,6 @@ public class ActualizarDatosFXMLController implements Initializable {
 
     @FXML
     private Circle user_image_circle;
-    @FXML
-    private Button back_button;
-    @FXML
-    private Button exit_button;
 
     /**
      * Initializes the controller class.
@@ -42,9 +38,6 @@ public class ActualizarDatosFXMLController implements Initializable {
         //user_image_circle.setEffect(new DropShadow(+25d, 0d, +2d, Color.GREY));
     }    
 
-    @FXML
-    private void exit_clicked(MouseEvent event) {
-    } 
     
 }
 

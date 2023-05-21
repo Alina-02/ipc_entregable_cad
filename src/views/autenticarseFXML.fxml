@@ -34,31 +34,42 @@
                   <Insets />
                </BorderPane.margin>
                <children>
-                  <HBox alignment="TOP_RIGHT" prefHeight="40.0" prefWidth="690.0">
+                  <AnchorPane prefHeight="61.0" prefWidth="2000.0">
                      <children>
-                        <Button fx:id="return_button" contentDisplay="RIGHT" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onMouseClicked="#returnAut" styleClass="transparent">
-                           <graphic>
-                              <ImageView fitHeight="35.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../img/Reculllllrso%201.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                        <Button fx:id="exit_button_autenticarse" mnemonicParsing="false" onMouseClicked="#closeWin" prefHeight="36.0" prefWidth="39.0" styleClass="transparent">
-                           <graphic>
-                              <ImageView fitHeight="42.0" fitWidth="28.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true" styleClass="transparent">
-                                 <image>
-                                    <Image url="@../img/hoi.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
+                        <HBox alignment="BOTTOM_LEFT" prefHeight="60.0" prefWidth="60.0" AnchorPane.leftAnchor="25.0">
+                           <children>
+                              <Button fx:id="back_button_autenticarse" mnemonicParsing="false" onMouseClicked="#backAutenticarse" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: transparent;">
+                                 <HBox.margin>
+                                    <Insets top="15.0" />
+                                 </HBox.margin>
+                                 <graphic>
+                                    <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../img/Reculllllrso%201.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </HBox>
+                        <HBox alignment="TOP_RIGHT" prefHeight="61.0" prefWidth="30.0" AnchorPane.rightAnchor="30.0">
+                           <children>
+                              <Button fx:id="exit_button_autenticarse" mnemonicParsing="false" onMouseClicked="#exitAutenticarse" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: transparent;">
+                                 <HBox.margin>
+                                    <Insets top="15.0" />
+                                 </HBox.margin>
+                                 <graphic>
+                                    <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../img/Salir.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </HBox>
                      </children>
-                     <VBox.margin>
-                        <Insets right="20.0" top="20.0" />
-                     </VBox.margin>
-                  </HBox>
+                  </AnchorPane>
                   <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="566.0" prefWidth="542.0">
                      <children>
                         <ImageView fitHeight="93.0" fitWidth="542.0" pickOnBounds="true" preserveRatio="true">
@@ -88,7 +99,7 @@
                                                 <Font size="20.0" />
                                              </font>
                                           </Label>
-                                          <TextField fx:id="usuario_text_field" maxWidth="-Infinity" prefHeight="35.0" prefWidth="334.0" style="-fx-background-radius: 100;">
+                                          <TextField fx:id="usuario_text_field" maxWidth="-Infinity" prefHeight="35.0" prefWidth="334.0" styleClass="basic-text">
                                              <font>
                                                 <Font size="16.0" />
                                              </font></TextField>
@@ -105,10 +116,10 @@
                                                 <Font size="20.0" />
                                              </font>
                                              <VBox.margin>
-                                                <Insets top="5.0" />
+                                                <Insets top="3.0" />
                                              </VBox.margin>
                                           </Label>
-                                          <PasswordField fx:id="contraseña_text_field" prefHeight="35.0" prefWidth="334.0" style="-fx-background-radius: 100;">
+                                          <PasswordField fx:id="contraseña_text_field" prefHeight="35.0" prefWidth="334.0" styleClass="basic-text">
                                              <font>
                                                 <Font size="16.0" />
                                              </font></PasswordField>

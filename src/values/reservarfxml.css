@@ -219,4 +219,9 @@
     -fx-text-fill: while;
 }
 
+.white-button{
+    -fx-background-color: WHITE;
+    -fx-background-radius: 100;
+}
+
 }

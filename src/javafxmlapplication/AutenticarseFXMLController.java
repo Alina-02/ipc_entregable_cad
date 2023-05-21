@@ -55,7 +55,7 @@ public class AutenticarseFXMLController implements Initializable {
     @FXML
     private Button exit_button_autenticarse;
     @FXML
-    private Button return_button;
+    private Button back_button_autenticarse;
 
 
     /**
@@ -92,12 +92,12 @@ public class AutenticarseFXMLController implements Initializable {
         exit_button_autenticarse.setOnMouseExited(event ->{
                 exit_button_autenticarse.setCursor(Cursor.DEFAULT);
         });
-        return_button.setOnMouseEntered(event -> {
-                return_button.setCursor(Cursor.HAND);
+        back_button_autenticarse.setOnMouseEntered(event -> {
+                back_button_autenticarse.setCursor(Cursor.HAND);
         });
         
-        return_button.setOnMouseExited(event ->{
-                return_button.setCursor(Cursor.DEFAULT);
+        back_button_autenticarse.setOnMouseExited(event ->{
+                back_button_autenticarse.setCursor(Cursor.DEFAULT);
         });
         
     }    
@@ -179,13 +179,13 @@ public class AutenticarseFXMLController implements Initializable {
     }
 
     @FXML
-    private void closeWin(MouseEvent event) {
+    private void exitAutenticarse(MouseEvent event) {
         Stage stage = (Stage) exit_button_autenticarse.getScene().getWindow();
             stage.close();
     }
 
     @FXML
-    private void returnAut(MouseEvent event) {
+    private void backAutenticarse(MouseEvent event) {
         try{
                 Stage stage;
                 stage = main.getStage();

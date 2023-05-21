@@ -71,7 +71,6 @@ public class RegistroFXMLController implements Initializable {
     private TextField creditCardTF;
     @FXML
     private TextField cvvTF;
-    @FXML
     private Button registerB;
     @FXML
     private TextField passwordTF;
@@ -79,10 +78,13 @@ public class RegistroFXMLController implements Initializable {
     private Club club;
     private Image im;
     
+
     @FXML
-    private Button return_button;
+    private Button back_button_registro;
     @FXML
-    private Button exit_button_autenticarse;
+    private Button exit_button_registro;
+    @FXML
+    private Button register_button;
     
     /**
      * Initializes the controller class.
@@ -97,7 +99,27 @@ public class RegistroFXMLController implements Initializable {
         }catch (IOException ex){
             Logger.getLogger(RegistroFXMLController.class.getName()).log(Level.SEVERE, null, ex);}
     
-    
+        back_button_registro.setOnMouseEntered(event -> {
+                back_button_registro.setCursor(Cursor.HAND);
+        });
+        
+        back_button_registro.setOnMouseExited(event ->{
+                back_button_registro.setCursor(Cursor.DEFAULT);
+        });
+        exit_button_registro.setOnMouseEntered(event -> {
+                exit_button_registro.setCursor(Cursor.HAND);
+        });
+        
+        exit_button_registro.setOnMouseExited(event ->{
+               exit_button_registro.setCursor(Cursor.DEFAULT);
+        });
+        registerB.setOnMouseEntered(event -> {
+                registerB.setCursor(Cursor.HAND);
+        });
+        
+        registerB.setOnMouseExited(event ->{
+               registerB.setCursor(Cursor.DEFAULT);
+        });
     }    
 
     @FXML
@@ -207,12 +229,27 @@ public class RegistroFXMLController implements Initializable {
     }
 
 
+
     @FXML
-    private void returnAut(MouseEvent event) {
+    private void exitRegistro(MouseEvent event) {
+        Stage stage = (Stage) exit_button_registro.getScene().getWindow();
+            stage.close();
     }
 
     @FXML
-    private void closeWin(MouseEvent event) {
+    private void backRegistro(MouseEvent event) {
+        try{
+            Stage stage;
+            stage = main.getStage();
+            
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/autenticarseFXML.fxml"));
+            Parent root = loader.load();
+                  
+            Scene scene = new Scene(root, 1200, 750);
+            stage.setScene(scene);
+
+                    
+            }catch(Exception e){System.out.println(e);}
     }
 
 }
