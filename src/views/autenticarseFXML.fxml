@@ -23,7 +23,7 @@
                <children>
                   <ImageView fitHeight="750.0" fitWidth="651.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../img/Recurso%203.png" />
+                        <Image url="@../../../../../Downloads/323a420f-d20a-43b9-81c0-c58d3ee28059.jpeg" />
                      </image>
                   </ImageView>
                </children></VBox>
@@ -166,7 +166,7 @@
                                           <Image url="@../img/PelotaEco.png" />
                                        </image>
                                        <VBox.margin>
-                                          <Insets top="30.0" />
+                                          <Insets top="10.0" />
                                        </VBox.margin>
                                     </ImageView>
                                  </children>

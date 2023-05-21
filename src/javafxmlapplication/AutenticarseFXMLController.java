@@ -65,6 +65,7 @@ public class AutenticarseFXMLController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        
         try{club = Club.getInstance();}
         catch(Exception e){System.out.println("cagaste");}
         
