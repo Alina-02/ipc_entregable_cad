@@ -15,6 +15,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -23,6 +24,13 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Border;
+import javafx.scene.layout.BorderStroke;
+import javafx.scene.layout.BorderStrokeStyle;
+import javafx.scene.layout.BorderWidths;
+import javafx.scene.layout.CornerRadii;
+import javafx.scene.layout.Region;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import model.*;
@@ -65,7 +73,14 @@ public class AutenticarseFXMLController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        
+        /**usuario_text_field.setBorder(Border.EMPTY);
+
+        BorderWidths borderWidths = new BorderWidths(5);
+        BorderStroke borderStroke = new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID,
+                CornerRadii.EMPTY, borderWidths);
+
+        Border compoundBorder = new Border(borderStroke);
+        usuario_text_field.setBorder(compoundBorder);*/
         try{club = Club.getInstance();}
         catch(Exception e){System.out.println("cagaste");}
         
@@ -143,9 +158,6 @@ public class AutenticarseFXMLController implements Initializable {
             }else if(existe.equals(nickname) && !contraseña.equals(password)){
                 esta = true;
                 break;
-            }else if(!existe.equals(nickname) && contraseña.equals(password)){
-                contraseñaCorrecta = true;
-                break;
             }    
         }
         
@@ -168,8 +180,7 @@ public class AutenticarseFXMLController implements Initializable {
         
         }else if(!esta){
             usuario_mal_button.setVisible(true);
-        }
-        if(!contraseñaCorrecta){
+        }else{
             contraseña_mal_button.setVisible(true);
         }
         

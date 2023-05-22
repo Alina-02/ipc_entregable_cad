@@ -208,7 +208,8 @@
     -fx-border-color: #C3C3C3; /* Color del borde del TextField */
     -fx-border-radius: 100; /* Radio de los bordes del TextField */
     -fx-border-width: 1; /* Ancho del borde del TextField */
-    -fx-padding: 2px; /* Espacio interno del TextField */
+    
+    
 }
 .boton-personalizado:hover {
     -fx-background-color: #9a549a; /* Nuevo color de fondo al pasar el cursor */
