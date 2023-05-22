@@ -29,33 +29,37 @@
                <children>
                   <VBox prefHeight="810.0" prefWidth="490.0" styleClass="green-background" stylesheets="@../values/reservarfxml.css">
                      <children>
-                        <Button fx:id="menu_button1" mnemonicParsing="false" onMouseClicked="#run1" prefHeight="30.0" prefWidth="33.0" styleClass="transparent">
-                           <graphic>
-                              <ImageView fitHeight="38.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../img/Menu.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                           <VBox.margin>
-                              <Insets left="10.0" top="10.0" />
-                           </VBox.margin>
-                        </Button>
-                        <HBox alignment="CENTER" cache="true" prefHeight="96.0" prefWidth="490.0">
+                        <HBox alignment="CENTER" cache="true" prefHeight="112.0" prefWidth="490.0">
                            <children>
-                              <Label alignment="TOP_LEFT" prefHeight="50.0" prefWidth="139.0" text="Pista">
+                              <HBox prefHeight="82.0" prefWidth="246.0">
+                                 <children>
+                                    <Button fx:id="menu_button1" mnemonicParsing="false" onMouseClicked="#run1" prefHeight="30.0" prefWidth="33.0" styleClass="transparent">
+                                       <graphic>
+                                          <ImageView fitHeight="38.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../img/Menu.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                       <HBox.margin>
+                                          <Insets left="10.0" top="10.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                              <Label alignment="TOP_LEFT" prefHeight="52.0" prefWidth="234.0" text="Pista">
                                  <font>
-                                    <Font name="SansSerif Bold" size="40.0" />
+                                    <Font name="SansSerif Bold" size="45.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="title_num_pista_label" alignment="TOP_LEFT" text="01">
+                              <Label fx:id="title_num_pista_label" alignment="TOP_LEFT" prefHeight="50.0" prefWidth="307.0" text="01">
                                  <font>
-                                    <Font name="Cambria" size="40.0" />
+                                    <Font name="Cambria" size="45.0" />
                                  </font>
                               </Label>
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER" prefHeight="50.0" prefWidth="390.0" stylesheets="@../values/reservarfxml.css">
+                        <HBox alignment="CENTER" prefHeight="65.0" prefWidth="390.0" stylesheets="@../values/reservarfxml.css">
                            <VBox.margin>
                               <Insets left="50.0" right="50.0" />
                            </VBox.margin>
@@ -68,14 +72,6 @@
                                     <Font name="Cambria" size="18.0" />
                                  </font>
                               </TextField>
-                              <Button fx:id="find_hour_button" mnemonicParsing="false" onMouseClicked="#find_hour_clicked" prefHeight="27.0" prefWidth="100.0" styleClass="purple-button" stylesheets="@../values/reservarfxml.css" text="Buscar" textFill="WHITE">
-                                 <font>
-                                    <Font name="SansSerif Bold" size="14.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets left="35.0" />
-                                 </HBox.margin>
-                              </Button>
                            </children>
                            <styleClass>
                               <String fx:value="search-button" />
@@ -132,7 +128,7 @@
                                                       </Button>
                                                       <Button fx:id="ten_eleven_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" onMouseEntered="#hour_entered" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/reservarfxml.css">
                                                          <graphic>
-                                                            <GridPane fx:id="nine_ten_gridpane1" alignment="CENTER">
+                                                            <GridPane fx:id="ten_eleven_gridpane" alignment="CENTER">
                                                                <columnConstraints>
                                                                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="179.2" minWidth="10.0" prefWidth="179.2" />
                                                                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="110.19998168945312" minWidth="10.0" prefWidth="94.40000000000003" />
@@ -167,7 +163,7 @@
                                                       </Button>
                                                       <Button fx:id="eleven_twelve_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" onMouseEntered="#hour_entered" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/reservarfxml.css">
                                                          <graphic>
-                                                            <GridPane fx:id="nine_ten_gridpane2" alignment="CENTER">
+                                                            <GridPane fx:id="eleven_twelve_gridpane" alignment="CENTER">
                                                                <columnConstraints>
                                                                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="179.2" minWidth="10.0" prefWidth="179.2" />
                                                                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="110.19998168945312" minWidth="10.0" prefWidth="94.40000000000003" />
@@ -202,7 +198,7 @@
                                                       </Button>
                                                       <Button fx:id="twelve_thirdteen_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" onMouseEntered="#hour_entered" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/reservarfxml.css">
                                                          <graphic>
-                                                            <GridPane fx:id="nine_ten_gridpane3" alignment="CENTER">
+                                                            <GridPane fx:id="twelve_thirdteen_gridpane" alignment="CENTER">
                                                                <columnConstraints>
                                                                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="179.2" minWidth="10.0" prefWidth="179.2" />
                                                                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="110.19998168945312" minWidth="10.0" prefWidth="94.40000000000003" />
@@ -237,7 +233,7 @@
                                                       </Button>
                                                       <Button fx:id="thirdteen_fourteen_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" onMouseEntered="#hour_entered" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/reservarfxml.css">
                                                          <graphic>
-                                                            <GridPane fx:id="nine_ten_gridpane4" alignment="CENTER">
+                                                            <GridPane fx:id="thirdteen_fourteen_gridpane" alignment="CENTER">
                                                                <columnConstraints>
                                                                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="179.2" minWidth="10.0" prefWidth="179.2" />
                                                                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="110.19998168945312" minWidth="10.0" prefWidth="94.40000000000003" />
@@ -272,7 +268,7 @@
                                                       </Button>
                                                       <Button fx:id="fourteen_fifteen_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" onMouseEntered="#hour_entered" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/reservarfxml.css">
                                                          <graphic>
-                                                            <GridPane fx:id="nine_ten_gridpane5" alignment="CENTER">
+                                                            <GridPane fx:id="fourteen_fifteen_gridpane" alignment="CENTER">
                                                                <columnConstraints>
                                                                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="179.2" minWidth="10.0" prefWidth="179.2" />
                                                                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="110.19998168945312" minWidth="10.0" prefWidth="94.40000000000003" />
@@ -307,7 +303,7 @@
                                                       </Button>
                                                       <Button fx:id="fifteen_sixteen_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/reservarfxml.css">
                                                          <graphic>
-                                                            <GridPane fx:id="nine_ten_gridpane6" alignment="CENTER">
+                                                            <GridPane fx:id="fifteen_sixteen_gridpane" alignment="CENTER">
                                                                <columnConstraints>
                                                                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="179.2" minWidth="10.0" prefWidth="179.2" />
                                                                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="110.19998168945312" minWidth="10.0" prefWidth="94.40000000000003" />
@@ -342,7 +338,7 @@
                                                       </Button>
                                                       <Button fx:id="sixteen_seventeen_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" onMouseEntered="#hour_entered" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/reservarfxml.css">
                                                          <graphic>
-                                                            <GridPane fx:id="nine_ten_gridpane7" alignment="CENTER">
+                                                            <GridPane fx:id="sixteen_seventeen_gridpane" alignment="CENTER">
                                                                <columnConstraints>
                                                                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="179.2" minWidth="10.0" prefWidth="179.2" />
                                                                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="110.19998168945312" minWidth="10.0" prefWidth="94.40000000000003" />
@@ -377,7 +373,7 @@
                                                       </Button>
                                                       <Button fx:id="seventeen_eighteen_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" onMouseEntered="#hour_entered" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/reservarfxml.css">
                                                          <graphic>
-                                                            <GridPane alignment="CENTER">
+                                                            <GridPane fx:id="seventeen_eighteen_gridpane" alignment="CENTER">
                                                                <columnConstraints>
                                                                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="179.2" minWidth="10.0" prefWidth="179.2" />
                                                                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="110.19998168945312" minWidth="10.0" prefWidth="94.40000000000003" />
@@ -412,7 +408,7 @@
                                                       </Button>
                                                       <Button fx:id="eighteen_nineteen_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" onMouseEntered="#hour_entered" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/reservarfxml.css">
                                                          <graphic>
-                                                            <GridPane fx:id="nine_ten_gridpane9" alignment="CENTER">
+                                                            <GridPane fx:id="eighteen_nineteen_gridpane" alignment="CENTER">
                                                                <columnConstraints>
                                                                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="179.2" minWidth="10.0" prefWidth="179.2" />
                                                                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="110.19998168945312" minWidth="10.0" prefWidth="94.40000000000003" />
@@ -447,7 +443,7 @@
                                                       </Button>
                                                       <Button fx:id="nineteen_twenty_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" onMouseEntered="#hour_entered" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/reservarfxml.css">
                                                          <graphic>
-                                                            <GridPane fx:id="nine_ten_gridpane10" alignment="CENTER">
+                                                            <GridPane fx:id="nineteen_twenty_gridpane" alignment="CENTER">
                                                                <columnConstraints>
                                                                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="179.2" minWidth="10.0" prefWidth="179.2" />
                                                                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="110.19998168945312" minWidth="10.0" prefWidth="94.40000000000003" />
@@ -482,7 +478,7 @@
                                                       </Button>
                                                       <Button fx:id="twenty_twentyone_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" onMouseEntered="#hour_entered" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/reservarfxml.css">
                                                          <graphic>
-                                                            <GridPane fx:id="nine_ten_gridpane11" alignment="CENTER">
+                                                            <GridPane fx:id="twenty_twentyone_gridpane" alignment="CENTER">
                                                                <columnConstraints>
                                                                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="179.2" minWidth="10.0" prefWidth="179.2" />
                                                                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="110.19998168945312" minWidth="10.0" prefWidth="94.40000000000003" />
@@ -517,7 +513,7 @@
                                                       </Button>
                                                       <Button fx:id="twentyone_twentytwo_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" onMouseEntered="#hour_entered" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/reservarfxml.css">
                                                          <graphic>
-                                                            <GridPane fx:id="nine_ten_gridpane12" alignment="CENTER">
+                                                            <GridPane fx:id="twentyone_twentytwo_gridpane" alignment="CENTER">
                                                                <columnConstraints>
                                                                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="179.2" minWidth="10.0" prefWidth="179.2" />
                                                                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="110.19998168945312" minWidth="10.0" prefWidth="94.40000000000003" />
@@ -585,19 +581,23 @@
                         </VBox>
                         <HBox alignment="CENTER_RIGHT" prefHeight="62.0" prefWidth="435.0">
                            <children>
-                              <Button fx:id="reservar_button" mnemonicParsing="false" onMouseClicked="#reservar_clicked" onMouseEntered="#button_entered" onMouseExited="#button_exited" prefHeight="40.0" prefWidth="100.0" styleClass="purple-button" stylesheets="@../values/reservarfxml.css" text="Reservar" textFill="WHITE">
+                              <Button fx:id="reservar_button" mnemonicParsing="false" onMouseClicked="#reservar_clicked" onMouseEntered="#button_entered" onMouseExited="#button_exited" prefHeight="40.0" prefWidth="100.0" stylesheets="@../values/reservarfxml.css" text="Reservar" textFill="WHITE">
                                  <font>
                                     <Font name="SansSerif Bold" size="16.0" />
                                  </font>
                                  <HBox.margin>
                                     <Insets right="60.0" />
                                  </HBox.margin>
+                                 <styleClass>
+                                    <String fx:value="purple-button" />
+                                    <String fx:value="boton-personalizado" />
+                                 </styleClass>
                               </Button>
                            </children>
                         </HBox>
                      </children>
                   </VBox>
-                  <AnchorPane fx:id="pane_slide" prefHeight="810.0" prefWidth="490.0" styleClass="green-background" stylesheets="@../values/reservarfxml.css">
+                  <AnchorPane fx:id="pane_slide" prefHeight="810.0" prefWidth="490.0" styleClass="green-background" stylesheets="@../values/reservarfxml.css" visible="false">
                      <children>
                         <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
@@ -615,12 +615,12 @@
                               </Button>
                               <VBox alignment="TOP_CENTER" prefHeight="330.0" prefWidth="490.0">
                                  <children>
-                                    <Circle fx:id="pictureFrame" fill="WHITE" onMouseEntered="#showChange" onMousePressed="#changeProfile" radius="94.0" stroke="BLACK" strokeType="INSIDE">
+                                    <Circle fx:id="avatar_circle" fill="WHITE" onMouseEntered="#showChange" onMousePressed="#changeProfile" radius="94.0" stroke="BLACK" strokeType="INSIDE">
                                        <VBox.margin>
                                           <Insets top="45.0" />
                                        </VBox.margin>
                                     </Circle>
-                                    <Label text="Nickname">
+                                    <Label fx:id="nickname_label" text="Nickname">
                                        <VBox.margin>
                                           <Insets top="20.0" />
                                        </VBox.margin>
@@ -679,7 +679,7 @@
                               </VBox>
                               <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
                                  <children>
-                                    <Label fx:id="cerrar_sesion_label" prefHeight="39.0" prefWidth="128.0" text="Cerrar Sesion" underline="true">
+                                    <Label fx:id="cerrar_sesion_label" onMouseClicked="#cerrar_sesion_clicked" prefHeight="39.0" prefWidth="128.0" text="Cerrar Sesion" underline="true">
                                        <font>
                                           <Font name="System Bold" size="19.0" />
                                        </font>
@@ -703,22 +703,7 @@
                      <children>
                         <AnchorPane prefHeight="61.0" prefWidth="2000.0">
                            <children>
-                              <HBox alignment="BOTTOM_LEFT" prefHeight="60.0" prefWidth="60.0" AnchorPane.leftAnchor="25.0">
-                                 <children>
-                                    <Button fx:id="back_button_reservar" mnemonicParsing="false" onMouseClicked="#backReservar" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: transparent;">
-                                       <HBox.margin>
-                                          <Insets top="15.0" />
-                                       </HBox.margin>
-                                       <graphic>
-                                          <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../img/Reculllllrso%201.png" />
-                                             </image>
-                                          </ImageView>
-                                       </graphic>
-                                    </Button>
-                                 </children>
-                              </HBox>
+                              <HBox alignment="BOTTOM_LEFT" prefHeight="60.0" prefWidth="60.0" AnchorPane.leftAnchor="25.0" />
                               <HBox alignment="TOP_RIGHT" prefHeight="61.0" prefWidth="30.0" AnchorPane.rightAnchor="30.0">
                                  <children>
                                     <Button fx:id="exit_button_Reservar" mnemonicParsing="false" onMouseClicked="#exitReservar" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: transparent;">
@@ -741,9 +726,9 @@
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Label text="Pistas">
+                        <Label prefHeight="82.0" prefWidth="181.0" text="Pistas">
                            <font>
-                              <Font name="SansSerif Bold" size="48.0" />
+                              <Font name="SansSerif Bold" size="60.0" />
                            </font>
                            <HBox.margin>
                               <Insets left="200.0" right="60.0" />
@@ -751,7 +736,7 @@
                         </Label>
                         <DatePicker fx:id="calendar_date_picker" onAction="#calendar_on_action" prefHeight="26.0" prefWidth="117.0" styleClass="date-picker" stylesheets="@../values/reservarfxml.css">
                            <HBox.margin>
-                              <Insets left="60.0" />
+                              <Insets left="60.0" right="45.0" />
                            </HBox.margin>
                         </DatePicker>
                      </children>
@@ -759,14 +744,14 @@
                         <Insets />
                      </VBox.margin>
                   </HBox>
-                  <HBox alignment="CENTER" prefHeight="468.0" prefWidth="785.0">
+                  <HBox alignment="CENTER" prefHeight="471.0" prefWidth="670.0">
                      <children>
                         <VBox alignment="CENTER" prefHeight="590.0" prefWidth="270.0">
                            <HBox.margin>
                               <Insets bottom="20.0" left="40.0" right="5.0" top="20.0" />
                            </HBox.margin>
                            <children>
-                              <ToggleButton fx:id="pista1_toggle_button" mnemonicParsing="false" onMouseClicked="#pista1_toggle_button_clicked" prefHeight="150.0" prefWidth="150.0" styleClass="button_pistas" stylesheets="@../values/reservarfxml.css" text="Pista 1">
+                              <ToggleButton fx:id="pista1_toggle_button" mnemonicParsing="false" onMouseClicked="#pista1_toggle_button_clicked" onMouseEntered="#pista_entered" onMouseExited="#pista_exited" prefHeight="150.0" prefWidth="150.0" styleClass="button_pistas" stylesheets="@../values/reservarfxml.css" text="Pista 1">
                                  <VBox.margin>
                                     <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                                  </VBox.margin>
@@ -774,7 +759,7 @@
                                     <Font size="30.0" />
                                  </font>
                               </ToggleButton>
-                              <ToggleButton fx:id="pista4_toggle_button" mnemonicParsing="false" onMouseClicked="#pista4_toggle_button_clicked" prefHeight="150.0" prefWidth="150.0" styleClass="button_pistas" stylesheets="@../values/reservarfxml.css" text="Pista 4">
+                              <ToggleButton fx:id="pista4_toggle_button" mnemonicParsing="false" onMouseClicked="#pista4_toggle_button_clicked" onMouseEntered="#pista_entered" onMouseExited="#pista_exited" prefHeight="150.0" prefWidth="150.0" styleClass="button_pistas" stylesheets="@../values/reservarfxml.css" text="Pista 4">
                                  <VBox.margin>
                                     <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                                  </VBox.margin>
@@ -789,7 +774,7 @@
                               <Insets bottom="20.0" left="5.0" right="5.0" top="20.0" />
                            </HBox.margin>
                            <children>
-                              <ToggleButton fx:id="pista2_toggle_button" mnemonicParsing="false" onMouseClicked="#pista2_toggle_button_clicked" prefHeight="150.0" prefWidth="150.0" styleClass="button_pistas" stylesheets="@../values/reservarfxml.css" text="Pista 2">
+                              <ToggleButton fx:id="pista2_toggle_button" mnemonicParsing="false" onMouseClicked="#pista2_toggle_button_clicked" onMouseEntered="#pista_entered" onMouseExited="#pista_exited" prefHeight="150.0" prefWidth="150.0" styleClass="button_pistas" stylesheets="@../values/reservarfxml.css" text="Pista 2">
                                  <VBox.margin>
                                     <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                                  </VBox.margin>
@@ -797,7 +782,7 @@
                                     <Font size="30.0" />
                                  </font>
                               </ToggleButton>
-                              <ToggleButton fx:id="pista5_toggle_button" mnemonicParsing="false" onMouseClicked="#pista5_toggle_button_clicked" prefHeight="150.0" prefWidth="150.0" styleClass="button_pistas" stylesheets="@../values/reservarfxml.css" text="Pista 5">
+                              <ToggleButton fx:id="pista5_toggle_button" mnemonicParsing="false" onMouseClicked="#pista5_toggle_button_clicked" onMouseEntered="#pista_entered" onMouseExited="#pista_exited" prefHeight="150.0" prefWidth="150.0" styleClass="button_pistas" stylesheets="@../values/reservarfxml.css" text="Pista 5">
                                  <VBox.margin>
                                     <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                                  </VBox.margin>
@@ -812,7 +797,7 @@
                               <Insets bottom="20.0" left="5.0" right="40.0" top="20.0" />
                            </HBox.margin>
                            <children>
-                              <ToggleButton fx:id="pista3_toggle_button" mnemonicParsing="false" onMouseClicked="#pista3_toggle_button_clicked" prefHeight="150.0" prefWidth="150.0" styleClass="button_pistas" stylesheets="@../values/reservarfxml.css" text="Pista 3">
+                              <ToggleButton fx:id="pista3_toggle_button" mnemonicParsing="false" onMouseClicked="#pista3_toggle_button_clicked" onMouseEntered="#pista_entered" onMouseExited="#pista_exited" prefHeight="150.0" prefWidth="150.0" styleClass="button_pistas" stylesheets="@../values/reservarfxml.css" text="Pista 3">
                                  <VBox.margin>
                                     <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                                  </VBox.margin>
@@ -820,7 +805,7 @@
                                     <Font size="30.0" />
                                  </font>
                               </ToggleButton>
-                              <ToggleButton fx:id="pista6_toggle_button" mnemonicParsing="false" onMouseClicked="#pista6_toggle_button_clicked" prefHeight="150.0" prefWidth="150.0" styleClass="button_pistas" stylesheets="@../values/reservarfxml.css" text="Pista 6">
+                              <ToggleButton fx:id="pista6_toggle_button" mnemonicParsing="false" onMouseClicked="#pista6_toggle_button_clicked" onMouseEntered="#pista_entered" onMouseExited="#pista_exited" prefHeight="150.0" prefWidth="150.0" styleClass="button_pistas" stylesheets="@../values/reservarfxml.css" text="Pista 6">
                                  <VBox.margin>
                                     <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                                  </VBox.margin>
@@ -835,43 +820,7 @@
                         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                      </VBox.margin>
                   </HBox>
-                  <HBox prefHeight="128.0" prefWidth="825.0">
-                     <children>
-                        <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="275.0">
-                           <children>
-                              <Button fx:id="actualizar_datos_button" mnemonicParsing="false" onMouseClicked="#actualizar_datos_clicked" onMouseEntered="#button_entered" onMouseExited="#button_exited" prefHeight="75.0" prefWidth="150.0" styleClass="purple-button" stylesheets="@../values/reservarfxml.css" text="Actualizar &#10;Datos" textAlignment="CENTER" textFill="WHITE">
-                                 <font>
-                                    <Font name="SansSerif Bold" size="16.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets left="75.0" />
-                                 </HBox.margin>
-                              </Button>
-                           </children>
-                        </HBox>
-                        <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="275.0">
-                           <children>
-                              <Button fx:id="reservar_pistas_button" mnemonicParsing="false" onMouseClicked="#reservar_pistas_cliked" onMouseEntered="#button_entered" onMouseExited="#button_exited" prefHeight="75.0" prefWidth="150.0" styleClass="purple-button" stylesheets="@../values/reservarfxml.css" text="Reservar&#10;Pistas&#10;" textAlignment="CENTER" textFill="WHITE">
-                                 <font>
-                                    <Font name="SansSerif Bold" size="16.0" />
-                                 </font>
-                              </Button>
-                           </children>
-                        </HBox>
-                        <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="275.0">
-                           <children>
-                              <Button fx:id="mis_reservar_button" mnemonicParsing="false" onMouseClicked="#mis_reservar_clicked" onMouseEntered="#button_entered" onMouseExited="#button_exited" prefHeight="75.0" prefWidth="150.0" styleClass="purple-button" stylesheets="@../values/reservarfxml.css" text="Mis &#10;Reservas" textAlignment="CENTER" textFill="WHITE">
-                                 <font>
-                                    <Font name="SansSerif Bold" size="16.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets right="75.0" />
-                                 </HBox.margin>
-                              </Button>
-                           </children>
-                        </HBox>
-                     </children>
-                  </HBox>
+                  <HBox prefHeight="69.0" prefWidth="710.0" />
                </children>
             </VBox>
          </center>

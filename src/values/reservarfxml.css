@@ -71,11 +71,11 @@
 }
 
 /* flechas de los botones de incremento y decremento */
-/**.scroll-bar:vertical *.increment-arrow, 
+.scroll-bar:vertical *.increment-arrow, 
 .scroll-bar:vertical *.decrement-arrow{
     -fx-shape : " ";
     -fx-padding :0.0 0.15 em;
-}*/
+}
     
 
 .scroll-bar{
@@ -146,9 +146,10 @@
 	-fx-primary-color: #801a86;
 	-fx-secondary-color: #822f87;
 	-fx-light-grey-color: #d1d1d1;
-    
+        
 	-fx-focus-color: -fx-secondary-color;
 }
+
 
 .date-picker .arrow-button {
 	-fx-background-color: -fx-primary-color;
@@ -222,6 +223,15 @@
 .white-button{
     -fx-background-color: WHITE;
     -fx-background-radius: 100;
+}
+
+.boton-personalizado:hover {
+    -fx-background-color: #9a549a; /* Nuevo color de fondo al pasar el cursor */
+    -fx-effect: none; /* Remover efecto al pasar el cursor */
+}
+
+.boton-personalizado:pressed {
+    -fx-effect: dropshadow(gaussian, rgba(78,2,80,0.8), 10, 0, 0, 0); /* Efecto gaussiano al pulsar */
 }
 
 }

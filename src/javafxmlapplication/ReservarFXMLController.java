@@ -13,6 +13,9 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.collections.ObservableMap;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -30,6 +33,7 @@ import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.DateCell;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.OverrunStyle;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
@@ -165,6 +169,7 @@ public class ReservarFXMLController implements Initializable {
     //VARIABLES
     
     ToggleGroup pistas = new ToggleGroup(); //grupo pistas
+    List<ToggleButton> pistasList = new ArrayList<>();
     List<VBox> nicknames = new ArrayList<>();
     List<Label> ocupado = new ArrayList<>();
     List<Button> horas = new ArrayList<>();
@@ -175,68 +180,46 @@ public class ReservarFXMLController implements Initializable {
     int clicked2 = -1;
     Button clicked1_button = null;
     Button clicked2_button = null;
+    Member member = AutenticarseFXMLController.getMember();
+    ObservableList<Button> horasObservable = FXCollections.observableList(horas);
+    ListView<Button> horasListView = new ListView<Button>(horasObservable);
+    
+    // MAP ENTRE BUTTONS Y VALORES
+    ObservableMap<Button, Integer> map = FXCollections.observableHashMap();
+    ObservableMap<Button, GridPane> map2 = FXCollections.observableHashMap();
+    
     @FXML
     private VBox hour_buttons_vbox;
-    @FXML
-    private Button find_hour_button;
     @FXML
     private GridPane nine_ten_gridpane;
     @FXML
     private Label nine_ten_label;
     @FXML
-    private GridPane nine_ten_gridpane1;
-    @FXML
     private Label ten_eleven_label;
-    @FXML
-    private GridPane nine_ten_gridpane2;
     @FXML
     private Label eleven_twelve_label;
     @FXML
-    private GridPane nine_ten_gridpane3;
-    @FXML
     private Label twelve_thirdteen_label;
-    @FXML
-    private GridPane nine_ten_gridpane4;
     @FXML
     private Label thirdteen_fourteen_label;
     @FXML
-    private GridPane nine_ten_gridpane5;
-    @FXML
     private Label fourteen_fiveteen_label;
     @FXML
-    private GridPane nine_ten_gridpane6;
-    @FXML
     private Label fiveteen_sixteen_label;
-    @FXML
-    private GridPane nine_ten_gridpane7;
     @FXML
     private Label sixteen_seventeen_label;
     @FXML
     private Label seventeen_eighteen_label;
     @FXML
-    private GridPane nine_ten_gridpane9;
-    @FXML
     private Label eigthteen_nineteen_label;
-    @FXML
-    private GridPane nine_ten_gridpane10;
     @FXML
     private Label nineteen_twenty_label;
     @FXML
-    private GridPane nine_ten_gridpane11;
-    @FXML
     private Label twenty_twentyone_label;
-    @FXML
-    private GridPane nine_ten_gridpane12;
     @FXML
     private Label twentyone_twentytwo_label;
     @FXML
     private Button reservar_button;
-    @FXML
-    private Button actualizar_datos_button;
-    @FXML
-    private Button mis_reservar_button;
-    @FXML
-    private Button reservar_pistas_button;
     @FXML
     private Button fourteen_fifteen_button;
     @FXML
@@ -250,8 +233,6 @@ public class ReservarFXMLController implements Initializable {
     @FXML
     private Button menu_button2;
     @FXML
-    private Circle pictureFrame;
-    @FXML
     private Button ir_Actualizar;
     @FXML
     private Button ir_Ver;
@@ -259,10 +240,37 @@ public class ReservarFXMLController implements Initializable {
     private Button ir_Reservar;
     @FXML
     private Label cerrar_sesion_label;
-    @FXML
     private Button back_button_reservar;
     @FXML
     private Button exit_button_Reservar;
+    @FXML
+    private Circle avatar_circle;
+    @FXML
+    private Label nickname_label;
+    @FXML
+    private GridPane ten_eleven_gridpane;
+    @FXML
+    private GridPane eleven_twelve_gridpane;
+    @FXML
+    private GridPane twelve_thirdteen_gridpane;
+    @FXML
+    private GridPane thirdteen_fourteen_gridpane;
+    @FXML
+    private GridPane fourteen_fifteen_gridpane;
+    @FXML
+    private GridPane fifteen_sixteen_gridpane;
+    @FXML
+    private GridPane sixteen_seventeen_gridpane;
+    @FXML
+    private GridPane seventeen_eighteen_gridpane;
+    @FXML
+    private GridPane eighteen_nineteen_gridpane;
+    @FXML
+    private GridPane nineteen_twenty_gridpane;
+    @FXML
+    private GridPane twenty_twentyone_gridpane;
+    @FXML
+    private GridPane twentyone_twentytwo_gridpane;
    
     
     @Override
@@ -276,12 +284,18 @@ public class ReservarFXMLController implements Initializable {
         clicked2 = -1;
         
         //coloca todas las pistas en el toggle group pistas
-        pista1_toggle_button.setToggleGroup(pistas);
+        pista1_toggle_button.setToggleGroup(pistas); 
+        pistasList.add(pista1_toggle_button);
         pista2_toggle_button.setToggleGroup(pistas);
+        pistasList.add(pista2_toggle_button);
         pista3_toggle_button.setToggleGroup(pistas);
+        pistasList.add(pista3_toggle_button);
         pista4_toggle_button.setToggleGroup(pistas);
+        pistasList.add(pista4_toggle_button);
         pista5_toggle_button.setToggleGroup(pistas);
+        pistasList.add(pista5_toggle_button);
         pista6_toggle_button.setToggleGroup(pistas);
+        pistasList.add(pista6_toggle_button);
         //establece la primera pista como seleccionada de serie
         pista1_toggle_button.setSelected(true);
         
@@ -328,6 +342,36 @@ public class ReservarFXMLController implements Initializable {
         horas.add(nineteen_twenty_button);
         horas.add(twenty_twentyone_button);
         horas.add(twentyone_twentytwo_button);
+        
+        //llena el map de buttons e Int
+        map.put(nine_ten_button, 9);
+        map.put(ten_eleven_button, 10);
+        map.put(eleven_twelve_button, 11);
+        map.put(twelve_thirdteen_button,12);
+        map.put(thirdteen_fourteen_button, 13);
+        map.put(fourteen_fifteen_button, 14);
+        map.put(fifteen_sixteen_button, 15);
+        map.put(sixteen_seventeen_button, 16);
+        map.put(seventeen_eighteen_button, 17);
+        map.put(eighteen_nineteen_button, 18);
+        map.put(nineteen_twenty_button, 19);
+        map.put(twenty_twentyone_button, 20);
+        map.put(twentyone_twentytwo_button, 21);
+        
+        //lleva el map de buttons y gridpanes
+        map2.put(nine_ten_button, nine_ten_gridpane);
+        map2.put(ten_eleven_button, ten_eleven_gridpane);
+        map2.put(eleven_twelve_button, nine_ten_gridpane); //                                 FALTA FALTA FALTA FALTA FALTA FALTA FALTA FALTA
+        map2.put(twelve_thirdteen_button, nine_ten_gridpane);
+        map2.put(thirdteen_fourteen_button, nine_ten_gridpane);
+        map2.put(fourteen_fifteen_button, nine_ten_gridpane);
+        map2.put(fifteen_sixteen_button, nine_ten_gridpane);
+        map2.put(sixteen_seventeen_button, nine_ten_gridpane);
+        map2.put(seventeen_eighteen_button, nine_ten_gridpane);
+        map2.put(eighteen_nineteen_button, nine_ten_gridpane);
+        map2.put(nineteen_twenty_button, nine_ten_gridpane);
+        map2.put(twenty_twentyone_button, nine_ten_gridpane);
+        map2.put(twentyone_twentytwo_button, nine_ten_gridpane);
         
         //comprueba la pista
         comprobarPista(pista, date);
@@ -395,7 +439,49 @@ public class ReservarFXMLController implements Initializable {
         exit_button_Reservar.setOnMouseExited(event ->{
                 exit_button_Reservar.setCursor(Cursor.DEFAULT);
         });
+        
+        
+        
+        // PONER EL NICKNAME
+        
+        nickname_label.setText(member.getNickName());
+        
+        // BUSCADOR EN TIEMPO REAL
+        
+        find_hour_textfield.textProperty().addListener((observable, oldValue, newValue) ->{
+            boolean correcto = true;
+        //Comprobar que el formato está bien
+        if(!find_hour_textfield.getText().isEmpty()){
+            String hour = find_hour_textfield.getText();
+            //if(hour.equals(null)){verBotones();}
+            if(!utils.isNumeric(hour)){correcto = false;}
+            if(correcto){
+                int hourInt = Integer.parseInt(hour);
+                if(hourInt <= 21){
+                    buscarHora(hour);
+                }else{
+                    // NO ESTÁ EN EL RANGO DE HORAS
+                }
+                
+            }else{
+                // NO HA PUESTO UN NÚMERO
+            }
+            
+            
+        }else{verBotones();}
+        });
+        
+        // SIEMPRE VA A HABER UNA PISTA SELECCIONADA
+        
+        pistas.selectedToggleProperty().addListener((observable, oldValue, newValue)->{
+            if(newValue == null){
+                pistas.selectToggle(oldValue);
+            }
+        });
+        
     } 
+    
+    
  
     
 
@@ -611,8 +697,6 @@ public class ReservarFXMLController implements Initializable {
         }
         
         
-        
-        
         //vuelve a poner el fondo de los botones a blanco
         if(clicked1_button != null){
             clicked1_button.setStyle("-fx-background-color: #FFFFFF");
@@ -721,32 +805,7 @@ public class ReservarFXMLController implements Initializable {
         
     }
     
-    // BOTÓN BUSCAR HORA
-    @FXML
-    private void find_hour_clicked(MouseEvent event) {
-        
-        String hour = find_hour_textfield.getText();
-        
-    }
     
-    
-    // BUSCADOR DE LA HORA
-    private void find_hour(String hour){
-        
-        List<Button> searchHour = new ArrayList<>();
-        
-        for(Node node: hour_buttons_vbox.getChildren()){
-            if(node instanceof Button){
-                Button button = (Button) node;
-                Label label = (Label) button.lookup(".button-label");
-                
-                if(label != null && label.getText().contains(hour)){
-                    searchHour.add(button);
-                }
-            }
-        }
-        
-    }
     
     // CAMBIAR EL CURSOR Y EL COLOR AL PASAR SOBRE UN BOTÓN
     @FXML
@@ -774,7 +833,6 @@ public class ReservarFXMLController implements Initializable {
     
     
     // IR A ACTUALIZAR DATOS
-    @FXML
     private void actualizar_datos_clicked(MouseEvent event) {
         
         try{
@@ -791,7 +849,6 @@ public class ReservarFXMLController implements Initializable {
     }
 
     // IR A MIS RESERVAS
-    @FXML
     private void mis_reservar_clicked(MouseEvent event) {
         
         try{
@@ -807,9 +864,6 @@ public class ReservarFXMLController implements Initializable {
         
     }
 
-    @FXML
-    private void reservar_pistas_cliked(MouseEvent event) {
-    }
 
     @FXML
     private void cerrar_sesion_clicked(MouseEvent event) {
@@ -912,9 +966,6 @@ public class ReservarFXMLController implements Initializable {
             }catch(Exception e){System.out.println(e);}
     }
 
-    @FXML
-    private void backReservar(MouseEvent event) {
-    }
 
     @FXML
     private void exitReservar(MouseEvent event) {
@@ -922,6 +973,47 @@ public class ReservarFXMLController implements Initializable {
             stage.close();
     }
     
+    // BÚSQUEDA
+    
+    private void buscarHora(String hour){
+        
+        for(Button button: horasObservable){
+            String buscar = String.valueOf(map.get(button));
+            if(buscar.startsWith(hour)){
+                button.setVisible(true);
+                button.setManaged(true);
+            }else{
+                button.setVisible(false);
+                button.setManaged(false);
+            }
+        }
+        
+    }
+    
+    private void verBotones(){
+        for(Button button: horasObservable){
+            button.setVisible(true);
+            button.setManaged(true);
+        }
+    }
+
+    @FXML
+    private void pista_exited(MouseEvent event) {
+        Object source = event.getSource();
+        if(source instanceof ToggleButton){
+            ToggleButton hour = (ToggleButton) source;
+            utils.cambiarCursor(event, hour);
+        }
+    }
+
+    @FXML
+    private void pista_entered(MouseEvent event) {
+        Object source = event.getSource();
+        if(source instanceof ToggleButton){
+            ToggleButton hour = (ToggleButton) source;
+            utils.devolverCursor(event, hour);
+        }
+    }
     
     
 }

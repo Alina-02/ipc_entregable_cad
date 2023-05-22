@@ -39,6 +39,13 @@ public class utils {
         button.setCursor(Cursor.DEFAULT);
     }
     
+     public static void devolverCursor(MouseEvent event, ToggleButton button) {
+        
+        Cursor actual = button.getCursor();
+        button.setCursor(Cursor.HAND);
+        
+    }
+    
     public static void asignarHoras(int clicked1, int clicked2, Button b1, Button b2, Button hour, int first_hour){
         if(clicked1 != -1){clicked2 = first_hour; b2 = hour;}
         else{clicked1 = first_hour; b1 = hour;}
