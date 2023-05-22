@@ -3,7 +3,6 @@
 <?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -38,8 +37,7 @@
                               <Image url="@../img/dddd_1.png" />
                            </image>
                         </ImageView>
-                        <Circle fx:id="pictureFrame" fill="WHITE" onMouseEntered="#showChange" onMousePressed="#changeProfile" radius="88.0" stroke="BLACK" strokeType="INSIDE" />
-                        <Label text="Label" />
+                        <Circle fx:id="pictureFrame" fill="WHITE" onMouseClicked="#changePF" onMouseEntered="#showChange" onMousePressed="#changeProfile" radius="88.0" stroke="BLACK" strokeType="INSIDE" />
                      </children>
                   </VBox>
                </children>
@@ -52,7 +50,7 @@
                      <children>
                         <HBox alignment="BOTTOM_LEFT" prefHeight="60.0" prefWidth="60.0" AnchorPane.leftAnchor="25.0">
                            <children>
-                              <Button fx:id="back_button_registro" mnemonicParsing="false" onMouseClicked="#backRegistro" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: transparent;">
+                              <Button fx:id="back_button_registro" mnemonicParsing="false" onAction="#back" onMouseClicked="#backRegistro" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: transparent;">
                                  <HBox.margin>
                                     <Insets top="15.0" />
                                  </HBox.margin>
@@ -68,7 +66,7 @@
                         </HBox>
                         <HBox alignment="TOP_RIGHT" prefHeight="61.0" prefWidth="30.0" AnchorPane.rightAnchor="30.0">
                            <children>
-                              <Button fx:id="exit_button_registro" mnemonicParsing="false" onMouseClicked="#exitRegistro" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: transparent;">
+                              <Button fx:id="exit_button_registro" mnemonicParsing="false" onAction="#exit" onMouseClicked="#exitRegistro" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: transparent;">
                                  <HBox.margin>
                                     <Insets top="15.0" />
                                  </HBox.margin>
@@ -187,7 +185,7 @@
                                                 <Font size="20.0" />
                                              </font>
                                           </Text>
-                                          <PasswordField styleClass="basic-text">
+                                          <PasswordField fx:id="passwordCTF" styleClass="basic-text">
                                              <font>
                                                 <Font size="16.0" />
                                              </font>
@@ -215,11 +213,7 @@
                                                 <Font size="20.0" />
                                              </font>
                                           </Text>
-                                          <TextField fx:id="cvvTF" styleClass="basic-text">
-                                             <font>
-                                                <Font size="16.0" />
-                                             </font>
-                                          </TextField>
+                                          <PasswordField fx:id="svcPF" styleClass="basic-text" />
                                        </children>
                                     </VBox>
                                     <Text fill="#bdca2e" strokeType="OUTSIDE" strokeWidth="0.0" text="Informacion Basica" wrappingWidth="490.40338706970215" GridPane.valignment="BOTTOM">
@@ -248,6 +242,7 @@
                                           <String fx:value="boton-personalizado" />
                                        </styleClass>
                                     </Button>
+                                    <Text fx:id="errorMSGT" strokeType="OUTSIDE" strokeWidth="0.0" text="Aqui irian los mensajes de error mi rey" />
                                  </children>
                               </HBox>
                            </children>

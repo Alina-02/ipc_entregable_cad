@@ -35,6 +35,9 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
+import javafx.scene.effect.BlurType;
+import javafx.scene.effect.Glow;
+import javafx.scene.effect.Shadow;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -47,6 +50,8 @@ import javafx.stage.FileChooser.ExtensionFilter;
 import model.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 /**
@@ -76,24 +81,46 @@ public class RegistroFXMLController implements Initializable {
     private PasswordField passwordTF;
     @FXML
     private TextField creditCardTF;
-    @FXML
+    
     private TextField cvvTF;
     @FXML
     private Button register_button;
     
     private Club club;
+    
     private Image im;
     
+    private String errorMSG;
+    
+    @FXML
+    private PasswordField passwordCTF;
+    @FXML
+    private PasswordField svcPF;
+    @FXML
+    private Text errorMSGT;
+    
+    String nm;
+    String sn;
+    String us;
+    String pn;
+    String cc;
+    String pw;
+    String pwc;
+    int svc;
     
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        Shadow shadow = new Shadow();
+        shadow.setColor(Color.GREY); 
+        shadow.setBlurType(BlurType.GAUSSIAN); 
+        
         try{club = Club.getInstance();
         }catch (ClubDAOException ex){
             Logger.getLogger(RegistroFXMLController.class.getName()).log(Level.SEVERE, null, ex);
         }catch (IOException ex){
             Logger.getLogger(RegistroFXMLController.class.getName()).log(Level.SEVERE, null, ex);}
-    
         back_button_registro.setOnMouseEntered(event -> {
                 back_button_registro.setCursor(Cursor.HAND);
         });
@@ -115,10 +142,19 @@ public class RegistroFXMLController implements Initializable {
         register_button.setOnMouseExited(event ->{
                register_button.setCursor(Cursor.DEFAULT);
         });
+        pictureFrame.setOnMouseEntered(event ->{
+               pictureFrame.setCursor(Cursor.HAND);
+               pictureFrame.setOpacity(0.75);
+        });
+         pictureFrame.setOnMouseExited(event ->{
+               pictureFrame.setCursor(Cursor.DEFAULT);
+               pictureFrame.setOpacity(1);
+        });
+         register_button.disableProperty().bind(nameTF.textProperty().isEmpty().or(lastNameTF.textProperty().isEmpty()).or(userTF.textProperty().isEmpty()).or(phoneTF.textProperty().isEmpty()).or(passwordTF.textProperty().isEmpty()).or(passwordCTF.textProperty().isEmpty()));
     }    
 
     @FXML
-    private void showChange(MouseEvent event) {
+    private void showChange(MouseEvent event){
     }
 
     @FXML
@@ -151,8 +187,7 @@ public class RegistroFXMLController implements Initializable {
                   
             Scene scene = new Scene(root, 1200, 750);
             stage.setScene(scene);
-
-                    
+      
             }catch(Exception e){System.out.println(e);}
     }
 
@@ -164,24 +199,37 @@ public class RegistroFXMLController implements Initializable {
 
     @FXML
     private void registerMember(ActionEvent event) throws ClubDAOException {
-        String nm = nameTF.getText();
-        String sn = lastNameTF.getText();
-        String us = userTF.getText();
-        String pn = phoneTF.getText();
-        String cc = creditCardTF.getText();
-        String pw = passwordTF.getText();
-        String cvv = cvvTF.getText();
-        int cvvInt = -1;
-        if(!isInteger(pn) || !isInteger(cc) || !isInteger(cvv)) formatError();
-        if(cvv.length() != 3 && isInteger(cvv)) errorCVV();
-        else cvvInt = Integer.parseInt(cvv);
-        if(!(nm).isEmpty()&&!(sn).isEmpty()&&!(us).isEmpty()&&!(pn).isEmpty()&&!(pw).isEmpty()){
-            if(club.existsLogin(us)) registeredError();
-            else{club.registerMember(nm, sn, pn, us, pw, cc, cvvInt, im);}
-            //System.out.println("De locos guachin");
+        try{
+            nm = nameTF.getText();
+            sn = lastNameTF.getText();
+            us = userTF.getText();
+            pn = phoneTF.getText();
+            cc = creditCardTF.getText();
+            pw = passwordTF.getText();
+            pwc = passwordCTF.getText();
+            svc = Integer.parseInt(svcPF.getText());
+        }catch(Exception e){System.out.println("Falta algo");}
+        //Comprueba que el usuario no este ya registrado
+        if(club.existsLogin(us)) errorMSG += "El usuario ya esta registrado\n";
+        //Comprueba el formato de los numeros;
+        if(!isInteger(pn)) errorMSG += "El formato del numero de telfono es incorrecto\n";
+        //Comprueba las contraseñas
+        if(!pw.equals(pwc)) errorMSG += "Las contraseñas no coinciden\n";
+        //Comprueba el formato de la tarjeta 
+        if(!isInteger(cc)) errorMSG += "El formato de la tarjeta de credito es incorrecto\n";
+        //comprueba el formato del svc
+        if(svcPF.getText().length() > 3) errorMSG += "El formato del svc es incorrecto\n";
+        //Comprueba los campos obligatorios
+        System.out.println("OK");
+        //register_button.disableProperty().bind(nm.isEmpty() || sn.isEmpty() || us.isEmpty() || pn.isEmpty() || pw.isEmpty() || pwc.isEmpty());
+        
+        
+        if(errorMSG.isEmpty()) System.out.println("Registrado guachin");//club.registerMember(nm, sn, pn, us, pw, cc, svc, im);
+        else{
+            //errorMSGT.
+            errorMSGT.setText(errorMSG);
+            //errorMSGT.setVisible(true);
         }
-        else errorRegistry();
-        System.out.println("Bien");
     }
  
     public void errorRegistry(){
@@ -198,12 +246,12 @@ public class RegistroFXMLController implements Initializable {
         alert.showAndWait();
     }
     
-    public void errorCVV(){
+    public void errorSVC(){
         Alert alert = new Alert(AlertType.ERROR);
         alert.setTitle("Error");
-        alert.setHeaderText("El cvv es incorrecto");
+        alert.setHeaderText("El svc es incorrecto");
         alert.showAndWait();
-        cvvTF.clear();
+        svcPF.clear();
     }
     
     public boolean isInteger( String input ) {
@@ -243,6 +291,18 @@ public class RegistroFXMLController implements Initializable {
         userTF.clear();
         alert.showAndWait();
 
+    }
+
+    @FXML
+    private void changePF(MouseEvent event) {
+    }
+
+    @FXML
+    private void back(ActionEvent event) {
+    }
+
+    @FXML
+    private void exit(ActionEvent event) {
     }
 
 
