@@ -21,7 +21,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" minHeight="750.0" minWidth="1200.0" prefHeight="750.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmlapplication.ReservarFXMLController">
+<AnchorPane id="AnchorPane" fx:id="anchor_pane" minHeight="750.0" minWidth="1200.0" prefHeight="750.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmlapplication.ReservarFXMLController">
    <children>
       <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <left>
@@ -301,7 +301,7 @@
                                                             </GridPane>
                                                          </graphic>
                                                       </Button>
-                                                      <Button fx:id="fifteen_sixteen_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/reservarfxml.css">
+                                                      <Button fx:id="fifteen_sixteen_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" onMouseEntered="#hour_entered" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/reservarfxml.css">
                                                          <graphic>
                                                             <GridPane fx:id="fifteen_sixteen_gridpane" alignment="CENTER">
                                                                <columnConstraints>
@@ -597,7 +597,7 @@
                         </HBox>
                      </children>
                   </VBox>
-                  <AnchorPane fx:id="pane_slide" prefHeight="810.0" prefWidth="490.0" styleClass="green-background" stylesheets="@../values/reservarfxml.css" visible="false">
+                  <AnchorPane fx:id="pane_slide" prefHeight="810.0" prefWidth="490.0" styleClass="green-background" stylesheets="@../values/reservarfxml.css">
                      <children>
                         <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
@@ -655,11 +655,7 @@
                                                 <Font size="18.0" />
                                              </font>
                                              <graphic>
-                                                <ImageView fitHeight="26.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@../../../../../Downloads/2636402.png" />
-                                                   </image>
-                                                </ImageView>
+                                                <ImageView fitHeight="26.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true" />
                                              </graphic>
                                           </Button>
                                           <Button fx:id="ir_Reservar" alignment="TOP_LEFT" mnemonicParsing="false" onMouseClicked="#irReservar" prefHeight="26.0" prefWidth="362.0" styleClass="white-button" text="Reservar" GridPane.rowIndex="2">
@@ -756,7 +752,7 @@
                                     <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                                  </VBox.margin>
                                  <font>
-                                    <Font size="30.0" />
+                                    <Font name="SansSerif Regular" size="30.0" />
                                  </font>
                               </ToggleButton>
                               <ToggleButton fx:id="pista4_toggle_button" mnemonicParsing="false" onMouseClicked="#pista4_toggle_button_clicked" onMouseEntered="#pista_entered" onMouseExited="#pista_exited" prefHeight="150.0" prefWidth="150.0" styleClass="button_pistas" stylesheets="@../values/reservarfxml.css" text="Pista 4">
