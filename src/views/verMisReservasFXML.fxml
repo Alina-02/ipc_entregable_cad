@@ -39,7 +39,17 @@
                               <Insets left="10.0" top="10.0" />
                            </VBox.margin>
                         </Button>
-                        <HBox alignment="CENTER_RIGHT" prefHeight="62.0" prefWidth="435.0" />
+                        <HBox alignment="CENTER" prefHeight="703.0" prefWidth="490.0">
+                           <children>
+                              <ImageView fitHeight="378.0" fitWidth="379.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../img/LogoApp.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                           </children></HBox>
                      </children>
                   </VBox>
                   <AnchorPane fx:id="pane_slide" prefHeight="810.0" prefWidth="490.0" styleClass="green-background" stylesheets="@../values/reservarfxml.css">

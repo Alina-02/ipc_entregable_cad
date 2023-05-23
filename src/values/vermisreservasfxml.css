@@ -28,6 +28,10 @@
         -fx-table-cell-border-color: transparent;
     }
     
+    .table-view:focused{
+        -fx-focus-color: transparent;
+    }
+    
     .table-view .column-header-background .filler{
         -fx-background-color: rgba(128, 26, 134, 0.5);
     }
@@ -36,10 +40,14 @@
         -fx-background-color: transparent;
     }
     
+    .table-row-cell:selected .table-cell{
+        -fx-text-fill: black;
+    }
+    
     
     /* color de una fila seleccionada por el usuario*/
     .table-view:row-selection .table-row-cell:filled:selected { 
-        -fx-text-fill: #000000;
+        -fx-text-fill: black;
         -fx-background-color: rgba(205, 217, 126, 0.65);
         -fx-border-color: transparent;
     }
@@ -53,6 +61,7 @@
         -fx-text-fill: #FFFFFF;
         -fx-background-color: rgba(128, 26, 134, 0.5);
         -fx-alignment: CENTER;
+        -fx-font-weight: bold;
         -fx-border-color: rgba(128, 26, 134, 0.5);
     }
     
@@ -69,6 +78,7 @@
         -fx-border-insets: 0;
         -fx-pref-height: 35px;
     }
+    
 
     
     .table-view .table-column {
