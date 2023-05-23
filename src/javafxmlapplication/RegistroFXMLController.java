@@ -39,6 +39,7 @@ import javafx.scene.effect.BlurType;
 import javafx.scene.effect.Glow;
 import javafx.scene.effect.Shadow;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
@@ -53,6 +54,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+//import img.*;
 
 /**
  * FXML Controller class
@@ -90,7 +92,7 @@ public class RegistroFXMLController implements Initializable {
     
     private Image im;
     
-    private String errorMSG;
+    private String errorMSG = "";
     
     @FXML
     private PasswordField passwordCTF;
@@ -107,6 +109,20 @@ public class RegistroFXMLController implements Initializable {
     String pw;
     String pwc;
     int svc;
+    @FXML
+    private ImageView defaultPicture1;
+    @FXML
+    private ImageView defaultPicture2;
+    @FXML
+    private ImageView defaultPicture3;
+    @FXML
+    private ImageView defaultPicture4;
+    @FXML
+    private ImageView defaultPicture5;
+    @FXML
+    private ImageView defaultPicture6;
+    
+    private Image defaultImageAux;
     
     
     @Override
@@ -115,6 +131,12 @@ public class RegistroFXMLController implements Initializable {
         Shadow shadow = new Shadow();
         shadow.setColor(Color.GREY); 
         shadow.setBlurType(BlurType.GAUSSIAN); 
+        
+        try{
+        Image image = new Image(getClass().getResourceAsStream("img/Avatar.jpg"));
+        System.out.println("eyey");
+        pictureFrame.setFill(new ImagePattern(image));
+        }catch(Exception e){System.out.println("la imagen guachin");}
         
         try{club = Club.getInstance();
         }catch (ClubDAOException ex){
@@ -151,6 +173,21 @@ public class RegistroFXMLController implements Initializable {
                pictureFrame.setOpacity(1);
         });
          register_button.disableProperty().bind(nameTF.textProperty().isEmpty().or(lastNameTF.textProperty().isEmpty()).or(userTF.textProperty().isEmpty()).or(phoneTF.textProperty().isEmpty()).or(passwordTF.textProperty().isEmpty()).or(passwordCTF.textProperty().isEmpty()));
+         
+         defaultPicture1.setOnMouseEntered(event -> {defaultImageAux = defaultPicture1.getImage();});
+         defaultPicture2.setOnMouseEntered(event -> {defaultImageAux = defaultPicture2.getImage();});
+         defaultPicture3.setOnMouseEntered(event -> {defaultImageAux = defaultPicture3.getImage();});
+         defaultPicture4.setOnMouseEntered(event -> {defaultImageAux = defaultPicture4.getImage();});
+         defaultPicture5.setOnMouseEntered(event -> {defaultImageAux = defaultPicture5.getImage();});
+         defaultPicture6.setOnMouseEntered(event -> {defaultImageAux = defaultPicture6.getImage();});
+         
+         defaultPicture1.setOnMouseExited(event -> {defaultImageAux = null;});
+         defaultPicture2.setOnMouseExited(event -> {defaultImageAux = null;});
+         defaultPicture3.setOnMouseExited(event -> {defaultImageAux = null;});
+         defaultPicture4.setOnMouseExited(event -> {defaultImageAux = null;});
+         defaultPicture5.setOnMouseExited(event -> {defaultImageAux = null;});
+         defaultPicture6.setOnMouseExited(event -> {defaultImageAux = null;});
+         
     }    
 
     @FXML
@@ -203,7 +240,7 @@ public class RegistroFXMLController implements Initializable {
             nm = nameTF.getText();
             sn = lastNameTF.getText();
             us = userTF.getText();
-            pn = phoneTF.getText();
+            pn = phoneTF.getText().trim();
             cc = creditCardTF.getText();
             pw = passwordTF.getText();
             pwc = passwordCTF.getText();
@@ -212,22 +249,24 @@ public class RegistroFXMLController implements Initializable {
         //Comprueba que el usuario no este ya registrado
         if(club.existsLogin(us)) errorMSG += "El usuario ya esta registrado\n";
         //Comprueba el formato de los numeros;
-        if(!isInteger(pn)) errorMSG += "El formato del numero de telfono es incorrecto\n";
+        if(!isInteger(pn)) errorMSG += "El formato del numero de teléfono es incorrecto\n";
         //Comprueba las contraseñas
         if(!pw.equals(pwc)) errorMSG += "Las contraseñas no coinciden\n";
         //Comprueba el formato de la tarjeta 
-        if(!isInteger(cc)) errorMSG += "El formato de la tarjeta de credito es incorrecto\n";
+        if(!isInteger(cc) && !cc.isEmpty()) errorMSG += "El formato de la tarjeta de credito es incorrecto\n";
         //comprueba el formato del svc
-        if(svcPF.getText().length() > 3) errorMSG += "El formato del svc es incorrecto\n";
+        if(svcPF.getText().length() != 3 && !svcPF.getText().isEmpty()) errorMSG += "El formato del svc es incorrecto\n";
         //Comprueba los campos obligatorios
-        System.out.println("OK");
         //register_button.disableProperty().bind(nm.isEmpty() || sn.isEmpty() || us.isEmpty() || pn.isEmpty() || pw.isEmpty() || pwc.isEmpty());
-        
-        
-        if(errorMSG.isEmpty()) System.out.println("Registrado guachin");//club.registerMember(nm, sn, pn, us, pw, cc, svc, im);
+        if(errorMSG.isEmpty()) {
+            System.out.println("Registrado guachin");
+            //club.registerMember(nm, sn, pn, us, pw, cc, svc, im);
+            usuarioRegistrado();
+        }
         else{
             //errorMSGT.
             errorMSGT.setText(errorMSG);
+            errorMSG = "";
             //errorMSGT.setVisible(true);
         }
     }
@@ -305,6 +344,26 @@ public class RegistroFXMLController implements Initializable {
     private void exit(ActionEvent event) {
     }
 
+    @FXML
+    private void changeProfileDefault(MouseEvent event) {
+        pictureFrame.setFill(new ImagePattern(defaultImageAux));
+    }
+
+    private void usuarioRegistrado() {
+        try{
+                Stage stage;
+                stage = main.getStage();
+            
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/reservarFXML.fxml"));
+                Parent root = loader.load();
+                  
+                Scene scene = new Scene(root, 1200, 750);
+                stage.setScene(scene);
+
+                    
+            }catch(Exception e){System.out.println(e);}
+        
+    }
 
 }
 
