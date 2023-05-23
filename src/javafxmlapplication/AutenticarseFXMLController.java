@@ -64,6 +64,8 @@ public class AutenticarseFXMLController implements Initializable {
     private Button exit_button_autenticarse;
     @FXML
     private Button back_button_autenticarse;
+    
+    private static Member member;
 
 
     /**
@@ -72,17 +74,18 @@ public class AutenticarseFXMLController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-        /**usuario_text_field.setBorder(Border.EMPTY);
-
-        BorderWidths borderWidths = new BorderWidths(5);
-        BorderStroke borderStroke = new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID,
-                CornerRadii.EMPTY, borderWidths);
-
-        Border compoundBorder = new Border(borderStroke);
-        usuario_text_field.setBorder(compoundBorder);*/
-        try{club = Club.getInstance();}
-        catch(Exception e){System.out.println("cagaste");}
+        
+            // TODO
+            /**usuario_text_field.setBorder(Border.EMPTY);
+             * 
+             * BorderWidths borderWidths = new BorderWidths(5);
+             * BorderStroke borderStroke = new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID,
+             * CornerRadii.EMPTY, borderWidths);
+             * 
+             * Border compoundBorder = new Border(borderStroke);
+             * usuario_text_field.setBorder(compoundBorder);*/
+        try{club = Club.getInstance();}catch (ClubDAOException | IOException ex)
+        {java.util.logging.Logger.getLogger(AutenticarseFXMLController.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);}
         
         inicia_sesion_button.setOnMouseEntered(event -> {
                 inicia_sesion_button.setCursor(Cursor.HAND);
@@ -119,12 +122,13 @@ public class AutenticarseFXMLController implements Initializable {
     }    
 
     @FXML
-    private void login(ActionEvent event) {}
+    private void login(ActionEvent event) {
+    
+    }
 
     @FXML
     private void registerUser(MouseEvent event) throws Exception {
     try{
-            
             Stage stage;
             stage = main.getStage();
             
@@ -135,8 +139,6 @@ public class AutenticarseFXMLController implements Initializable {
             
         }catch(Exception e){System.out.println(e);}}
     
-    private static Member member;
-
     @FXML
     private void iniciar_sesion_clicked(MouseEvent event) {
         usuario_mal_button.setVisible(false);
