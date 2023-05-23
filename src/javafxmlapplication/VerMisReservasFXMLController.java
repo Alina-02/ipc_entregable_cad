@@ -14,6 +14,7 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -28,7 +29,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.DialogPane;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -37,6 +41,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
@@ -93,17 +98,18 @@ public class VerMisReservasFXMLController implements Initializable {
     
     
     
-    private ObservableList<Booking> misReservas;
     
     private Club club;
     
     private Member member;
     
-    List<memberBooking> bookings = new ArrayList<memberBooking>();
+    private List<memberBooking> bookings = new ArrayList<memberBooking>();
     
-    ObservableList<memberBooking> data;
+    private ObservableList<memberBooking> data;
 
-    boolean devolucion = true;
+    private boolean devolucion = true;
+    
+    private String auxPista;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -290,18 +296,72 @@ public class VerMisReservasFXMLController implements Initializable {
     private void cancelar_reserva_clicked(MouseEvent event) {
         
         if(!devolucion){
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                //cambiar el icono
+                Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+                stage.getIcons().add(new Image(this.getClass().getResourceAsStream("/img/Pelota.png")));
+                alert.getDialogPane().setMaxWidth(600);
+                alert.getDialogPane().setMinWidth(550);
+                alert.getDialogPane().setMaxHeight(200);
+                alert.getDialogPane().setMinHeight(150);
+                
+                //añadir hoja de estilo
+                DialogPane dialogPane = alert.getDialogPane();
+                dialogPane.getStylesheets().add(getClass().getResource("/values/reservarfxml.css").toExternalForm());
+                
+                //asignar la clase al contenedor principal del diálogo
+                alert.getDialogPane().getStyleClass().add("myAlert");
+                
+                //configurar el contenido del diálogo
+                alert.setTitle("Aviso de Devolución");
+                alert.setHeaderText("Al cancelar esta reserva no se le devolverá el dinero.");
+                alert.setContentText("¿Está seguro de que quiere cancelarla?");
+                
+                
+                Optional<ButtonType> result = alert.showAndWait();
+                
+                    if(result.get() == ButtonType.OK){
+                        cancelarReserva();
+                    } 
+                 
+                    alert.close();
+        }else{
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                //cambiar el icono
+                Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+                stage.getIcons().add(new Image(this.getClass().getResourceAsStream("/img/Pelota.png")));
+                alert.getDialogPane().setMaxWidth(600);
+                alert.getDialogPane().setMinWidth(550);
+                alert.getDialogPane().setMaxHeight(200);
+                alert.getDialogPane().setMinHeight(150);
+                
+                //añadir hoja de estilo
+                DialogPane dialogPane = alert.getDialogPane();
+                dialogPane.getStylesheets().add(getClass().getResource("/values/reservarfxml.css").toExternalForm());
+                
+                //asignar la clase al contenedor principal del diálogo
+                alert.getDialogPane().getStyleClass().add("myAlert");
+                
+                //configurar el contenido del diálogo
+                alert.setTitle("Aviso de Cancelación");
+                alert.setHeaderText("Va a cancelar su reserva de la " + auxPista + ".");
+                alert.setContentText("¿Está seguro de que quiere cancelarla?");
+                
+                
+                Optional<ButtonType> result = alert.showAndWait();
+                
+                    if(result.get() == ButtonType.OK){
+                        cancelarReserva();
+                    } 
+                 
+                    alert.close();
+            
+            
             
         }
         
         
         
-        data.remove(bookings_table_view.getSelectionModel().getSelectedItem());
-        Booking booking = club.getUserBookings(member.getNickName()).get(bookings_table_view.getSelectionModel().getSelectedIndex());
-        try{
-            club.removeBooking(booking);
-        }catch(Exception e){
-            System.out.println("No se ha podido cancelar la reserva: " + e);
-        }
         
     }
 
@@ -311,6 +371,7 @@ public class VerMisReservasFXMLController implements Initializable {
                 if(bookings_table_view.getSelectionModel().getSelectedIndex() != -1){
                     
                     Booking booking = club.getUserBookings(member.getNickName()).get(bookings_table_view.getSelectionModel().getSelectedIndex());
+                    auxPista = booking.getCourt().getName();
                     LocalDateTime now = LocalDateTime.now();
                     LocalDateTime date = LocalDateTime.of(booking.getMadeForDay(), booking.getFromTime());
                     
@@ -349,7 +410,15 @@ public class VerMisReservasFXMLController implements Initializable {
         
     }
 
-    
+    private void cancelarReserva(){
+        data.remove(bookings_table_view.getSelectionModel().getSelectedItem());
+        Booking booking = club.getUserBookings(member.getNickName()).get(bookings_table_view.getSelectionModel().getSelectedIndex());
+        try{
+            club.removeBooking(booking);
+        }catch(Exception e){
+            System.out.println("No se ha podido cancelar la reserva: " + e);
+        }
+    }
     
 }
 
