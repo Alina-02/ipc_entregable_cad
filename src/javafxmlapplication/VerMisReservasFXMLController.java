@@ -106,10 +106,16 @@ public class VerMisReservasFXMLController implements Initializable {
     private List<memberBooking> bookings = new ArrayList<memberBooking>();
     
     private ObservableList<memberBooking> data;
+    
+    private List<Booking> bookingList;
 
     private boolean devolucion = true;
     
     private String auxPista;
+    
+    private Booking auxBook;
+    
+    private int sumIndex;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -126,28 +132,33 @@ public class VerMisReservasFXMLController implements Initializable {
         
         //Consigue las reservas del miembro
         String login = member.getNickName();
-        List<Booking> bookingList = club.getUserBookings(login);
+        bookingList = club.getUserBookings(login);
         
         
-        int i = 0;
+        sumIndex = 0;
         for(Booking b: bookingList){
-            String pista = b.getCourt().getName();
-            String day = "" + b.getMadeForDay().getDayOfMonth();
-            String entrada = "" + b.getFromTime().getHour();
-            String salida = "" + (b.getFromTime().getHour() + 1);
-            String pagada; 
-            if(b.getMember().getCreditCard() != null){pagada = "Pagada";}
-            else{pagada = "Pendiente de pago";}
-            memberBooking mB = new memberBooking(pista, day, entrada, salida, pagada);
-            bookings.add(new memberBooking(pista, day, entrada, salida, pagada));
-            
-            i++;
-            if(i >= 10){
-                break;
-            }
+            if(bookings.size() < 10){
+                String pista = b.getCourt().getName();
+                String day = "" + b.getMadeForDay().getDayOfMonth();
+                String entrada = "" + b.getFromTime().getHour();
+                String salida = "" + (b.getFromTime().getHour() + 1);
+                String pagada; 
+                if(b.getMember().getCreditCard() != null){pagada = "Pagada";}
+                else{pagada = "Pendiente de pago";}
+                memberBooking mB = new memberBooking(pista, day, entrada, salida, pagada, b);
+
+                LocalDateTime now = LocalDateTime.now();
+                LocalDateTime date = LocalDateTime.of(b.getMadeForDay(), b.getFromTime());
+
+                if(date.isAfter(now)){
+                    bookings.add(new memberBooking(pista, day, entrada, salida, pagada, b));
+                    //bookings.add(pos, new memberBooking(pista, day, entrada, salida, pagada, b));
+                }else{sumIndex++;}
+            }else{break;}
         }
         
         data = FXCollections.observableList(bookings);
+        
         
         
         dia_table_column.setCellValueFactory(new PropertyValueFactory<>("dia"));
@@ -156,8 +167,6 @@ public class VerMisReservasFXMLController implements Initializable {
         salida_table_column.setCellValueFactory(new PropertyValueFactory<>("horaFin"));
         pagada_table_column.setCellValueFactory(new PropertyValueFactory<>("pagada"));
         
-        /*String css = this.getClass().getResource("/values/table-view.css").toExternalForm();
-        bookings_table_view.setStyle(css);*/
         
         bookings_table_view.setItems(data);
         
@@ -344,7 +353,7 @@ public class VerMisReservasFXMLController implements Initializable {
                 
                 //configurar el contenido del diálogo
                 alert.setTitle("Aviso de Cancelación");
-                alert.setHeaderText("Va a cancelar su reserva de la " + auxPista + ".");
+                alert.setHeaderText("Va a cancelar su reserva de la " + auxBook.getCourt().getName() + ".");
                 alert.setContentText("¿Está seguro de que quiere cancelarla?");
                 
                 
@@ -352,11 +361,8 @@ public class VerMisReservasFXMLController implements Initializable {
                 
                     if(result.get() == ButtonType.OK){
                         cancelarReserva();
-                    } 
-                 
+                    }
                     alert.close();
-            
-            
             
         }
         
@@ -367,13 +373,13 @@ public class VerMisReservasFXMLController implements Initializable {
 
     @FXML
     private void bookings_clicked(MouseEvent event) {
-            if(event.getClickCount() == 1){
                 if(bookings_table_view.getSelectionModel().getSelectedIndex() != -1){
                     
-                    Booking booking = club.getUserBookings(member.getNickName()).get(bookings_table_view.getSelectionModel().getSelectedIndex());
-                    auxPista = booking.getCourt().getName();
+                    auxBook = club.getUserBookings(member.getNickName()).get(bookings_table_view.getSelectionModel().getSelectedIndex() + sumIndex);
+                    auxPista = auxBook.getCourt().getName();
+                    
                     LocalDateTime now = LocalDateTime.now();
-                    LocalDateTime date = LocalDateTime.of(booking.getMadeForDay(), booking.getFromTime());
+                    LocalDateTime date = LocalDateTime.of(auxBook.getMadeForDay(), auxBook.getFromTime());
                     
                     LocalDateTime unDia = now.plusHours(24);
                     if(unDia.isAfter(date)){
@@ -382,13 +388,10 @@ public class VerMisReservasFXMLController implements Initializable {
                         devolucion = true;
                     }
                     
-                    if(date.isAfter(now)){
-                        cancelar_reserva_button.setDisable(false);
-                    }else{
-                        cancelar_reserva_button.setDisable(true);
-                    }
+                    
+                    cancelar_reserva_button.setDisable(false);
+                    
                 }
-            }
     }
 
     @FXML
@@ -396,6 +399,7 @@ public class VerMisReservasFXMLController implements Initializable {
         
         try{
             // HAY QUE PONER EL MEMBER A NULL, HACE FALTA UN MÉTODO SET MEMBER EN AUTENTICARSE
+            //AutenticarseFXMLController.setMember(null);
             
             Stage stage;
             stage = main.getStage();

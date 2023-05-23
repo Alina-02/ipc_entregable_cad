@@ -6,6 +6,7 @@ package ipc_project;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import model.Booking;
 
 /**
  *
@@ -19,12 +20,15 @@ public class memberBooking {
     private final StringProperty horaFin = new SimpleStringProperty();
     private final StringProperty pagada = new SimpleStringProperty();
     
-    public memberBooking(String pista, String dia, String horaIni, String horaFin, String pagada){
+    private Booking b = null;
+    
+    public memberBooking(String pista, String dia, String horaIni, String horaFin, String pagada, Booking b){
         this.pista.setValue(pista);
         this.dia.setValue(dia);
         this.horaIni.setValue(horaIni);
         this.horaFin.setValue(horaFin);
         this.pagada.setValue(pagada);
+        this.b = b;
     }
     
     public final StringProperty pistaProperty(){
@@ -45,5 +49,9 @@ public class memberBooking {
     
     public final StringProperty pagadaProperty(){
         return pagada;
+    }
+    
+    public final Booking getBooking(){
+        return b;
     }
 }
