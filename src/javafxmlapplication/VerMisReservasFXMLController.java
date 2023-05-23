@@ -6,14 +6,21 @@ package javafxmlapplication;
 
 import ipc_project.bookingButton;
 import ipc_project.main;
+import ipc_project.memberBooking;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.animation.TranslateTransition;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.collections.ObservableMap;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -23,10 +30,15 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -44,86 +56,6 @@ import model.Member;
 public class VerMisReservasFXMLController implements Initializable {
 
     @FXML
-    private TextField find_hour_textfield;
-    @FXML
-    private Button find_hour_button;
-    @FXML
-    private Button back_button;
-    @FXML
-    private Button exit_button;
-    @FXML
-    private Button B3;
-    @FXML
-    private Label dayL;
-    @FXML
-    private Label timeL;
-    @FXML
-    private Label paymentL;
-    @FXML
-    private Button cancelB;
-    @FXML
-    private Button B1;
-    @FXML
-    private Button B2;
-    @FXML
-    private Button B4;
-    @FXML
-    private Button B5;
-    @FXML
-    private Button B6;
-    @FXML
-    private Button B7;
-    @FXML
-    private Button B8;
-    @FXML
-    private Button B9;
-    @FXML
-    private Button B10;
-
-    private Club club;
-    @FXML
-    private Label B1Time;
-    @FXML
-    private Label B1Court;
-    @FXML
-    private Label B2Time;
-    @FXML
-    private Label B2Court;
-    @FXML
-    private Label B3Time;
-    @FXML
-    private Label B3Court;
-    @FXML
-    private Label B4Time;
-    @FXML
-    private Label B4Court;
-    @FXML
-    private Label B5Time;
-    @FXML
-    private Label B5Court;
-    @FXML
-    private Label B6Time;
-    @FXML
-    private Label B6Court;
-    @FXML
-    private Label B7Time;
-    @FXML
-    private Label B7Court;
-    @FXML
-    private Label B8Time;
-    @FXML
-    private Label B8Court;
-    @FXML
-    private Label B9Time;
-    @FXML
-    private Label B9Court;
-    @FXML
-    private Label B10Time;
-    @FXML
-    private Label B10Court;
-    
-    private bookingButton[] bb = new bookingButton[10];
-    @FXML
     private Button menu_button1;
     @FXML
     private AnchorPane pane_slide;
@@ -139,46 +71,97 @@ public class VerMisReservasFXMLController implements Initializable {
     private Button ir_Reservar;
     @FXML
     private Label cerrar_sesion_label;
-    /**
-     * Initializes the controller class.
-     */
-    @Override
+    @FXML
+    private Button exit_button;
+    @FXML
+    private TableView<memberBooking> bookings_table_view;
+    @FXML
+    private TableColumn<memberBooking, String> dia_table_column;
+    @FXML
+    private TableColumn<memberBooking, String> pista_table_column;
+    @FXML
+    private TableColumn<memberBooking, String> entrada_table_column;
+    @FXML
+    private TableColumn<memberBooking, String> salida_table_column;
+    @FXML
+    private TableColumn<memberBooking, String> pagada_table_column;
+    @FXML
+    private Button cancelar_reserva_button;
+    @FXML
+    private Label nickname_label;
     
     
     
-    public void initialize(URL url, ResourceBundle rb) {
+    
+    private ObservableList<Booking> misReservas;
+    
+    private Club club;
+    
+    private Member member;
+    
+    List<memberBooking> bookings = new ArrayList<memberBooking>();
+    
+    ObservableList<memberBooking> data;
 
+    boolean devolucion = true;
+    
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        
+        cancelar_reserva_button.setDisable(true);
+        
+        
         //Consigue al miembro loggeado e inicializa club
-        Member logedMember = AutenticarseFXMLController.getMember();
-        try{club = Club.getInstance(); } 
-        catch (ClubDAOException | IOException ex){
+        member = AutenticarseFXMLController.getMember();
+        try{club = Club.getInstance(); 
+        }catch (ClubDAOException | IOException ex){
             Logger.getLogger(VerMisReservasFXMLController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         //Consigue las reservas del miembro
-        String login = logedMember.getNickName();
+        String login = member.getNickName();
         List<Booking> bookingList = club.getUserBookings(login);
-                
-        //Mete todos los valores que hay dentro del boton en un array de bookingButtons
-        Button[] buttons = {B1, B2, B3, B4, B5, B6, B7, B8, B9, B10};
-        Label[] buttonsTime = {B1Time, B2Time, B3Time, B4Time, B5Time, B6Time, B7Time, B8Time, B9Time, B10Time};
-        Label[] buttonsCourt = {B1Court, B2Court, B3Court, B4Court, B5Court, B6Court, B7Court, B8Court, B9Court, B10Court};
-        for(int i = 0; i < bb.length; i++){
-            //bb[i] = new bookingButton(buttons[i], bookingList.get(i));
+        
+        
+        int i = 0;
+        for(Booking b: bookingList){
+            String pista = b.getCourt().getName();
+            String day = "" + b.getMadeForDay().getDayOfMonth();
+            String entrada = "" + b.getFromTime().getHour();
+            String salida = "" + (b.getFromTime().getHour() + 1);
+            String pagada; 
+            if(b.getMember().getCreditCard() != null){pagada = "Pagada";}
+            else{pagada = "Pendiente de pago";}
+            memberBooking mB = new memberBooking(pista, day, entrada, salida, pagada);
+            bookings.add(new memberBooking(pista, day, entrada, salida, pagada));
+            
+            i++;
+            if(i >= 10){
+                break;
+            }
         }
         
-        //asigna cada boton a una reserva
-        for(int i = 0; i < bb.length && i < bookingList.size(); i++){
-            //Busca una reserva de la persona loggeada
-            Booking aux = bookingList.get(i);
-            //Le asigna al boton las caracteristicas de la reserva (no estoy del todo seguro de como funciona getFromTime())
-            //bb[i].setTime(aux.getFromTime().toString());
-            //bb[i].setCourt(aux.getCourt().getName());
-        }
+        data = FXCollections.observableList(bookings);
+        
+        
+        dia_table_column.setCellValueFactory(new PropertyValueFactory<>("dia"));
+        pista_table_column.setCellValueFactory(new PropertyValueFactory<>("pista"));
+        entrada_table_column.setCellValueFactory(new PropertyValueFactory<>("horaIni"));
+        salida_table_column.setCellValueFactory(new PropertyValueFactory<>("horaFin"));
+        pagada_table_column.setCellValueFactory(new PropertyValueFactory<>("pagada"));
+        
+        /*String css = this.getClass().getResource("/values/table-view.css").toExternalForm();
+        bookings_table_view.setStyle(css);*/
+        
+        bookings_table_view.setItems(data);
+        
+        // MENÚ
         
         pane_slide.setTranslateX(-490);
         menu_button1.setVisible(true);
         menu_button2.setVisible(false);
+        
+        // ACTUALIZAR CURSORES
         
         ir_Actualizar.setOnMouseExited(event ->{
                 ir_Actualizar.setCursor(Cursor.DEFAULT);
@@ -197,18 +180,12 @@ public class VerMisReservasFXMLController implements Initializable {
         ir_Reservar.setOnMouseExited(event ->{
                 ir_Reservar.setCursor(Cursor.DEFAULT);
         });
-
-    }  
-
-    @FXML
-    private void showData(ActionEvent event){
-        dayL.setText("");
-        timeL.setText("");
-        paymentL.setText("");
-    }
-
-    @FXML
-    private void exit_clicked(MouseEvent event) {
+    
+        // PONER DATOS DEL MENÚ
+        
+        Image selectedFile = member.getImage();
+        pictureFrame.setFill(new ImagePattern(selectedFile));
+        nickname_label.setText(member.getNickName());
         
     }
 
@@ -256,7 +233,7 @@ public class VerMisReservasFXMLController implements Initializable {
 
     @FXML
     private void irActualizar(MouseEvent event) {
-         try{
+        try{
                 Stage stage;
                 stage = main.getStage();
             
@@ -301,5 +278,79 @@ public class VerMisReservasFXMLController implements Initializable {
                     
             }catch(Exception e){System.out.println(e);}
     }
+
+    @FXML
+    private void exit_clicked(MouseEvent event) {
+        System.exit(0);
+    }
+    
+    // CANCELAR RESERVA
+
+    @FXML
+    private void cancelar_reserva_clicked(MouseEvent event) {
+        
+        if(!devolucion){
+            
+        }
+        
+        
+        
+        data.remove(bookings_table_view.getSelectionModel().getSelectedItem());
+        Booking booking = club.getUserBookings(member.getNickName()).get(bookings_table_view.getSelectionModel().getSelectedIndex());
+        try{
+            club.removeBooking(booking);
+        }catch(Exception e){
+            System.out.println("No se ha podido cancelar la reserva: " + e);
+        }
+        
+    }
+
+    @FXML
+    private void bookings_clicked(MouseEvent event) {
+            if(event.getClickCount() == 1){
+                if(bookings_table_view.getSelectionModel().getSelectedIndex() != -1){
+                    
+                    Booking booking = club.getUserBookings(member.getNickName()).get(bookings_table_view.getSelectionModel().getSelectedIndex());
+                    LocalDateTime now = LocalDateTime.now();
+                    LocalDateTime date = LocalDateTime.of(booking.getMadeForDay(), booking.getFromTime());
+                    
+                    LocalDateTime unDia = now.plusHours(24);
+                    if(unDia.isAfter(date)){
+                        devolucion = false;
+                    }else{
+                        devolucion = true;
+                    }
+                    
+                    if(date.isAfter(now)){
+                        cancelar_reserva_button.setDisable(false);
+                    }else{
+                        cancelar_reserva_button.setDisable(true);
+                    }
+                }
+            }
+    }
+
+    @FXML
+    private void cerrar_sesion_clicked(MouseEvent event) {
+        
+        try{
+            // HAY QUE PONER EL MEMBER A NULL, HACE FALTA UN MÉTODO SET MEMBER EN AUTENTICARSE
+            
+            Stage stage;
+            stage = main.getStage();
+            
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/disponibilidadDelDiaFXML.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root, 1200, 750);
+            stage.setScene(scene);
+                    
+        }catch(Exception e){System.out.println("Problemas en cerrar sesión: " + e);}
+        
+        
+    }
+
+    
     
 }
+
+

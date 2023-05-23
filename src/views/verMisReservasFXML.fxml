@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.String?>
-<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -20,13 +19,13 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="750.0" prefWidth="1200.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmlapplication.VerMisReservasFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="750.0" prefWidth="1200.0" styleClass="mainFxmlClass" stylesheets="@../values/vermisreservasfxml.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmlapplication.VerMisReservasFXMLController">
    <children>
-      <BorderPane prefHeight="200.0" prefWidth="200.0" stylesheets="@../values/style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <BorderPane prefHeight="200.0" prefWidth="200.0" stylesheets="@../values/vermisreservasfxml.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <left>
             <StackPane BorderPane.alignment="CENTER">
                <children>
-                  <VBox prefHeight="810.0" prefWidth="490.0" styleClass="green-background">
+                  <VBox prefHeight="810.0" prefWidth="490.0" styleClass="green-background" stylesheets="@../values/reservarfxml.css">
                      <children>
                         <Button fx:id="menu_button1" mnemonicParsing="false" onMouseClicked="#run1" prefHeight="30.0" prefWidth="33.0" styleClass="transparent">
                            <graphic>
@@ -40,444 +39,8 @@
                               <Insets left="10.0" top="10.0" />
                            </VBox.margin>
                         </Button>
-                        <HBox alignment="CENTER" cache="true" prefHeight="110.0" prefWidth="200.0">
-                           <children>
-                              <Label alignment="TOP_LEFT" prefHeight="50.0" prefWidth="179.0" text="Reservas">
-                                 <font>
-                                    <Font name="SansSerif Bold" size="40.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER" prefHeight="65.0" prefWidth="200.0" stylesheets="@../values/reservarfxml.css">
-                           <VBox.margin>
-                              <Insets left="30.0" right="30.0" />
-                           </VBox.margin>
-                           <children>
-                              <TextField fx:id="find_hour_textfield" prefHeight="40.0" prefWidth="222.0" promptText="Busque una hora..." styleClass="transparent" stylesheets="@../values/style.css">
-                                 <HBox.margin>
-                                    <Insets left="20.0" />
-                                 </HBox.margin>
-                                 <font>
-                                    <Font name="Cambria" size="18.0" />
-                                 </font>
-                              </TextField>
-                              <Button fx:id="find_hour_button" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" styleClass="purple-button" stylesheets="@../values/style.css" text="Buscar" textFill="WHITE">
-                                 <font>
-                                    <Font name="SansSerif Bold" size="14.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets left="35.0" />
-                                 </HBox.margin>
-                              </Button>
-                           </children>
-                           <styleClass>
-                              <String fx:value="search-button" />
-                              <String fx:value="shadow" />
-                           </styleClass>
-                        </HBox>
-                        <VBox alignment="TOP_CENTER" prefHeight="488.0" prefWidth="335.0" stylesheets="@../values/style.css">
-                           <VBox.margin>
-                              <Insets bottom="20.0" left="50.0" right="50.0" top="35.0" />
-                           </VBox.margin>
-                           <children>
-                              <VBox prefHeight="554.0" prefWidth="335.0">
-                                 <children>
-                                    <ScrollPane prefHeight="430.0" prefWidth="284.0" stylesheets="@../values/style.css">
-                                      <content>
-                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1000.0" prefWidth="326.0" styleClass="white_background" stylesheets="@../values/style.css">
-                                             <children>
-                                                <VBox layoutY="2.0" prefHeight="1221.0" prefWidth="332.0">
-                                                   <children>
-                                                      <Button fx:id="B1" contentDisplay="CENTER" mnemonicParsing="false" onAction="#showData" prefHeight="100.0" prefWidth="322.0" styleClass="hbox_scroll_pane" stylesheets="@../values/style.css">
-                                                         <graphic>
-                                                            <VBox prefHeight="114.0" prefWidth="275.0">
-                                                               <children>
-                                                                  <HBox alignment="CENTER" prefHeight="57.0" prefWidth="280.0">
-                                                                     <children>
-                                                                        <Label fx:id="B1Time" text="09:00 - 10:00">
-                                                                           <font>
-                                                                              <Font name="SansSerif Regular" size="20.0" />
-                                                                           </font>
-                                                                        </Label>
-                                                                     </children>
-                                                                     <padding>
-                                                                        <Insets top="5.0" />
-                                                                     </padding>
-                                                                  </HBox>
-                                                                  <HBox alignment="CENTER" prefHeight="57.0" prefWidth="280.0">
-                                                                     <children>
-                                                                        <Label fx:id="B1Court" text="Libre">
-                                                                           <font>
-                                                                              <Font name="SansSerif Italic" size="20.0" />
-                                                                           </font>
-                                                                           <HBox.margin>
-                                                                              <Insets top="5.0" />
-                                                                           </HBox.margin>
-                                                                        </Label>
-                                                                     </children>
-                                                                     <VBox.margin>
-                                                                        <Insets bottom="5.0" />
-                                                                     </VBox.margin>
-                                                                  </HBox>
-                                                               </children>
-                                                            </VBox>
-                                                         </graphic>
-                                                      </Button>
-                                                      <Button fx:id="B2" contentDisplay="CENTER" mnemonicParsing="false" onAction="#showData" prefHeight="100.0" prefWidth="322.0" styleClass="hbox_scroll_pane" stylesheets="@../values/style.css">
-                                                         <graphic>
-                                                            <VBox prefHeight="114.0" prefWidth="275.0">
-                                                               <children>
-                                                                  <HBox alignment="CENTER" prefHeight="57.0" prefWidth="280.0">
-                                                                     <children>
-                                                                        <Label fx:id="B2Time" text="10:00 - 11:00">
-                                                                           <font>
-                                                                              <Font name="SansSerif Regular" size="20.0" />
-                                                                           </font>
-                                                                        </Label>
-                                                                     </children>
-                                                                     <padding>
-                                                                        <Insets top="5.0" />
-                                                                     </padding>
-                                                                  </HBox>
-                                                                  <HBox alignment="CENTER" prefHeight="57.0" prefWidth="280.0">
-                                                                     <children>
-                                                                        <Label fx:id="B2Court" text="Libre">
-                                                                           <font>
-                                                                              <Font name="SansSerif Italic" size="20.0" />
-                                                                           </font>
-                                                                           <HBox.margin>
-                                                                              <Insets top="5.0" />
-                                                                           </HBox.margin>
-                                                                        </Label>
-                                                                     </children>
-                                                                     <VBox.margin>
-                                                                        <Insets bottom="5.0" />
-                                                                     </VBox.margin>
-                                                                  </HBox>
-                                                               </children>
-                                                            </VBox>
-                                                         </graphic>
-                                                      </Button>
-                                                      <Button fx:id="B3" contentDisplay="CENTER" mnemonicParsing="false" onAction="#showData" prefHeight="100.0" prefWidth="322.0" styleClass="hbox_scroll_pane" stylesheets="@../values/style.css">
-                                                         <graphic>
-                                                            <VBox prefHeight="114.0" prefWidth="275.0">
-                                                               <children>
-                                                                  <HBox alignment="CENTER" prefHeight="57.0" prefWidth="280.0">
-                                                                     <children>
-                                                                        <Label fx:id="B3Time" text="11:00 - 12:00">
-                                                                           <font>
-                                                                              <Font name="SansSerif Regular" size="20.0" />
-                                                                           </font>
-                                                                        </Label>
-                                                                     </children>
-                                                                     <padding>
-                                                                        <Insets top="5.0" />
-                                                                     </padding>
-                                                                  </HBox>
-                                                                  <HBox alignment="CENTER" prefHeight="57.0" prefWidth="280.0">
-                                                                     <children>
-                                                                        <Label fx:id="B3Court" text="Libre">
-                                                                           <font>
-                                                                              <Font name="SansSerif Italic" size="20.0" />
-                                                                           </font>
-                                                                           <HBox.margin>
-                                                                              <Insets top="5.0" />
-                                                                           </HBox.margin>
-                                                                        </Label>
-                                                                     </children>
-                                                                     <VBox.margin>
-                                                                        <Insets bottom="5.0" />
-                                                                     </VBox.margin>
-                                                                  </HBox>
-                                                               </children>
-                                                            </VBox>
-                                                         </graphic>
-                                                      </Button>
-                                                      <Button fx:id="B4" contentDisplay="CENTER" mnemonicParsing="false" onAction="#showData" prefHeight="100.0" prefWidth="322.0" styleClass="hbox_scroll_pane" stylesheets="@../values/style.css">
-                                                         <graphic>
-                                                            <VBox prefHeight="114.0" prefWidth="275.0">
-                                                               <children>
-                                                                  <HBox alignment="CENTER" prefHeight="57.0" prefWidth="280.0">
-                                                                     <children>
-                                                                        <Label fx:id="B4Time" text="12:00 - 13:00">
-                                                                           <font>
-                                                                              <Font name="SansSerif Regular" size="20.0" />
-                                                                           </font>
-                                                                        </Label>
-                                                                     </children>
-                                                                     <padding>
-                                                                        <Insets top="5.0" />
-                                                                     </padding>
-                                                                  </HBox>
-                                                                  <HBox alignment="CENTER" prefHeight="57.0" prefWidth="280.0">
-                                                                     <children>
-                                                                        <Label fx:id="B4Court" text="Libre">
-                                                                           <font>
-                                                                              <Font name="SansSerif Italic" size="20.0" />
-                                                                           </font>
-                                                                           <HBox.margin>
-                                                                              <Insets top="5.0" />
-                                                                           </HBox.margin>
-                                                                        </Label>
-                                                                     </children>
-                                                                     <VBox.margin>
-                                                                        <Insets bottom="5.0" />
-                                                                     </VBox.margin>
-                                                                  </HBox>
-                                                               </children>
-                                                            </VBox>
-                                                         </graphic>
-                                                      </Button>
-                                                      <Button fx:id="B5" contentDisplay="CENTER" mnemonicParsing="false" onAction="#showData" prefHeight="100.0" prefWidth="322.0" styleClass="hbox_scroll_pane" stylesheets="@../values/style.css">
-                                                         <graphic>
-                                                            <VBox prefHeight="114.0" prefWidth="275.0">
-                                                               <children>
-                                                                  <HBox alignment="CENTER" prefHeight="57.0" prefWidth="280.0">
-                                                                     <children>
-                                                                        <Label fx:id="B5Time" text="13:00 - 14:00">
-                                                                           <font>
-                                                                              <Font name="SansSerif Regular" size="20.0" />
-                                                                           </font>
-                                                                        </Label>
-                                                                     </children>
-                                                                     <padding>
-                                                                        <Insets top="5.0" />
-                                                                     </padding>
-                                                                  </HBox>
-                                                                  <HBox alignment="CENTER" prefHeight="57.0" prefWidth="280.0">
-                                                                     <children>
-                                                                        <Label fx:id="B5Court" text="Libre">
-                                                                           <font>
-                                                                              <Font name="SansSerif Italic" size="20.0" />
-                                                                           </font>
-                                                                           <HBox.margin>
-                                                                              <Insets top="5.0" />
-                                                                           </HBox.margin>
-                                                                        </Label>
-                                                                     </children>
-                                                                     <VBox.margin>
-                                                                        <Insets bottom="5.0" />
-                                                                     </VBox.margin>
-                                                                  </HBox>
-                                                               </children>
-                                                            </VBox>
-                                                         </graphic>
-                                                      </Button>
-                                                      <Button fx:id="B6" contentDisplay="CENTER" mnemonicParsing="false" onAction="#showData" prefHeight="100.0" prefWidth="322.0" styleClass="hbox_scroll_pane" stylesheets="@../values/style.css">
-                                                         <graphic>
-                                                            <VBox prefHeight="114.0" prefWidth="275.0">
-                                                               <children>
-                                                                  <HBox alignment="CENTER" prefHeight="57.0" prefWidth="280.0">
-                                                                     <children>
-                                                                        <Label fx:id="B6Time" text="14:00 - 15:00">
-                                                                           <font>
-                                                                              <Font name="SansSerif Regular" size="20.0" />
-                                                                           </font>
-                                                                        </Label>
-                                                                     </children>
-                                                                     <padding>
-                                                                        <Insets top="5.0" />
-                                                                     </padding>
-                                                                  </HBox>
-                                                                  <HBox alignment="CENTER" prefHeight="57.0" prefWidth="280.0">
-                                                                     <children>
-                                                                        <Label fx:id="B6Court" text="Libre">
-                                                                           <font>
-                                                                              <Font name="SansSerif Italic" size="20.0" />
-                                                                           </font>
-                                                                           <HBox.margin>
-                                                                              <Insets top="5.0" />
-                                                                           </HBox.margin>
-                                                                        </Label>
-                                                                     </children>
-                                                                     <VBox.margin>
-                                                                        <Insets bottom="5.0" />
-                                                                     </VBox.margin>
-                                                                  </HBox>
-                                                               </children>
-                                                            </VBox>
-                                                         </graphic>
-                                                      </Button>
-                                                      <Button fx:id="B7" contentDisplay="CENTER" mnemonicParsing="false" onAction="#showData" prefHeight="100.0" prefWidth="322.0" styleClass="hbox_scroll_pane" stylesheets="@../values/style.css">
-                                                         <graphic>
-                                                            <VBox prefHeight="114.0" prefWidth="275.0">
-                                                               <children>
-                                                                  <HBox alignment="CENTER" prefHeight="57.0" prefWidth="280.0">
-                                                                     <children>
-                                                                        <Label fx:id="B7Time" text="15:00 - 16:00">
-                                                                           <font>
-                                                                              <Font name="SansSerif Regular" size="20.0" />
-                                                                           </font>
-                                                                        </Label>
-                                                                     </children>
-                                                                     <padding>
-                                                                        <Insets top="5.0" />
-                                                                     </padding>
-                                                                  </HBox>
-                                                                  <HBox alignment="CENTER" prefHeight="57.0" prefWidth="280.0">
-                                                                     <children>
-                                                                        <Label fx:id="B7Court" text="Libre">
-                                                                           <font>
-                                                                              <Font name="SansSerif Italic" size="20.0" />
-                                                                           </font>
-                                                                           <HBox.margin>
-                                                                              <Insets top="5.0" />
-                                                                           </HBox.margin>
-                                                                        </Label>
-                                                                     </children>
-                                                                     <VBox.margin>
-                                                                        <Insets bottom="5.0" />
-                                                                     </VBox.margin>
-                                                                  </HBox>
-                                                               </children>
-                                                            </VBox>
-                                                         </graphic>
-                                                      </Button>
-                                                      <Button fx:id="B8" contentDisplay="CENTER" mnemonicParsing="false" onAction="#showData" prefHeight="100.0" prefWidth="322.0" styleClass="hbox_scroll_pane" stylesheets="@../values/style.css">
-                                                         <graphic>
-                                                            <VBox prefHeight="114.0" prefWidth="275.0">
-                                                               <children>
-                                                                  <HBox alignment="CENTER" prefHeight="57.0" prefWidth="280.0">
-                                                                     <children>
-                                                                        <Label fx:id="B8Time" text="16:00 - 17:00">
-                                                                           <font>
-                                                                              <Font name="SansSerif Regular" size="20.0" />
-                                                                           </font>
-                                                                        </Label>
-                                                                     </children>
-                                                                     <padding>
-                                                                        <Insets top="5.0" />
-                                                                     </padding>
-                                                                  </HBox>
-                                                                  <HBox alignment="CENTER" prefHeight="57.0" prefWidth="280.0">
-                                                                     <children>
-                                                                        <Label fx:id="B8Court" text="Libre">
-                                                                           <font>
-                                                                              <Font name="SansSerif Italic" size="20.0" />
-                                                                           </font>
-                                                                           <HBox.margin>
-                                                                              <Insets top="5.0" />
-                                                                           </HBox.margin>
-                                                                        </Label>
-                                                                     </children>
-                                                                     <VBox.margin>
-                                                                        <Insets bottom="5.0" />
-                                                                     </VBox.margin>
-                                                                  </HBox>
-                                                               </children>
-                                                            </VBox>
-                                                         </graphic>
-                                                      </Button>
-                                                      <Button fx:id="B9" contentDisplay="CENTER" mnemonicParsing="false" onAction="#showData" prefHeight="100.0" prefWidth="322.0" styleClass="hbox_scroll_pane" stylesheets="@../values/style.css">
-                                                         <graphic>
-                                                            <VBox prefHeight="114.0" prefWidth="275.0">
-                                                               <children>
-                                                                  <HBox alignment="CENTER" prefHeight="57.0" prefWidth="280.0">
-                                                                     <children>
-                                                                        <Label fx:id="B9Time" text="17:00 - 18:00">
-                                                                           <font>
-                                                                              <Font name="SansSerif Regular" size="20.0" />
-                                                                           </font>
-                                                                        </Label>
-                                                                     </children>
-                                                                     <padding>
-                                                                        <Insets top="5.0" />
-                                                                     </padding>
-                                                                  </HBox>
-                                                                  <HBox alignment="CENTER" prefHeight="57.0" prefWidth="280.0">
-                                                                     <children>
-                                                                        <Label fx:id="B9Court" text="Libre">
-                                                                           <font>
-                                                                              <Font name="SansSerif Italic" size="20.0" />
-                                                                           </font>
-                                                                           <HBox.margin>
-                                                                              <Insets top="5.0" />
-                                                                           </HBox.margin>
-                                                                        </Label>
-                                                                     </children>
-                                                                     <VBox.margin>
-                                                                        <Insets bottom="5.0" />
-                                                                     </VBox.margin>
-                                                                  </HBox>
-                                                               </children>
-                                                            </VBox>
-                                                         </graphic>
-                                                      </Button>
-                                                      <Button fx:id="B10" contentDisplay="CENTER" mnemonicParsing="false" onAction="#showData" prefHeight="100.0" prefWidth="322.0" styleClass="hbox_scroll_pane" stylesheets="@../values/style.css">
-                                                         <graphic>
-                                                            <VBox prefHeight="114.0" prefWidth="275.0">
-                                                               <children>
-                                                                  <HBox alignment="CENTER" prefHeight="57.0" prefWidth="280.0">
-                                                                     <children>
-                                                                        <Label fx:id="B10Time" text="18:00 - 19:00">
-                                                                           <font>
-                                                                              <Font name="SansSerif Regular" size="20.0" />
-                                                                           </font>
-                                                                        </Label>
-                                                                     </children>
-                                                                     <padding>
-                                                                        <Insets top="5.0" />
-                                                                     </padding>
-                                                                  </HBox>
-                                                                  <HBox alignment="CENTER" prefHeight="57.0" prefWidth="280.0">
-                                                                     <children>
-                                                                        <Label fx:id="B10Court" text="Libre">
-                                                                           <font>
-                                                                              <Font name="SansSerif Italic" size="20.0" />
-                                                                           </font>
-                                                                           <HBox.margin>
-                                                                              <Insets top="5.0" />
-                                                                           </HBox.margin>
-                                                                        </Label>
-                                                                     </children>
-                                                                     <VBox.margin>
-                                                                        <Insets bottom="5.0" />
-                                                                     </VBox.margin>
-                                                                  </HBox>
-                                                               </children>
-                                                            </VBox>
-                                                         </graphic>
-                                                      </Button>
-                                                   </children>
-                                                   <padding>
-                                                      <Insets right="10.0" />
-                                                   </padding>
-                                                </VBox>
-                                             </children>
-                                             <opaqueInsets>
-                                                <Insets bottom="20.0" top="20.0" />
-                                             </opaqueInsets>
-                                          </AnchorPane>
-                                      </content>
-                                       <VBox.margin>
-                                          <Insets bottom="20.0" left="5.0" right="10.0" top="20.0" />
-                                       </VBox.margin>
-                                       <styleClass>
-                                          <String fx:value="decrement-arrow" />
-                                          <String fx:value="decrement-button" />
-                                          <String fx:value="increment-arrow" />
-                                          <String fx:value="increment-button" />
-                                          <String fx:value="scroll-bar" />
-                                       </styleClass>
-                                    </ScrollPane>
-                                 </children>
-                                 <VBox.margin>
-                                    <Insets bottom="15.0" left="20.0" right="10.0" top="5.0" />
-                                 </VBox.margin>
-                              </VBox>
-                           </children>
-                           <styleClass>
-                              <String fx:value="scroll-fondo" />
-                              <String fx:value="shadow" />
-                           </styleClass>
-                        </VBox>
                         <HBox alignment="CENTER_RIGHT" prefHeight="62.0" prefWidth="435.0" />
                      </children>
-                     <stylesheets>
-                        <URL value="@../values/style.css" />
-                        <URL value="@../values/reservarfxml.css" />
-                     </stylesheets>
                   </VBox>
                   <AnchorPane fx:id="pane_slide" prefHeight="810.0" prefWidth="490.0" styleClass="green-background" stylesheets="@../values/reservarfxml.css">
                      <children>
@@ -502,7 +65,7 @@
                                           <Insets top="45.0" />
                                        </VBox.margin>
                                     </Circle>
-                                    <Label text="Nickname">
+                                    <Label fx:id="nickname_label" text="Nickname">
                                        <VBox.margin>
                                           <Insets top="20.0" />
                                        </VBox.margin>
@@ -537,11 +100,7 @@
                                                 <Font size="18.0" />
                                              </font>
                                              <graphic>
-                                                <ImageView fitHeight="26.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@../../../../../Downloads/2636402.png" />
-                                                   </image>
-                                                </ImageView>
+                                                <ImageView fitHeight="26.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true" />
                                              </graphic>
                                           </Button>
                                           <Button fx:id="ir_Reservar" alignment="TOP_LEFT" mnemonicParsing="false" onMouseClicked="#irReservar" prefHeight="26.0" prefWidth="362.0" styleClass="white-button" text="Reservar" GridPane.rowIndex="2">
@@ -561,7 +120,7 @@
                               </VBox>
                               <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
                                  <children>
-                                    <Label fx:id="cerrar_sesion_label" prefHeight="39.0" prefWidth="128.0" text="Cerrar Sesion" underline="true">
+                                    <Label fx:id="cerrar_sesion_label" onMouseClicked="#cerrar_sesion_clicked" prefHeight="39.0" prefWidth="128.0" text="Cerrar Sesion" underline="true">
                                        <font>
                                           <Font name="System Bold" size="19.0" />
                                        </font>
@@ -585,22 +144,7 @@
                      <children>
                         <AnchorPane prefHeight="61.0" prefWidth="2000.0">
                            <children>
-                              <HBox alignment="BOTTOM_LEFT" prefHeight="60.0" prefWidth="60.0" AnchorPane.leftAnchor="25.0">
-                                 <children>
-                                    <Button fx:id="back_button" mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: transparent;">
-                                       <HBox.margin>
-                                          <Insets top="15.0" />
-                                       </HBox.margin>
-                                       <graphic>
-                                          <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../img/return.png" />
-                                             </image>
-                                          </ImageView>
-                                       </graphic>
-                                    </Button>
-                                 </children>
-                              </HBox>
+                              <HBox alignment="BOTTOM_LEFT" prefHeight="60.0" prefWidth="60.0" AnchorPane.leftAnchor="25.0" />
                               <HBox alignment="TOP_RIGHT" prefHeight="61.0" prefWidth="30.0" AnchorPane.rightAnchor="30.0">
                                  <children>
                                     <Button fx:id="exit_button" mnemonicParsing="false" onMouseClicked="#exit_clicked" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: transparent;">
@@ -610,7 +154,7 @@
                                        <graphic>
                                           <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
-                                                <Image url="@../img/logout.png" />
+                                                <Image url="@../img/Salir.png" />
                                              </image>
                                           </ImageView>
                                        </graphic>
@@ -623,7 +167,7 @@
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Label text="Pista">
+                        <Label text="Mis Reservas">
                            <font>
                               <Font name="SansSerif Bold" size="48.0" />
                            </font>
@@ -631,84 +175,50 @@
                               <Insets left="50.0" right="60.0" />
                            </HBox.margin>
                         </Label>
-                        <Label text="01">
-                           <font>
-                              <Font name="SansSerif Bold" size="48.0" />
-                           </font>
-                        </Label>
                      </children>
                      <VBox.margin>
-                        <Insets />
+                        <Insets bottom="30.0" left="20.0" right="20.0" />
                      </VBox.margin>
                   </HBox>
-                  <HBox prefHeight="405.0" prefWidth="825.0">
+                  <HBox prefHeight="405.0" prefWidth="661.0">
                      <children>
-                        <VBox alignment="CENTER" prefHeight="404.0" prefWidth="826.0">
-                           <children>
-                              <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
-                                 <children>
-                                    <Label text="Día:">
-                                       <font>
-                                          <Font size="20.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="dayL" text="Label">
-                                       <HBox.margin>
-                                          <Insets left="30.0" />
-                                       </HBox.margin>
-                                    </Label>
-                                 </children>
-                                 <padding>
-                                    <Insets left="100.0" />
-                                 </padding>
-                              </HBox>
-                              <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
-                                 <children>
-                                    <Label text="Horario:">
-                                       <font>
-                                          <Font size="20.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="timeL" text="Label">
-                                       <HBox.margin>
-                                          <Insets left="30.0" />
-                                       </HBox.margin>
-                                    </Label>
-                                 </children>
-                                 <padding>
-                                    <Insets left="100.0" />
-                                 </padding>
-                              </HBox>
-                              <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
-                                 <children>
-                                    <Label text="Pago:">
-                                       <font>
-                                          <Font size="20.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="paymentL" text="Label">
-                                       <HBox.margin>
-                                          <Insets left="30.0" />
-                                       </HBox.margin>
-                                    </Label>
-                                 </children>
-                                 <padding>
-                                    <Insets left="100.0" />
-                                 </padding>
-                              </HBox>
-                           </children>
-                        </VBox>
-                        <ImageView fitHeight="407.0" fitWidth="390.0" pickOnBounds="true" preserveRatio="true" />
+                        <TableView fx:id="bookings_table_view" onMouseClicked="#bookings_clicked" prefHeight="300.0" prefWidth="611.0" stylesheets="@../values/vermisreservasfxml.css">
+                          <columns>
+                              <TableColumn fx:id="dia_table_column" prefWidth="76.0" text="Día" />
+                              <TableColumn fx:id="pista_table_column" prefWidth="90.0" text="Pista" />
+                              <TableColumn fx:id="entrada_table_column" prefWidth="127.0" text="Hora de Entrada" />
+                              <TableColumn fx:id="salida_table_column" prefWidth="127.0" text="Hora de Salida" />
+                              <TableColumn fx:id="pagada_table_column" prefWidth="183.0" text="Pagada" />
+                          </columns>
+                           <HBox.margin>
+                              <Insets left="25.0" right="25.0" />
+                           </HBox.margin>
+                           <styleClass>
+                              <String fx:value="table-column" />
+                              <String fx:value="table-row-cell" />
+                              <String fx:value="column-header" />
+                              <String fx:value="column-header-background" />
+                              <String fx:value="corner" />
+                              <String fx:value="filler" />
+                              <String fx:value="table-cell" />
+                           </styleClass>
+                        </TableView>
                      </children>
+                     <VBox.margin>
+                        <Insets left="25.0" right="25.0" />
+                     </VBox.margin>
                   </HBox>
-                  <HBox alignment="TOP_RIGHT" prefHeight="104.0" prefWidth="825.0">
+                  <HBox alignment="CENTER" prefHeight="104.0" prefWidth="825.0">
+                     <VBox.margin>
+                        <Insets left="20.0" right="20.0" />
+                     </VBox.margin>
                      <children>
-                        <Button fx:id="cancelB" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" styleClass="purple-button" stylesheets="@../values/vermisreservasfxml.css" text="Anular" textFill="WHITE">
+                        <Button fx:id="cancelar_reserva_button" mnemonicParsing="false" onMouseClicked="#cancelar_reserva_clicked" prefHeight="40.0" prefWidth="125.0" styleClass="purple-button" text="Cancelar Reserva" textFill="WHITE">
                            <font>
-                              <Font name="SansSerif Regular" size="14.0" />
+                              <Font name="System Bold" size="12.0" />
                            </font>
                            <HBox.margin>
-                              <Insets right="50.0" />
+                              <Insets top="10.0" />
                            </HBox.margin>
                         </Button>
                      </children>

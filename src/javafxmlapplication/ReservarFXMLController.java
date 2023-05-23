@@ -402,6 +402,7 @@ public class ReservarFXMLController implements Initializable {
         pane_slide.setTranslateX(-490);
         menu_button1.setVisible(true);
         menu_button2.setVisible(false);
+        
         ir_Actualizar.setOnMouseEntered(event -> {
                 ir_Actualizar.setCursor(Cursor.HAND);
         });
@@ -916,7 +917,7 @@ public class ReservarFXMLController implements Initializable {
             Stage stage;
             stage = main.getStage();
             
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/disponibilidadDelDia.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/disponibilidadDelDiaFXML.fxml"));
             Parent root = loader.load();
             Scene scene = new Scene(root, 1200, 750);
             stage.setScene(scene);
