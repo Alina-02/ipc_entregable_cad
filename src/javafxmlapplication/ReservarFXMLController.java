@@ -243,7 +243,7 @@ public class ReservarFXMLController implements Initializable {
     @FXML
     private Button ir_Reservar;
     @FXML
-    private Label cerrar_sesion_label;
+    private Button cerrar_sesion_label;
     @FXML
     private Button exit_button_Reservar;
     @FXML
@@ -405,6 +405,7 @@ public class ReservarFXMLController implements Initializable {
         ir_Ver.setDisable(true);
         ir_Actualizar.setDisable(true);
         ir_Reservar.setDisable(true);
+        cerrar_sesion_label.setDisable(true);
         
         
         ir_Actualizar.setOnMouseEntered(event -> {
@@ -946,6 +947,7 @@ public class ReservarFXMLController implements Initializable {
         ir_Ver.setDisable(false);
         ir_Actualizar.setDisable(false);
         ir_Reservar.setDisable(false);
+        cerrar_sesion_label.setDisable(false);
         TranslateTransition slide = new TranslateTransition();
         slide.setDuration(Duration.seconds(0.4));
         slide.setNode(pane_slide);
@@ -966,6 +968,7 @@ public class ReservarFXMLController implements Initializable {
         ir_Ver.setDisable(true);
         ir_Actualizar.setDisable(true);
         ir_Reservar.setDisable(true);
+        cerrar_sesion_label.setDisable(true);
         TranslateTransition slide = new TranslateTransition();
         slide.setDuration(Duration.seconds(0.4));
         slide.setNode(pane_slide);
