@@ -3,8 +3,8 @@
  */
 
 .mainFxmlClass {
-    
-    
+
+        
 
     .darkpurple-button{
         -fx-background-color: #4E0250;
@@ -24,12 +24,13 @@
     
     table-view{
         -fx-background-color:transparent;
-        -fx-background-raius: 30px;
+        -fx-background-radius: 30px;
         -fx-table-cell-border-color: transparent;
     }
     
     .table-view:focused{
         -fx-focus-color: transparent;
+        -fx-faint-focus-color: transparent;
     }
     
     .table-view .column-header-background .filler{
@@ -67,7 +68,7 @@
     
     /* tamaño, bordes y color de fondo de los titulos*/
     .table-view .column-header, .table-view .filler {   
-        -fx-size: 45;
+        -fx-font-size: 14px;
         -fx-border-color: rgba(128, 26, 134, 0.5);
         -fx-pref-height: 50px;
     }
