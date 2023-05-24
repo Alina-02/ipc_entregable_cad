@@ -4,6 +4,7 @@
  */
 package javafxmlapplication;
 
+import ipc_project.utils;
 import javafx.scene.image.Image;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -20,6 +21,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+import javafx.scene.text.Text;
 
 /**
  * FXML Controller class
@@ -33,12 +35,6 @@ public class ActualizarDatosFXMLController implements Initializable {
     private AnchorPane anchorPane;
     @FXML
     private Circle pictureFrame;
-    @FXML
-    private Button back_button_actualizar;
-    @FXML
-    private Button exit_button_actualizar;
-    @FXML
-    private TextField nameTF;
     @FXML
     private TextField lastNameTF;
     @FXML
@@ -54,21 +50,26 @@ public class ActualizarDatosFXMLController implements Initializable {
     @FXML
     private PasswordField svcPF;
     @FXML
-    private Button register_button1;
+    private Button back_button_registro;
     @FXML
-    private Button register_button12;
+    private Button exit_button_registro;
     @FXML
-    private Button register_button11;
+    private TextField name_text;
+    @FXML
+    private Text errorMSGT;
+    @FXML
+    private Button cancelar_button;
+    @FXML
+    private Button aceptar_edicion_button;
+    @FXML
+    private Button modificar_button;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-        Image im = new Image(getClass().getResourceAsStream("/img/Avatar.jpg"));
-        user_image_circle.setFill(new ImagePattern(im));
-        //user_image_circle.setEffect(new DropShadow(+25d, 0d, +2d, Color.GREY));
+  
     }    
 
     @FXML
@@ -84,15 +85,39 @@ public class ActualizarDatosFXMLController implements Initializable {
     }
 
     @FXML
-    private void backAutenticarse(MouseEvent event) {
+    private void backRegistro(MouseEvent event) {
     }
 
     @FXML
-    private void exitAutenticarse(MouseEvent event) {
+    private void back(ActionEvent event) {
     }
 
     @FXML
-    private void registerMember(ActionEvent event) {
+    private void exitRegistro(MouseEvent event) {
+    }
+
+    @FXML
+    private void exit(ActionEvent event) {
+    }
+
+    
+    @FXML
+    private void cancelarEdicion(MouseEvent event) {
+    }
+
+    @FXML
+    private void aceptar_Datos(MouseEvent event) {
+    }
+
+    @FXML
+    private void modificarDatos(MouseEvent event) {
+    }
+
+    
+
+    @FXML
+    private void nombreComprobar(MouseEvent event) {
+        System.out.println(utils.nombreBien(name_text.getText()));
     }
 
     
