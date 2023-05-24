@@ -18,10 +18,12 @@ import javafx.scene.control.TextField;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
+import model.Member;
 
 /**
  * FXML Controller class
@@ -36,20 +38,6 @@ public class ActualizarDatosFXMLController implements Initializable {
     @FXML
     private Circle pictureFrame;
     @FXML
-    private TextField lastNameTF;
-    @FXML
-    private TextField userTF;
-    @FXML
-    private TextField phoneTF;
-    @FXML
-    private PasswordField passwordTF;
-    @FXML
-    private PasswordField passwordCTF;
-    @FXML
-    private TextField creditCardTF;
-    @FXML
-    private PasswordField svcPF;
-    @FXML
     private Button back_button_registro;
     @FXML
     private Button exit_button_registro;
@@ -63,13 +51,42 @@ public class ActualizarDatosFXMLController implements Initializable {
     private Button aceptar_edicion_button;
     @FXML
     private Button modificar_button;
+    @FXML
+    private Label error_name_label;
+    private Member m;
+    @FXML
+    private TextField last_name_text;
+    @FXML
+    private TextField user_text;
+    @FXML
+    private TextField phone_text;
+    @FXML
+    private VBox contraseña_box;
+    @FXML
+    private PasswordField password_text;
+    @FXML
+    private VBox confirmacion_box;
+    @FXML
+    private PasswordField password_comprobar_text;
+    @FXML
+    private TextField card_text;
+    @FXML
+    private PasswordField svc_text;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-  
+        m = AutenticarseFXMLController.getMember();
+        aceptar_edicion_button.setVisible(false);
+        cancelar_button.setVisible(false);
+        contraseña_box.setVisible(false);
+        confirmacion_box.setVisible(false);
+        name_text.setDisable(true);
+        
+        name_text.setEditable(false);
+        name_text.setText(m.getName());
     }    
 
     @FXML
@@ -118,6 +135,30 @@ public class ActualizarDatosFXMLController implements Initializable {
     @FXML
     private void nombreComprobar(MouseEvent event) {
         System.out.println(utils.nombreBien(name_text.getText()));
+    }
+
+    @FXML
+    private void apellidoComprobar(MouseEvent event) {
+    }
+
+    @FXML
+    private void telefonoComprobar(MouseEvent event) {
+    }
+
+    @FXML
+    private void contraseñaComprobar(MouseEvent event) {
+    }
+
+    @FXML
+    private void contraseñaConfirmarContraseña(MouseEvent event) {
+    }
+
+    @FXML
+    private void tarjetaComprobar(MouseEvent event) {
+    }
+
+    @FXML
+    private void svcComprobar(MouseEvent event) {
     }
 
     

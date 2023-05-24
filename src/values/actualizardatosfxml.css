@@ -217,8 +217,10 @@
 }
 .visualizar-text{
     -fx-background-color: rgba(0,0,0,0);
-    -fx-text-size: 16;
-    -fx-text-fill: #801a86
+    -fx-text-size: 18;
+    -fx-text-fill: #801a86;
+    -fx-background-color: #EBDFF2;  
+    -fx-background-radius: 100;
 }
 .label-error{
     -fx-text-fill: #801a86;
