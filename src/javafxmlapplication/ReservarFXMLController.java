@@ -453,7 +453,8 @@ public class ReservarFXMLController implements Initializable {
         // BUSCADOR EN TIEMPO REAL
         
         find_hour_textfield.textProperty().addListener((observable, oldValue, newValue) ->{
-            boolean correcto = true;
+            
+        boolean correcto = true;
         //Comprobar que el formato está bien
         if(!find_hour_textfield.getText().isEmpty()){
             String hour = find_hour_textfield.getText();

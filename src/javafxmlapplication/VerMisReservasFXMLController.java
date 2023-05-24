@@ -305,7 +305,7 @@ public class VerMisReservasFXMLController implements Initializable {
     private void cancelar_reserva_clicked(MouseEvent event) {
         
         if(!devolucion){
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 //cambiar el icono
                 Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
                 stage.getIcons().add(new Image(this.getClass().getResourceAsStream("/img/Pelota.png")));
@@ -322,18 +322,13 @@ public class VerMisReservasFXMLController implements Initializable {
                 alert.getDialogPane().getStyleClass().add("myAlert");
                 
                 //configurar el contenido del diálogo
-                alert.setTitle("Aviso de Devolución");
-                alert.setHeaderText("Al cancelar esta reserva no se le devolverá el dinero.");
-                alert.setContentText("¿Está seguro de que quiere cancelarla?");
+                alert.setTitle("Aviso de Cancelación");
+                alert.setHeaderText("Esta reserva no se puede cancelar.");
+                alert.setContentText("Quedan menos de 24 horas.");
                 
                 
                 Optional<ButtonType> result = alert.showAndWait();
-                
-                    if(result.get() == ButtonType.OK){
-                        cancelarReserva();
-                    } 
-                 
-                    alert.close();
+                alert.close();
         }else{
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                 //cambiar el icono
