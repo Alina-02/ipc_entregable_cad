@@ -79,7 +79,7 @@
                         </ImageView>
                         <ImageView fitHeight="32.0" fitWidth="410.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../img/fddd.png" />
+                              <Image url="@../img/Slogan1.png" />
                            </image>
                            <VBox.margin>
                               <Insets top="10.0" />

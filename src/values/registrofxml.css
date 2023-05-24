@@ -210,4 +210,11 @@
 .boton-personalizado:pressed {
     -fx-effect: dropshadow(gaussian, rgba(78,2,80,0.8), 10, 0, 0, 0); /* Efecto gaussiano al pulsar */
 }
+
+label-error{
+    -fx-text-fill: #801a86;
+    -fx-font-weight: italic;
+    -fx-font-size: 16px;
+    }
+    
 }
