@@ -398,10 +398,14 @@ public class ReservarFXMLController implements Initializable {
             System.out.println("Problemas en initialize: " + e);
         }
          
-        
+        //menu slide
         pane_slide.setTranslateX(-490);
         menu_button1.setVisible(true);
         menu_button2.setVisible(false);
+        ir_Ver.setDisable(true);
+        ir_Actualizar.setDisable(true);
+        ir_Reservar.setDisable(true);
+        
         
         ir_Actualizar.setOnMouseEntered(event -> {
                 ir_Actualizar.setCursor(Cursor.HAND);
@@ -939,6 +943,9 @@ public class ReservarFXMLController implements Initializable {
 
     @FXML
     private void run1(MouseEvent event) {
+        ir_Ver.setDisable(false);
+        ir_Actualizar.setDisable(false);
+        ir_Reservar.setDisable(false);
         TranslateTransition slide = new TranslateTransition();
         slide.setDuration(Duration.seconds(0.4));
         slide.setNode(pane_slide);
@@ -956,6 +963,9 @@ public class ReservarFXMLController implements Initializable {
 
     @FXML
     private void run2(MouseEvent event) {
+        ir_Ver.setDisable(true);
+        ir_Actualizar.setDisable(true);
+        ir_Reservar.setDisable(true);
         TranslateTransition slide = new TranslateTransition();
         slide.setDuration(Duration.seconds(0.4));
         slide.setNode(pane_slide);

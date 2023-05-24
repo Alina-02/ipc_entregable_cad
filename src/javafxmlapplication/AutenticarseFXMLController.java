@@ -74,17 +74,9 @@ public class AutenticarseFXMLController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-            // TODO
-            /**usuario_text_field.setBorder(Border.EMPTY);
-             * 
-             * BorderWidths borderWidths = new BorderWidths(5);
-             * BorderStroke borderStroke = new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID,
-             * CornerRadii.EMPTY, borderWidths);
-             * 
-             * Border compoundBorder = new Border(borderStroke);
-             * usuario_text_field.setBorder(compoundBorder);*/
-        try{club = Club.getInstance();}catch (ClubDAOException | IOException ex)
+        try{
+            club = Club.getInstance();
+        }catch (ClubDAOException | IOException ex)
         {java.util.logging.Logger.getLogger(AutenticarseFXMLController.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);}
         
         inicia_sesion_button.setOnMouseEntered(event -> {

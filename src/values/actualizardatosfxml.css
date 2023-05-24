@@ -43,6 +43,9 @@
 .purple-button{
     -fx-background-color: #801A86;
     -fx-background-radius: 30;
+    -fx-text-fill: white; 
+    -fx-font-weight: bold;
+    -fx-font-size: 18;
 }
 
 .green-background{
@@ -203,5 +206,18 @@
     -fx-background-image: url('img/Recurso 6.svg');
     -fx-background-repeat: no-repeat;
     -fx-background-size: contain;
+}
+.basic-text{
+    -fx-background-color: white; /* Color de fondo del TextField */
+    -fx-background-radius: 100; /* Radio de los bordes del TextField */
+    -fx-border-color: #C3C3C3; /* Color del borde del TextField */
+    -fx-border-radius: 100; /* Radio de los bordes del TextField */
+    -fx-border-width: 1; /* Ancho del borde del TextField */
+    -fx-font-size: 16;
+}
+.visualizar-text{
+    -fx-background-color: rgba(0,0,0,0);
+    -fx-font-size: 16;
+    -fx-font-size: 16;
 }
 }
