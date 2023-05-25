@@ -724,15 +724,15 @@
                      <children>
                         <Label prefHeight="82.0" prefWidth="181.0" text="Pistas">
                            <font>
-                              <Font name="SansSerif Bold" size="60.0" />
+                              <Font name="SansSerif Bold" size="58.0" />
                            </font>
                            <HBox.margin>
-                              <Insets left="200.0" right="60.0" />
+                              <Insets left="185.0" right="50.0" />
                            </HBox.margin>
                         </Label>
-                        <DatePicker fx:id="calendar_date_picker" onAction="#calendar_on_action" prefHeight="26.0" prefWidth="117.0" styleClass="date-picker" stylesheets="@../values/reservarfxml.css">
+                        <DatePicker fx:id="calendar_date_picker" onAction="#calendar_on_action" prefHeight="30.0" prefWidth="120.0" promptText="DD/MM/AAAA" styleClass="date-picker" stylesheets="@../values/reservarfxml.css">
                            <HBox.margin>
-                              <Insets left="60.0" right="45.0" />
+                              <Insets left="20.0" top="15.0" />
                            </HBox.margin>
                         </DatePicker>
                      </children>

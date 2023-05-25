@@ -122,8 +122,8 @@
     /* TOGGLE BUTTON PISTAS*/
 
     .button_pistas:selected {
-        -fx-background-color: #ccde59;
-        -fx-text-fill: black;
+        -fx-background-color: #801a86;
+        -fx-text-fill: white;
         -fx-background-insets: 0,1,2;
         -fx-background-radius: 3,2,1;
         -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10.0, 0.0, 0.0, 10.0);

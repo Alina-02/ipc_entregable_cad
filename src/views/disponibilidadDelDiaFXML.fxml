@@ -18,6 +18,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane id="AnchorPane" prefHeight="750.0" prefWidth="1200.0" styleClass="mainFxmlClass" stylesheets="@../values/disponibilidaddeldiafxml.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmlapplication.DisponibilidadDelDiaFXMLController">
     <children>
@@ -44,7 +45,7 @@
                         <Insets left="30.0" right="30.0" />
                      </VBox.margin>
                      <children>
-                        <TextField fx:id="find_hour_textfield" prefHeight="40.0" prefWidth="222.0" promptText="09, 10, 11, 12, 13, 14..." styleClass="transparent" stylesheets="@../values/disponibilidaddeldiafxml.css">
+                        <TextField fx:id="find_hour_textfield" prefHeight="40.0" prefWidth="222.0" promptText="Introduce una hora..." styleClass="transparent" stylesheets="@../values/disponibilidaddeldiafxml.css">
                            <HBox.margin>
                               <Insets left="20.0" />
                            </HBox.margin>
@@ -582,7 +583,7 @@
                                        <graphic>
                                           <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
-                                                <Image url="@../img/logout.png" />
+                                                <Image url="@../img/Salir.png" />
                                              </image>
                                           </ImageView>
                                        </graphic>
@@ -597,15 +598,15 @@
                      <children>
                         <Label text="Pistas">
                            <font>
-                              <Font name="SansSerif Bold" size="48.0" />
+                              <Font name="SansSerif Bold" size="58.0" />
                            </font>
                            <HBox.margin>
-                              <Insets left="200.0" right="60.0" />
+                              <Insets left="185.0" right="50.0" />
                            </HBox.margin>
                         </Label>
-                        <DatePicker fx:id="calendar_date_picker" onAction="#calendar_on_action" prefHeight="30.0" prefWidth="120.0" styleClass="date-picker" stylesheets="@../values/reservarfxml.css">
+                        <DatePicker fx:id="calendar_date_picker" onAction="#calendar_on_action" prefHeight="30.0" prefWidth="120.0" promptText="DD/MM/AAAA" styleClass="date-picker" stylesheets="@../values/reservarfxml.css">
                            <HBox.margin>
-                              <Insets left="60.0" />
+                              <Insets left="20.0" top="15.0" />
                            </HBox.margin>
                         </DatePicker>
                      </children>
@@ -686,19 +687,28 @@
                         </VBox>
                      </children>
                      <VBox.margin>
-                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                        <Insets left="20.0" right="20.0" top="10.0" />
                      </VBox.margin>
                   </HBox>
-                  <HBox alignment="CENTER" prefHeight="104.0" prefWidth="710.0">
+                  <HBox alignment="CENTER" prefHeight="138.0" prefWidth="710.0">
                      <children>
-                        <Button fx:id="iniciar_sesion_button" mnemonicParsing="false" onMouseClicked="#iniciar_sesion_clicked" prefHeight="50.0" prefWidth="150.0" styleClass="purple-button" stylesheets="@../values/reservarfxml.css" text="Iniciar Sesión" textFill="WHITE">
-                           <font>
-                              <Font name="SansSerif Bold" size="16.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets bottom="40.0" />
-                           </HBox.margin>
-                        </Button>
+                        <VBox alignment="TOP_CENTER" prefHeight="101.0" prefWidth="150.0">
+                           <children>
+                              <Button fx:id="iniciar_sesion_button" mnemonicParsing="false" onMouseClicked="#iniciar_sesion_clicked" prefHeight="50.0" prefWidth="150.0" styleClass="purple-button" stylesheets="@../values/reservarfxml.css" text="Iniciar Sesión" textFill="WHITE">
+                                 <font>
+                                    <Font name="SansSerif Bold" size="16.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Text fx:id="registrarse_text" onMouseClicked="#registerUser" strokeType="OUTSIDE" strokeWidth="0.0" text="Regístrate aquí." textAlignment="CENTER" underline="true" wrappingWidth="264.7747688293457">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </VBox>
                      </children>
                   </HBox>
                </children>

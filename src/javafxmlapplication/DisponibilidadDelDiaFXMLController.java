@@ -48,6 +48,8 @@ import javafx.scene.Cursor;
 import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.input.DragEvent;
+import javafx.scene.text.Text;
+import model.Member;
 
 /**
  * FXML Controller class
@@ -229,6 +231,8 @@ public class DisponibilidadDelDiaFXMLController implements Initializable {
     
     String pista = "Pista 1";
     Club club;
+    @FXML
+    private Text registrarse_text;
     
     
     @Override
@@ -343,6 +347,16 @@ public class DisponibilidadDelDiaFXMLController implements Initializable {
         iniciar_sesion_button.setOnMouseExited(event ->{
                 iniciar_sesion_button.setCursor(Cursor.DEFAULT);
                 iniciar_sesion_button.setStyle("-fx-background-color: #822f87");
+        });
+        
+        registrarse_text.setOnMouseEntered(event -> {
+                registrarse_text.setCursor(Cursor.HAND);
+                registrarse_text.setStyle("-fx-fill: #abbb35");
+        });
+        
+        registrarse_text.setOnMouseExited(event ->{
+                registrarse_text.setCursor(Cursor.DEFAULT);
+                registrarse_text.setStyle("-fx-fill: BLACK");
         });
         
         // BUSCADOR EN TIEMPO REAL
@@ -485,6 +499,7 @@ public class DisponibilidadDelDiaFXMLController implements Initializable {
     private void pista1_toggle_button_clicked(MouseEvent event) {
         pista = "Pista 1";
         title_num_pista_label.setText("01");
+        
         comprobarPista(pista, date);
     }
 
@@ -612,6 +627,18 @@ public class DisponibilidadDelDiaFXMLController implements Initializable {
         }
     }
 
-        
+    @FXML
+    private void registerUser(MouseEvent event) {
+        try{
+            Stage stage;
+            stage = main.getStage();
+            
+            FXMLLoader loader= new  FXMLLoader(getClass().getResource("/views/registroFXML.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root, 1200,750);
+            stage.setScene(scene);
+            
+        }catch(Exception e){System.out.println("Fallo en registerUser: " + e);}
+    }  
     
 }

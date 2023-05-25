@@ -21,11 +21,7 @@
          <left>
             <VBox alignment="CENTER" prefHeight="750.0" prefWidth="490.0" styleClass="green-background" BorderPane.alignment="CENTER">
                <children>
-                  <ImageView fitHeight="750.0" fitWidth="436.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../../Downloads/323a420f-d20a-43b9-81c0-c58d3ee28059.jpeg" />
-                     </image>
-                  </ImageView>
+                  <ImageView fitHeight="750.0" fitWidth="436.0" pickOnBounds="true" preserveRatio="true" />
                </children></VBox>
          </left>
          <center>
