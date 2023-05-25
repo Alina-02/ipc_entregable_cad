@@ -6,7 +6,9 @@ package javafxmlapplication;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.animation.PauseTransition;
 import javafx.fxml.Initializable;
+import javafx.util.Duration;
 
 /**
  * FXML Controller class
@@ -21,6 +23,9 @@ public class PantallaDeCargaFXMLController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        
+        
+       
     }    
     
 }

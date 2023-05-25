@@ -8,6 +8,7 @@ package ipc_project;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.animation.PauseTransition;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
@@ -15,6 +16,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import javafxmlapplication.VerMisReservasFXMLController;
 import model.Club;
 import model.ClubDAOException;
@@ -40,7 +42,7 @@ public class main extends Application{
        
         //======================================================================
         // 1- creación del grafo de escena a partir del fichero FXML
-        FXMLLoader loader= new  FXMLLoader(getClass().getResource("/views/DisponibilidadDelDiaFXML.fxml"));
+        FXMLLoader loader= new  FXMLLoader(getClass().getResource("/views/pantallaDeCargaFXML.fxml"));
         Parent root = loader.load();
         //======================================================================
         // 2- creación de la escena con el nodo raiz del grafo de escena
@@ -60,8 +62,20 @@ public class main extends Application{
         
         stage.getIcons().add(new Image(this.getClass().getResourceAsStream("/img/Pelota.png")));
         
-        stage.setTitle("Reservar");
+        stage.setTitle("Inicio");
         stage.show();
+        
+        PauseTransition delay = new PauseTransition(Duration.seconds(1));
+        
+        loader = new  FXMLLoader(getClass().getResource("/views/DisponibilidadDelDiaFXML.fxml"));
+        root = loader.load();
+        
+        Scene scene2 = new Scene(root);
+        
+        delay.setOnFinished(event -> stage.setScene(scene2));
+        delay.play();
+        
+        
     }
 
     public static Stage getStage(){
