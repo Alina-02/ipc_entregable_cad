@@ -998,6 +998,8 @@ public class ReservarFXMLController implements Initializable {
         try{
                 Stage stage;
                 stage = main.getStage();
+                
+                stage.getIcons().add(new Image(this.getClass().getResourceAsStream("/img/Pelota.png")));
             
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/actualizarDatosFXML.fxml"));
                 Parent root = loader.load();
@@ -1014,6 +1016,8 @@ public class ReservarFXMLController implements Initializable {
         try{
                 Stage stage;
                 stage = main.getStage();
+                
+                stage.getIcons().add(new Image(this.getClass().getResourceAsStream("/img/Pelota.png")));
             
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/verMisReservasFXML.fxml"));
                 Parent root = loader.load();
@@ -1030,6 +1034,8 @@ public class ReservarFXMLController implements Initializable {
         try{
                 Stage stage;
                 stage = main.getStage();
+                
+                stage.getIcons().add(new Image(this.getClass().getResourceAsStream("/img/Pelota.png")));
             
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/reservarFXML.fxml"));
                 Parent root = loader.load();

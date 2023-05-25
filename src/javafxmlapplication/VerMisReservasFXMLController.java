@@ -399,6 +399,8 @@ public class VerMisReservasFXMLController implements Initializable {
             Stage stage;
             stage = main.getStage();
             
+            stage.getIcons().add(new Image(this.getClass().getResourceAsStream("/img/Pelota.png")));
+            
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/disponibilidadDelDiaFXML.fxml"));
             Parent root = loader.load();
             Scene scene = new Scene(root, 1200, 750);

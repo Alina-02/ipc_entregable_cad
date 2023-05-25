@@ -22,6 +22,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Border;
@@ -195,6 +196,8 @@ public class AutenticarseFXMLController implements Initializable {
         try{
                 Stage stage;
                 stage = main.getStage();
+                
+                stage.getIcons().add(new Image(this.getClass().getResourceAsStream("/img/Pelota.png")));
             
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/disponibilidadDelDiaFXML.fxml"));
                 Parent root = loader.load();
