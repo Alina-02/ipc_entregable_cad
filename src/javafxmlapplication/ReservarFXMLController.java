@@ -161,37 +161,8 @@ public class ReservarFXMLController implements Initializable {
     private Label ocupado_20;
     @FXML
     private Label ocupado_21;
-    
-     /**
-     * Initializes the controller class.
-     */
-    
     @FXML
     private ToggleButton pista1_toggle_button;
-    
-    
-    //VARIABLES
-    
-    ToggleGroup pistas = new ToggleGroup(); //grupo pistas
-    List<ToggleButton> pistasList = new ArrayList<>();
-    List<VBox> nicknames = new ArrayList<>();
-    List<Label> ocupado = new ArrayList<>();
-    List<Button> horas = new ArrayList<>();
-    LocalDate date = LocalDate.now(); //fecha de las pistas
-    String pista = "Pista 1";
-    Club club;
-    int clicked1 = -1;
-    int clicked2 = -1;
-    Button clicked1_button = null;
-    Button clicked2_button = null;
-    Member member = AutenticarseFXMLController.getMember();
-    ObservableList<Button> horasObservable = FXCollections.observableList(horas);
-    ListView<Button> horasListView = new ListView<Button>(horasObservable);
-    
-    // MAP ENTRE BUTTONS Y VALORES
-    ObservableMap<Button, Integer> map = FXCollections.observableHashMap();
-    ObservableMap<Button, GridPane> map2 = FXCollections.observableHashMap();
-    
     @FXML
     private VBox hour_buttons_vbox;
     @FXML
@@ -277,6 +248,33 @@ public class ReservarFXMLController implements Initializable {
     @FXML
     private AnchorPane anchor_pane;
    
+    
+    
+    
+    //VARIABLES
+    
+    ToggleGroup pistas = new ToggleGroup(); //grupo pistas
+    List<ToggleButton> pistasList = new ArrayList<>();
+    List<VBox> nicknames = new ArrayList<>();
+    List<Label> ocupado = new ArrayList<>();
+    List<Button> horas = new ArrayList<>();
+    LocalDate date = LocalDate.now(); //fecha de las pistas
+    String pista = "Pista 1";
+    Club club;
+    int clicked1 = -1;
+    int clicked2 = -1;
+    Button clicked1_button = null;
+    Button clicked2_button = null;
+    Member member = AutenticarseFXMLController.getMember();
+    ObservableList<Button> horasObservable = FXCollections.observableList(horas);
+    ListView<Button> horasListView = new ListView<Button>(horasObservable);
+    
+    // MAP ENTRE BUTTONS Y VALORES
+    ObservableMap<Button, Integer> map = FXCollections.observableHashMap();
+    ObservableMap<Button, GridPane> map2 = FXCollections.observableHashMap();
+    
+    
+    
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -378,8 +376,12 @@ public class ReservarFXMLController implements Initializable {
         map2.put(twenty_twentyone_button, twenty_twentyone_gridpane);
         map2.put(twentyone_twentytwo_button, twentyone_twentytwo_gridpane);
         
-        //comprueba la pista
+        // COMPRUEBA LAS PISTAS
+        
         comprobarPista(pista, date);
+        
+        
+        // CONFIGURA EL CALENDARIO
         
         calendar_date_picker.setDayCellFactory((DatePicker picker) -> {
            return new DateCell() {
@@ -391,14 +393,15 @@ public class ReservarFXMLController implements Initializable {
                }
            }; 
         });
-
+        calendar_date_picker.setShowWeekNumbers(false);
         
         
         }catch(Exception e){
             System.out.println("Problemas en initialize: " + e);
         }
          
-        //menu slide
+        // MENÚ
+        
         pane_slide.setTranslateX(-490);
         menu_button1.setVisible(true);
         menu_button2.setVisible(false);
@@ -407,6 +410,7 @@ public class ReservarFXMLController implements Initializable {
         ir_Reservar.setDisable(true);
         cerrar_sesion_label.setDisable(true);
         
+        // CURSORES
         
         ir_Actualizar.setOnMouseEntered(event -> {
                 ir_Actualizar.setCursor(Cursor.HAND);
@@ -615,36 +619,42 @@ public class ReservarFXMLController implements Initializable {
         pista = "Pista 1";
         title_num_pista_label.setText("01");
         comprobarPista(pista, date);
+        restablecerBotones();
     }
     @FXML
     private void pista4_toggle_button_clicked(MouseEvent event) {
         pista = "Pista 4";
         title_num_pista_label.setText("04");
         comprobarPista(pista, date);
+        restablecerBotones();
     }
     @FXML
     private void pista2_toggle_button_clicked(MouseEvent event) {
         pista = "Pista 2";
         title_num_pista_label.setText("02");
         comprobarPista(pista, date);
+        restablecerBotones();
     }
     @FXML
     private void pista5_toggle_button_clicked(MouseEvent event) {
         pista = "Pista 5";
         title_num_pista_label.setText("05");
         comprobarPista(pista, date);
+        restablecerBotones();
     }
     @FXML
     private void pista3_toggle_button_clicked(MouseEvent event) {
         pista = "Pista 3";
         title_num_pista_label.setText("03");
         comprobarPista(pista, date);
+        restablecerBotones();
     }
     @FXML
     private void pista6_toggle_button_clicked(MouseEvent event) {
         pista = "Pista 6";
         title_num_pista_label.setText("06");
         comprobarPista(pista, date);
+        restablecerBotones();
     }
     
     // CAMBIAR DE FECHA EN EL CALENDARIO
@@ -654,6 +664,7 @@ public class ReservarFXMLController implements Initializable {
         date = calendar_date_picker.getValue();
         resetButtons();
         comprobarPista(pista, date);
+        restablecerBotones();
         
     }
     
@@ -1093,6 +1104,21 @@ public class ReservarFXMLController implements Initializable {
         if(source instanceof ToggleButton){
             ToggleButton hour = (ToggleButton) source;
             utils.devolverCursor(event, hour);
+        }
+    }
+    
+    // VOLVER A PONER LOS BOTONES EN COLOR BLANCO
+    
+    private void restablecerBotones(){
+        if(clicked1_button != null){
+            clicked1 = -1;
+            GridPane grid = map2.get(clicked1_button);
+            grid.setStyle("-fx-background-color: #FFFFFF");
+        }
+        if(clicked2_button != null){
+            clicked2 = -1;
+            GridPane grid = map2.get(clicked2_button);
+            grid.setStyle("-fx-background-color: #FFFFFF");
         }
     }
     

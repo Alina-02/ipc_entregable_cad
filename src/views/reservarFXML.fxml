@@ -85,11 +85,11 @@
                            <children>
                               <VBox prefHeight="554.0" prefWidth="335.0">
                                  <children>
-                                    <ScrollPane prefHeight="430.0" prefWidth="335.0" stylesheets="@../values/reservarfxml.css">
+                                    <ScrollPane prefHeight="450.0" prefWidth="345.0" stylesheets="@../values/reservarfxml.css">
                                       <content>
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1225.0" prefWidth="324.0" styleClass="white_background" stylesheets="@../values/reservarfxml.css">
                                              <children>
-                                                <VBox fx:id="hour_buttons_vbox" layoutY="-11.0" prefHeight="1221.0" prefWidth="327.0">
+                                                <VBox fx:id="hour_buttons_vbox" layoutY="-3.0" prefHeight="1214.0" prefWidth="327.0">
                                                    <children>
                                                       <Button fx:id="nine_ten_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#hour_clicked" onMouseEntered="#hour_entered" prefHeight="100.0" prefWidth="385.0" styleClass="hbox_scroll_pane" stylesheets="@../values/reservarfxml.css">
                                                          <graphic>
@@ -690,7 +690,7 @@
             </StackPane>
          </left>
          <center>
-            <VBox onMouseClicked="#cerrar_sesion_clicked" onMouseEntered="#button_entered" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+            <VBox onMouseEntered="#button_entered" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
                <children>
                   <HBox prefHeight="61.0" prefWidth="825.0">
                      <VBox.margin>

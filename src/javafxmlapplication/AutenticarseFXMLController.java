@@ -45,8 +45,6 @@ public class AutenticarseFXMLController implements Initializable {
 
     @FXML
     private AnchorPane anchorPane;
-    private TextField userTF;
-    private TextField passwordTF;
     
     private Club club;
     @FXML
@@ -67,11 +65,6 @@ public class AutenticarseFXMLController implements Initializable {
     private Button back_button_autenticarse;
     
     private static Member member;
-
-
-    /**
-     * Initializes the controller class.
-     */
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -79,6 +72,8 @@ public class AutenticarseFXMLController implements Initializable {
             club = Club.getInstance();
         }catch (ClubDAOException | IOException ex)
         {java.util.logging.Logger.getLogger(AutenticarseFXMLController.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);}
+        
+        // ESTABLECER TODOS LOS BOTONES
         
         inicia_sesion_button.setOnMouseEntered(event -> {
                 inicia_sesion_button.setCursor(Cursor.HAND);
@@ -112,26 +107,38 @@ public class AutenticarseFXMLController implements Initializable {
                 back_button_autenticarse.setCursor(Cursor.DEFAULT);
         });
         
-    }    
-
-    @FXML
-    private void login(ActionEvent event) {
+    }   
     
+    // VOLVER A VER DISPONIBILIDAD
+    
+    @FXML
+    private void backAutenticarse(MouseEvent event) {
+        try{
+                Stage stage;
+                stage = main.getStage();
+                
+                stage.getIcons().add(new Image(this.getClass().getResourceAsStream("/img/Pelota.png")));
+            
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/disponibilidadDelDiaFXML.fxml"));
+                Parent root = loader.load();
+                  
+                Scene scene = new Scene(root, 1200, 750);
+                stage.setScene(scene);
+
+                    
+            }catch(Exception e){System.out.println("Fallo en backAutenticarse: " + e);}
     }
 
-    @FXML
-    private void registerUser(MouseEvent event) throws Exception {
-    try{
-            Stage stage;
-            stage = main.getStage();
-            
-            FXMLLoader loader= new  FXMLLoader(getClass().getResource("/views/registroFXML.fxml"));
-            Parent root = loader.load();
-            Scene scene = new Scene(root, 1200,750);
-            stage.setScene(scene);
-            
-        }catch(Exception e){System.out.println(e);}}
+    // SALIR DEL PROGRAMA
     
+    @FXML
+    private void exitAutenticarse(MouseEvent event) {
+        Stage stage = (Stage) exit_button_autenticarse.getScene().getWindow();
+        stage.close();
+    }
+    
+    // COMPROBAR QUE EXISTE EL USUARIO E IR A RESERVAR PISTA
+
     @FXML
     private void iniciar_sesion_clicked(MouseEvent event) {
         usuario_mal_button.setVisible(false);
@@ -178,36 +185,25 @@ public class AutenticarseFXMLController implements Initializable {
         }else{
             contraseña_mal_button.setVisible(true);
         }
-        
+    }
+
+    // IR A LA PANTALLA DE REGISTRAR USUARIO
+    
+    @FXML
+    private void registerUser(MouseEvent event) {
+        try{
+            Stage stage;
+            stage = main.getStage();
+            
+            FXMLLoader loader= new  FXMLLoader(getClass().getResource("/views/registroFXML.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root, 1200,750);
+            stage.setScene(scene);
+            
+        }catch(Exception e){System.out.println("Fallo en registerUser: " + e);}
     }
     
     public static Member getMember(){
         return member;
     }
-
-    @FXML
-    private void exitAutenticarse(MouseEvent event) {
-        Stage stage = (Stage) exit_button_autenticarse.getScene().getWindow();
-            stage.close();
-    }
-
-    @FXML
-    private void backAutenticarse(MouseEvent event) {
-        try{
-                Stage stage;
-                stage = main.getStage();
-                
-                stage.getIcons().add(new Image(this.getClass().getResourceAsStream("/img/Pelota.png")));
-            
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/disponibilidadDelDiaFXML.fxml"));
-                Parent root = loader.load();
-                  
-                Scene scene = new Scene(root, 1200, 750);
-                stage.setScene(scene);
-
-                    
-            }catch(Exception e){System.out.println(e);}
-        
-    }
-
 }

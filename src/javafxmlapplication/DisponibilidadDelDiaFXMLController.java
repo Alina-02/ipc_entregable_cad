@@ -46,6 +46,7 @@ import javafx.collections.ObservableList;
 import javafx.collections.ObservableMap;
 import javafx.scene.Cursor;
 import javafx.scene.control.ListView;
+import javafx.scene.image.Image;
 import javafx.scene.input.DragEvent;
 
 /**
@@ -59,8 +60,6 @@ public class DisponibilidadDelDiaFXMLController implements Initializable {
     private Label title_num_pista_label;
     @FXML
     private TextField find_hour_textfield;
-    @FXML
-    private Button find_hour_button;
     @FXML
     private Button nine_ten_button;
     @FXML
@@ -188,26 +187,6 @@ public class DisponibilidadDelDiaFXMLController implements Initializable {
     private VBox twentyone_twentytwo_vbox;
     @FXML
     private Label ocupado_21;
-
-    /**
-     * Initializes the controller class.
-     */
-    
-    //VARIABLES 
-    
-    ToggleGroup pistas = new ToggleGroup(); //grupo pistas
-    List<VBox> nicknames = new ArrayList<>();
-    List<Label> ocupado = new ArrayList<>();
-    List<Button> horas = new ArrayList<>();
-    LocalDate date = LocalDate.now(); //fecha de las pistas
-    ObservableList<Button> horasObservable = FXCollections.observableList(horas);
-    ListView<Button> horasListView = new ListView<Button>(horasObservable);
-    
-    // MAP ENTRE BUTTONS Y VALORES
-    ObservableMap<Button, Integer> map = FXCollections.observableHashMap();
-    
-    String pista = "Pista 1";
-    Club club;
     @FXML
     private Button eleven_twelve_button;
     @FXML
@@ -232,13 +211,32 @@ public class DisponibilidadDelDiaFXMLController implements Initializable {
     private VBox hour_buttons_vbox;
     
     
+    
+    
+     
+    //VARIABLES 
+    
+    ToggleGroup pistas = new ToggleGroup(); //grupo pistas
+    List<VBox> nicknames = new ArrayList<>();
+    List<Label> ocupado = new ArrayList<>();
+    List<Button> horas = new ArrayList<>();
+    LocalDate date = LocalDate.now(); //fecha de las pistas
+    ObservableList<Button> horasObservable = FXCollections.observableList(horas);
+    ListView<Button> horasListView = new ListView<Button>(horasObservable);
+    
+    // MAP ENTRE BUTTONS Y VALORES
+    ObservableMap<Button, Integer> map = FXCollections.observableHashMap();
+    
+    String pista = "Pista 1";
+    Club club;
+    
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         
         try{
         club = Club.getInstance();
-        
         
         //coloca todas las pistas en el toggle group pistas
         pista1_toggle_button.setToggleGroup(pistas);
@@ -333,6 +331,8 @@ public class DisponibilidadDelDiaFXMLController implements Initializable {
            }; 
         });
         
+        calendar_date_picker.setShowWeekNumbers(false);
+        
         // CURSORES
         
         iniciar_sesion_button.setOnMouseEntered(event -> {
@@ -373,7 +373,7 @@ public class DisponibilidadDelDiaFXMLController implements Initializable {
         
         
         }catch(Exception e){
-            System.out.println("problemos");
+            System.out.println("Da error el initialize: " + e);
         }
         
     }    
@@ -544,18 +544,19 @@ public class DisponibilidadDelDiaFXMLController implements Initializable {
             Stage stage;
             stage = main.getStage();
             
+            stage.getIcons().add(new Image(this.getClass().getResourceAsStream("/img/Pelota.png")));
+            
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/autenticarseFXML.fxml"));
             Parent root = loader.load();
             Scene scene = new Scene(root, 1200, 750);
             stage.setScene(scene);
                     
-        }catch(Exception e){System.out.println(e);}
+        }catch(Exception e){System.out.println("Falla el iniciar sesión: " + e);}
         
         
     }
     
     // CAMBIAR BOTONES
-
     private void hour_button_exited(MouseEvent event) {
         Object source = event.getSource();
         if(source instanceof Button){
@@ -572,11 +573,6 @@ public class DisponibilidadDelDiaFXMLController implements Initializable {
             Button hour = (Button) source;
             utils.cambiarCursor(event, hour);
         }
-        
-    }
-
-    private void pista_toggle_entered(DragEvent event) {
-        
         
     }
 

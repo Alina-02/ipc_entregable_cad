@@ -42,7 +42,7 @@ public class main extends Application{
        
         //======================================================================
         // 1- creación del grafo de escena a partir del fichero FXML
-        FXMLLoader loader= new  FXMLLoader(getClass().getResource("/views/pantallaDeCargaFXML.fxml"));
+        FXMLLoader loader= new  FXMLLoader(getClass().getResource("/views/DisponibilidadDelDiaFXML.fxml"));
         Parent root = loader.load();
         //======================================================================
         // 2- creación de la escena con el nodo raiz del grafo de escena
@@ -65,15 +65,15 @@ public class main extends Application{
         stage.setTitle("Inicio");
         stage.show();
         
-        PauseTransition delay = new PauseTransition(Duration.seconds(1));
+        /*PauseTransition delay = new PauseTransition(Duration.seconds(1));
         
         loader = new  FXMLLoader(getClass().getResource("/views/DisponibilidadDelDiaFXML.fxml"));
-        root = loader.load();
+        root = loader.load();*/
         
-        Scene scene2 = new Scene(root);
+        //Scene scene2 = new Scene(root);
         
-        delay.setOnFinished(event -> stage.setScene(scene2));
-        delay.play();
+        /*delay.setOnFinished(event -> stage.setScene(scene2));
+        delay.play();*/
         
         
     }

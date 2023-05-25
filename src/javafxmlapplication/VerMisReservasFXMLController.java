@@ -143,7 +143,7 @@ public class VerMisReservasFXMLController implements Initializable {
                 String entrada = "" + b.getFromTime().getHour();
                 String salida = "" + (b.getFromTime().getHour() + 1);
                 String pagada; 
-                if(b.getMember().getCreditCard() != null){pagada = "Pagada";}
+                if(b.getPaid()){pagada = "Pagada";}
                 else{pagada = "Pendiente de pago";}
                 memberBooking mB = new memberBooking(pista, day, entrada, salida, pagada, b);
 
@@ -201,9 +201,12 @@ public class VerMisReservasFXMLController implements Initializable {
         Image selectedFile = member.getImage();
         pictureFrame.setFill(new ImagePattern(selectedFile));
         nickname_label.setText(member.getNickName());
+    
         
     }
-
+    
+    
+    
     @FXML
     private void run1(MouseEvent event) {
         TranslateTransition slide = new TranslateTransition();
@@ -420,7 +423,9 @@ public class VerMisReservasFXMLController implements Initializable {
             System.out.println("No se ha podido cancelar la reserva: " + e);
         }
     }
-    
 }
+    
+
+   
 
 
