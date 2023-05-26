@@ -38,10 +38,6 @@ public class ActualizarDatosFXMLController implements Initializable {
     @FXML
     private Circle pictureFrame;
     @FXML
-    private Button back_button_registro;
-    @FXML
-    private Button exit_button_registro;
-    @FXML
     private TextField name_text;
     @FXML
     private Text errorMSGT;
@@ -72,6 +68,18 @@ public class ActualizarDatosFXMLController implements Initializable {
     private TextField card_text;
     @FXML
     private PasswordField svc_text;
+    @FXML
+    private Button back_button_actualizar;
+    @FXML
+    private Button exit_button_actualizar;
+    @FXML
+    private VBox vbox;
+    @FXML
+    private TextField password_ver_text;
+    @FXML
+    private Button ojo_cerrado_button;
+    @FXML
+    private Button ojo_abierto_button;
 
     /**
      * Initializes the controller class.
@@ -159,6 +167,14 @@ public class ActualizarDatosFXMLController implements Initializable {
 
     @FXML
     private void svcComprobar(MouseEvent event) {
+    }
+
+    @FXML
+    private void verContraseña(MouseEvent event) {
+    }
+
+    @FXML
+    private void ocultarContraseña(MouseEvent event) {
     }
 
     
