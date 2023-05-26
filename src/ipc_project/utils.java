@@ -68,11 +68,18 @@ public class utils {
     public static boolean nombreBien(String nombre){
         String n = nombre.replaceAll("\\s", "");
         char lista[]= n.toCharArray();
-        for(int i = 0; i< lista.length; i++){
-            if((lista[i]>= 97 && lista[i]<=122)|| (lista[i]>= 41 && lista[i]<=90)){
-                return false;
-            }
+        boolean si = true;
+        int num =0;
+        for(int i = 0; i< lista.length && si; i++){
+            num = (int) lista[i];
+            if(num<= 90 && num >= 65){
+                si = true;
+            }else if(num<=122 && num >= 97){
+                si = true;
+            }else si = false;
         }
-        return true;
+        return si;
     }
 }
+
+
