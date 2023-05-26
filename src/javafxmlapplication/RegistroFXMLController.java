@@ -253,10 +253,9 @@ public class RegistroFXMLController implements Initializable {
         //comprueba el formato del svc
         if(svcPF.getText().length() != 3 && !svcPF.getText().isEmpty()) errorMSG += "El formato del svc es incorrecto\n";
         //Comprueba los campos obligatorios
-        //register_button.disableProperty().bind(nm.isEmpty() || sn.isEmpty() || us.isEmpty() || pn.isEmpty() || pw.isEmpty() || pwc.isEmpty());
         if(errorMSG.isEmpty()) {
             System.out.println("Registrado guachin");
-            //club.registerMember(nm, sn, pn, us, pw, cc, svc, im);
+            club.registerMember(nm, sn, pn, us, pw, cc, svc, im);
             usuarioRegistrado();
         }
         else{
@@ -350,12 +349,11 @@ public class RegistroFXMLController implements Initializable {
                 Stage stage;
                 stage = main.getStage();
             
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/reservarFXML.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/autenticarseFXML.fxml"));
                 Parent root = loader.load();
-                  
+                
                 Scene scene = new Scene(root, 1200, 750);
                 stage.setScene(scene);
-
                     
             }catch(Exception e){System.out.println(e);}
         
