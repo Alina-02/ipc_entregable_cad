@@ -7,6 +7,7 @@ package javafxmlapplication;
 import ipc_project.utils;
 import javafx.scene.image.Image;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -29,6 +30,10 @@ import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import model.Member;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.DialogPane;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -37,15 +42,12 @@ import javafx.scene.Scene;
  */
 public class ActualizarDatosFXMLController implements Initializable {
 
-    private Circle user_image_circle;
     @FXML
     private AnchorPane anchorPane;
     @FXML
     private Circle pictureFrame;
     @FXML
     private TextField name_text;
-    @FXML
-    private Text errorMSGT;
     @FXML
     private Button cancelar_button;
     @FXML
@@ -83,10 +85,22 @@ public class ActualizarDatosFXMLController implements Initializable {
     @FXML
     private TextField password_ver_text;
     
-       private Member m;
-    
     @FXML
-    private VBox vbox;
+    private Label error_last_label;
+    @FXML
+    private Label error_passwor_label;
+    @FXML
+    private Label error_confirmacion_label;
+    @FXML
+    private Label error_tarjeta_label;
+    @FXML
+    private Label error_svc_label;
+    private Member m;
+    @FXML
+    private Label error_phone_label;
+    @FXML
+    private Label general_error_label;
+   
 
     /**
      * Initializes the controller class.
@@ -100,15 +114,18 @@ public class ActualizarDatosFXMLController implements Initializable {
         cancelar_button.setVisible(false);
         confirmacion_box.setVisible(false);
         ojo_abierto_button.setVisible(false);
-        password_ver_text.setVisible(false);
+        password_ver_text.setVisible(false); 
+        error_name_label.setVisible(false);
+        error_last_label.setVisible(false);
+        error_passwor_label.setVisible(false);
+        error_confirmacion_label.setVisible(false);
+        error_tarjeta_label.setVisible(false);
+        error_svc_label.setVisible(false);
+        error_phone_label.setVisible(false);
+        general_error_label.setVisible(false);
         
         //quitar el evento del raton en los botones
-        name_text.setMouseTransparent(true);
-        last_name_text.setMouseTransparent(true);
-        phone_text.setMouseTransparent(true);
-        password_text.setMouseTransparent(true);
-        card_text.setMouseTransparent(true);
-        svc_text.setMouseTransparent(true);
+        accionRaton(true);
         
         
         //cambiar el cursor
@@ -163,41 +180,15 @@ public class ActualizarDatosFXMLController implements Initializable {
         });
         
         
-        name_text.setEditable(false);
-        name_text.setText(m.getName());
-        last_name_text.setEditable(false);
-        last_name_text.setText(m.getSurname());
+        datosNormales();
+        esEditable(false);
         user_text.setEditable(false);
-        user_text.setText(m.getNickName());
-        phone_text.setEditable(false);
-        phone_text.setText(m.getTelephone());
-        password_text.setEditable(false);
-        password_text.setText(m.getPassword());
-        card_text.setEditable(false);
-        card_text.setText(m.getCreditCard());
-        svc_text.setEditable(false);
-        svc_text.setText(String.valueOf(m.getSvc()));
-        password_ver_text.setText(m.getPassword());
         
         
-        /**name_text.focusedProperty().addListener((observable, oldValue, newValue) ->{
-            if (!newValue) {
-                System.out.println(utils.nombreBien(name_text.getText()));
-            }
-        });*/
+        password_text.textProperty().bindBidirectional(password_ver_text.textProperty());
+
     }
 
-     @FXML
-    private void showChange(MouseEvent event) {
-    }
-
-    @FXML
-    private void changePF(MouseEvent event) {
-    }
-
-    @FXML
-    private void changeProfile(MouseEvent event) {
-    }
 
     @FXML
     private void backRegistro(MouseEvent event) {
@@ -207,21 +198,89 @@ public class ActualizarDatosFXMLController implements Initializable {
     private void back(ActionEvent event) {
     }
 
-    @FXML
-    private void exitRegistro(MouseEvent event) {
-    }
 
     @FXML
     private void exit(ActionEvent event) {
     }
 
     
+    
     @FXML
     private void cancelarEdicion(MouseEvent event) {
+        //habilito la visibilidad de algunos botones
+        cancelar_button.setVisible(false);
+        aceptar_edicion_button.setVisible(false);
+        modificar_button.setVisible(true);
+        confirmacion_box.setVisible(false);
+        
+        //habilito que no pueda editar los espacios te texto
+        esEditable(false);
+        
+        //habilito las acciones de raton sobre los campos de texto
+        accionRaton(false);
+        
+        //cambio la hoja de estilo para los campos de texto
+        cambioEstilo(basico, visualizar);
+        datosNormales();
+        
     }
+    
 
     @FXML
     private void aceptar_Datos(MouseEvent event) {
+        if(bien()){
+            general_error_label.setVisible(false);
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                //cambiar el icono
+                Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+                stage.getIcons().add(new Image(this.getClass().getResourceAsStream("/img/Pelota.png")));
+                alert.getDialogPane().setMaxWidth(600);
+                alert.getDialogPane().setMinWidth(550);
+                alert.getDialogPane().setMaxHeight(200);
+                alert.getDialogPane().setMinHeight(150);
+                
+                //añadir hoja de estilo
+                DialogPane dialogPane = alert.getDialogPane();
+                dialogPane.getStylesheets().add(getClass().getResource("/values/reservarfxml.css").toExternalForm());
+                
+                //asignar la clase al contenedor principal del diálogo
+                alert.getDialogPane().getStyleClass().add("myAlert");
+                
+                //configurar el contenido del diálogo
+                alert.setTitle("Actualizacion de datos");
+                alert.setContentText("¿Está seguro de que quiere modificar sus datos?");
+                
+                
+                Optional<ButtonType> result = alert.showAndWait();
+               
+                    if(result.get() == ButtonType.OK){
+                        AutenticarseFXMLController.getMember().setName(name_text.getText());
+                        AutenticarseFXMLController.getMember().setSurname(last_name_text.getText());
+                        AutenticarseFXMLController.getMember().setTelephone(phone_text.getText());
+                        AutenticarseFXMLController.getMember().setPassword(password_text.getText());
+                        AutenticarseFXMLController.getMember().setCreditCard(card_text.getText());
+                        AutenticarseFXMLController.getMember().setSvc(Integer.valueOf(svc_text.getText()));
+                        //habilito la visibilidad de algunos botones
+                        cancelar_button.setVisible(false);
+                        aceptar_edicion_button.setVisible(false);
+                        modificar_button.setVisible(true);
+                        confirmacion_box.setVisible(false);
+
+                        //habilito que pueda editar los espacios te texto
+                        esEditable(false);
+
+                        //habilito las acciones de raton sobre los campos de texto
+                        accionRaton(false);
+
+                        //cambio la hoja de estilo para los campos de texto
+                        cambioEstilo(basico, visualizar);
+                    } else{
+                        cancelarEdicion(event);
+                    }
+                    alert.close();
+            
+        }else general_error_label.setVisible(true);
+     
     }
 
     @FXML
@@ -233,66 +292,83 @@ public class ActualizarDatosFXMLController implements Initializable {
         confirmacion_box.setVisible(true);
         
         //habilito que pueda editar los espacios te texto
-        name_text.setEditable(true);
-        last_name_text.setEditable(true);
-        user_text.setEditable(true);
-        phone_text.setEditable(true);
-        password_text.setEditable(true);
-        card_text.setEditable(true);
-        svc_text.setEditable(true);
+        esEditable(true);
         
         //habilito las acciones de raton sobre los campos de texto
-        name_text.setMouseTransparent(false);
-        last_name_text.setMouseTransparent(false);
-        phone_text.setMouseTransparent(false);
-        password_text.setMouseTransparent(false);
-        card_text.setMouseTransparent(false);
-        svc_text.setMouseTransparent(false);
+        accionRaton(false);
         
         //cambio la hoja de estilo para los campos de texto
-        name_text.getStyleClass().remove("visualizar-text");
-        last_name_text.getStyleClass().remove("visualizar-text");
-        phone_text.getStyleClass().remove("visualizar-text");
-        card_text.getStyleClass().remove("visualizar-text");
-        svc_text.getStyleClass().remove("visualizar-text");
-        password_text.getStyleClass().remove("visualizar-text");
-        password_comprobar_text.getStyleClass().remove("visualizar-text");
-        password_ver_text.getStyleClass().remove("visualizar-text");
-        
-        name_text.getStyleClass().add("basic-text");
-        last_name_text.getStyleClass().add("basic-text");
-        phone_text.getStyleClass().add("basic-text");
-        card_text.getStyleClass().add("basic-text");
-        svc_text.getStyleClass().add("basic-text");
-        password_comprobar_text.getStyleClass().add("basic-text");
-        password_ver_text.getStyleClass().add("basic-text");
-        password_text.getStyleClass().add("basic-text");
-
+        cambioEstilo(visualizar,basico);
+    }
+    
+    //Metodos para comprobar los campos
+    @FXML
+    private void nombreComprobar(MouseEvent event) {
+        if(!name_text.getText().isEmpty()){
+        if(!utils.textBien(name_text.getText())){
+            error_name_label.setVisible(true);
+        }else error_name_label.setVisible(false);  
+        }
+            
     }
 
     @FXML
     private void apellidoComprobar(MouseEvent event) {
+        if(!last_name_text.getText().isEmpty()){
+        if(!utils.textBien(last_name_text.getText())){
+            error_last_label.setVisible(true);
+        }else error_last_label.setVisible(false);  
+        }
     }
 
     @FXML
     private void telefonoComprobar(MouseEvent event) {
+        if(!phone_text.getText().isEmpty()){
+        if(!utils.numberBien(phone_text.getText(),9)){
+            error_phone_label.setVisible(true);
+        }else error_phone_label.setVisible(false);  
+        }
     }
 
     @FXML
     private void contraseñaComprobar(MouseEvent event) {
+        if(!password_text.getText().isEmpty()){
+        if(!utils.contraseñaBien(password_text.getText())){
+            error_passwor_label.setVisible(true);
+        }else error_passwor_label.setVisible(false);  
+        }
     }
 
     @FXML
     private void contraseñaConfirmarContraseña(MouseEvent event) {
+        if(!password_comprobar_text.getText().isEmpty()){
+        if(!utils.confirmacionBien(password_text.getText(),password_comprobar_text.getText())){
+            error_confirmacion_label.setVisible(true);
+        }else {error_confirmacion_label.setVisible(false); }
+        }
     }
 
     @FXML
     private void tarjetaComprobar(MouseEvent event) {
+        if(!card_text.getText().isEmpty()){
+        if(!utils.numberBien(card_text.getText(),16)){
+            error_tarjeta_label.setVisible(true);
+        }else error_tarjeta_label.setVisible(false);  
+        }
     }
 
     @FXML
     private void svcComprobar(MouseEvent event) {
+        if(!svc_text.getText().isEmpty()){
+        if(!utils.numberBien(svc_text.getText(),3)){
+            error_svc_label.setVisible(true);
+        }else error_svc_label.setVisible(false);  
+        }
     }
+    
+    
+    
+    //Ver contraseña
 
     @FXML
     private void verContraseña(MouseEvent event) {
@@ -309,16 +385,76 @@ public class ActualizarDatosFXMLController implements Initializable {
     }
 
     @FXML
-    private void nombreComprobar(MouseEvent event) {
-        if(!name_text.getText().isEmpty()){
-        if(!utils.nombreBien(name_text.getText())){
-            error_name_label.setVisible(true);
-        }else error_name_label.setVisible(false);  
-        }
-            
+    private void exitActualizar(MouseEvent event) {
+        Stage stage = (Stage) exit_button_actualizar.getScene().getWindow();
+        stage.close();
     }
-   
-
+    
+    
+    
+    
+    public boolean bien(){
+        if(!utils.textBien(name_text.getText())) return false; 
+        if(!utils.textBien(last_name_text.getText())) return false; 
+        if(!utils.numberBien(phone_text.getText(),9)) return false; 
+        if(!utils.contraseñaBien(password_text.getText())) return false; 
+        if(!utils.confirmacionBien(password_text.getText(),password_comprobar_text.getText())) return false;
+        if(!utils.numberBien(card_text.getText(),16)) return false; 
+        if(!utils.numberBien(svc_text.getText(),3)) return false;
+        return true;
+    }
+    
+    private String visualizar = "visualizar-text";
+    private String basico = "basic-text";
+    public void cambioEstilo(String r, String a){
+        name_text.getStyleClass().remove(r);
+        last_name_text.getStyleClass().remove(r);
+        phone_text.getStyleClass().remove(r);
+        card_text.getStyleClass().remove(r);
+        svc_text.getStyleClass().remove(r);
+        password_text.getStyleClass().remove(r);
+        password_comprobar_text.getStyleClass().remove(r);
+        password_ver_text.getStyleClass().remove(r);
+        
+        name_text.getStyleClass().add(a);
+        last_name_text.getStyleClass().add(a);
+        phone_text.getStyleClass().add(a);
+        card_text.getStyleClass().add(a);
+        svc_text.getStyleClass().add(a);
+        password_comprobar_text.getStyleClass().add(a);
+        password_ver_text.getStyleClass().add(a);
+        password_text.getStyleClass().add(a);
+        
+    }
+     public void esEditable(boolean b){
+        name_text.setEditable(b);
+        last_name_text.setEditable(b);
+        phone_text.setEditable(b);
+        password_text.setEditable(b);
+        card_text.setEditable(b);
+        svc_text.setEditable(b);
+        password_ver_text.setEditable(b);
+        password_text.setEditable(b);
+    }
+      public void datosNormales(){
+        name_text.setText(m.getName());
+        last_name_text.setText(m.getSurname());
+        user_text.setText(m.getNickName());
+        phone_text.setText(m.getTelephone());
+        password_text.setText(m.getPassword());
+        card_text.setText(m.getCreditCard());
+        svc_text.setText(String.valueOf(m.getSvc()));
+        password_ver_text.setText(m.getPassword());
+    }
+      public void accionRaton(boolean b){
+        /*name_text.setMouseTransparent(b);
+        last_name_text.setMouseTransparent(b);
+        phone_text.setMouseTransparent(b);
+        password_text.setMouseTransparent(b);
+        card_text.setMouseTransparent(b);
+        svc_text.setMouseTransparent(b);*/
+    }
+    
     
 }
 

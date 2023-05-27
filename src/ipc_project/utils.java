@@ -65,7 +65,21 @@ public class utils {
         }
         return false;
     }
-    public static boolean nombreBien(String nombre){
+    public static boolean isLong(String string) {
+        long longValue;
+
+        if(string == null || string.equals("")) {
+            return false;
+        }
+
+        try {
+            longValue = Long.parseLong(string);
+            return true;
+        } catch (NumberFormatException e) {
+        }
+        return false;
+    }
+    public static boolean textBien(String nombre){
         String n = nombre.replaceAll("\\s", "");
         char lista[]= n.toCharArray();
         boolean si = true;
@@ -79,6 +93,25 @@ public class utils {
             }else si = false;
         }
         return si;
+    }
+    public static boolean numberBien(String nombre, int n){
+        String s = nombre.replaceAll("\\s", "");
+        
+        if((isNumeric(s) ||isLong(s)) && s.length() == n){
+            return true;
+        }
+        return false;
+    }
+    
+    public static boolean contraseñaBien(String cont){
+        if(cont.length()>6){
+            return true;
+        }
+        return false;
+    }
+    
+    public static boolean confirmacionBien(String cont, String conf){
+        return cont.equals(conf);
     }
 }
 
