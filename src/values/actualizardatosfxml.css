@@ -225,6 +225,15 @@
 .label-error{
     -fx-text-fill: #801a86;
         -fx-font-style: italic; 
-   -fx-font-size: 16px;
+   -fx-font-size: 14px;
     }
+    
+.image-options{
+    -fx-background-color: White;  
+    -fx-background-radius: 8; /* Radio de los bordes del TextField */
+    -fx-border-color: #dedede; /* Color del borde del TextField */
+    -fx-border-radius: 8; /* Radio de los bordes del TextField */
+    -fx-effect: dropshadow(gaussian, rgba(222, 222, 222, 0.4), 15, 0.2, 0, 0);
+    }
+    
 }

@@ -105,6 +105,22 @@ public class ActualizarDatosFXMLController implements Initializable {
     private Member m;
     
     private boolean contraseñaEditado;
+    @FXML
+    private AnchorPane pane_slide;
+    @FXML
+    private Button menu_button2;
+    @FXML
+    private Circle pictureFrame1;
+    @FXML
+    private Label nickname_label;
+    @FXML
+    private Button ir_Actualizar;
+    @FXML
+    private Button ir_Ver;
+    @FXML
+    private Button ir_Reservar;
+    @FXML
+    private Label cerrar_sesion_label;
     
     
     
@@ -151,21 +167,18 @@ public class ActualizarDatosFXMLController implements Initializable {
         ojo_cerrado_button.setOnMouseEntered(event -> {
                 ojo_cerrado_button.setCursor(Cursor.HAND);
         });
-        
         ojo_cerrado_button.setOnMouseExited(event ->{
                 ojo_cerrado_button.setCursor(Cursor.DEFAULT);
         });
         ojo_abierto_button.setOnMouseEntered(event -> {
                 ojo_abierto_button.setCursor(Cursor.HAND);
         });
-        
         ojo_abierto_button.setOnMouseExited(event ->{
                 ojo_abierto_button.setCursor(Cursor.DEFAULT);
         });
         cancelar_button.setOnMouseEntered(event -> {
                 cancelar_button.setCursor(Cursor.HAND);
         });
-        
         cancelar_button.setOnMouseExited(event ->{
                 cancelar_button.setCursor(Cursor.DEFAULT);
         });
@@ -486,6 +499,34 @@ public class ActualizarDatosFXMLController implements Initializable {
     private void passClick(MouseEvent event) {
         contraseñaEditado = true;
         confirmacion_box.setVisible(true);
+    }
+
+    @FXML
+    private void run2(MouseEvent event) {
+    }
+
+    @FXML
+    private void showChange(MouseEvent event) {
+    }
+
+    @FXML
+    private void changeProfile(MouseEvent event) {
+    }
+
+    @FXML
+    private void irActualizar(MouseEvent event) {
+    }
+
+    @FXML
+    private void irVer(MouseEvent event) {
+    }
+
+    @FXML
+    private void irReservar(MouseEvent event) {
+    }
+
+    @FXML
+    private void cerrar_sesion_clicked(MouseEvent event) {
     }
 
     
