@@ -3,10 +3,12 @@ package javafxmlapplication;
 import ipc_project.main;
 import ipc_project.utils;
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.Month;
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
@@ -315,6 +317,7 @@ public class ReservarFXMLController implements Initializable {
         nicknames.add(eighteen_nineteen_vbox);
         nicknames.add(nineteen_twenty_vbox);
         nicknames.add(twenty_twentyone_vbox);
+        nicknames.add(twentyone_twentytwo_vbox);
         
         //coloca los labels en la lista
         ocupado.add(ocupado_9);
@@ -495,12 +498,7 @@ public class ReservarFXMLController implements Initializable {
         
         // DISABLED LAS HORAS QUE YA HAN PASADO
         
-        if(date == LocalDate.now()){
-            LocalTime now = LocalTime.now();
-            now.getHour();
-            System.out.println(now.getHour());
-            
-        }
+        horasPasadas();
         
     } 
     
@@ -521,14 +519,20 @@ public class ReservarFXMLController implements Initializable {
     private void hour_clicked(MouseEvent event) {
         Button button = null;
         
-        //se guarda la hora seleccionada en una variable (puede haber hasta dos)
+        // SE MIRA QUÉ BOTÓN HA SELECCIONADO
         if(event.getSource() instanceof Button){
             button = (Button) event.getSource(); 
         }
         
+        
+        
+        
+        // SI EL BOTÓN YA ESTÁ SELECCIONADO
         if(button.equals(clicked1_button) || button.equals(clicked2_button)){
                 GridPane grid = map2.get(button);
                 grid.setStyle("-fx-background-color: #FFFFFF");
+                
+                // SI EL BOTÓN ES CLICKED1
                 
                 if(button.equals(clicked1_button)){
                     if(clicked2 != -1){
@@ -540,75 +544,101 @@ public class ReservarFXMLController implements Initializable {
                         clicked1 = -1;
                         clicked1_button = null;
                     }
-                }else{
+                }else{ // SI EL BOTÓN ES CLICKED2
                     clicked2 = -1;
                     clicked2_button = null;
                 }
-            }else{
-        
-                if(clicked1 == -1 || clicked2 == -1){
-        
+            }else{ // SI EL BOTÓN NO ESTÁ SELECCIONADO
+            
+                     // CROMPROBAR HORAS SEGUIDAS
+                    if(comprobarHorasSeguidas(button)){
+                       if(clicked1 == -1 || clicked2 == -1){
+                        String id = button.getId();
+                        GridPane grid = map2.get(button);
+                        grid.setStyle("-fx-background-color: #D1A7D4");
 
-                    String id = button.getId();
-                    GridPane grid = map2.get(button);
-                    grid.setStyle("-fx-background-color: #D1A7D4");
 
-
-                    switch(id){
-                        case "nine_ten_button": 
-                            if(clicked1 != -1){clicked2 = 9; clicked2_button = nine_ten_button;}
-                            else{clicked1 = 9; clicked1_button = nine_ten_button;}
-                            break;
-                        case "ten_eleven_button": 
-                            if(clicked1 != -1){clicked2 = 10; clicked2_button = ten_eleven_button;}
-                            else{clicked1 = 10; clicked1_button = ten_eleven_button;}
-                            break;
-                        case "eleven_twelve_button": 
-                            if(clicked1 != -1){clicked2 = 11; clicked2_button = eleven_twelve_button;}
-                            else{clicked1 = 11; clicked1_button = eleven_twelve_button;}
-                            break;
-                        case "twelve_thirdteen_button": 
-                            if(clicked1 != -1){clicked2 = 12; clicked2_button = twelve_thirdteen_button;}
-                            else{clicked1 = 12; clicked1_button = twelve_thirdteen_button;}
-                            break;
-                        case "thirdteen_fourteen_button": 
-                            if(clicked1 != -1){clicked2 = 13; clicked2_button = thirdteen_fourteen_button;}
-                            else{clicked1 = 13; clicked1_button = thirdteen_fourteen_button;}
-                            break;
-                        case "fourteen_fifteen_button": 
-                            if(clicked1 != -1){clicked2 = 14; clicked2_button = fourteen_fifteen_button;}
-                            else{clicked1 = 14; clicked1_button = fourteen_fifteen_button;}
-                            break;
-                        case "fifteen_sixteen_button": 
-                            if(clicked1 != -1){clicked2 = 15; clicked2_button = fifteen_sixteen_button;}
-                            else{clicked1 = 15; clicked1_button = fifteen_sixteen_button;}
-                            break;
-                        case "sixteen_seventeen_button": 
-                            if(clicked1 != -1){clicked2 = 16; clicked2_button = sixteen_seventeen_button;}
-                            else{clicked1 = 16; clicked1_button = sixteen_seventeen_button;}
-                            break;
-                        case "seventeen_eighteen_button": 
-                            if(clicked1 != -1){clicked2 = 17; clicked2_button = seventeen_eighteen_button;}
-                            else{clicked1 = 17; clicked1_button = seventeen_eighteen_button;}
-                            break;
-                        case "eighteen_nineteen_button": 
-                            if(clicked1 != -1){clicked2 = 18; clicked2_button = eighteen_nineteen_button;}
-                            else{clicked1 = 18; clicked1_button = eighteen_nineteen_button;}
-                            break;
-                        case "nineteen_twenty_button": 
-                            if(clicked1 != -1){clicked2 = 19; clicked2_button = nineteen_twenty_button;}
-                            else{clicked1 = 19; clicked1_button = nineteen_twenty_button;}
-                            break;
-                        case "twenty_twentyone_button": 
-                            if(clicked1 != -1){clicked2 = 20; clicked2_button = twenty_twentyone_button;}
-                            else{clicked1 = 20; clicked1_button = twenty_twentyone_button;}
-                            break;
-                        case "twentyone_twentytwo_button": 
-                            if(clicked1 != -1){clicked2 = 21; clicked2_button = twentyone_twentytwo_button;}
-                            else{clicked1 = 21; clicked1_button = twentyone_twentytwo_button;}
-                            break;
+                        switch(id){
+                            case "nine_ten_button": 
+                                if(clicked1 != -1){clicked2 = 9; clicked2_button = nine_ten_button;}
+                                else{clicked1 = 9; clicked1_button = nine_ten_button;}
+                                break;
+                            case "ten_eleven_button": 
+                                if(clicked1 != -1){clicked2 = 10; clicked2_button = ten_eleven_button;}
+                                else{clicked1 = 10; clicked1_button = ten_eleven_button;}
+                                break;
+                            case "eleven_twelve_button": 
+                                if(clicked1 != -1){clicked2 = 11; clicked2_button = eleven_twelve_button;}
+                                else{clicked1 = 11; clicked1_button = eleven_twelve_button;}
+                                break;
+                            case "twelve_thirdteen_button": 
+                                if(clicked1 != -1){clicked2 = 12; clicked2_button = twelve_thirdteen_button;}
+                                else{clicked1 = 12; clicked1_button = twelve_thirdteen_button;}
+                                break;
+                            case "thirdteen_fourteen_button": 
+                                if(clicked1 != -1){clicked2 = 13; clicked2_button = thirdteen_fourteen_button;}
+                                else{clicked1 = 13; clicked1_button = thirdteen_fourteen_button;}
+                                break;
+                            case "fourteen_fifteen_button": 
+                                if(clicked1 != -1){clicked2 = 14; clicked2_button = fourteen_fifteen_button;}
+                                else{clicked1 = 14; clicked1_button = fourteen_fifteen_button;}
+                                break;
+                            case "fifteen_sixteen_button": 
+                                if(clicked1 != -1){clicked2 = 15; clicked2_button = fifteen_sixteen_button;}
+                                else{clicked1 = 15; clicked1_button = fifteen_sixteen_button;}
+                                break;
+                            case "sixteen_seventeen_button": 
+                                if(clicked1 != -1){clicked2 = 16; clicked2_button = sixteen_seventeen_button;}
+                                else{clicked1 = 16; clicked1_button = sixteen_seventeen_button;}
+                                break;
+                            case "seventeen_eighteen_button": 
+                                if(clicked1 != -1){clicked2 = 17; clicked2_button = seventeen_eighteen_button;}
+                                else{clicked1 = 17; clicked1_button = seventeen_eighteen_button;}
+                                break;
+                            case "eighteen_nineteen_button": 
+                                if(clicked1 != -1){clicked2 = 18; clicked2_button = eighteen_nineteen_button;}
+                                else{clicked1 = 18; clicked1_button = eighteen_nineteen_button;}
+                                break;
+                            case "nineteen_twenty_button": 
+                                if(clicked1 != -1){clicked2 = 19; clicked2_button = nineteen_twenty_button;}
+                                else{clicked1 = 19; clicked1_button = nineteen_twenty_button;}
+                                break;
+                            case "twenty_twentyone_button": 
+                                if(clicked1 != -1){clicked2 = 20; clicked2_button = twenty_twentyone_button;}
+                                else{clicked1 = 20; clicked1_button = twenty_twentyone_button;}
+                                break;
+                            case "twentyone_twentytwo_button": 
+                                if(clicked1 != -1){clicked2 = 21; clicked2_button = twentyone_twentytwo_button;}
+                                else{clicked1 = 21; clicked1_button = twentyone_twentytwo_button;}
+                                break;
+                            }
                     }
-            }
+            }else{
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                //cambiar el icono
+                Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+                stage.getIcons().add(new Image(this.getClass().getResourceAsStream("/img/Pelota.png")));
+                alert.getDialogPane().setMaxWidth(600);
+                alert.getDialogPane().setMinWidth(550);
+                alert.getDialogPane().setMaxHeight(200);
+                alert.getDialogPane().setMinHeight(150);
+                
+                //añadir hoja de estilo
+                DialogPane dialogPane = alert.getDialogPane();
+                dialogPane.getStylesheets().add(getClass().getResource("/values/reservarfxml.css").toExternalForm());
+                
+                //asignar la clase al contenedor principal del diálogo
+                alert.getDialogPane().getStyleClass().add("myAlert");
+                
+                //configurar el contenido del diálogo
+                alert.setTitle("Aviso de Reserva");
+                alert.setHeaderText("Esta reserva no se puede realizar.");
+                alert.setContentText("No se pueden reservar más de dos horas seguidas.");
+                
+                
+                Optional<ButtonType> result = alert.showAndWait();
+                alert.close();
+                    }
          }
         
     }
@@ -620,6 +650,7 @@ public class ReservarFXMLController implements Initializable {
         title_num_pista_label.setText("01");
         comprobarPista(pista, date);
         restablecerBotones();
+        horasPasadas();
     }
     @FXML
     private void pista4_toggle_button_clicked(MouseEvent event) {
@@ -627,6 +658,7 @@ public class ReservarFXMLController implements Initializable {
         title_num_pista_label.setText("04");
         comprobarPista(pista, date);
         restablecerBotones();
+        horasPasadas();
     }
     @FXML
     private void pista2_toggle_button_clicked(MouseEvent event) {
@@ -634,6 +666,7 @@ public class ReservarFXMLController implements Initializable {
         title_num_pista_label.setText("02");
         comprobarPista(pista, date);
         restablecerBotones();
+        horasPasadas();
     }
     @FXML
     private void pista5_toggle_button_clicked(MouseEvent event) {
@@ -641,6 +674,7 @@ public class ReservarFXMLController implements Initializable {
         title_num_pista_label.setText("05");
         comprobarPista(pista, date);
         restablecerBotones();
+        horasPasadas();
     }
     @FXML
     private void pista3_toggle_button_clicked(MouseEvent event) {
@@ -648,6 +682,7 @@ public class ReservarFXMLController implements Initializable {
         title_num_pista_label.setText("03");
         comprobarPista(pista, date);
         restablecerBotones();
+        horasPasadas();
     }
     @FXML
     private void pista6_toggle_button_clicked(MouseEvent event) {
@@ -655,6 +690,7 @@ public class ReservarFXMLController implements Initializable {
         title_num_pista_label.setText("06");
         comprobarPista(pista, date);
         restablecerBotones();
+        horasPasadas();
     }
     
     // CAMBIAR DE FECHA EN EL CALENDARIO
@@ -681,6 +717,7 @@ public class ReservarFXMLController implements Initializable {
             LocalTime hour = LocalTime.of(clicked1, 0);
             LocalDateTime bookingDate = LocalDateTime.of(LocalDate.now(), LocalTime.now());
             Boolean paid = member.checkHasCreditInfo();
+            
             if(paid){
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                 //cambiar el icono
@@ -819,51 +856,7 @@ public class ReservarFXMLController implements Initializable {
         }
     }
     
-    // CAMBIAR UN BOTÓN AL ESTADO DE OCUPADO
-    private void  cambiar_ocupado(VBox vbox, Label l, Button b, String id){
-        b.setDisable(true);
-        l.setText("Ocupado");
-        
-        
-        Label nickname = new Label(id);
-        nickname.setId("nickname");
-        nickname.setAlignment(Pos.CENTER);
-        nickname.setFont(new Font("System", 15));
-        nickname.setStyle("-fx-text-fill: #3b3b3b");
-        nickname.setContentDisplay(ContentDisplay.LEFT);
-        nickname.setTextOverrun(OverrunStyle.ELLIPSIS);
-        nickname.setPadding(new Insets(0, 10, 0, 0));
-        vbox.getChildren().add(1,nickname);
-    }
-    
-    // RESETEAR TODOS LOS BOTONES
-    private void resetButtons(){
-        //comprobar todos los vbox
-        
-        for(Button button: horas){
-            button.setDisable(false);
-        }
-        
-        for(Label label: ocupado){
-            label.setText("Libre");
-        }
-        
-        for(VBox vbox: nicknames){
-            resetButton(vbox);
-        }
-    }
-    
-    // RESETEAR UN BOTÓN
-    private void resetButton(VBox v){
-        
-        for(Node node:v.getChildren()){
-            if(node instanceof Label &&  node.getId().equals("nickname")){
-                v.getChildren().remove(node);
-                break;
-            }
-        }
-        
-    }
+   
     
     
     
@@ -1019,7 +1012,7 @@ public class ReservarFXMLController implements Initializable {
                 stage.setScene(scene);
 
                     
-            }catch(Exception e){System.out.println("Problemas en ir a actualizar: " + e);}
+            }catch(IOException e){System.out.println("Problemas en ir a actualizar: " + e);}
     }
 
     @FXML
@@ -1122,5 +1115,98 @@ public class ReservarFXMLController implements Initializable {
         }
     }
     
+     // CAMBIAR UN BOTÓN AL ESTADO DE OCUPADO
+    private void  cambiar_ocupado(VBox vbox, Label l, Button b, String id){
+        b.setDisable(true);
+        l.setText("Ocupado");
+        
+        
+        Label nickname = new Label(id);
+        nickname.setId("nickname");
+        nickname.setAlignment(Pos.CENTER);
+        nickname.setFont(new Font("System", 15));
+        nickname.setStyle("-fx-text-fill: #3b3b3b");
+        nickname.setContentDisplay(ContentDisplay.LEFT);
+        nickname.setTextOverrun(OverrunStyle.ELLIPSIS);
+        nickname.setPadding(new Insets(0, 10, 0, 0));
+        vbox.getChildren().add(1,nickname);
+    }
     
+    // RESETEAR TODOS LOS BOTONES
+    private void resetButtons(){
+        //comprobar todos los vbox
+        
+        for(Button button: horas){
+            button.setDisable(false);
+        }
+        
+        for(Label label: ocupado){
+            label.setText("Libre");
+        }
+        
+        for(VBox vbox: nicknames){
+            resetButton(vbox);
+        }
+    }
+    
+    // RESETEAR UN BOTÓN
+    private void resetButton(VBox v){
+        
+        for(Node node:v.getChildren()){
+            if(node instanceof Label && node.getId().equals("nickname")){
+                v.getChildren().remove(node);
+                break;
+            }
+        }
+        
+    }
+    
+    // COMPROBAR HORAS SEGUIDAS
+    
+    private boolean comprobarHorasSeguidas(Button button){
+        boolean puede = true;
+        int hour = map.get(button);
+        List<Booking> memberBookings = club.getUserBookings(member.getNickName());
+        
+        LocalTime post = LocalTime.of(hour + 1, 0);
+        LocalTime post2 = LocalTime.of(hour + 2, 0);
+        
+        LocalTime pas = LocalTime.of(hour - 1, 0);
+        LocalTime pas2 = LocalTime.of(hour - 2, 0);
+        
+        if(reservada(memberBookings, post, date, pista) != null &&
+                reservada(memberBookings, post2, date, pista) != null ||
+                reservada(memberBookings, pas, date, pista) != null &&
+                reservada(memberBookings, pas2, date, pista) != null){
+            puede = false;
+        }
+
+        return puede;
+    }
+    
+    private Booking reservada(List<Booking> bookings, LocalTime hora, LocalDate fecha, String pista){
+        for(Booking b: bookings){
+            if(!b.getMadeForDay().equals(fecha)){
+               continue; 
+            }
+            if(!b.getCourt().getName().equals(pista)){
+                continue;
+            }
+            if(!b.getFromTime().equals(hora)){
+                continue;
+            }
+            return b; 
+        }
+        return null;
+    }
+    
+    private void horasPasadas(){
+        if(date.equals(LocalDate.now())){
+            for(Button b: horas){
+                if(LocalTime.of(map.get(b), 0).isBefore(LocalTime.now())){
+                    b.setDisable(true);
+                }
+            }
+        }
+    }
 }

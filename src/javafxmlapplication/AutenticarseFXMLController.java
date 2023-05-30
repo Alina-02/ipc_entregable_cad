@@ -1,7 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
+
+
 package javafxmlapplication;
 
 import com.sun.javafx.logging.PlatformLogger.Level;
@@ -34,6 +32,7 @@ import javafx.scene.layout.Region;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import static javafxmlapplication.DisponibilidadDelDiaFXMLController.disponibilidadGo;
 import model.*;
 
 /**
@@ -65,6 +64,7 @@ public class AutenticarseFXMLController implements Initializable {
     private Button back_button_autenticarse;
     
     private static Member member;
+    private static boolean autenticarseGo = false;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -114,6 +114,10 @@ public class AutenticarseFXMLController implements Initializable {
     @FXML
     private void backAutenticarse(MouseEvent event) {
         try{
+            
+            
+            if(DisponibilidadDelDiaFXMLController.getDisponibilidadGo()){
+                DisponibilidadDelDiaFXMLController.setDisponibilidadGo(false);
                 Stage stage;
                 stage = main.getStage();
                 
@@ -124,6 +128,21 @@ public class AutenticarseFXMLController implements Initializable {
                   
                 Scene scene = new Scene(root, 1200, 750);
                 stage.setScene(scene);
+            }else if(RegistroFXMLController.getRegistroGo()){
+                RegistroFXMLController.setRegistroGo(false);
+                Stage stage;
+                stage = main.getStage();
+                
+                stage.getIcons().add(new Image(this.getClass().getResourceAsStream("/img/Pelota.png")));
+            
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/RegistroFXML.fxml"));
+                Parent root = loader.load();
+                  
+                Scene scene = new Scene(root, 1200, 750);
+                stage.setScene(scene);
+            }
+            
+                
 
                     
             }catch(Exception e){System.out.println("Fallo en backAutenticarse: " + e);}
@@ -192,6 +211,7 @@ public class AutenticarseFXMLController implements Initializable {
     @FXML
     private void registerUser(MouseEvent event) {
         try{
+            autenticarseGo = true;
             Stage stage;
             stage = main.getStage();
             
@@ -206,4 +226,14 @@ public class AutenticarseFXMLController implements Initializable {
     public static Member getMember(){
         return member;
     }
+    
+    public static boolean getAutenticarseGo(){
+        return autenticarseGo;
+    }
+    
+    public static void setAutenticarseGo(boolean bool){
+        autenticarseGo = bool;
+    }
+    
+    
 }

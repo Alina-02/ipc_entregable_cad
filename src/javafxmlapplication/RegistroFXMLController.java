@@ -1,3 +1,5 @@
+
+
 package javafxmlapplication;
 
 import com.sun.tools.javac.Main;
@@ -120,6 +122,8 @@ public class RegistroFXMLController implements Initializable {
     
     private Image defaultImageAux;
     
+    static boolean registroGo = false;
+    
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -212,15 +216,29 @@ public class RegistroFXMLController implements Initializable {
     @FXML
     private void backRegistro(MouseEvent event) {
         try{
-            Stage stage;
-            stage = main.getStage();
+            if(AutenticarseFXMLController.getAutenticarseGo()){
+                AutenticarseFXMLController.setAutenticarseGo(false);
+                Stage stage;
+                stage = main.getStage();
+
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/AutenticarseFXML.fxml"));
+                Parent root = loader.load();
+
+                Scene scene = new Scene(root, 1200, 750);
+                stage.setScene(scene);
+                
+            }else if(DisponibilidadDelDiaFXMLController.getDisponibilidadGo()){
+                DisponibilidadDelDiaFXMLController.setDisponibilidadGo(false);
+                Stage stage;
+                stage = main.getStage();
             
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/autenticarseFXML.fxml"));
-            Parent root = loader.load();
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/DisponibilidadDelDiaFXML.fxml"));
+                Parent root = loader.load();
                   
-            Scene scene = new Scene(root, 1200, 750);
+                Scene scene = new Scene(root, 1200, 750);
             stage.setScene(scene);
-      
+                }
+            
             }catch(Exception e){System.out.println(e);}
     }
 
@@ -346,6 +364,7 @@ public class RegistroFXMLController implements Initializable {
 
     private void usuarioRegistrado() {
         try{
+                registroGo = true;
                 Stage stage;
                 stage = main.getStage();
             
@@ -357,6 +376,14 @@ public class RegistroFXMLController implements Initializable {
                     
             }catch(Exception e){System.out.println(e);}
         
+    }
+    
+    public static boolean getRegistroGo(){
+        return registroGo;
+    }
+    
+    public static void setRegistroGo(boolean bool){
+        registroGo = bool;
     }
 
 }

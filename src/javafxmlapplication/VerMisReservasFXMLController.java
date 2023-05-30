@@ -1,7 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
+
+
 package javafxmlapplication;
 
 import ipc_project.bookingButton;
@@ -123,8 +121,11 @@ public class VerMisReservasFXMLController implements Initializable {
         cancelar_reserva_button.setDisable(true);
         
         
+        
+        
         //Consigue al miembro loggeado e inicializa club
         member = AutenticarseFXMLController.getMember();
+        
         try{club = Club.getInstance(); 
         }catch (ClubDAOException | IOException ex){
             Logger.getLogger(VerMisReservasFXMLController.class.getName()).log(Level.SEVERE, null, ex);
@@ -202,6 +203,17 @@ public class VerMisReservasFXMLController implements Initializable {
         pictureFrame.setFill(new ImagePattern(selectedFile));
         nickname_label.setText(member.getNickName());
     
+        dia_table_column.setReorderable(false);
+        pista_table_column.setReorderable(false);
+        entrada_table_column.setReorderable(false);
+        salida_table_column.setReorderable(false);
+        pagada_table_column.setReorderable(false);
+        
+        dia_table_column.setResizable(false);
+        pista_table_column.setResizable(false);
+        entrada_table_column.setResizable(false);
+        salida_table_column.setResizable(false);
+        pagada_table_column.setResizable(false);
         
     }
     

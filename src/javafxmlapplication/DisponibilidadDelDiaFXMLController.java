@@ -1,7 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
+
+
 package javafxmlapplication;
 
 import java.net.URL;
@@ -38,6 +36,8 @@ import javafx.stage.Stage;
 import model.Booking;
 import model.Club;
 import ipc_project.*;
+import java.awt.GraphicsDevice;
+import java.awt.GraphicsEnvironment;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Predicate;
@@ -48,6 +48,8 @@ import javafx.scene.Cursor;
 import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.input.DragEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import model.Member;
 
@@ -222,17 +224,27 @@ public class DisponibilidadDelDiaFXMLController implements Initializable {
     List<VBox> nicknames = new ArrayList<>();
     List<Label> ocupado = new ArrayList<>();
     List<Button> horas = new ArrayList<>();
+    List<ToggleButton> pistasList = new ArrayList<>();
     LocalDate date = LocalDate.now(); //fecha de las pistas
     ObservableList<Button> horasObservable = FXCollections.observableList(horas);
     ListView<Button> horasListView = new ListView<Button>(horasObservable);
+    static boolean disponibilidadGo = false;
     
     // MAP ENTRE BUTTONS Y VALORES
     ObservableMap<Button, Integer> map = FXCollections.observableHashMap();
     
-    String pista = "Pista 1";
+    private String pista = "Pista 1";
     Club club;
     @FXML
     private Text registrarse_text;
+    private Stage stage;
+    
+    double width;
+    double height;
+    @FXML
+    private AnchorPane anchor_pane;
+    @FXML
+    private HBox pistas_vbox;
     
     
     @Override
@@ -240,15 +252,25 @@ public class DisponibilidadDelDiaFXMLController implements Initializable {
         // TODO
         
         try{
+            
+            
         club = Club.getInstance();
         
+        find_hour_textfield.setFocusTraversable(false);
+        
         //coloca todas las pistas en el toggle group pistas
-        pista1_toggle_button.setToggleGroup(pistas);
+        pista1_toggle_button.setToggleGroup(pistas); 
+        pistasList.add(pista1_toggle_button);
         pista2_toggle_button.setToggleGroup(pistas);
+        pistasList.add(pista2_toggle_button);
         pista3_toggle_button.setToggleGroup(pistas);
+        pistasList.add(pista3_toggle_button);
         pista4_toggle_button.setToggleGroup(pistas);
+        pistasList.add(pista4_toggle_button);
         pista5_toggle_button.setToggleGroup(pistas);
+        pistasList.add(pista5_toggle_button);
         pista6_toggle_button.setToggleGroup(pistas);
+        pistasList.add(pista6_toggle_button);
         //establece la primera pista como seleccionada de serie
         pista1_toggle_button.setSelected(true);
         
@@ -556,6 +578,7 @@ public class DisponibilidadDelDiaFXMLController implements Initializable {
     private void iniciar_sesion_clicked(MouseEvent event) {
         
         try{
+            disponibilidadGo = true;
             Stage stage;
             stage = main.getStage();
             
@@ -600,9 +623,6 @@ public class DisponibilidadDelDiaFXMLController implements Initializable {
         }
     }
 
-    @FXML
-    private void pìsta_toggle_entered(MouseEvent event) {
-    }
     
     
     private void buscarHora(String hour){
@@ -630,6 +650,7 @@ public class DisponibilidadDelDiaFXMLController implements Initializable {
     @FXML
     private void registerUser(MouseEvent event) {
         try{
+            disponibilidadGo = true;
             Stage stage;
             stage = main.getStage();
             
@@ -641,4 +662,38 @@ public class DisponibilidadDelDiaFXMLController implements Initializable {
         }catch(Exception e){System.out.println("Fallo en registerUser: " + e);}
     }  
     
+    public static boolean getDisponibilidadGo(){
+        return disponibilidadGo;
+    }
+    
+    public static void setDisponibilidadGo(boolean bool){
+        disponibilidadGo = bool;
+    }
+    
+    public void setStage(Stage s){
+        this.stage = s;
+    }
+    
+    public void resizable(){
+        
+            stage.heightProperty().addListener((ob, oldval, newval)->{
+                if(!oldval.equals(Double.NaN)){
+                    for(ToggleButton tb: pistasList){
+                        tb.setPrefHeight(tb.getHeight()+(newval.doubleValue()-oldval.doubleValue())*0.33);
+                        
+                    }
+                }
+                //pistas_vbox.setPrefHeight(newval.doubleValue()*750/474);
+            });
+            
+            stage.widthProperty().addListener((ob, oldval, newval)->{
+                if(!oldval.equals(Double.NaN)){
+                    for(ToggleButton tb: pistasList){
+                        tb.setPrefWidth(tb.getWidth() + (newval.doubleValue() - oldval.doubleValue()) * 0.33);
+                    }
+                }
+                //pistas_vbox.setPrefWidth(newval.doubleValue()*1200/860);
+            });
+              
+    }
 }

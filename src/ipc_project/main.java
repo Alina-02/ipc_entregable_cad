@@ -1,7 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
+
+
+
 package ipc_project;
 
 
@@ -17,6 +16,7 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import javafxmlapplication.DisponibilidadDelDiaFXMLController;
 import javafxmlapplication.VerMisReservasFXMLController;
 import model.Club;
 import model.ClubDAOException;
@@ -48,8 +48,8 @@ public class main extends Application{
         // 2- creación de la escena con el nodo raiz del grafo de escena
         Scene scene = new Scene(root);
         
-        
-        
+        DisponibilidadDelDiaFXMLController controller = loader.getController();
+        controller.setStage(stage);
         //======================================================================
         // 3- asiganación de la escena al Stage que recibe el metodo 
         //     - configuracion del stage
@@ -62,7 +62,12 @@ public class main extends Application{
         
         stage.getIcons().add(new Image(this.getClass().getResourceAsStream("/img/Pelota.png")));
         
-        stage.setTitle("Inicio");
+        stage.setTitle("GreenBall");
+        
+        
+        controller.resizable();
+        
+        
         stage.show();
         
         /*PauseTransition delay = new PauseTransition(Duration.seconds(1));
