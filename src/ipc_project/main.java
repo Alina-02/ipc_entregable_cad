@@ -16,6 +16,7 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import javafxmlapplication.AutenticarseFXMLController;
 import javafxmlapplication.DisponibilidadDelDiaFXMLController;
 import javafxmlapplication.VerMisReservasFXMLController;
 import model.Club;
@@ -48,8 +49,9 @@ public class main extends Application{
         // 2- creación de la escena con el nodo raiz del grafo de escena
         Scene scene = new Scene(root);
         
-        DisponibilidadDelDiaFXMLController controller = loader.getController();
-        controller.setStage(stage);
+        DisponibilidadDelDiaFXMLController controllerDisponibilidad = loader.getController();
+        controllerDisponibilidad.setStage(stage);
+       
         //======================================================================
         // 3- asiganación de la escena al Stage que recibe el metodo 
         //     - configuracion del stage
@@ -65,7 +67,7 @@ public class main extends Application{
         stage.setTitle("GreenBall");
         
         
-        controller.resizable();
+        controllerDisponibilidad.resizable();
         
         
         stage.show();

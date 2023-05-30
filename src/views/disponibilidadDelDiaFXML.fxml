@@ -614,24 +614,24 @@
                         <Insets />
                      </VBox.margin>
                   </HBox>
-                  <HBox fx:id="pistas_vbox" alignment="CENTER" prefHeight="474.0" prefWidth="860.0">
+                  <HBox fx:id="pistas_hbox" alignment="CENTER" prefHeight="424.0" prefWidth="671.0">
                      <children>
                         <VBox alignment="CENTER" prefHeight="590.0" prefWidth="270.0">
                            <HBox.margin>
                               <Insets bottom="20.0" left="40.0" right="5.0" top="20.0" />
                            </HBox.margin>
                            <children>
-                              <ToggleButton fx:id="pista1_toggle_button" mnemonicParsing="false" onMouseClicked="#pista1_toggle_button_clicked" onMouseEntered="#pista_toggle_entered" prefHeight="150.0" prefWidth="150.0" styleClass="button_pistas" stylesheets="@../values/reservarfxml.css" text="Pista 1">
+                              <ToggleButton fx:id="pista1_toggle_button" minHeight="159.0" minWidth="150.0" mnemonicParsing="false" onMouseClicked="#pista1_toggle_button_clicked" onMouseEntered="#pista_toggle_entered" prefHeight="150.0" prefWidth="150.0" styleClass="button_pistas" stylesheets="@../values/reservarfxml.css" text="Pista 1">
                                  <VBox.margin>
-                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                    <Insets bottom="20.0" left="20.0" right="20.0" />
                                  </VBox.margin>
                                  <font>
                                     <Font size="30.0" />
                                  </font>
                               </ToggleButton>
-                              <ToggleButton fx:id="pista4_toggle_button" mnemonicParsing="false" onMouseClicked="#pista4_toggle_button_clicked" onMouseEntered="#pista_toggle_entered" prefHeight="150.0" prefWidth="150.0" styleClass="button_pistas" stylesheets="@../values/reservarfxml.css" text="Pista 4">
+                              <ToggleButton fx:id="pista4_toggle_button" minHeight="150.0" minWidth="150.0" mnemonicParsing="false" onMouseClicked="#pista4_toggle_button_clicked" onMouseEntered="#pista_toggle_entered" prefHeight="150.0" prefWidth="150.0" styleClass="button_pistas" stylesheets="@../values/reservarfxml.css" text="Pista 4">
                                  <VBox.margin>
-                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                    <Insets left="20.0" right="20.0" top="20.0" />
                                  </VBox.margin>
                                  <font>
                                     <Font size="30.0" />
@@ -644,17 +644,17 @@
                               <Insets bottom="20.0" left="5.0" right="5.0" top="20.0" />
                            </HBox.margin>
                            <children>
-                              <ToggleButton fx:id="pista2_toggle_button" mnemonicParsing="false" onMouseClicked="#pista2_toggle_button_clicked" onMouseEntered="#pista_toggle_entered" prefHeight="150.0" prefWidth="150.0" styleClass="button_pistas" stylesheets="@../values/reservarfxml.css" text="Pista 2">
+                              <ToggleButton fx:id="pista2_toggle_button" minHeight="150.0" minWidth="150.0" mnemonicParsing="false" onMouseClicked="#pista2_toggle_button_clicked" onMouseEntered="#pista_toggle_entered" prefHeight="150.0" prefWidth="150.0" styleClass="button_pistas" stylesheets="@../values/reservarfxml.css" text="Pista 2">
                                  <VBox.margin>
-                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                    <Insets bottom="20.0" left="20.0" right="20.0" />
                                  </VBox.margin>
                                  <font>
                                     <Font size="30.0" />
                                  </font>
                               </ToggleButton>
-                              <ToggleButton fx:id="pista5_toggle_button" mnemonicParsing="false" onMouseClicked="#pista5_toggle_button_clicked" onMouseEntered="#pista_toggle_entered" prefHeight="150.0" prefWidth="150.0" styleClass="button_pistas" stylesheets="@../values/reservarfxml.css" text="Pista 5">
+                              <ToggleButton fx:id="pista5_toggle_button" minHeight="150.0" minWidth="150.0" mnemonicParsing="false" onMouseClicked="#pista5_toggle_button_clicked" onMouseEntered="#pista_toggle_entered" prefHeight="150.0" prefWidth="150.0" styleClass="button_pistas" stylesheets="@../values/reservarfxml.css" text="Pista 5">
                                  <VBox.margin>
-                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                    <Insets left="20.0" right="20.0" top="20.0" />
                                  </VBox.margin>
                                  <font>
                                     <Font size="30.0" />
@@ -667,17 +667,17 @@
                               <Insets bottom="20.0" left="5.0" right="40.0" top="20.0" />
                            </HBox.margin>
                            <children>
-                              <ToggleButton fx:id="pista3_toggle_button" mnemonicParsing="false" onMouseClicked="#pista3_toggle_button_clicked" onMouseEntered="#pista_toggle_entered" prefHeight="150.0" prefWidth="150.0" styleClass="button_pistas" stylesheets="@../values/reservarfxml.css" text="Pista 3">
+                              <ToggleButton fx:id="pista3_toggle_button" minHeight="150.0" minWidth="150.0" mnemonicParsing="false" onMouseClicked="#pista3_toggle_button_clicked" onMouseEntered="#pista_toggle_entered" prefHeight="150.0" prefWidth="150.0" styleClass="button_pistas" stylesheets="@../values/reservarfxml.css" text="Pista 3">
                                  <VBox.margin>
-                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                    <Insets bottom="20.0" left="20.0" right="20.0" />
                                  </VBox.margin>
                                  <font>
                                     <Font size="30.0" />
                                  </font>
                               </ToggleButton>
-                              <ToggleButton fx:id="pista6_toggle_button" mnemonicParsing="false" onMouseClicked="#pista6_toggle_button_clicked" onMouseEntered="#pista_toggle_entered" prefHeight="150.0" prefWidth="150.0" styleClass="button_pistas" stylesheets="@../values/reservarfxml.css" text="Pista 6">
+                              <ToggleButton fx:id="pista6_toggle_button" minHeight="150.0" minWidth="150.0" mnemonicParsing="false" onMouseClicked="#pista6_toggle_button_clicked" onMouseEntered="#pista_toggle_entered" prefHeight="150.0" prefWidth="150.0" styleClass="button_pistas" stylesheets="@../values/reservarfxml.css" text="Pista 6">
                                  <VBox.margin>
-                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                    <Insets left="20.0" right="20.0" top="20.0" />
                                  </VBox.margin>
                                  <font>
                                     <Font size="30.0" />
@@ -690,16 +690,16 @@
                         <Insets left="20.0" right="20.0" top="10.0" />
                      </VBox.margin>
                   </HBox>
-                  <HBox alignment="CENTER" prefHeight="138.0" prefWidth="710.0">
+                  <HBox fx:id="iniciar_sesion_hbox" alignment="CENTER" prefHeight="138.0" prefWidth="710.0">
                      <children>
-                        <VBox alignment="TOP_CENTER" prefHeight="101.0" prefWidth="150.0">
+                        <VBox fx:id="iniciar_sesion_vbox" alignment="TOP_CENTER" prefHeight="101.0" prefWidth="150.0">
                            <children>
                               <Button fx:id="iniciar_sesion_button" mnemonicParsing="false" onMouseClicked="#iniciar_sesion_clicked" prefHeight="50.0" prefWidth="150.0" styleClass="purple-button" stylesheets="@../values/reservarfxml.css" text="Iniciar Sesión" textFill="WHITE">
                                  <font>
                                     <Font name="SansSerif Bold" size="16.0" />
                                  </font>
                                  <VBox.margin>
-                                    <Insets bottom="5.0" />
+                                    <Insets bottom="5.0" top="5.0" />
                                  </VBox.margin>
                               </Button>
                               <Text fx:id="registrarse_text" onMouseClicked="#registerUser" strokeType="OUTSIDE" strokeWidth="0.0" text="Regístrate aquí." textAlignment="CENTER" underline="true" wrappingWidth="264.7747688293457">
@@ -708,8 +708,14 @@
                                  </font>
                               </Text>
                            </children>
+                           <HBox.margin>
+                              <Insets top="5.0" />
+                           </HBox.margin>
                         </VBox>
                      </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
                   </HBox>
                </children>
             </VBox>

@@ -244,7 +244,11 @@ public class DisponibilidadDelDiaFXMLController implements Initializable {
     @FXML
     private AnchorPane anchor_pane;
     @FXML
-    private HBox pistas_vbox;
+    private VBox iniciar_sesion_vbox;
+    @FXML
+    private HBox iniciar_sesion_hbox;
+    @FXML
+    private HBox pistas_hbox;
     
     
     @Override
@@ -579,13 +583,15 @@ public class DisponibilidadDelDiaFXMLController implements Initializable {
         
         try{
             disponibilidadGo = true;
-            Stage stage;
-            stage = main.getStage();
-            
+                    
             stage.getIcons().add(new Image(this.getClass().getResourceAsStream("/img/Pelota.png")));
             
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/autenticarseFXML.fxml"));
             Parent root = loader.load();
+            
+            AutenticarseFXMLController controllerAutenticarse = loader.getController();
+            controllerAutenticarse.setStage(stage);
+            
             Scene scene = new Scene(root, 1200, 750);
             stage.setScene(scene);
                     
@@ -651,12 +657,18 @@ public class DisponibilidadDelDiaFXMLController implements Initializable {
     private void registerUser(MouseEvent event) {
         try{
             disponibilidadGo = true;
-            Stage stage;
-            stage = main.getStage();
             
+            
+                    
             FXMLLoader loader= new  FXMLLoader(getClass().getResource("/views/registroFXML.fxml"));
+            
+            DisponibilidadDelDiaFXMLController controller = loader.getController();
+            controller.setStage(stage);
+            
+            controller.resizable();
+            
             Parent root = loader.load();
-            Scene scene = new Scene(root, 1200,750);
+            Scene scene = new Scene(root, stage.getWidth(),stage.getHeight());
             stage.setScene(scene);
             
         }catch(Exception e){System.out.println("Fallo en registerUser: " + e);}
@@ -679,11 +691,13 @@ public class DisponibilidadDelDiaFXMLController implements Initializable {
             stage.heightProperty().addListener((ob, oldval, newval)->{
                 if(!oldval.equals(Double.NaN)){
                     for(ToggleButton tb: pistasList){
-                        tb.setPrefHeight(tb.getHeight()+(newval.doubleValue()-oldval.doubleValue())*0.33);
+                        tb.setPrefHeight(tb.getHeight()+(newval.doubleValue()-oldval.doubleValue()) * 0.33);
                         
                     }
+                    
+                    pistas_hbox.setPrefHeight((pistas_hbox.getHeight() * newval.doubleValue()) / oldval.doubleValue());
                 }
-                //pistas_vbox.setPrefHeight(newval.doubleValue()*750/474);
+                
             });
             
             stage.widthProperty().addListener((ob, oldval, newval)->{
@@ -692,7 +706,6 @@ public class DisponibilidadDelDiaFXMLController implements Initializable {
                         tb.setPrefWidth(tb.getWidth() + (newval.doubleValue() - oldval.doubleValue()) * 0.33);
                     }
                 }
-                //pistas_vbox.setPrefWidth(newval.doubleValue()*1200/860);
             });
               
     }
