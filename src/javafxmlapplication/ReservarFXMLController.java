@@ -216,11 +216,9 @@ public class ReservarFXMLController implements Initializable {
     @FXML
     private Button ir_Reservar;
     @FXML
-    private Button cerrar_sesion_label;
+    private Label cerrar_sesion_label;
     @FXML
     private Button exit_button_Reservar;
-    @FXML
-    private Circle avatar_circle;
     @FXML
     private Label nickname_label;
     @FXML
@@ -274,14 +272,15 @@ public class ReservarFXMLController implements Initializable {
     // MAP ENTRE BUTTONS Y VALORES
     ObservableMap<Button, Integer> map = FXCollections.observableHashMap();
     ObservableMap<Button, GridPane> map2 = FXCollections.observableHashMap();
+    @FXML
+    private Circle pictureFrame1;
     
     
     
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-     
-        // TODO
+     // TODO
         try{
         club = Club.getInstance();
         
@@ -494,28 +493,21 @@ public class ReservarFXMLController implements Initializable {
         // COLOCAR FOTO DE PERFIL
         
         Image selectedFile = member.getImage();
-        avatar_circle.setFill(new ImagePattern(selectedFile));
-        
+        pictureFrame1.setFill(new ImagePattern(selectedFile));      
         // DISABLED LAS HORAS QUE YA HAN PASADO
         
         horasPasadas();
-        
     } 
     
     
- 
     
-    private void exit_clicked(MouseEvent event) {
+    
+     private void exit_clicked(MouseEvent event) {
         Platform.exit();
     }
 
-    
-    
-
-
     // CUANDO PULSAS UNA HORA
-
-    @FXML
+       @FXML
     private void hour_clicked(MouseEvent event) {
         Button button = null;
         
@@ -999,7 +991,7 @@ public class ReservarFXMLController implements Initializable {
 
     @FXML
     private void irActualizar(MouseEvent event) {
-        try{
+       try{
                 Stage stage;
                 stage = main.getStage();
                 
@@ -1035,7 +1027,7 @@ public class ReservarFXMLController implements Initializable {
 
     @FXML
     private void irReservar(MouseEvent event) {
-        try{
+       try{
                 Stage stage;
                 stage = main.getStage();
                 

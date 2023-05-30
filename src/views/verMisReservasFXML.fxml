@@ -17,6 +17,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="750.0" prefWidth="1200.0" styleClass="mainFxmlClass" stylesheets="@../values/vermisreservasfxml.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmlapplication.VerMisReservasFXMLController">
@@ -54,7 +55,7 @@
                   </VBox>
                   <AnchorPane fx:id="pane_slide" prefHeight="810.0" prefWidth="490.0" styleClass="green-background" stylesheets="@../values/reservarfxml.css">
                      <children>
-                        <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <VBox style="-fx-background-color: f7f5c9;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
                               <Button fx:id="menu_button2" mnemonicParsing="false" onMouseClicked="#run2" prefHeight="39.0" prefWidth="41.0" styleClass="transparent" stylesheets="@../values/registrofxml.css">
                                  <graphic>
@@ -70,7 +71,7 @@
                               </Button>
                               <VBox alignment="TOP_CENTER" prefHeight="330.0" prefWidth="490.0">
                                  <children>
-                                    <Circle fx:id="pictureFrame" fill="WHITE" onMouseEntered="#showChange" onMousePressed="#changeProfile" radius="94.0" stroke="BLACK" strokeType="INSIDE">
+                                    <Circle fx:id="pictureFrame1" fill="WHITE" onMouseEntered="#showChange" onMousePressed="#changeProfile" radius="94.0" stroke="BLACK" strokeType="INSIDE">
                                        <VBox.margin>
                                           <Insets top="45.0" />
                                        </VBox.margin>
@@ -87,59 +88,121 @@
                               </VBox>
                               <VBox prefHeight="149.0" prefWidth="490.0">
                                  <children>
-                                    <GridPane prefHeight="134.0" prefWidth="265.0" vgap="10.0">
-                                       <columnConstraints>
-                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                       </columnConstraints>
-                                       <rowConstraints>
-                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                       </rowConstraints>
-                                       <children>
-                                          <Button fx:id="ir_Actualizar" alignment="TOP_LEFT" mnemonicParsing="false" onMouseClicked="#irActualizar" prefHeight="26.0" prefWidth="381.0" styleClass="white-button" text="Actualizar Datos">
-                                             <font>
-                                                <Font size="18.0" />
-                                             </font>
-                                             <graphic>
-                                                <ImageView fitHeight="26.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true" />
-                                             </graphic>
-                                          </Button>
-                                          <Button fx:id="ir_Ver" alignment="TOP_LEFT" mnemonicParsing="false" onMouseClicked="#irVer" prefHeight="26.0" prefWidth="326.0" style="-fx-background-color: WHITE; -fx-background-radius: 100;" text="Ver Mis Reservas" GridPane.rowIndex="1">
-                                             <font>
-                                                <Font size="18.0" />
-                                             </font>
-                                             <graphic>
-                                                <ImageView fitHeight="26.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true" />
-                                             </graphic>
-                                          </Button>
-                                          <Button fx:id="ir_Reservar" alignment="TOP_LEFT" mnemonicParsing="false" onMouseClicked="#irReservar" prefHeight="26.0" prefWidth="362.0" styleClass="white-button" text="Reservar" GridPane.rowIndex="2">
-                                             <font>
-                                                <Font size="18.0" />
-                                             </font>
-                                             <graphic>
-                                                <ImageView fitHeight="26.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true" />
-                                             </graphic>
-                                          </Button>
-                                       </children>
+                                    <VBox prefHeight="146.0" prefWidth="290.0" spacing="5.0">
                                        <VBox.margin>
-                                          <Insets left="130.0" right="130.0" />
+                                          <Insets left="30.0" right="30.0" />
                                        </VBox.margin>
-                                    </GridPane>
+                                       <children>
+                                          <HBox alignment="CENTER" prefWidth="275.0">
+                                             <children>
+                                                <GridPane hgap="4.0" prefHeight="134.0" prefWidth="220.0">
+                                                   <columnConstraints>
+                                                      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="108.60000610351562" minWidth="10.0" prefWidth="45.60001831054687" />
+                                                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="185.59999999999997" minWidth="10.0" prefWidth="184.7999816894531" />
+                                                   </columnConstraints>
+                                                   <rowConstraints>
+                                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                   </rowConstraints>
+                                                   <children>
+                                                      <Button fx:id="ir_Actualizar" alignment="BOTTOM_LEFT" mnemonicParsing="false" onMouseClicked="#irActualizar" prefHeight="8.0" prefWidth="183.0" styleClass="menu-button" text="Actualizar Datos" GridPane.columnIndex="1">
+                                                         <font>
+                                                            <Font size="22.0" />
+                                                         </font>
+                                                      </Button>
+                                                      <ImageView fitHeight="31.0" fitWidth="34.0" onMouseClicked="#irActualizar" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../img/sss.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                </GridPane>
+                                             </children>
+                                             <styleClass>
+                                                <String fx:value="menu-bar" />
+                                                <String fx:value="menu-button" />
+                                             </styleClass>
+                                          </HBox>
+                                          <HBox alignment="CENTER">
+                                             <children>
+                                                <GridPane alignment="CENTER" hgap="4.0" prefHeight="134.0" prefWidth="220.0" vgap="10.0">
+                                                   <columnConstraints>
+                                                      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="108.60000610351562" minWidth="10.0" prefWidth="45.60001831054687" />
+                                                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="185.59999999999997" minWidth="10.0" prefWidth="184.7999816894531" />
+                                                   </columnConstraints>
+                                                   <rowConstraints>
+                                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                   </rowConstraints>
+                                                   <children>
+                                                      <Button fx:id="ir_Ver" alignment="BOTTOM_LEFT" mnemonicParsing="false" onMouseClicked="#irVer" prefHeight="14.0" prefWidth="183.0" styleClass="menu-button" text="Ver Mis Reservas" GridPane.columnIndex="1">
+                                                         <font>
+                                                            <Font size="22.0" />
+                                                         </font>
+                                                      </Button>
+                                                      <ImageView fitHeight="32.0" fitWidth="34.0" onMouseClicked="#irVer" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../img/image%20(3).png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                </GridPane>
+                                             </children>
+                                             <styleClass>
+                                                <String fx:value="menu-bar" />
+                                                <String fx:value="menu-button" />
+                                             </styleClass>
+                                          </HBox>
+                                          <HBox alignment="CENTER">
+                                             <children>
+                                                <GridPane hgap="4.0" prefHeight="134.0" prefWidth="220.0" vgap="10.0">
+                                                   <columnConstraints>
+                                                      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="108.60000610351562" minWidth="10.0" prefWidth="45.60001831054687" />
+                                                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="185.59999999999997" minWidth="10.0" prefWidth="184.7999816894531" />
+                                                   </columnConstraints>
+                                                   <rowConstraints>
+                                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                   </rowConstraints>
+                                                   <children>
+                                                      <Button fx:id="ir_Reservar" alignment="BOTTOM_LEFT" mnemonicParsing="false" onMouseClicked="#irReservar" prefHeight="26.0" prefWidth="183.0" styleClass="menu-button" text="Reservar" GridPane.columnIndex="1">
+                                                         <font>
+                                                            <Font size="22.0" />
+                                                         </font>
+                                                      </Button>
+                                                      <ImageView fitHeight="33.0" fitWidth="38.0" onMouseClicked="#irReservar" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../img/pngwing.com.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                </GridPane>
+                                             </children>
+                                             <styleClass>
+                                                <String fx:value="menu-bar" />
+                                                <String fx:value="menu-button" />
+                                             </styleClass>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
                                  </children>
                               </VBox>
-                              <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
+                              <VBox alignment="CENTER">
+                                 <VBox.margin>
+                                    <Insets top="20.0" />
+                                 </VBox.margin>
                                  <children>
+                                    <Line endX="257.69293212890625" endY="-0.41421353816986084" startX="513.785888671875" startY="-0.4132881164550781" />
                                     <Label fx:id="cerrar_sesion_label" onMouseClicked="#cerrar_sesion_clicked" prefHeight="39.0" prefWidth="128.0" text="Cerrar Sesion" underline="true">
                                        <font>
-                                          <Font name="System Bold" size="19.0" />
+                                          <Font name="System Bold" size="20.0" />
                                        </font>
                                     </Label>
                                  </children>
-                              </HBox>
+                              </VBox>
                            </children>
                         </VBox>
                      </children>
+                     <padding>
+                        <Insets right="100.0" />
+                     </padding>
                   </AnchorPane>
                </children>
             </StackPane>

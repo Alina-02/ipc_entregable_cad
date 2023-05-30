@@ -232,6 +232,17 @@
         -fx-pref-height: 30px;
     }
 
-    
+    .menu-button{
+    -fx-background-color: rgba(0,0,0,0);       
+    }
+  
+.menu-bar:hover{
+        -fx-border-color: #c9e325;
+        -fx-border-width: 0px 0px 3px 0px;
+        -fx-background-color: rgba(0,0,0,0); 
+    }
+.menu-bar:pressed{
+        -fx-background-color: rgba(204, 222, 89,10); 
+    }
    
 }
