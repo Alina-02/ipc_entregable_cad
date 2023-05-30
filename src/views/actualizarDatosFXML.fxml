@@ -17,6 +17,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
@@ -24,23 +25,299 @@
    <children>
       <BorderPane layoutX="14.0" layoutY="-1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1200.0" stylesheets="@../values/actualizardatosfxml.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <left>
-            <StackPane alignment="TOP_LEFT" BorderPane.alignment="CENTER_RIGHT">
+            <StackPane alignment="TOP_LEFT" prefWidth="490.0" BorderPane.alignment="CENTER_RIGHT">
                <children>
-                  <VBox alignment="CENTER" prefWidth="452.0" styleClass="green-background">
+                  <VBox alignment="TOP_CENTER" prefHeight="750.0" prefWidth="490.0" styleClass="green-background">
                      <children>
-                        <ImageView fitHeight="51.0" fitWidth="399.0" pickOnBounds="true" preserveRatio="true">
+                        <HBox>
+                           <VBox.margin>
+                              <Insets left="10.0" top="10.0" />
+                           </VBox.margin>
+                           <children>
+                              <Button fx:id="menu_button1" mnemonicParsing="false" onMouseClicked="#run1" prefHeight="30.0" prefWidth="33.0" styleClass="transparent">
+                                 <graphic>
+                                    <ImageView fitHeight="38.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../img/Menu.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </HBox>
+                        <ImageView fitHeight="61.0" fitWidth="303.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../img/Letras.png" />
                            </image>
+                           <VBox.margin>
+                              <Insets top="110.0" />
+                           </VBox.margin>
                         </ImageView>
                         <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../img/dddd_1.png" />
                            </image>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
                         </ImageView>
-                        <Circle fx:id="pictureFrame" fill="WHITE" onMouseClicked="#changePF" onMouseEntered="#showChange" onMousePressed="#changeProfile" radius="88.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fx:id="pictureFrame" fill="WHITE" radius="88.0" stroke="BLACK" strokeType="INSIDE">
+                           <VBox.margin>
+                              <Insets top="50.0" />
+                           </VBox.margin></Circle>
+                        <VBox prefHeight="177.0" prefWidth="250.0" styleClass="image-options">
+                           <children>
+                              <GridPane prefHeight="119.0" prefWidth="238.0">
+                                <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="48.0" styleClass="transparent">
+                                       <graphic>
+                                          <ImageView fitHeight="53.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../../../../Downloads/avataaars%20(2).png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="48.0" styleClass="transparent" GridPane.columnIndex="1">
+                                       <graphic>
+                                          <ImageView fitHeight="53.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../../../../Downloads/avataaars.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="48.0" styleClass="transparent" GridPane.columnIndex="2">
+                                       <graphic>
+                                          <ImageView fitHeight="53.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../../../../Downloads/avataaars%20(3).png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="48.0" styleClass="transparent" GridPane.rowIndex="1">
+                                       <graphic>
+                                          <ImageView fitHeight="53.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../../../../Downloads/avataaars%20(2).png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="48.0" styleClass="transparent" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                       <graphic>
+                                          <ImageView fitHeight="53.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../../../../Downloads/avataaars%20(2).png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="48.0" styleClass="transparent" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                                       <graphic>
+                                          <ImageView fitHeight="53.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../../../../Downloads/avataaars%20(2).png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="48.0" styleClass="transparent" GridPane.columnIndex="3">
+                                       <graphic>
+                                          <ImageView fitHeight="53.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../../../../Downloads/avataaars%20(2).png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="48.0" styleClass="transparent" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                       <graphic>
+                                          <ImageView fitHeight="53.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../../../../Downloads/avataaars%20(2).png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                 </children>
+                              </GridPane>
+                              <Button alignment="BOTTOM_CENTER" mnemonicParsing="false" prefHeight="27.0" prefWidth="238.0" text="Subir Foto">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin></Button>
+                           </children>
+                           <VBox.margin>
+                              <Insets left="120.0" right="120.0" top="20.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </VBox>
                      </children>
                   </VBox>
+                  <AnchorPane fx:id="pane_slide" prefHeight="810.0" prefWidth="490.0" style="-fx-background-color: FFFFFF;" stylesheets="@../values/reservarfxml.css">
+                     <children>
+                        <VBox style="-fx-background-color: f7f5c9;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Button fx:id="menu_button2" mnemonicParsing="false" onMouseClicked="#run2" prefHeight="39.0" prefWidth="41.0" styleClass="transparent" stylesheets="@../values/registrofxml.css">
+                                 <graphic>
+                                    <ImageView fitHeight="37.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../img/Menu_Atras.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <VBox.margin>
+                                    <Insets right="10.0" top="10.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <VBox alignment="TOP_CENTER" prefHeight="330.0" prefWidth="490.0">
+                                 <children>
+                                    <Circle fx:id="pictureFrame1" fill="WHITE" onMouseEntered="#showChange" onMousePressed="#changeProfile" radius="94.0" stroke="BLACK" strokeType="INSIDE">
+                                       <VBox.margin>
+                                          <Insets top="45.0" />
+                                       </VBox.margin>
+                                    </Circle>
+                                    <Label fx:id="nickname_label" text="Nickname">
+                                       <VBox.margin>
+                                          <Insets top="20.0" />
+                                       </VBox.margin>
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="149.0" prefWidth="490.0">
+                                 <children>
+                                    <VBox prefHeight="146.0" prefWidth="290.0" spacing="5.0">
+                                       <VBox.margin>
+                                          <Insets left="30.0" right="30.0" />
+                                       </VBox.margin>
+                                       <children>
+                                          <HBox alignment="CENTER" prefWidth="275.0">
+                                             <children>
+                                                <GridPane hgap="4.0" prefHeight="134.0" prefWidth="220.0">
+                                                   <columnConstraints>
+                                                      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="108.60000610351562" minWidth="10.0" prefWidth="45.60001831054687" />
+                                                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="185.59999999999997" minWidth="10.0" prefWidth="184.7999816894531" />
+                                                   </columnConstraints>
+                                                   <rowConstraints>
+                                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                   </rowConstraints>
+                                                   <children>
+                                                      <Button fx:id="ir_Actualizar" alignment="BOTTOM_LEFT" mnemonicParsing="false" onMouseClicked="#irActualizar" prefHeight="8.0" prefWidth="183.0" styleClass="menu-button" text="Actualizar Datos" GridPane.columnIndex="1">
+                                                         <font>
+                                                            <Font size="22.0" />
+                                                         </font>
+                                                      </Button>
+                                                      <ImageView fitHeight="31.0" fitWidth="34.0" onMouseClicked="#irActualizar" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../img/sss.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                </GridPane>
+                                             </children>
+                                             <styleClass>
+                                                <String fx:value="menu-bar" />
+                                                <String fx:value="menu-button" />
+                                             </styleClass>
+                                          </HBox>
+                                          <HBox alignment="CENTER">
+                                             <children>
+                                                <GridPane alignment="CENTER" hgap="4.0" prefHeight="134.0" prefWidth="220.0" vgap="10.0">
+                                                   <columnConstraints>
+                                                      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="108.60000610351562" minWidth="10.0" prefWidth="45.60001831054687" />
+                                                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="185.59999999999997" minWidth="10.0" prefWidth="184.7999816894531" />
+                                                   </columnConstraints>
+                                                   <rowConstraints>
+                                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                   </rowConstraints>
+                                                   <children>
+                                                      <Button fx:id="ir_Ver" alignment="BOTTOM_LEFT" mnemonicParsing="false" onMouseClicked="#irVer" prefHeight="14.0" prefWidth="183.0" styleClass="menu-button" text="Ver Mis Reservas" GridPane.columnIndex="1">
+                                                         <font>
+                                                            <Font size="22.0" />
+                                                         </font>
+                                                      </Button>
+                                                      <ImageView fitHeight="32.0" fitWidth="34.0" onMouseClicked="#irVer" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../img/image%20(3).png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                </GridPane>
+                                             </children>
+                                             <styleClass>
+                                                <String fx:value="menu-bar" />
+                                                <String fx:value="menu-button" />
+                                             </styleClass>
+                                          </HBox>
+                                          <HBox alignment="CENTER">
+                                             <children>
+                                                <GridPane hgap="4.0" prefHeight="134.0" prefWidth="220.0" vgap="10.0">
+                                                   <columnConstraints>
+                                                      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="108.60000610351562" minWidth="10.0" prefWidth="45.60001831054687" />
+                                                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="185.59999999999997" minWidth="10.0" prefWidth="184.7999816894531" />
+                                                   </columnConstraints>
+                                                   <rowConstraints>
+                                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                   </rowConstraints>
+                                                   <children>
+                                                      <Button fx:id="ir_Reservar" alignment="BOTTOM_LEFT" mnemonicParsing="false" onMouseClicked="#irReservar" prefHeight="26.0" prefWidth="183.0" styleClass="menu-button" text="Reservar" GridPane.columnIndex="1">
+                                                         <font>
+                                                            <Font size="22.0" />
+                                                         </font>
+                                                      </Button>
+                                                      <ImageView fitHeight="33.0" fitWidth="38.0" onMouseClicked="#irReservar" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../img/pngwing.com.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                </GridPane>
+                                             </children>
+                                             <styleClass>
+                                                <String fx:value="menu-bar" />
+                                                <String fx:value="menu-button" />
+                                             </styleClass>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER">
+                                 <VBox.margin>
+                                    <Insets top="20.0" />
+                                 </VBox.margin>
+                                 <children>
+                                    <Line endX="257.69293212890625" endY="-0.41421353816986084" startX="513.785888671875" startY="-0.4132881164550781" />
+                                    <Label fx:id="cerrar_sesion_label" onMouseClicked="#cerrar_sesion_clicked" prefHeight="39.0" prefWidth="128.0" text="Cerrar Sesion" underline="true">
+                                       <font>
+                                          <Font name="System Bold" size="20.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                     </children>
+                     <StackPane.margin>
+                        <Insets right="100.0" />
+                     </StackPane.margin>
+                  </AnchorPane>
                </children>
             </StackPane>
          </left>
@@ -60,7 +337,7 @@
                         </HBox>
                         <HBox alignment="TOP_RIGHT" prefHeight="61.0" prefWidth="30.0" AnchorPane.rightAnchor="30.0">
                            <children>
-                              <Button fx:id="exit_button_actualizar" mnemonicParsing="false" onAction="#exit" onMouseClicked="#exitRegistro" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: transparent;">
+                              <Button fx:id="exit_button_actualizar" mnemonicParsing="false" onAction="#exit" onMouseClicked="#exitActualizar" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: transparent;">
                                  <HBox.margin>
                                     <Insets top="15.0" />
                                  </HBox.margin>
@@ -76,7 +353,7 @@
                         </HBox>
                      </children>
                   </AnchorPane>
-                  <VBox fx:id="vbox">
+                  <VBox prefHeight="611.0" prefWidth="567.0">
                      <children>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Informacion de Usuario" wrappingWidth="490.40338706970215">
                            <font>
@@ -85,7 +362,7 @@
                         </Text>
                         <VBox prefHeight="478.0" prefWidth="588.0">
                            <children>
-                              <GridPane hgap="50.0" prefHeight="487.0" prefWidth="547.0" vgap="15.0">
+                              <GridPane hgap="35.0" prefHeight="487.0" prefWidth="547.0" vgap="15.0">
                                  <columnConstraints>
                                     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -94,8 +371,8 @@
                                     <RowConstraints maxHeight="42.80000305175781" minHeight="10.0" prefHeight="42.80000305175781" vgrow="SOMETIMES" />
                                     <RowConstraints maxHeight="67.466650390625" minHeight="10.0" prefHeight="51.13331298828125" vgrow="SOMETIMES" />
                                     <RowConstraints maxHeight="66.06668701171876" minHeight="4.333349609375006" prefHeight="53.59998168945313" vgrow="SOMETIMES" />
-                                    <RowConstraints maxHeight="80.46670837402343" minHeight="0.0" prefHeight="50.066629028320335" vgrow="SOMETIMES" />
-                                    <RowConstraints maxHeight="87.533349609375" minHeight="10.0" prefHeight="65.3332580566406" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="97.60001220703123" minHeight="0.0" prefHeight="96.80002441406248" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="87.533349609375" minHeight="10.0" prefHeight="19.999975585937477" vgrow="SOMETIMES" />
                                     <RowConstraints maxHeight="134.66669921875" minHeight="10.0" prefHeight="81.86674194335939" vgrow="SOMETIMES" />
                                     <RowConstraints maxHeight="88.20000305175779" minHeight="10.0" prefHeight="42.93330078125001" vgrow="SOMETIMES" />
                                  </rowConstraints>
@@ -104,12 +381,12 @@
                                        <children>
                                           <HBox prefHeight="100.0" prefWidth="200.0">
                                              <children>
-                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre">
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre/s">
                                                    <font>
                                                       <Font size="20.0" />
                                                    </font>
                                                 </Text>
-                                                <Label fx:id="error_name_label" alignment="BOTTOM_RIGHT" prefHeight="80.0" prefWidth="222.0" styleClass="label-error" text="Formato Incorrecto" visible="false" />
+                                                <Label fx:id="error_name_label" alignment="BOTTOM_RIGHT" prefHeight="80.0" prefWidth="222.0" styleClass="label-error" text="Formato Incorrecto" />
                                              </children>
                                           </HBox>
                                           <TextField fx:id="name_text" onMouseExited="#nombreComprobar" styleClass="visualizar-text">
@@ -124,11 +401,16 @@
                                     </VBox>
                                     <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                        <children>
-                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" Apellido">
-                                             <font>
-                                                <Font size="20.0" />
-                                             </font>
-                                          </Text>
+                                          <HBox>
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" Apellido/s">
+                                                   <font>
+                                                      <Font size="20.0" />
+                                                   </font>
+                                                </Text>
+                                                <Label fx:id="error_last_label" alignment="BOTTOM_RIGHT" prefHeight="80.0" prefWidth="222.0" styleClass="label-error" text="Formato Incorrecto" />
+                                             </children>
+                                          </HBox>
                                           <TextField fx:id="last_name_text" onMouseExited="#apellidoComprobar" styleClass="visualizar-text">
                                              <font>
                                                 <Font size="16.0" />
@@ -138,11 +420,15 @@
                                     </VBox>
                                     <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="2">
                                        <children>
-                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario">
-                                             <font>
-                                                <Font size="20.0" />
-                                             </font>
-                                          </Text>
+                                          <HBox>
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario">
+                                                   <font>
+                                                      <Font size="20.0" />
+                                                   </font>
+                                                </Text>
+                                             </children>
+                                          </HBox>
                                           <TextField fx:id="user_text" styleClass="visualizar-text">
                                              <font>
                                                 <Font size="16.0" />
@@ -152,11 +438,16 @@
                                     </VBox>
                                     <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                        <children>
-                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" Telefono">
-                                             <font>
-                                                <Font size="20.0" />
-                                             </font>
-                                          </Text>
+                                          <HBox>
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" Telefono">
+                                                   <font>
+                                                      <Font size="20.0" />
+                                                   </font>
+                                                </Text>
+                                                <Label fx:id="error_phone_label" alignment="BOTTOM_RIGHT" prefHeight="80.0" prefWidth="222.0" styleClass="label-error" text="Formato Incorrecto" />
+                                             </children>
+                                          </HBox>
                                           <TextField fx:id="phone_text" onMouseExited="#telefonoComprobar" styleClass="visualizar-text">
                                              <font>
                                                 <Font size="16.0" />
@@ -166,19 +457,24 @@
                                     </VBox>
                                     <VBox fx:id="contraseña_box" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="3">
                                        <children>
-                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Contraseña">
-                                             <font>
-                                                <Font size="20.0" />
-                                             </font>
-                                          </Text>
+                                          <HBox>
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Contraseña">
+                                                   <font>
+                                                      <Font size="20.0" />
+                                                   </font>
+                                                </Text>
+                                                <Label fx:id="error_passwor_label" alignment="BOTTOM_RIGHT" prefHeight="0.0" prefWidth="152.0" styleClass="label-error" text="Formato Incorrecto" />
+                                             </children>
+                                          </HBox>
                                           <StackPane alignment="CENTER_RIGHT">
                                              <children>
-                                                <PasswordField fx:id="password_text" onMouseClicked="#contraseñaComprobar" styleClass="visualizar-text" stylesheets="@../values/actualizardatosfxml.css">
+                                                <PasswordField fx:id="password_text" onMouseClicked="#passClick" onMouseExited="#contraseñaComprobar" styleClass="visualizar-text" stylesheets="@../values/actualizardatosfxml.css">
                                                    <font>
                                                       <Font size="16.0" />
                                                    </font>
                                                 </PasswordField>
-                                                <TextField fx:id="password_ver_text" editable="false" focusTraversable="false" styleClass="visualizar-text" stylesheets="@../values/actualizardatosfxml.css" visible="false">
+                                                <TextField fx:id="password_ver_text" editable="false" focusTraversable="false" onMouseClicked="#passClick" onMouseExited="#contraseñaComprobar" styleClass="visualizar-text" stylesheets="@../values/actualizardatosfxml.css" visible="false">
                                                    <font>
                                                       <Font size="16.0" />
                                                    </font>
@@ -205,27 +501,37 @@
                                           </StackPane>
                                        </children>
                                     </VBox>
-                                    <VBox fx:id="confirmacion_box" prefHeight="200.0" prefWidth="100.0" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                    <VBox fx:id="confirmacion_box" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                        <children>
-                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Confirmacion">
-                                             <font>
-                                                <Font size="20.0" />
-                                             </font>
-                                          </Text>
+                                          <HBox>
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Confirmacion">
+                                                   <font>
+                                                      <Font size="20.0" />
+                                                   </font>
+                                                </Text>
+                                             </children>
+                                          </HBox>
                                           <PasswordField fx:id="password_comprobar_text" onMouseExited="#contraseñaConfirmarContraseña" styleClass="basic-text">
                                              <font>
                                                 <Font size="16.0" />
                                              </font>
                                           </PasswordField>
+                                          <Label fx:id="error_confirmacion_label" alignment="BOTTOM_RIGHT" prefHeight="26.0" prefWidth="285.0" styleClass="label-error" text="Las contraseñas no coinciden" />
                                        </children>
                                     </VBox>
                                     <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="5">
                                        <children>
-                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nº de tarjeta ">
-                                             <font>
-                                                <Font size="20.0" />
-                                             </font>
-                                          </Text>
+                                          <HBox>
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nº de tarjeta " wrappingWidth="118.408203125">
+                                                   <font>
+                                                      <Font size="20.0" />
+                                                   </font>
+                                                </Text>
+                                                <Label fx:id="error_tarjeta_label" alignment="BOTTOM_RIGHT" prefHeight="26.0" prefWidth="131.0" styleClass="label-error" text="Formato Incorrecto" />
+                                             </children>
+                                          </HBox>
                                           <TextField fx:id="card_text" focusTraversable="false" onMouseExited="#tarjetaComprobar" styleClass="visualizar-text">
                                              <font>
                                                 <Font size="16.0" />
@@ -235,29 +541,36 @@
                                     </VBox>
                                     <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                        <children>
-                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" SVC">
-                                             <font>
-                                                <Font size="20.0" />
-                                             </font>
-                                          </Text>
+                                          <HBox>
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" SVC">
+                                                   <font>
+                                                      <Font size="20.0" />
+                                                   </font>
+                                                </Text>
+                                                <Label fx:id="error_svc_label" alignment="BOTTOM_RIGHT" prefHeight="0.0" prefWidth="210.0" styleClass="label-error" text="Formato Incorrecto" />
+                                             </children>
+                                          </HBox>
                                           <StackPane>
                                              <children>
-                                                <PasswordField fx:id="svc_text" focusTraversable="false" onMouseExited="#svcComprobar" prefHeight="38.0" prefWidth="248.0" styleClass="visualizar-text" />
+                                                <PasswordField fx:id="svc_text" focusTraversable="false" onMouseExited="#svcComprobar" prefHeight="38.0" prefWidth="248.0" styleClass="visualizar-text">
+                                                   <font>
+                                                      <Font size="16.0" />
+                                                   </font></PasswordField>
                                              </children>
                                           </StackPane>
                                        </children>
                                     </VBox>
-                                    <Text fill="#bdca2e" strokeType="OUTSIDE" strokeWidth="0.0" text="Informacion Basica" wrappingWidth="490.40338706970215" GridPane.valignment="BOTTOM">
+                                    <Text fill="#bdca2e" strokeType="OUTSIDE" strokeWidth="0.0" text="Informacion Basica" wrappingWidth="284.80341148376465" GridPane.valignment="BOTTOM">
                                        <font>
                                           <Font name="System Bold" size="30.0" />
                                        </font>
                                     </Text>
-                                    <Text fill="#bdca2e" strokeType="OUTSIDE" strokeWidth="0.0" text="Informacion Bancaria" wrappingWidth="490.40338706970215" GridPane.rowIndex="4" GridPane.valignment="BOTTOM">
+                                    <Text fill="#bdca2e" strokeType="OUTSIDE" strokeWidth="0.0" text="Informacion Bancaria" wrappingWidth="315.20343589782715" GridPane.rowIndex="4" GridPane.valignment="BOTTOM">
                                        <font>
                                           <Font name="System Bold" size="30.0" />
                                        </font>
                                     </Text>
-                                    <Text fx:id="errorMSGT" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                                     <Button fx:id="cancelar_button" mnemonicParsing="false" onMouseClicked="#cancelarEdicion" prefHeight="46.0" prefWidth="264.0" text="Cancelar" textFill="WHITE" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="6">
                                        <font>
                                           <Font name="System Bold" size="22.0" />
@@ -299,6 +612,11 @@
                               <Insets top="20.0" />
                            </VBox.margin>
                         </VBox>
+                        <Label fx:id="general_error_label" styleClass="label-error" text="Algunos campos no se encuentran bien, por favor reviselo">
+                           <VBox.margin>
+                              <Insets top="15.0" />
+                           </VBox.margin>
+                        </Label>
                      </children>
                      <VBox.margin>
                         <Insets left="90.0" right="90.0" top="35.0" />
@@ -316,3 +634,4 @@
       </BorderPane>
    </children>
 </AnchorPane>
+

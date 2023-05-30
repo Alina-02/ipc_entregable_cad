@@ -115,6 +115,8 @@ public class VerMisReservasFXMLController implements Initializable {
     @FXML
     private Circle pictureFrame1;
     
+    private Stage stage;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
@@ -264,15 +266,19 @@ public class VerMisReservasFXMLController implements Initializable {
     @FXML
     private void irActualizar(MouseEvent event) {
         try{
-                Stage stage;
-                stage = main.getStage();
             
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/actualizarDatosFXML.fxml"));
                 Parent root = loader.load();
+                
+                stage.getIcons().add(new Image(this.getClass().getResourceAsStream("/img/Pelota.png")));
+                
+                ActualizarDatosFXMLController controller = loader.getController();
+                controller.setStage(stage);
                   
-                Scene scene = new Scene(root, 1200, 750);
+                Scene scene = new Scene(root, stage.getWidth(), stage.getHeight());
                 stage.setScene(scene);
 
+                controller.resizable();
                     
             }catch(Exception e){System.out.println(e);}
     }
@@ -280,15 +286,18 @@ public class VerMisReservasFXMLController implements Initializable {
     @FXML
     private void irVer(MouseEvent event) {
         try{
-                Stage stage;
-                stage = main.getStage();
-            
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/verMisReservasFXML.fxml"));
                 Parent root = loader.load();
+                
+                stage.getIcons().add(new Image(this.getClass().getResourceAsStream("/img/Pelota.png")));
+                
+                VerMisReservasFXMLController controller = loader.getController();
+                controller.setStage(stage);
                   
-                Scene scene = new Scene(root, 1200, 750);
+                Scene scene = new Scene(root, stage.getWidth(), stage.getHeight());
                 stage.setScene(scene);
-
+                
+                controller.resizable();
                     
             }catch(Exception e){System.out.println(e);}
     }
@@ -296,15 +305,19 @@ public class VerMisReservasFXMLController implements Initializable {
     @FXML
     private void irReservar(MouseEvent event) {
         try{
-                Stage stage;
-                stage = main.getStage();
             
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/reservarFXML.fxml"));
                 Parent root = loader.load();
+                
+                stage.getIcons().add(new Image(this.getClass().getResourceAsStream("/img/Pelota.png")));
+                
+                ReservarFXMLController controller = loader.getController();
+                controller.setStage(stage);
                   
-                Scene scene = new Scene(root, 1200, 750);
+                Scene scene = new Scene(root, stage.getWidth(), stage.getHeight());
                 stage.setScene(scene);
-
+                
+                controller.resizable();
                     
             }catch(Exception e){System.out.println(e);}
     }
@@ -409,17 +422,20 @@ public class VerMisReservasFXMLController implements Initializable {
         
         try{
             // HAY QUE PONER EL MEMBER A NULL, HACE FALTA UN MÉTODO SET MEMBER EN AUTENTICARSE
-            //AutenticarseFXMLController.setMember(null);
-            
-            Stage stage;
-            stage = main.getStage();
+            AutenticarseFXMLController.setMember(null);
             
             stage.getIcons().add(new Image(this.getClass().getResourceAsStream("/img/Pelota.png")));
             
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/disponibilidadDelDiaFXML.fxml"));
             Parent root = loader.load();
-            Scene scene = new Scene(root, 1200, 750);
+            
+            DisponibilidadDelDiaFXMLController controller = loader.getController();
+            controller.setStage(stage);
+            
+            Scene scene = new Scene(root, stage.getWidth(), stage.getHeight());
             stage.setScene(scene);
+            
+            controller.resizable();
                     
         }catch(Exception e){System.out.println("Problemas en cerrar sesión: " + e);}
         
@@ -434,6 +450,33 @@ public class VerMisReservasFXMLController implements Initializable {
         }catch(Exception e){
             System.out.println("No se ha podido cancelar la reserva: " + e);
         }
+    }
+    
+    public void setStage(Stage s){
+        this.stage = s;
+    }
+    
+    public void resizable(){
+        stage.heightProperty().addListener((ob, oldval, newval)->{
+                if(!oldval.equals(Double.NaN)){
+                   
+                    //RELLENAR
+                    
+                    
+                    
+                    
+                }
+            });
+            
+            stage.widthProperty().addListener((ob, oldval, newval)->{
+                if(!oldval.equals(Double.NaN)){
+                    
+                    
+                    //RELLENAR
+                    
+                    
+                }
+            });
     }
 }
     

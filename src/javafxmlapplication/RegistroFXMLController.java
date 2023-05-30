@@ -123,7 +123,7 @@ public class RegistroFXMLController implements Initializable {
     private Image defaultImageAux;
     
     static boolean registroGo = false;
-    
+    private Stage stage;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -218,24 +218,30 @@ public class RegistroFXMLController implements Initializable {
         try{
             if(AutenticarseFXMLController.getAutenticarseGo()){
                 AutenticarseFXMLController.setAutenticarseGo(false);
-                Stage stage;
-                stage = main.getStage();
 
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/AutenticarseFXML.fxml"));
                 Parent root = loader.load();
+                
+                AutenticarseFXMLController controller = loader.getController();
+                controller.setStage(stage);
+                
+                controller.resizable();
 
-                Scene scene = new Scene(root, 1200, 750);
+                Scene scene = new Scene(root, stage.getWidth(), stage.getHeight());
                 stage.setScene(scene);
                 
             }else if(DisponibilidadDelDiaFXMLController.getDisponibilidadGo()){
                 DisponibilidadDelDiaFXMLController.setDisponibilidadGo(false);
-                Stage stage;
-                stage = main.getStage();
             
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/DisponibilidadDelDiaFXML.fxml"));
                 Parent root = loader.load();
+                
+                DisponibilidadDelDiaFXMLController controller = loader.getController();
+                controller.setStage(stage);
+                
+                controller.resizable();
                   
-                Scene scene = new Scene(root, 1200, 750);
+                Scene scene = new Scene(root, stage.getWidth(), stage.getHeight());
             stage.setScene(scene);
                 }
             
@@ -365,13 +371,16 @@ public class RegistroFXMLController implements Initializable {
     private void usuarioRegistrado() {
         try{
                 registroGo = true;
-                Stage stage;
-                stage = main.getStage();
             
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/autenticarseFXML.fxml"));
                 Parent root = loader.load();
                 
-                Scene scene = new Scene(root, 1200, 750);
+                AutenticarseFXMLController controller = loader.getController();
+                controller.setStage(stage);
+                
+                controller.resizable();
+                
+                Scene scene = new Scene(root, stage.getWidth(), stage.getHeight());
                 stage.setScene(scene);
                     
             }catch(Exception e){System.out.println(e);}
@@ -384,6 +393,33 @@ public class RegistroFXMLController implements Initializable {
     
     public static void setRegistroGo(boolean bool){
         registroGo = bool;
+    }
+    
+    public void setStage(Stage s){
+        this.stage = s;
+    }
+    
+    public void resizable(){
+        stage.heightProperty().addListener((ob, oldval, newval)->{
+                if(!oldval.equals(Double.NaN)){
+                   
+                    //RELLENAR
+                    
+                    
+                    
+                    
+                }
+            });
+            
+            stage.widthProperty().addListener((ob, oldval, newval)->{
+                if(!oldval.equals(Double.NaN)){
+                    
+                    
+                    //RELLENAR
+                    
+                    
+                }
+            });
     }
 
 }

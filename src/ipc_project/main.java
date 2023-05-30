@@ -62,6 +62,10 @@ public class main extends Application{
         stage.setMinWidth(1200);
         stage.setMinHeight(750);
         
+        
+        stage.setWidth(1200);
+        stage.setHeight(750);
+        
         stage.getIcons().add(new Image(this.getClass().getResourceAsStream("/img/Pelota.png")));
         
         stage.setTitle("GreenBall");

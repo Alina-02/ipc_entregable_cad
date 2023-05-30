@@ -274,7 +274,7 @@ public class ReservarFXMLController implements Initializable {
     ObservableMap<Button, GridPane> map2 = FXCollections.observableHashMap();
     @FXML
     private Circle pictureFrame1;
-    
+    private Stage stage;
     
     
     
@@ -881,12 +881,18 @@ public class ReservarFXMLController implements Initializable {
     private void actualizar_datos_clicked(MouseEvent event) {
         
         try{
-            Stage stage;
-            stage = main.getStage();
             
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/actualizarDatosFXML.fxml"));
             Parent root = loader.load();
-            Scene scene = new Scene(root, 1200, 750);
+            
+            stage.getIcons().add(new Image(this.getClass().getResourceAsStream("/img/Pelota.png")));
+            
+            ActualizarDatosFXMLController controller = loader.getController();
+            controller.setStage(stage);
+            
+            controller.resizable();
+            
+            Scene scene = new Scene(root, stage.getWidth(), stage.getHeight());
             stage.setScene(scene);
                     
         }catch(Exception e){System.out.println("Problemas en ir aactualizar los datos: " + e);}
@@ -897,12 +903,18 @@ public class ReservarFXMLController implements Initializable {
     private void mis_reservar_clicked(MouseEvent event) {
         
         try{
-            Stage stage;
-            stage = main.getStage();
             
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/verMisReservasFXML.fxml"));
             Parent root = loader.load();
-            Scene scene = new Scene(root, 1200, 750);
+            
+            stage.getIcons().add(new Image(this.getClass().getResourceAsStream("/img/Pelota.png")));
+            
+            VerMisReservasFXMLController controller = loader.getController();
+            controller.setStage(stage);
+            
+            controller.resizable();
+            
+            Scene scene = new Scene(root, stage.getWidth(), stage.getHeight());
             stage.setScene(scene);
                     
         }catch(Exception e){System.out.println("Problemas en el botón a mis reservas: " + e);}
@@ -915,13 +927,19 @@ public class ReservarFXMLController implements Initializable {
         
         try{
             // HAY QUE PONER EL MEMBER A NULL, HACE FALTA UN MÉTODO SET MEMBER EN AUTENTICARSE
+            AutenticarseFXMLController.setMember(null);
             
-            Stage stage;
-            stage = main.getStage();
+            stage.getIcons().add(new Image(this.getClass().getResourceAsStream("/img/Pelota.png")));
             
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/disponibilidadDelDiaFXML.fxml"));
             Parent root = loader.load();
-            Scene scene = new Scene(root, 1200, 750);
+            
+            DisponibilidadDelDiaFXMLController controller = loader.getController();
+            controller.setStage(stage);
+            
+            controller.resizable();
+            
+            Scene scene = new Scene(root, stage.getWidth(), stage.getHeight());
             stage.setScene(scene);
                     
         }catch(Exception e){System.out.println("Problemas en cerrar sesión: " + e);}
@@ -992,15 +1010,18 @@ public class ReservarFXMLController implements Initializable {
     @FXML
     private void irActualizar(MouseEvent event) {
        try{
-                Stage stage;
-                stage = main.getStage();
                 
                 stage.getIcons().add(new Image(this.getClass().getResourceAsStream("/img/Pelota.png")));
             
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/actualizarDatosFXML.fxml"));
                 Parent root = loader.load();
+                
+                ActualizarDatosFXMLController controller = loader.getController();
+                controller.setStage(stage);
+                
+                controller.resizable();
                   
-                Scene scene = new Scene(root, 1200, 750);
+                Scene scene = new Scene(root, stage.getWidth(), stage.getHeight());
                 stage.setScene(scene);
 
                     
@@ -1010,15 +1031,18 @@ public class ReservarFXMLController implements Initializable {
     @FXML
     private void irVer(MouseEvent event) {
         try{
-                Stage stage;
-                stage = main.getStage();
                 
                 stage.getIcons().add(new Image(this.getClass().getResourceAsStream("/img/Pelota.png")));
             
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/verMisReservasFXML.fxml"));
                 Parent root = loader.load();
+                
+                VerMisReservasFXMLController controller = loader.getController();
+                controller.setStage(stage);
+                
+                controller.resizable();
                   
-                Scene scene = new Scene(root, 1200, 750);
+                Scene scene = new Scene(root, stage.getWidth(), stage.getHeight());
                 stage.setScene(scene);
 
                     
@@ -1028,15 +1052,18 @@ public class ReservarFXMLController implements Initializable {
     @FXML
     private void irReservar(MouseEvent event) {
        try{
-                Stage stage;
-                stage = main.getStage();
                 
                 stage.getIcons().add(new Image(this.getClass().getResourceAsStream("/img/Pelota.png")));
             
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/reservarFXML.fxml"));
                 Parent root = loader.load();
+                
+                ReservarFXMLController controller = loader.getController();
+                controller.setStage(stage);
+                
+                controller.resizable();
                   
-                Scene scene = new Scene(root, 1200, 750);
+                Scene scene = new Scene(root, stage.getWidth(), stage.getHeight());
                 stage.setScene(scene);
 
                     
@@ -1200,5 +1227,31 @@ public class ReservarFXMLController implements Initializable {
                 }
             }
         }
+    }
+    
+    public void setStage(Stage s){
+        this.stage = s;
+    }
+    
+    public void resizable(){
+        stage.heightProperty().addListener((ob, oldval, newval)->{
+                if(!oldval.equals(Double.NaN)){
+                    for(ToggleButton tb: pistasList){
+                        tb.setPrefHeight(tb.getHeight()+(newval.doubleValue()-oldval.doubleValue()) * 0.33);
+                        
+                    }
+                    
+                    //pistas_hbox.setPrefHeight((pistas_hbox.getHeight() * newval.doubleValue()) / oldval.doubleValue());
+                }
+                
+            });
+            
+            stage.widthProperty().addListener((ob, oldval, newval)->{
+                if(!oldval.equals(Double.NaN)){
+                    for(ToggleButton tb: pistasList){
+                        tb.setPrefWidth(tb.getWidth() + (newval.doubleValue() - oldval.doubleValue()) * 0.33);
+                    }
+                }
+            });
     }
 }

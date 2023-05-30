@@ -621,7 +621,7 @@
                               <Insets bottom="20.0" left="40.0" right="5.0" top="20.0" />
                            </HBox.margin>
                            <children>
-                              <ToggleButton fx:id="pista1_toggle_button" minHeight="159.0" minWidth="150.0" mnemonicParsing="false" onMouseClicked="#pista1_toggle_button_clicked" onMouseEntered="#pista_toggle_entered" prefHeight="150.0" prefWidth="150.0" styleClass="button_pistas" stylesheets="@../values/reservarfxml.css" text="Pista 1">
+                              <ToggleButton fx:id="pista1_toggle_button" minHeight="150.0" minWidth="150.0" mnemonicParsing="false" onMouseClicked="#pista1_toggle_button_clicked" onMouseEntered="#pista_toggle_entered" prefHeight="150.0" prefWidth="150.0" styleClass="button_pistas" stylesheets="@../values/reservarfxml.css" text="Pista 1">
                                  <VBox.margin>
                                     <Insets bottom="20.0" left="20.0" right="20.0" />
                                  </VBox.margin>

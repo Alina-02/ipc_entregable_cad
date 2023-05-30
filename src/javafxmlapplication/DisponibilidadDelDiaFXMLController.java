@@ -29,30 +29,21 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import model.Booking;
 import model.Club;
 import ipc_project.*;
-import java.awt.GraphicsDevice;
-import java.awt.GraphicsEnvironment;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.function.Predicate;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.ObservableMap;
 import javafx.scene.Cursor;
 import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
-import javafx.scene.input.DragEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
-import model.Member;
-
 /**
  * FXML Controller class
  *
@@ -592,7 +583,12 @@ public class DisponibilidadDelDiaFXMLController implements Initializable {
             AutenticarseFXMLController controllerAutenticarse = loader.getController();
             controllerAutenticarse.setStage(stage);
             
-            Scene scene = new Scene(root, 1200, 750);
+            controllerAutenticarse.resizable();
+            
+            System.out.println("width: " + stage.getWidth());
+            System.out.println("height: " + stage.getHeight());
+            
+            Scene scene = new Scene(root, stage.getWidth(), stage.getHeight());
             stage.setScene(scene);
                     
         }catch(Exception e){System.out.println("Falla el iniciar sesión: " + e);}
@@ -657,8 +653,6 @@ public class DisponibilidadDelDiaFXMLController implements Initializable {
     private void registerUser(MouseEvent event) {
         try{
             disponibilidadGo = true;
-            
-            
                     
             FXMLLoader loader= new  FXMLLoader(getClass().getResource("/views/registroFXML.fxml"));
             
@@ -670,6 +664,8 @@ public class DisponibilidadDelDiaFXMLController implements Initializable {
             Parent root = loader.load();
             Scene scene = new Scene(root, stage.getWidth(),stage.getHeight());
             stage.setScene(scene);
+            
+            stage.show();
             
         }catch(Exception e){System.out.println("Fallo en registerUser: " + e);}
     }  

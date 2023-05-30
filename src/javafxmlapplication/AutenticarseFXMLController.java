@@ -65,6 +65,7 @@ public class AutenticarseFXMLController implements Initializable {
     
     private static Member member;
     private static boolean autenticarseGo = false;
+    private Stage stage;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -107,6 +108,7 @@ public class AutenticarseFXMLController implements Initializable {
                 back_button_autenticarse.setCursor(Cursor.DEFAULT);
         });
         
+        
     }   
     
     // VOLVER A VER DISPONIBILIDAD
@@ -118,27 +120,35 @@ public class AutenticarseFXMLController implements Initializable {
             
             if(DisponibilidadDelDiaFXMLController.getDisponibilidadGo()){
                 DisponibilidadDelDiaFXMLController.setDisponibilidadGo(false);
-                Stage stage;
-                stage = main.getStage();
+                
+                
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/disponibilidadDelDiaFXML.fxml"));
+                Parent root = loader.load();
+                
+                DisponibilidadDelDiaFXMLController controller = loader.getController();
+                controller.setStage(stage);
                 
                 stage.getIcons().add(new Image(this.getClass().getResourceAsStream("/img/Pelota.png")));
             
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/disponibilidadDelDiaFXML.fxml"));
-                Parent root = loader.load();
-                  
-                Scene scene = new Scene(root, 1200, 750);
+                controller.resizable();
+                
+                
+                Scene scene = new Scene(root, stage.getWidth(), stage.getHeight());
                 stage.setScene(scene);
             }else if(RegistroFXMLController.getRegistroGo()){
                 RegistroFXMLController.setRegistroGo(false);
-                Stage stage;
-                stage = main.getStage();
                 
                 stage.getIcons().add(new Image(this.getClass().getResourceAsStream("/img/Pelota.png")));
             
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/RegistroFXML.fxml"));
                 Parent root = loader.load();
+                
+                RegistroFXMLController controller = loader.getController();
+                controller.setStage(stage);
+                
+                controller.resizable();
                   
-                Scene scene = new Scene(root, 1200, 750);
+                Scene scene = new Scene(root, stage.getWidth(), stage.getHeight());
                 stage.setScene(scene);
             }
             
@@ -187,13 +197,16 @@ public class AutenticarseFXMLController implements Initializable {
             
             member = club.getMemberByCredentials(nickname, password);
             try{
-                Stage stage;
-                stage = main.getStage();
             
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/reservarFXML.fxml"));
                 Parent root = loader.load();
+                
+                ReservarFXMLController controller = loader.getController();
+                controller.setStage(stage);
+                
+                controller.resizable();
                   
-                Scene scene = new Scene(root, 1200, 750);
+                Scene scene = new Scene(root, stage.getWidth(), stage.getHeight());
                 stage.setScene(scene);
 
                     
@@ -212,12 +225,16 @@ public class AutenticarseFXMLController implements Initializable {
     private void registerUser(MouseEvent event) {
         try{
             autenticarseGo = true;
-            Stage stage;
-            stage = main.getStage();
             
             FXMLLoader loader= new  FXMLLoader(getClass().getResource("/views/registroFXML.fxml"));
             Parent root = loader.load();
-            Scene scene = new Scene(root, 1200,750);
+            
+            RegistroFXMLController controller = loader.getController();
+            controller.setStage(stage);
+            
+            controller.resizable();
+            
+            Scene scene = new Scene(root, stage.getWidth(),stage.getHeight());
             stage.setScene(scene);
             
         }catch(Exception e){System.out.println("Fallo en registerUser: " + e);}
@@ -235,5 +252,35 @@ public class AutenticarseFXMLController implements Initializable {
         autenticarseGo = bool;
     }
     
+    public void setStage(Stage s){
+        this.stage = s;
+    }
+    
+    public void resizable(){
+        stage.heightProperty().addListener((ob, oldval, newval)->{
+                if(!oldval.equals(Double.NaN)){
+                   
+                    //RELLENAR
+                    
+                    
+                    
+                    
+                }
+            });
+            
+            stage.widthProperty().addListener((ob, oldval, newval)->{
+                if(!oldval.equals(Double.NaN)){
+                    
+                    
+                    //RELLENAR
+                    
+                    
+                }
+            });
+    }
+    
+    public static void setMember(Member m){
+        member = m;
+    }
     
 }
