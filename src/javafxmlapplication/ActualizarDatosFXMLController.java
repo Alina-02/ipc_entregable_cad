@@ -207,7 +207,13 @@ public class ActualizarDatosFXMLController implements Initializable {
         
         //Conexion bidireccional entre el textfield de la contraseña con la opcion para verla
         password_text.textProperty().bindBidirectional(password_ver_text.textProperty());
-
+        
+        // COLOCAR FOTO DE PERFIL
+        Image selectedFile = m.getImage();
+        pictureFrame1.setFill(new ImagePattern(selectedFile));
+        
+        
+        
     }
 
 

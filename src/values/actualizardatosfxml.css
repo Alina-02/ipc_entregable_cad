@@ -235,5 +235,13 @@
     -fx-border-radius: 8; /* Radio de los bordes del TextField */
     -fx-effect: dropshadow(gaussian, rgba(222, 222, 222, 0.4), 15, 0.2, 0, 0);
     }
+
+.menu-button{
+    -fx-background-color: rgba(0,0,0,0);       
+    }
+.menu-button:hover{
+        -fx-border-color: #c9e325;
+        -fx-border-width: 0px 0px 3px 0px;
+    }
     
 }
