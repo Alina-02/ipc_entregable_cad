@@ -4,15 +4,20 @@
  */
 package javafxmlapplication;
 
+import ipc_project.main;
 import ipc_project.utils;
+import java.io.IOException;
 import javafx.scene.image.Image;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -34,6 +39,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.DialogPane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 /**
  * FXML Controller class
@@ -116,11 +122,13 @@ public class ActualizarDatosFXMLController implements Initializable {
     @FXML
     private Button ir_Actualizar;
     @FXML
-    private Button ir_Ver;
-    @FXML
     private Button ir_Reservar;
     @FXML
     private Label cerrar_sesion_label;
+    @FXML
+    private Button menu_button1;
+    @FXML
+    private Button ir_Ver;
     
     
     
@@ -135,6 +143,7 @@ public class ActualizarDatosFXMLController implements Initializable {
         
         //inicializo variables
         contraseñaEditado = false;
+        nickname_label.setText(m.getNickName());
         
         //Quitar la visibilidad de los botones
         aceptar_edicion_button.setVisible(false);
@@ -424,6 +433,126 @@ public class ActualizarDatosFXMLController implements Initializable {
     }
     
     
+
+    @FXML
+    private void passClick(MouseEvent event) {
+        contraseñaEditado = true;
+        confirmacion_box.setVisible(true);
+    }
+    
+    @FXML
+    private void run1(MouseEvent event) {
+        ir_Ver.setDisable(false);
+        ir_Actualizar.setDisable(false);
+        ir_Reservar.setDisable(false);
+        cerrar_sesion_label.setDisable(false);
+        TranslateTransition slide = new TranslateTransition();
+        slide.setDuration(Duration.seconds(0.4));
+        slide.setNode(pane_slide);
+        
+        slide.setToX(0);
+        slide.play();
+        
+        pane_slide.setTranslateX(-490);
+        
+        slide.setOnFinished((ActionEvent e)-> {
+            menu_button1.setVisible(false);
+            menu_button2.setVisible(true);
+        });
+    }
+
+    @FXML
+    private void run2(MouseEvent event) {
+        ir_Ver.setDisable(true);
+        ir_Actualizar.setDisable(true);
+        ir_Reservar.setDisable(true);
+        cerrar_sesion_label.setDisable(true);
+        TranslateTransition slide = new TranslateTransition();
+        slide.setDuration(Duration.seconds(0.4));
+        slide.setNode(pane_slide);
+        
+        slide.setToX(-490);
+        slide.play();
+        
+        pane_slide.setTranslateX(0);
+        
+        slide.setOnFinished((ActionEvent e)-> {
+            menu_button1.setVisible(true);
+            menu_button2.setVisible(false);
+        });
+    }
+
+
+    @FXML
+    private void showChange(MouseEvent event) {
+    }
+
+    @FXML
+    private void changeProfile(MouseEvent event) {
+    }
+
+    @FXML
+    private void irActualizar(MouseEvent event) {
+        try{
+                Stage stage;
+                stage = main.getStage();
+                
+                stage.getIcons().add(new Image(this.getClass().getResourceAsStream("/img/Pelota.png")));
+            
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/actualizarDatosFXML.fxml"));
+                Parent root = loader.load();
+                  
+                Scene scene = new Scene(root, 1200, 750);
+                stage.setScene(scene);
+
+                    
+            }catch(IOException e){System.out.println("Problemas en ir a actualizar: " + e);}
+    }
+
+    @FXML
+    private void irVer(MouseEvent event) {
+        try{
+                Stage stage;
+                stage = main.getStage();
+                
+                stage.getIcons().add(new Image(this.getClass().getResourceAsStream("/img/Pelota.png")));
+            
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/verMisReservasFXML.fxml"));
+                Parent root = loader.load();
+                  
+                Scene scene = new Scene(root, 1200, 750);
+                stage.setScene(scene);
+
+                    
+            }catch(Exception e){System.out.println("Problemas en ir a ver: " + e);}
+    }
+
+    @FXML
+    private void irReservar(MouseEvent event) {
+        try{
+                Stage stage;
+                stage = main.getStage();
+                
+                stage.getIcons().add(new Image(this.getClass().getResourceAsStream("/img/Pelota.png")));
+            
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/reservarFXML.fxml"));
+                Parent root = loader.load();
+                  
+                Scene scene = new Scene(root, 1200, 750);
+                stage.setScene(scene);
+
+                    
+            }catch(Exception e){System.out.println("Problemas en ir a reservar: " + e);}
+
+    }
+
+    @FXML
+    private void cerrar_sesion_clicked(MouseEvent event) {
+    }
+    
+    
+    
+    
     //Metodos auxiliares
     public boolean bien(){
         if(!utils.textBien(name_text.getText())) return false; 
@@ -500,40 +629,7 @@ public class ActualizarDatosFXMLController implements Initializable {
         general_error_label.setVisible(b);
         error_svc_label.setVisible(b);
     }
-
-    @FXML
-    private void passClick(MouseEvent event) {
-        contraseñaEditado = true;
-        confirmacion_box.setVisible(true);
-    }
-
-    @FXML
-    private void run2(MouseEvent event) {
-    }
-
-    @FXML
-    private void showChange(MouseEvent event) {
-    }
-
-    @FXML
-    private void changeProfile(MouseEvent event) {
-    }
-
-    @FXML
-    private void irActualizar(MouseEvent event) {
-    }
-
-    @FXML
-    private void irVer(MouseEvent event) {
-    }
-
-    @FXML
-    private void irReservar(MouseEvent event) {
-    }
-
-    @FXML
-    private void cerrar_sesion_clicked(MouseEvent event) {
-    }
+    
 
     
 }

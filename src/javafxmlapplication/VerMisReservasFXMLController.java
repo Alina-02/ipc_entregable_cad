@@ -65,8 +65,6 @@ public class VerMisReservasFXMLController implements Initializable {
     @FXML
     private Button menu_button2;
     @FXML
-    private Circle pictureFrame;
-    @FXML
     private Button ir_Actualizar;
     @FXML
     private Button ir_Ver;
@@ -114,6 +112,8 @@ public class VerMisReservasFXMLController implements Initializable {
     private Booking auxBook;
     
     private int sumIndex;
+    @FXML
+    private Circle pictureFrame1;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -200,7 +200,7 @@ public class VerMisReservasFXMLController implements Initializable {
         // PONER DATOS DEL MENÚ
         
         Image selectedFile = member.getImage();
-        pictureFrame.setFill(new ImagePattern(selectedFile));
+        pictureFrame1.setFill(new ImagePattern(selectedFile));
         nickname_label.setText(member.getNickName());
     
         dia_table_column.setReorderable(false);
