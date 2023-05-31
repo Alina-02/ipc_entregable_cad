@@ -253,7 +253,7 @@
                         <Insets bottom="30.0" left="20.0" right="20.0" />
                      </VBox.margin>
                   </HBox>
-                  <HBox prefHeight="405.0" prefWidth="661.0">
+                  <HBox alignment="CENTER" prefHeight="405.0" prefWidth="661.0">
                      <children>
                         <TableView fx:id="bookings_table_view" maxWidth="611.0" minHeight="300.0" minWidth="611.0" onMouseClicked="#bookings_clicked" prefHeight="300.0" prefWidth="611.0" stylesheets="@../values/vermisreservasfxml.css">
                           <columns>
