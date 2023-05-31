@@ -235,5 +235,8 @@ public class AutenticarseFXMLController implements Initializable {
         autenticarseGo = bool;
     }
     
+    public static void setMember(Member m){
+        member = m;
+    }
     
 }

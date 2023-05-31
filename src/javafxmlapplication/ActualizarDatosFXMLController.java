@@ -130,7 +130,7 @@ public class ActualizarDatosFXMLController implements Initializable {
     @FXML
     private Button ir_Ver;
     
-    
+    private Stage stage;
     
 
     /**
@@ -494,16 +494,20 @@ public class ActualizarDatosFXMLController implements Initializable {
     @FXML
     private void irActualizar(MouseEvent event) {
         try{
-                Stage stage;
-                stage = main.getStage();
+                
                 
                 stage.getIcons().add(new Image(this.getClass().getResourceAsStream("/img/Pelota.png")));
             
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/actualizarDatosFXML.fxml"));
                 Parent root = loader.load();
+                
+                ActualizarDatosFXMLController controller = loader.getController();
+                controller.setStage(stage);
                   
-                Scene scene = new Scene(root, 1200, 750);
+                Scene scene = new Scene(root, stage.getWidth(), stage.getHeight());
                 stage.setScene(scene);
+                
+                controller.resizable();
 
                     
             }catch(IOException e){System.out.println("Problemas en ir a actualizar: " + e);}
@@ -511,43 +515,70 @@ public class ActualizarDatosFXMLController implements Initializable {
 
     @FXML
     private void irVer(MouseEvent event) {
-        try{
-                Stage stage;
-                stage = main.getStage();
+        /*try{
+               
                 
                 stage.getIcons().add(new Image(this.getClass().getResourceAsStream("/img/Pelota.png")));
             
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/verMisReservasFXML.fxml"));
                 Parent root = loader.load();
+                
+                VerMisReservasFXMLController controller = loader.getController();
+                controller.setStage(stage);
                   
-                Scene scene = new Scene(root, 1200, 750);
+                Scene scene = new Scene(root, stage.getWidth(), stage.getHeight());
                 stage.setScene(scene);
+                
+                controller.resizable();
 
                     
-            }catch(Exception e){System.out.println("Problemas en ir a ver: " + e);}
+            }catch(Exception e){System.out.println("Problemas en ir a ver: " + e);}*/
     }
 
     @FXML
     private void irReservar(MouseEvent event) {
-        try{
-                Stage stage;
-                stage = main.getStage();
+        /*try{
+                
                 
                 stage.getIcons().add(new Image(this.getClass().getResourceAsStream("/img/Pelota.png")));
             
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/reservarFXML.fxml"));
                 Parent root = loader.load();
+                
+                ReservarFXMLController controller = loader.getController();
+                controller.setStage(stage);
+                
                   
-                Scene scene = new Scene(root, 1200, 750);
+                Scene scene = new Scene(root, stage.getWidth(), stage.getHeight());
                 stage.setScene(scene);
 
+                controller.resizable();
                     
-            }catch(Exception e){System.out.println("Problemas en ir a reservar: " + e);}
+            }catch(Exception e){System.out.println("Problemas en ir a reservar: " + e);}*/
 
     }
 
     @FXML
     private void cerrar_sesion_clicked(MouseEvent event) {
+        try{
+            // HAY QUE PONER EL MEMBER A NULL, HACE FALTA UN MÉTODO SET MEMBER EN AUTENTICARSE
+            AutenticarseFXMLController.setMember(null);
+            
+            stage.getIcons().add(new Image(this.getClass().getResourceAsStream("/img/Pelota.png")));
+            
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/disponibilidadDelDiaFXML.fxml"));
+            Parent root = loader.load();
+            
+            DisponibilidadDelDiaFXMLController controller = loader.getController();
+            controller.setStage(stage);
+            
+            Scene scene = new Scene(root, stage.getWidth(), stage.getHeight());
+            stage.setScene(scene);
+            
+            controller.resizable();
+                    
+        }catch(Exception e){System.out.println("Problemas en cerrar sesión: " + e);}
+        
     }
     
     
@@ -630,7 +661,36 @@ public class ActualizarDatosFXMLController implements Initializable {
         error_svc_label.setVisible(b);
     }
     
+    public void setStage(Stage s){
+        this.stage = s;
+    }
+    
+    public void resizable(){
+        stage.heightProperty().addListener((ob, oldval, newval)->{
+                if(!oldval.equals(Double.NaN)){
+                   
+                    //RELLENAR
+                    
+                    
+                    
+                    
+                }
+            });
+            
+            stage.widthProperty().addListener((ob, oldval, newval)->{
+                if(!oldval.equals(Double.NaN)){
+                    
+                    
+                    //RELLENAR
+                    
+                    
+                }
+            });
+    }
 
+    @FXML
+    private void seleccionarFoto(MouseEvent event) {
+    }
     
 }
 
