@@ -4,6 +4,7 @@ package javafxmlapplication;
 
 import com.sun.tools.javac.Main;
 import ipc_project.main;
+import ipc_project.utils;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
@@ -17,6 +18,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -52,6 +54,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 //import img.*;
 
 /**
@@ -66,38 +69,33 @@ public class RegistroFXMLController implements Initializable {
     @FXML
     private Circle pictureFrame;
     @FXML
-    private Button back_button_registro;
-    @FXML
     private Button exit_button_registro;
     @FXML
-    private TextField nameTF;
+    private TextField name_text;
     @FXML
-    private TextField lastNameTF;
+    private TextField last_name_text;
     @FXML
-    private TextField userTF;
+    private TextField user_text;
     @FXML
-    private TextField phoneTF;
+    private TextField phone_text;
     @FXML
-    private PasswordField passwordTF;
+    private PasswordField password_text;
     @FXML
-    private TextField creditCardTF;
-    
-    private TextField cvvTF;
+    private TextField card_text;
     @FXML
     private Button register_button;
-    
     private Club club;
-    
     private Image im;
     
-    private String errorMSG = "";
     
     @FXML
-    private PasswordField passwordCTF;
+    private PasswordField password_comprobar_text;
     @FXML
-    private PasswordField svcPF;
-    @FXML
-    private Text errorMSGT;
+    private PasswordField svc_text;
+    //Variables extra
+    private Member m;
+    
+    private boolean contraseñaEditado;
     
     String nm;
     String sn;
@@ -106,27 +104,124 @@ public class RegistroFXMLController implements Initializable {
     String cc;
     String pw;
     String pwc;
-    int svc;
-    @FXML
-    private ImageView defaultPicture1;
-    @FXML
-    private ImageView defaultPicture2;
-    @FXML
-    private ImageView defaultPicture3;
-    @FXML
-    private ImageView defaultPicture4;
-    @FXML
-    private ImageView defaultPicture5;
-    @FXML
-    private ImageView defaultPicture6;
-    
+
     private Image defaultImageAux;
-    
+   
     static boolean registroGo = false;
+    @FXML
+    private Button menu_button1;
+    @FXML
+    private Circle pictureFrame2;
+    @FXML
+    private Button mensaje_foto;
+    @FXML
+    private VBox fotos_menu;
+    @FXML
+    private Button subir_foto_button;
+    @FXML
+    private AnchorPane pane_slide;
+    @FXML
+    private Button menu_button2;
+    @FXML
+    private Circle pictureFrame1;
+    @FXML
+    private Label nickname_label;
+    @FXML
+    private Button ir_Actualizar;
+    @FXML
+    private Button ir_Ver;
+    @FXML
+    private Button ir_Reservar;
+    @FXML
+    private Label cerrar_sesion_label;
+    @FXML
+    private Button back_button_actualizar;
+    @FXML
+    private Label error_name_label;
+    @FXML
+    private Label error_last_label;
+    @FXML
+    private Label error_phone_label;
+    @FXML
+    private VBox contraseña_box;
+    @FXML
+    private Label error_passwor_label;
+    @FXML
+    private TextField password_ver_text;
+    @FXML
+    private Button ojo_cerrado_button;
+    @FXML
+    private Button ojo_abierto_button;
+    @FXML
+    private VBox confirmacion_box;
+    @FXML
+    private Label error_confirmacion_label;
+    @FXML
+    private Label error_tarjeta_label;
+    @FXML
+    private Label error_svc_label;
+    @FXML
+    private Label general_error_label;
     
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        //miembro acutal
+        m = AutenticarseFXMLController.getMember();
+        
+        //inicializo variables
+        contraseñaEditado = false;
+        nickname_label.setText(m.getNickName());
+        
+        //Quitar la visibilidad de los botones
+        ojo_abierto_button.setVisible(false);
+        password_ver_text.setVisible(false); 
+        
+
+        
+        //Cambiar el cursor
+        back_button_actualizar.setOnMouseEntered(event -> {
+                back_button_actualizar.setCursor(Cursor.HAND);
+        });
+        
+        back_button_actualizar.setOnMouseExited(event ->{
+                back_button_actualizar.setCursor(Cursor.DEFAULT);
+        });
+   
+        ojo_cerrado_button.setOnMouseEntered(event -> {
+                ojo_cerrado_button.setCursor(Cursor.HAND);
+        });
+        ojo_cerrado_button.setOnMouseExited(event ->{
+                ojo_cerrado_button.setCursor(Cursor.DEFAULT);
+        });
+        ojo_abierto_button.setOnMouseEntered(event -> {
+                ojo_abierto_button.setCursor(Cursor.HAND);
+        });
+        ojo_abierto_button.setOnMouseExited(event ->{
+                ojo_abierto_button.setCursor(Cursor.DEFAULT);
+        });
+
+        user_text.setEditable(false);
+        
+        //Conexion bidireccional entre el textfield de la contraseña con la opcion para verla
+        password_text.textProperty().bindBidirectional(password_ver_text.textProperty());
+        
+        // COLOCAR FOTO DE PERFIL
+        Image selectedFile = m.getImage();
+        pictureFrame.setFill(new ImagePattern(selectedFile));
+        pictureFrame2.setFill(Color.WHITE);
+        pictureFrame.setStrokeWidth(0);
+        pictureFrame2.setStrokeWidth(20);
+        pictureFrame2.setStroke(Color.WHITE);
+        
+        
+        pictureFrame.setOnMouseEntered(event -> mensaje_foto.setVisible(true));
+        mensaje_foto.setOnMouseExited(event -> mensaje_foto.setVisible(false));
+        
+        
+        
+        
         
         Shadow shadow = new Shadow();
         shadow.setColor(Color.GREY); 
@@ -143,13 +238,8 @@ public class RegistroFXMLController implements Initializable {
             Logger.getLogger(RegistroFXMLController.class.getName()).log(Level.SEVERE, null, ex);
         }catch (IOException ex){
             Logger.getLogger(RegistroFXMLController.class.getName()).log(Level.SEVERE, null, ex);}
-        back_button_registro.setOnMouseEntered(event -> {
-                back_button_registro.setCursor(Cursor.HAND);
-        });
+       
         
-        back_button_registro.setOnMouseExited(event ->{
-                back_button_registro.setCursor(Cursor.DEFAULT);
-        });
         exit_button_registro.setOnMouseEntered(event -> {
                 exit_button_registro.setCursor(Cursor.HAND);
         });
@@ -172,21 +262,7 @@ public class RegistroFXMLController implements Initializable {
                pictureFrame.setCursor(Cursor.DEFAULT);
                pictureFrame.setOpacity(1);
         });
-         register_button.disableProperty().bind(nameTF.textProperty().isEmpty().or(lastNameTF.textProperty().isEmpty()).or(userTF.textProperty().isEmpty()).or(phoneTF.textProperty().isEmpty()).or(passwordTF.textProperty().isEmpty()).or(passwordCTF.textProperty().isEmpty()));
-         
-         defaultPicture1.setOnMouseEntered(event -> {defaultImageAux = defaultPicture1.getImage();});
-         defaultPicture2.setOnMouseEntered(event -> {defaultImageAux = defaultPicture2.getImage();});
-         defaultPicture3.setOnMouseEntered(event -> {defaultImageAux = defaultPicture3.getImage();});
-         defaultPicture4.setOnMouseEntered(event -> {defaultImageAux = defaultPicture4.getImage();});
-         defaultPicture5.setOnMouseEntered(event -> {defaultImageAux = defaultPicture5.getImage();});
-         defaultPicture6.setOnMouseEntered(event -> {defaultImageAux = defaultPicture6.getImage();});
-         
-         defaultPicture1.setOnMouseExited(event -> {defaultImageAux = null;});
-         defaultPicture2.setOnMouseExited(event -> {defaultImageAux = null;});
-         defaultPicture3.setOnMouseExited(event -> {defaultImageAux = null;});
-         defaultPicture4.setOnMouseExited(event -> {defaultImageAux = null;});
-         defaultPicture5.setOnMouseExited(event -> {defaultImageAux = null;});
-         defaultPicture6.setOnMouseExited(event -> {defaultImageAux = null;});
+         register_button.disableProperty().bind(name_text.textProperty().isEmpty().or(last_name_text.textProperty().isEmpty()).or(user_text.textProperty().isEmpty()).or(phone_text.textProperty().isEmpty()).or(password_text.textProperty().isEmpty()).or(password_comprobar_text.textProperty().isEmpty()));
          
     }    
 
@@ -208,8 +284,8 @@ public class RegistroFXMLController implements Initializable {
         im = new Image(fn);
         pictureFrame.setFill(new ImagePattern(im));
         //Para gaurdarla en el perfil del usuario
-        if(club.existsLogin(userTF.getText())){
-            club.getMemberByCredentials(userTF.getText(), passwordTF.getText()).setImage(im);
+        if(club.existsLogin(user_text.getText())){
+            club.getMemberByCredentials(user_text.getText(), password_text.getText()).setImage(im);
         }
     }
 
@@ -241,7 +317,6 @@ public class RegistroFXMLController implements Initializable {
             }catch(Exception e){System.out.println(e);}
     }
 
-    @FXML
     private void exitRegistro(MouseEvent event) {
         Stage stage = (Stage) exit_button_registro.getScene().getWindow();
         stage.close();
@@ -249,118 +324,9 @@ public class RegistroFXMLController implements Initializable {
 
     @FXML
     private void registerMember(ActionEvent event) throws ClubDAOException {
-        try{
-            nm = nameTF.getText();
-            sn = lastNameTF.getText();
-            us = userTF.getText();
-            pn = phoneTF.getText().trim();
-            cc = creditCardTF.getText();
-            pw = passwordTF.getText();
-            pwc = passwordCTF.getText();
-            svc = Integer.parseInt(svcPF.getText());
-        }catch(Exception e){System.out.println("Falta algo");}
-        //Comprueba que el usuario no este ya registrado
-        if(club.existsLogin(us)) errorMSG += "El usuario ya esta registrado\n";
-        //Comprueba el formato de los numeros;
-        if(!isInteger(pn)) errorMSG += "El formato del numero de teléfono es incorrecto\n";
-        //Comprueba las contraseñas
-        if(!pw.equals(pwc)) errorMSG += "Las contraseñas no coinciden\n";
-        //Comprueba el formato de la tarjeta 
-        if(!isInteger(cc) && !cc.isEmpty()) errorMSG += "El formato de la tarjeta de credito es incorrecto\n";
-        //comprueba el formato del svc
-        if(svcPF.getText().length() != 3 && !svcPF.getText().isEmpty()) errorMSG += "El formato del svc es incorrecto\n";
-        //Comprueba los campos obligatorios
-        if(errorMSG.isEmpty()) {
-            System.out.println("Registrado guachin");
-            club.registerMember(nm, sn, pn, us, pw, cc, svc, im);
-            usuarioRegistrado();
-        }
-        else{
-            //errorMSGT.
-            errorMSGT.setText(errorMSG);
-            errorMSG = "";
-            //errorMSGT.setVisible(true);
-        }
+        
     }
  
-    public void errorRegistry(){
-        Alert alert = new Alert(AlertType.ERROR);
-        alert.setTitle("Diálogo de excepción");
-        String missing = "";
-        if((nameTF.getText()).isEmpty()){missing += "Nombre " + "\n";}
-        if((lastNameTF.getText()).isEmpty()){missing += "Apellido " + "\n";}
-        if((userTF.getText()).isEmpty()){missing += "Usuario " + "\n";}
-        if((phoneTF.getText()).isEmpty()){missing += "Numero de telefono " + "\n";}
-        if((passwordTF.getText()).isEmpty()){missing += "Contraseña " + "\n";} 
-        alert.setHeaderText("Faltan los siguiente datos");
-        alert.setContentText(missing);
-        alert.showAndWait();
-    }
-    
-    public void errorSVC(){
-        Alert alert = new Alert(AlertType.ERROR);
-        alert.setTitle("Error");
-        alert.setHeaderText("El svc es incorrecto");
-        alert.showAndWait();
-        svcPF.clear();
-    }
-    
-    public boolean isInteger( String input ) {
-    try {
-        Integer.parseInt( input );
-        return true;
-    }
-    catch( Exception e ) {
-        return false;
-    }
-}
-    
-    public void formatError(){
-        Alert alert = new Alert(AlertType.ERROR);
-        String error = "Formato incorrecto: \n";
-        alert.setTitle("Error");
-        if(!isInteger(phoneTF.getText())){
-            phoneTF.clear();
-            error += "Numero de telefono \n";
-        }
-        if(!isInteger(creditCardTF.getText())){
-            creditCardTF.clear();
-            error += "Tarjeta de credito \n";
-        }
-        if(!isInteger(cvvTF.getText())){
-            cvvTF.clear();
-            error += "CVV \n";
-        }
-        alert.setHeaderText(error);
-        alert.showAndWait();
-    };
-    
-    public void registeredError(){
-        Alert alert = new Alert(AlertType.ERROR);
-        alert.setTitle("Error");
-        alert.setHeaderText("El usuario ya esta registrado");
-        userTF.clear();
-        alert.showAndWait();
-
-    }
-
-    @FXML
-    private void changePF(MouseEvent event) {
-    }
-
-    @FXML
-    private void back(ActionEvent event) {
-    }
-
-    @FXML
-    private void exit(ActionEvent event) {
-    }
-
-    @FXML
-    private void changeProfileDefault(MouseEvent event) {
-        pictureFrame.setFill(new ImagePattern(defaultImageAux));
-    }
-
     private void usuarioRegistrado() {
         try{
                 registroGo = true;
@@ -384,6 +350,217 @@ public class RegistroFXMLController implements Initializable {
     public static void setRegistroGo(boolean bool){
         registroGo = bool;
     }
+    
+    
+    //Metodos para comprobar los campos
+    @FXML
+    private void nombreComprobar(MouseEvent event) {
+        if(!name_text.getText().isEmpty()){
+        if(!utils.textBien(name_text.getText())){
+            error_name_label.setVisible(true);
+        }else error_name_label.setVisible(false);  
+            }
+            
+    }
+
+    @FXML
+    private void apellidoComprobar(MouseEvent event) {
+        if(!last_name_text.getText().isEmpty()){
+        if(!utils.textBien(last_name_text.getText())){
+            error_last_label.setVisible(true);
+        }else error_last_label.setVisible(false);  
+        }
+    }
+
+    @FXML
+    private void telefonoComprobar(MouseEvent event) {
+        if(!phone_text.getText().isEmpty()){
+        if(!utils.numberBien(phone_text.getText(),9)){
+            error_phone_label.setVisible(true);
+        }else error_phone_label.setVisible(false);  
+        }
+    }
+
+    @FXML
+    private void contraseñaComprobar(MouseEvent event) {
+        if(!password_text.getText().isEmpty()){
+        if(!utils.contraseñaBien(password_text.getText())){
+            error_passwor_label.setVisible(true);
+        }else error_passwor_label.setVisible(false);  
+        }
+    }
+
+    @FXML
+    private void contraseñaConfirmarContraseña(MouseEvent event) {
+        if(contraseñaEditado){
+        if(!password_comprobar_text.getText().isEmpty()){
+        if(!utils.confirmacionBien(password_text.getText(),password_comprobar_text.getText())){
+            error_confirmacion_label.setVisible(true);
+        }else {error_confirmacion_label.setVisible(false); }
+        }
+        }
+    }
+
+    @FXML
+    private void tarjetaComprobar(MouseEvent event) {
+        if(!card_text.getText().isEmpty()){
+        if(!utils.numberBien(card_text.getText(),16)){
+            error_tarjeta_label.setVisible(true);
+        }else error_tarjeta_label.setVisible(false);  
+        }
+    }
+
+    @FXML
+    private void svcComprobar(MouseEvent event) {
+        if(!svc_text.getText().isEmpty()){
+        if(!utils.numberBien(svc_text.getText(),3)){
+            error_svc_label.setVisible(true);
+        }else error_svc_label.setVisible(false);  
+        }
+    }
+    
+    
+    
+    //Ver contraseña
+
+    @FXML
+    private void verContraseña(MouseEvent event) {
+        ojo_cerrado_button.setVisible(false);
+        ojo_abierto_button.setVisible(true);
+        password_ver_text.setVisible(true);
+    }
+
+    @FXML
+    private void ocultarContraseña(MouseEvent event) {
+        ojo_cerrado_button.setVisible(true);
+        ojo_abierto_button.setVisible(false);
+        password_ver_text.setVisible(false);
+    }
+    @FXML
+    private void passClick(MouseEvent event) {
+        contraseñaEditado = true;
+        confirmacion_box.setVisible(true);
+    }
+    
+    @FXML
+    private void run1(MouseEvent event) {
+        ir_Ver.setDisable(false);
+        ir_Actualizar.setDisable(false);
+        ir_Reservar.setDisable(false);
+        cerrar_sesion_label.setDisable(false);
+        TranslateTransition slide = new TranslateTransition();
+        slide.setDuration(Duration.seconds(0.4));
+        slide.setNode(pane_slide);
+        
+        slide.setToX(0);
+        slide.play();
+        
+        pane_slide.setTranslateX(-490);
+        
+        slide.setOnFinished((ActionEvent e)-> {
+            menu_button1.setVisible(false);
+            menu_button2.setVisible(true);
+        });
+    }
+
+    @FXML
+    private void run2(MouseEvent event) {
+        ir_Ver.setDisable(true);
+        ir_Actualizar.setDisable(true);
+        ir_Reservar.setDisable(true);
+        cerrar_sesion_label.setDisable(true);
+        TranslateTransition slide = new TranslateTransition();
+        slide.setDuration(Duration.seconds(0.4));
+        slide.setNode(pane_slide);
+        
+        slide.setToX(-490);
+        slide.play();
+        
+        pane_slide.setTranslateX(0);
+        
+        slide.setOnFinished((ActionEvent e)-> {
+            menu_button1.setVisible(true);
+            menu_button2.setVisible(false);
+        });
+    }
+    
+    
+    
+        @FXML
+    private void seleccionarFoto(MouseEvent event) {
+        fotos_menu.setVisible(true);
+    }
+
+    @FXML
+    private void selectAvatar(MouseEvent event) {
+        
+        Button b = (Button) event.getSource();
+        Image avatar = ((ImageView) b.getGraphic()).getImage();
+        pictureFrame.setFill(new ImagePattern(avatar));
+        AutenticarseFXMLController.getMember().setImage(avatar);
+    }
+
+    @FXML
+    private void subirFoto(MouseEvent event) {
+        //Cuestiones para abrir los archivos
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Abrir fichero");
+        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Imágenes", "*.png", "*.jpg", "*.gif"));
+        File selectedFile = fileChooser.showOpenDialog(((Node)event.getSource()).getScene().getWindow());
+        //Para colocar la imagen 
+        Label label = new Label();
+        if (selectedFile != null){label.setText(selectedFile.getAbsolutePath());}
+        String fn = label.getText();
+        Image im = new Image(fn);
+        pictureFrame.setFill(new ImagePattern(im));
+        AutenticarseFXMLController.getMember().setImage(im);
+    }
+
+    @FXML
+    private void aparecer(MouseEvent event) {
+        //mensaje_foto.setVisible(true);
+        
+        
+    }
+
+    @FXML
+    private void closeMenuAvatares(MouseEvent event) {
+        fotos_menu.setVisible(false);
+    }
+
+
+   
+    
+
+
+    @FXML
+    private void irActualizar(MouseEvent event) {
+    }
+
+    @FXML
+    private void irVer(MouseEvent event) {
+    }
+
+    @FXML
+    private void irReservar(MouseEvent event) {
+    }
+
+    @FXML
+    private void cerrar_sesion_clicked(MouseEvent event) {
+    }
+
+    @FXML
+    private void back(ActionEvent event) {
+    }
+
+    @FXML
+    private void exitActualizar(MouseEvent event) {
+    }
+
+    @FXML
+    private void exit(ActionEvent event) {
+    }
+
 
 }
 
