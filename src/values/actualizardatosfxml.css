@@ -34,6 +34,9 @@
     -fx-background-color: #FFFFFF;
     -fx-background-radius: 30;
 }
+.white-button:hover{
+    -fx-background-color: lightgray;
+} 
 
 .darkpurple-button{
     -fx-background-color: #4E0250;
