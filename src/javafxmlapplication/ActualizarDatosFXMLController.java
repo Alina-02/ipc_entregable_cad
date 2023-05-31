@@ -13,6 +13,9 @@ import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.animation.TranslateTransition;
+import javafx.beans.binding.Bindings;
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -114,14 +117,12 @@ public class ActualizarDatosFXMLController implements Initializable {
     
     //Variables extra
     private Member m;
+    private BooleanProperty contraseñaEditado;
     
-    private boolean contraseñaEditado;
     @FXML
     private AnchorPane pane_slide;
     @FXML
     private Button menu_button2;
-    @FXML
-    private Circle pictureFrame1;
     @FXML
     private Label nickname_label;
     @FXML
@@ -155,7 +156,7 @@ public class ActualizarDatosFXMLController implements Initializable {
         m = AutenticarseFXMLController.getMember();
         
         //inicializo variables
-        contraseñaEditado = false;
+        contraseñaEditado = new SimpleBooleanProperty(false);
         nickname_label.setText(m.getNickName());
         
         //Quitar la visibilidad de los botones
@@ -275,17 +276,17 @@ public class ActualizarDatosFXMLController implements Initializable {
         
         // COLOCAR FOTO DE PERFIL
         Image selectedFile = m.getImage();
-        pictureFrame1.setFill(new ImagePattern(selectedFile));
         pictureFrame.setFill(new ImagePattern(selectedFile));
         pictureFrame2.setFill(Color.WHITE);
         pictureFrame.setStrokeWidth(0);
         pictureFrame2.setStrokeWidth(20);
         pictureFrame2.setStroke(Color.WHITE);
         
-        
+        mensaje_foto.setVisible(false);
         pictureFrame.setOnMouseEntered(event -> mensaje_foto.setVisible(true));
         mensaje_foto.setOnMouseExited(event -> mensaje_foto.setVisible(false));
-        
+        aceptar_edicion_button.disableProperty().bind(name_text.textProperty().isEmpty().or(last_name_text.textProperty().isEmpty()).or(user_text.textProperty().isEmpty()).or(phone_text.textProperty().isEmpty()).or(password_text.textProperty().isEmpty()).or(contraseñaEditado.and(contraseñaEditado.and(password_comprobar_text.textProperty().isEmpty()))));
+
         
     }
 
@@ -311,7 +312,7 @@ public class ActualizarDatosFXMLController implements Initializable {
         cancelar_button.setVisible(false);
         aceptar_edicion_button.setVisible(false);
         modificar_button.setVisible(true);
-        contraseñaEditado = false;
+        contraseñaEditado.set(false);
 
         
         //habilito que no se pueda editar los espacios te texto
@@ -368,7 +369,7 @@ public class ActualizarDatosFXMLController implements Initializable {
                         aceptar_edicion_button.setVisible(false);
                         modificar_button.setVisible(true);
                         confirmacion_box.setVisible(false);
-                        contraseñaEditado = false;
+                        contraseñaEditado.set(false);
 
                         //habilito que pueda editar los espacios te texto
                         esEditable(false);
@@ -445,7 +446,7 @@ public class ActualizarDatosFXMLController implements Initializable {
 
     @FXML
     private void contraseñaConfirmarContraseña(MouseEvent event) {
-        if(contraseñaEditado){
+        if(contraseñaEditado.get()){
         if(!password_comprobar_text.getText().isEmpty()){
         if(!utils.confirmacionBien(password_text.getText(),password_comprobar_text.getText())){
             error_confirmacion_label.setVisible(true);
@@ -500,7 +501,7 @@ public class ActualizarDatosFXMLController implements Initializable {
 
     @FXML
     private void passClick(MouseEvent event) {
-        contraseñaEditado = true;
+        contraseñaEditado.set(true);
         confirmacion_box.setVisible(true);
     }
     
@@ -547,13 +548,6 @@ public class ActualizarDatosFXMLController implements Initializable {
     }
 
 
-    @FXML
-    private void showChange(MouseEvent event) {
-    }
-
-    @FXML
-    private void changeProfile(MouseEvent event) {
-    }
 
     @FXML
     private void irActualizar(MouseEvent event) {
@@ -624,7 +618,7 @@ public class ActualizarDatosFXMLController implements Initializable {
         if(!utils.textBien(last_name_text.getText())) return false; 
         if(!utils.numberBien(phone_text.getText(),9)) return false; 
         if(!utils.contraseñaBien(password_text.getText())) return false; 
-        if(contraseñaEditado && !utils.confirmacionBien(password_text.getText(),password_comprobar_text.getText())) return false;
+        if(contraseñaEditado.get() && !utils.confirmacionBien(password_text.getText(),password_comprobar_text.getText())) return false;
         if(!utils.numberBien(card_text.getText(),16)) return false; 
         if(!utils.numberBien(svc_text.getText(),3)) return false;
         return true;
@@ -728,7 +722,7 @@ public class ActualizarDatosFXMLController implements Initializable {
 
     @FXML
     private void aparecer(MouseEvent event) {
-        //mensaje_foto.setVisible(true);
+        mensaje_foto.setVisible(true);
         
         
     }
