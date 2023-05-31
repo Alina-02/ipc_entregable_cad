@@ -222,11 +222,7 @@ public class RegistroFXMLController implements Initializable {
             }catch(Exception e){System.out.println(e);}
     }
 
-    private void exitRegistro(MouseEvent event) {
-        Stage stage = (Stage) exit_button_registro.getScene().getWindow();
-        stage.close();
-    }
-
+ 
     @FXML
     private void registerMember(ActionEvent event) throws ClubDAOException {
        
@@ -434,6 +430,8 @@ public class RegistroFXMLController implements Initializable {
 
     @FXML
     private void exitActualizar(MouseEvent event) {
+        Stage stage = (Stage) exit_button_registro.getScene().getWindow();
+        stage.close();
     }
 
     @FXML
