@@ -126,7 +126,7 @@ public class RegistroFXMLController implements Initializable {
         ojo_abierto_button.setVisible(false);
         password_ver_text.setVisible(false); 
         
-        
+        name_text.requestFocus();
         //Cambiar el cursor
         back_button_actualizar.setOnMouseEntered(event -> {
                 back_button_actualizar.setCursor(Cursor.HAND);
@@ -373,6 +373,8 @@ public class RegistroFXMLController implements Initializable {
         ojo_cerrado_button.setVisible(false);
         ojo_abierto_button.setVisible(true);
         password_ver_text.setVisible(true);
+        password_ver_text.requestFocus();
+        password_ver_text.positionCaret(password_ver_text.getText().length());
     }
 
     @FXML
@@ -380,6 +382,8 @@ public class RegistroFXMLController implements Initializable {
         ojo_cerrado_button.setVisible(true);
         ojo_abierto_button.setVisible(false);
         password_ver_text.setVisible(false);
+        password_text.requestFocus();
+        password_text.positionCaret(password_text.getText().length());
     }
 
         @FXML
