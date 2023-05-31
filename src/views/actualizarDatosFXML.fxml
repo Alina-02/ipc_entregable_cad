@@ -204,6 +204,11 @@
                               </Button>
                               <VBox alignment="TOP_CENTER" prefHeight="330.0" prefWidth="490.0">
                                  <children>
+                                    <Circle fx:id="pictureFrame1" fill="WHITE" onMouseEntered="#showChange" onMousePressed="#changeProfile" radius="94.0" stroke="BLACK" strokeType="INSIDE">
+                                       <VBox.margin>
+                                          <Insets top="45.0" />
+                                       </VBox.margin>
+                                    </Circle>
                                     <Label fx:id="nickname_label" text="Nickname">
                                        <VBox.margin>
                                           <Insets top="20.0" />
@@ -353,7 +358,7 @@
                            <children>
                               <Button fx:id="exit_button_actualizar" mnemonicParsing="false" onAction="#exit" onMouseClicked="#exitActualizar" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: transparent;">
                                  <HBox.margin>
-                                    <Insets top="15.0" />
+                                    <Insets top="30.0" />
                                  </HBox.margin>
                                  <graphic>
                                     <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
