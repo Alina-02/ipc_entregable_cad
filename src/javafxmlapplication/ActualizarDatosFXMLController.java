@@ -224,7 +224,9 @@ public class ActualizarDatosFXMLController implements Initializable {
         
         // COLOCAR FOTO DE PERFIL
         Image selectedFile = m.getImage();
-        pictureFrame1.setFill(new ImagePattern(selectedFile));
+        pictureFrame.setFill(new ImagePattern(selectedFile));
+        pictureFrame.setStrokeWidth(5);
+        pictureFrame.setStroke(Color.WHITE);
         
         
         
@@ -699,6 +701,7 @@ public class ActualizarDatosFXMLController implements Initializable {
 
     @FXML
     private void selectAvatar(MouseEvent event) {
+        
         Button b = (Button) event.getSource();
         Image avatar = ((ImageView) b.getGraphic()).getImage();
         pictureFrame.setFill(new ImagePattern(avatar));

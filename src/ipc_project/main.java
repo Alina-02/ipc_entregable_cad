@@ -1,6 +1,3 @@
-
-
-
 package ipc_project;
 
 
@@ -48,8 +45,6 @@ public class main extends Application{
         // 2- creación de la escena con el nodo raiz del grafo de escena
         Scene scene = new Scene(root);
         
-        DisponibilidadDelDiaFXMLController controller = loader.getController();
-        controller.setStage(stage);
         //======================================================================
         // 3- asiganación de la escena al Stage que recibe el metodo 
         //     - configuracion del stage
@@ -64,8 +59,6 @@ public class main extends Application{
         
         stage.setTitle("GreenBall");
         
-        
-        controller.resizable();
         
         
         stage.show();
