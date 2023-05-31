@@ -179,6 +179,10 @@ public class VerMisReservasFXMLController implements Initializable {
         
         // ACTUALIZAR CURSORES
         
+        ir_Actualizar.setOnMouseEntered(event -> {
+                ir_Actualizar.setCursor(Cursor.HAND);
+        });
+        
         ir_Actualizar.setOnMouseExited(event ->{
                 ir_Actualizar.setCursor(Cursor.DEFAULT);
         });
@@ -204,11 +208,11 @@ public class VerMisReservasFXMLController implements Initializable {
                 menu_button1.setCursor(Cursor.DEFAULT);
         });
         menu_button2.setOnMouseEntered(event -> {
-                menu_button1.setCursor(Cursor.HAND);
+                menu_button2.setCursor(Cursor.HAND);
         });
         
         menu_button2.setOnMouseExited(event ->{
-                menu_button1.setCursor(Cursor.DEFAULT);
+                menu_button2.setCursor(Cursor.DEFAULT);
         });
         cerrar_sesion_label.setOnMouseEntered(event -> {
                 cerrar_sesion_label.setCursor(Cursor.HAND);
@@ -216,6 +220,13 @@ public class VerMisReservasFXMLController implements Initializable {
         
         cerrar_sesion_label.setOnMouseExited(event ->{
                 cerrar_sesion_label.setCursor(Cursor.DEFAULT);
+        });
+        exit_button.setOnMouseEntered(event -> {
+                exit_button.setCursor(Cursor.HAND);
+        });
+        
+        exit_button.setOnMouseExited(event ->{
+                exit_button.setCursor(Cursor.DEFAULT);
         });
          
     
