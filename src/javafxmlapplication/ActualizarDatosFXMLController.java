@@ -686,6 +686,10 @@ public class ActualizarDatosFXMLController implements Initializable {
                 }
             });
     }
+
+    @FXML
+    private void seleccionarFoto(MouseEvent event) {
+    }
     
 }
 

@@ -685,8 +685,8 @@ public class DisponibilidadDelDiaFXMLController implements Initializable {
         double width = stage.getWidth();
         
         for(ToggleButton tb: pistasList){
-            tb.setPrefHeight(tb.getHeight()+height * 0.33);
-            tb.setPrefWidth(tb.getWidth()+ width * 0.33);
+            tb.setPrefHeight(tb.getHeight() + height * 0.33);
+            tb.setPrefWidth(tb.getWidth() + width * 0.33);
         }
                     
         pistas_hbox.setPrefHeight(pistas_hbox.getHeight() * height);
@@ -702,7 +702,7 @@ public class DisponibilidadDelDiaFXMLController implements Initializable {
                         
                     }
                     
-                    pistas_hbox.setPrefHeight((pistas_hbox.getHeight() * newval.doubleValue()) / oldval.doubleValue());
+                    pistas_hbox.setPrefHeight((pistas_hbox.getHeight() * newval.doubleValue())  / oldval.doubleValue());
                 }
                 
             });
