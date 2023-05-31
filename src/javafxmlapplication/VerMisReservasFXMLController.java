@@ -196,6 +196,28 @@ public class VerMisReservasFXMLController implements Initializable {
         ir_Reservar.setOnMouseExited(event ->{
                 ir_Reservar.setCursor(Cursor.DEFAULT);
         });
+        menu_button1.setOnMouseEntered(event -> {
+                menu_button1.setCursor(Cursor.HAND);
+        });
+        
+        menu_button1.setOnMouseExited(event ->{
+                menu_button1.setCursor(Cursor.DEFAULT);
+        });
+        menu_button2.setOnMouseEntered(event -> {
+                menu_button1.setCursor(Cursor.HAND);
+        });
+        
+        menu_button2.setOnMouseExited(event ->{
+                menu_button1.setCursor(Cursor.DEFAULT);
+        });
+        cerrar_sesion_label.setOnMouseEntered(event -> {
+                cerrar_sesion_label.setCursor(Cursor.HAND);
+        });
+        
+        cerrar_sesion_label.setOnMouseExited(event ->{
+                cerrar_sesion_label.setCursor(Cursor.DEFAULT);
+        });
+         
     
         // PONER DATOS DEL MENÚ
         

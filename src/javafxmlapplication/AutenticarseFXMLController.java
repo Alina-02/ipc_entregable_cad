@@ -138,8 +138,7 @@ public class AutenticarseFXMLController implements Initializable {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/RegistroFXML.fxml"));
                 Parent root = loader.load();
                   
-                Scene scene = new Scene(root, 1200, 750);
-                stage.setScene(scene);
+                stage.getScene().setRoot(root);
             }
             
                 
