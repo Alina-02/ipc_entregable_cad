@@ -321,7 +321,7 @@
                                                 <Font size="16.0" />
                                              </font>
                                           </PasswordField>
-                                          <TextField fx:id="password_ver_text" editable="false" focusTraversable="false" onMouseExited="#contraseñaComprobar" styleClass="basic-text" stylesheets="@../values/actualizardatosfxml.css" visible="false">
+                                          <TextField fx:id="password_ver_text" focusTraversable="false" onMouseExited="#contraseñaComprobar" styleClass="basic-text" stylesheets="@../values/actualizardatosfxml.css" visible="false">
                                              <font>
                                                 <Font size="16.0" />
                                              </font>
