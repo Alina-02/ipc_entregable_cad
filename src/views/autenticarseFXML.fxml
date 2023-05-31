@@ -21,7 +21,18 @@
          <left>
             <VBox alignment="CENTER" prefHeight="750.0" prefWidth="490.0" styleClass="green-background" BorderPane.alignment="CENTER">
                <children>
-                  <ImageView fitHeight="750.0" fitWidth="436.0" pickOnBounds="true" preserveRatio="true" />
+                  <VBox alignment="CENTER" prefHeight="629.0" prefWidth="432.0" style="-fx-background-color: ffffff;">
+                     <children>
+                        <ImageView fitHeight="629.0" fitWidth="393.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/Runway%202023-05-21T22_10_10.094Z%20Erase%20and%20Replace%20remove.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="30.0" right="30.0" />
+                     </VBox.margin>
+                  </VBox>
                </children></VBox>
          </left>
          <center>
