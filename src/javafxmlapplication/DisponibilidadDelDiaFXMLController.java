@@ -246,6 +246,8 @@ public class DisponibilidadDelDiaFXMLController implements Initializable {
             
             
         club = Club.getInstance();
+//        club.setInitialData();
+//        club.addSimpleData();
         
         
         find_hour_textfield.setFocusTraversable(false);
@@ -403,6 +405,8 @@ public class DisponibilidadDelDiaFXMLController implements Initializable {
         }catch(Exception e){
             System.out.println("Da error el initialize: " + e);
         }
+        horasPasadas();
+        
         
     }    
 
@@ -515,6 +519,7 @@ public class DisponibilidadDelDiaFXMLController implements Initializable {
         title_num_pista_label.setText("01");
         
         comprobarPista(pista, date);
+        horasPasadas();
     }
 
     @FXML
@@ -522,6 +527,7 @@ public class DisponibilidadDelDiaFXMLController implements Initializable {
         pista = "Pista 4";
         title_num_pista_label.setText("04");
         comprobarPista(pista, date);
+        horasPasadas();
     }
 
     @FXML
@@ -529,6 +535,7 @@ public class DisponibilidadDelDiaFXMLController implements Initializable {
         pista = "Pista 2";
         title_num_pista_label.setText("02");
         comprobarPista(pista, date);
+        horasPasadas();
     }
 
     @FXML
@@ -536,6 +543,7 @@ public class DisponibilidadDelDiaFXMLController implements Initializable {
         pista = "Pista 5";
         title_num_pista_label.setText("05");
         comprobarPista(pista, date);
+        horasPasadas();
     }
 
     @FXML
@@ -543,6 +551,7 @@ public class DisponibilidadDelDiaFXMLController implements Initializable {
         pista = "Pista 3";
         title_num_pista_label.setText("03");
         comprobarPista(pista, date);
+        horasPasadas();
     }
 
     // CALENDARIO
@@ -552,6 +561,7 @@ public class DisponibilidadDelDiaFXMLController implements Initializable {
         pista = "Pista 6";
         title_num_pista_label.setText("06");
         comprobarPista(pista, date);
+        horasPasadas();
     }
     
     @FXML
@@ -659,6 +669,14 @@ public class DisponibilidadDelDiaFXMLController implements Initializable {
     public static void setDisponibilidadGo(boolean bool){
         disponibilidadGo = bool;
     }
-    
+    private void horasPasadas(){
+        if(date.equals(LocalDate.now())){
+            for(Button b: horas){
+                if(LocalTime.of(map.get(b), 0).isBefore(LocalTime.now())){
+                    b.setDisable(true);
+                }
+            }
+        }
+    }
     
 }
