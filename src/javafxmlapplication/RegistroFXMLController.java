@@ -223,11 +223,12 @@ public class RegistroFXMLController implements Initializable {
                 Parent root = loader.load();
                 
                 AutenticarseFXMLController controller = loader.getController();
+                
+
+                Scene scene = new Scene(root, stage.getWidth(), stage.getHeight());
                 controller.setStage(stage);
                 
                 controller.resizable();
-
-                Scene scene = new Scene(root, stage.getWidth(), stage.getHeight());
                 stage.setScene(scene);
                 
             }else if(DisponibilidadDelDiaFXMLController.getDisponibilidadGo()){
@@ -239,10 +240,12 @@ public class RegistroFXMLController implements Initializable {
                 DisponibilidadDelDiaFXMLController controller = loader.getController();
                 controller.setStage(stage);
                 
-                controller.resizable();
+                
                   
                 Scene scene = new Scene(root, stage.getWidth(), stage.getHeight());
-            stage.setScene(scene);
+                stage.setScene(scene);
+                
+                controller.resizable();
                 }
             
             }catch(Exception e){System.out.println(e);}

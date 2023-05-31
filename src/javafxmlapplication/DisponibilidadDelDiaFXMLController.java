@@ -656,8 +656,6 @@ public class DisponibilidadDelDiaFXMLController implements Initializable {
                     
             FXMLLoader loader= new  FXMLLoader(getClass().getResource("/views/registroFXML.fxml"));
             
-            
-            
             Parent root = loader.load();
             RegistroFXMLController controller = loader.getController();
             controller.setStage(stage);
@@ -682,6 +680,17 @@ public class DisponibilidadDelDiaFXMLController implements Initializable {
     
     public void setStage(Stage s){
         this.stage = s;
+        
+        double height = stage.getHeight();
+        double width = stage.getWidth();
+        
+        for(ToggleButton tb: pistasList){
+            tb.setPrefHeight(tb.getHeight()+height * 0.33);
+            tb.setPrefWidth(tb.getWidth()+ width * 0.33);
+        }
+                    
+        pistas_hbox.setPrefHeight(pistas_hbox.getHeight() * height);
+        
     }
     
     public void resizable(){

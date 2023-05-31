@@ -1233,6 +1233,14 @@ public class ReservarFXMLController implements Initializable {
     
     public void setStage(Stage s){
         this.stage = s;
+        
+        double height = stage.getHeight();
+        double width = stage.getWidth();
+        
+        for(ToggleButton tb: pistasList){
+            tb.setPrefHeight(tb.getHeight()+height * 0.33);
+            tb.setPrefWidth(tb.getWidth()+ width * 0.33);
+        }
     }
     
     public void resizable(){
