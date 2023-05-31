@@ -6,6 +6,7 @@ package javafxmlapplication;
 
 import ipc_project.main;
 import ipc_project.utils;
+import java.io.File;
 import java.io.IOException;
 import javafx.scene.image.Image;
 import java.net.URL;
@@ -17,6 +18,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -39,6 +41,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.DialogPane;
 import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -133,9 +136,9 @@ public class ActualizarDatosFXMLController implements Initializable {
     
     private Stage stage;
     @FXML
-    private Button perfil1;
-    @FXML
     private Button subir_foto_button;
+    @FXML
+    private Circle pictureFrame2;
     
 
     /**
@@ -225,8 +228,10 @@ public class ActualizarDatosFXMLController implements Initializable {
         // COLOCAR FOTO DE PERFIL
         Image selectedFile = m.getImage();
         pictureFrame.setFill(new ImagePattern(selectedFile));
-        pictureFrame.setStrokeWidth(5);
-        pictureFrame.setStroke(Color.WHITE);
+        pictureFrame2.setFill(Color.WHITE);
+        pictureFrame.setStrokeWidth(0);
+        pictureFrame2.setStrokeWidth(20);
+        pictureFrame2.setStroke(Color.WHITE);
         
         
         
@@ -703,10 +708,23 @@ public class ActualizarDatosFXMLController implements Initializable {
         Button b = (Button) event.getSource();
         Image avatar = ((ImageView) b.getGraphic()).getImage();
         pictureFrame.setFill(new ImagePattern(avatar));
+        AutenticarseFXMLController.getMember().setImage(avatar);
     }
 
     @FXML
     private void subirFoto(MouseEvent event) {
+        //Cuestiones para abrir los archivos
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Abrir fichero");
+        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Imágenes", "*.png", "*.jpg", "*.gif"));
+        File selectedFile = fileChooser.showOpenDialog(((Node)event.getSource()).getScene().getWindow());
+        //Para colocar la imagen 
+        Label label = new Label();
+        if (selectedFile != null){label.setText(selectedFile.getAbsolutePath());}
+        String fn = label.getText();
+        Image im = new Image(fn);
+        pictureFrame.setFill(new ImagePattern(im));
+        AutenticarseFXMLController.getMember().setImage(im);
     }
     
 }
