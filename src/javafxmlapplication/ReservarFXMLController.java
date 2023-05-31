@@ -916,8 +916,7 @@ public class ReservarFXMLController implements Initializable {
             
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/verMisReservasFXML.fxml"));
             Parent root = loader.load();
-            Scene scene = new Scene(root, 1200, 750);
-            stage.setScene(scene);
+            stage.getScene().setRoot(root);
                     
         }catch(Exception e){System.out.println("Problemas en el botón a mis reservas: " + e);}
         
@@ -935,8 +934,7 @@ public class ReservarFXMLController implements Initializable {
             
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/disponibilidadDelDiaFXML.fxml"));
             Parent root = loader.load();
-            Scene scene = new Scene(root, 1200, 750);
-            stage.setScene(scene);
+            stage.getScene().setRoot(root);
                     
         }catch(Exception e){System.out.println("Problemas en cerrar sesión: " + e);}
         
@@ -1014,8 +1012,7 @@ public class ReservarFXMLController implements Initializable {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/actualizarDatosFXML.fxml"));
                 Parent root = loader.load();
                   
-                Scene scene = new Scene(root, 1200, 750);
-                stage.setScene(scene);
+                stage.getScene().setRoot(root);
 
                     
             }catch(IOException e){System.out.println("Problemas en ir a actualizar: " + e);}
@@ -1032,8 +1029,7 @@ public class ReservarFXMLController implements Initializable {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/verMisReservasFXML.fxml"));
                 Parent root = loader.load();
                   
-                Scene scene = new Scene(root, 1200, 750);
-                stage.setScene(scene);
+                stage.getScene().setRoot(root);
 
                     
             }catch(Exception e){System.out.println("Problemas en ir a ver: " + e);}
@@ -1050,8 +1046,7 @@ public class ReservarFXMLController implements Initializable {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/reservarFXML.fxml"));
                 Parent root = loader.load();
                   
-                Scene scene = new Scene(root, 1200, 750);
-                stage.setScene(scene);
+                stage.getScene().setRoot(root);
 
                     
             }catch(Exception e){System.out.println("Problemas en ir a reservar: " + e);}
