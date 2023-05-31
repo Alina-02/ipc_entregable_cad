@@ -227,7 +227,7 @@
                                  <children>
                                     <HBox prefHeight="100.0" prefWidth="200.0">
                                        <children>
-                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre/s">
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre/s *">
                                              <font>
                                                 <Font size="20.0" />
                                              </font>
@@ -249,7 +249,7 @@
                                  <children>
                                     <HBox>
                                        <children>
-                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" Apellido/s">
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" Apellido/s *">
                                              <font>
                                                 <Font size="20.0" />
                                              </font>
@@ -268,7 +268,7 @@
                                  <children>
                                     <HBox>
                                        <children>
-                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario">
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario *">
                                              <font>
                                                 <Font size="20.0" />
                                              </font>
@@ -287,7 +287,7 @@
                                  <children>
                                     <HBox>
                                        <children>
-                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Teléfono">
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Teléfono *">
                                              <font>
                                                 <Font size="20.0" />
                                              </font>
@@ -306,7 +306,7 @@
                                  <children>
                                     <HBox>
                                        <children>
-                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Contraseña">
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Contraseña *">
                                              <font>
                                                 <Font size="20.0" />
                                              </font>
@@ -321,7 +321,7 @@
                                                 <Font size="16.0" />
                                              </font>
                                           </PasswordField>
-                                          <TextField fx:id="password_ver_text" focusTraversable="false" onMouseExited="#contraseñaComprobar" styleClass="basic-text" stylesheets="@../values/actualizardatosfxml.css" visible="false">
+                                          <TextField fx:id="password_ver_text" editable="false" focusTraversable="false" onMouseExited="#contraseñaComprobar" styleClass="basic-text" stylesheets="@../values/actualizardatosfxml.css" visible="false">
                                              <font>
                                                 <Font size="16.0" />
                                              </font>
@@ -352,7 +352,7 @@
                                  <children>
                                     <HBox>
                                        <children>
-                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Confirmación">
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Confirmación *">
                                              <font>
                                                 <Font size="20.0" />
                                              </font>
@@ -441,6 +441,11 @@
                                  </font>
                               </Text>
                               <Label fx:id="general_error_label" contentDisplay="CENTER" prefHeight="20.0" prefWidth="373.0" styleClass="label-error" text="Algunos campos no se encuentran bien, por favor revíselo." GridPane.columnSpan="2" GridPane.rowIndex="8" />
+                              <Label alignment="CENTER_RIGHT" text="* Campos Obligatorios" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="8" GridPane.valignment="BOTTOM">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
                            </children>
                            <VBox.margin>
                               <Insets />

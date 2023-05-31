@@ -279,10 +279,12 @@ public class ActualizarDatosFXMLController implements Initializable {
         // COLOCAR FOTO DE PERFIL
         Image selectedFile = m.getImage();
         pictureFrame.setFill(new ImagePattern(selectedFile));
+        pictureFrame1.setFill(new ImagePattern(selectedFile));
         pictureFrame2.setFill(Color.WHITE);
         pictureFrame.setStrokeWidth(0);
         pictureFrame2.setStrokeWidth(20);
         pictureFrame2.setStroke(Color.WHITE);
+      
         
         mensaje_foto.setVisible(false);
         pictureFrame.setOnMouseEntered(event -> mensaje_foto.setVisible(true));
