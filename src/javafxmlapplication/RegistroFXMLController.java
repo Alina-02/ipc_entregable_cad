@@ -232,7 +232,12 @@ public class RegistroFXMLController implements Initializable {
        
         if(bien() && !register_button.isDisable()){
             general_error_label.setVisible(false);
+            if(card_text.getText().isEmpty()){
+                club.registerMember(name_text.getText(), last_name_text.getText(), phone_text.getText(), user_text.getText(), password_text.getText(), card_text.getText(),0, im);
+            
+            }else{
             club.registerMember(name_text.getText(), last_name_text.getText(), phone_text.getText(), user_text.getText(), password_text.getText(), card_text.getText(),Integer.valueOf(svc_text.getText()), im);
+            }
             usuarioRegistrado();
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 //cambiar el icono
