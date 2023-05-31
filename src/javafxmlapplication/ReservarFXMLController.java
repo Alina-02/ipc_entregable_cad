@@ -275,6 +275,8 @@ public class ReservarFXMLController implements Initializable {
     @FXML
     private Circle pictureFrame1;
     private Stage stage;
+    @FXML
+    private VBox scrollpane_vbox;
     
     
     

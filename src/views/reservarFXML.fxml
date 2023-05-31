@@ -28,7 +28,7 @@
          <left>
             <StackPane BorderPane.alignment="CENTER">
                <children>
-                  <VBox prefHeight="810.0" prefWidth="490.0" styleClass="green-background" stylesheets="@../values/reservarfxml.css">
+                  <VBox fx:id="scrollpane_vbox" prefHeight="810.0" prefWidth="490.0" styleClass="green-background" stylesheets="@../values/reservarfxml.css">
                      <children>
                         <HBox alignment="CENTER" cache="true" prefHeight="112.0" prefWidth="490.0">
                            <children>

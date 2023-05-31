@@ -656,12 +656,14 @@ public class DisponibilidadDelDiaFXMLController implements Initializable {
                     
             FXMLLoader loader= new  FXMLLoader(getClass().getResource("/views/registroFXML.fxml"));
             
-            DisponibilidadDelDiaFXMLController controller = loader.getController();
+            
+            
+            Parent root = loader.load();
+            RegistroFXMLController controller = loader.getController();
             controller.setStage(stage);
             
             controller.resizable();
             
-            Parent root = loader.load();
             Scene scene = new Scene(root, stage.getWidth(),stage.getHeight());
             stage.setScene(scene);
             
