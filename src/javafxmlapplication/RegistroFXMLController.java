@@ -449,8 +449,8 @@ public class RegistroFXMLController implements Initializable {
         if(!utils.numberBien(phone_text.getText(),9)) return false; 
         if(!utils.contraseñaBien(password_text.getText())) return false; 
         if(!utils.confirmacionBien(password_text.getText(),password_comprobar_text.getText())) return false;
-        if(!utils.numberBien(card_text.getText(),16)) return false; 
-        if(!utils.numberBien(svc_text.getText(),3)) return false;
+        if(!card_text.getText().isEmpty() && !utils.numberBien(card_text.getText(),16)) return false; 
+        if(!svc_text.getText().isEmpty() && !utils.numberBien(svc_text.getText(),3)) return false;
         return true;
     }
     

@@ -90,6 +90,8 @@ public class utils {
                 si = true;
             }else if(num<=122 && num >= 97){
                 si = true;
+            }else if(num == 164 || num ==165){
+                si = true;
             }else si = false;
         }
         return si;
