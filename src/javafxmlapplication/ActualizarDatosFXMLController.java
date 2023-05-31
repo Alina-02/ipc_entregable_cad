@@ -218,6 +218,49 @@ public class ActualizarDatosFXMLController implements Initializable {
         modificar_button.setOnMouseExited(event ->{
                 modificar_button.setCursor(Cursor.DEFAULT);
         });
+        ir_Actualizar.setOnMouseEntered(event -> {
+                ir_Actualizar.setCursor(Cursor.HAND);
+        });
+        
+        ir_Actualizar.setOnMouseExited(event ->{
+                ir_Actualizar.setCursor(Cursor.DEFAULT);
+        });
+        ir_Ver.setOnMouseEntered(event -> {
+                ir_Ver.setCursor(Cursor.HAND);
+        });
+        
+        ir_Ver.setOnMouseExited(event ->{
+                ir_Ver.setCursor(Cursor.DEFAULT);
+        });
+        ir_Reservar.setOnMouseEntered(event -> {
+                ir_Reservar.setCursor(Cursor.HAND);
+        });
+        
+        ir_Reservar.setOnMouseExited(event ->{
+                ir_Reservar.setCursor(Cursor.DEFAULT);
+        });
+        menu_button1.setOnMouseEntered(event -> {
+                menu_button1.setCursor(Cursor.HAND);
+        });
+        
+        menu_button1.setOnMouseExited(event ->{
+                menu_button1.setCursor(Cursor.DEFAULT);
+        });
+        menu_button2.setOnMouseEntered(event -> {
+                menu_button1.setCursor(Cursor.HAND);
+        });
+        
+        menu_button2.setOnMouseExited(event ->{
+                menu_button1.setCursor(Cursor.DEFAULT);
+        });
+        cerrar_sesion_label.setOnMouseEntered(event -> {
+                cerrar_sesion_label.setCursor(Cursor.HAND);
+        });
+        
+        cerrar_sesion_label.setOnMouseExited(event ->{
+                cerrar_sesion_label.setCursor(Cursor.DEFAULT);
+        });
+         
         
         
         //Dar valor a los campos de texto
@@ -232,6 +275,7 @@ public class ActualizarDatosFXMLController implements Initializable {
         
         // COLOCAR FOTO DE PERFIL
         Image selectedFile = m.getImage();
+        pictureFrame1.setFill(new ImagePattern(selectedFile));
         pictureFrame.setFill(new ImagePattern(selectedFile));
         pictureFrame2.setFill(Color.WHITE);
         pictureFrame.setStrokeWidth(0);
@@ -514,21 +558,13 @@ public class ActualizarDatosFXMLController implements Initializable {
     @FXML
     private void irActualizar(MouseEvent event) {
         try{
-                
-                
-                //stage.getIcons().add(new Image(this.getClass().getResourceAsStream("/img/Pelota.png")));
             
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/actualizarDatosFXML.fxml"));
-                Parent root = loader.load();
-                
-                ActualizarDatosFXMLController controller = loader.getController();
-                controller.setStage(stage);
-                  
-                
-                Scene scene = new Scene(root, stage.getWidth(), stage.getHeight());
-                stage.setScene(scene);
-                
-                controller.resizable();
+            Stage stage;
+            stage = main.getStage();
+            
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/actualizarDatosFXML.fxml"));
+            Parent root = loader.load();
+            stage.getScene().setRoot(root);
 
                     
             }catch(IOException e){System.out.println("Problemas en ir a actualizar: " + e);}
@@ -536,69 +572,46 @@ public class ActualizarDatosFXMLController implements Initializable {
 
     @FXML
     private void irVer(MouseEvent event) {
-        /*try{
-               
-                
-                stage.getIcons().add(new Image(this.getClass().getResourceAsStream("/img/Pelota.png")));
+        try{   
+            Stage stage;
+            stage = main.getStage();
             
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/verMisReservasFXML.fxml"));
-                Parent root = loader.load();
-                
-                VerMisReservasFXMLController controller = loader.getController();
-                controller.setStage(stage);
-                  
-                Scene scene = new Scene(root, stage.getWidth(), stage.getHeight());
-                stage.setScene(scene);
-                
-                controller.resizable();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/verMisReservasFXML.fxml"));
+            Parent root = loader.load();
+            stage.getScene().setRoot(root);
 
                     
-            }catch(Exception e){System.out.println("Problemas en ir a ver: " + e);}*/
+            }catch(Exception e){System.out.println("Problemas en ir a ver: " + e);}
     }
 
     @FXML
     private void irReservar(MouseEvent event) {
-        /*try{
-                
-                
-                stage.getIcons().add(new Image(this.getClass().getResourceAsStream("/img/Pelota.png")));
+        try{
+            Stage stage;
+            stage = main.getStage();
             
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/reservarFXML.fxml"));
-                Parent root = loader.load();
-                
-                ReservarFXMLController controller = loader.getController();
-                controller.setStage(stage);
-                
-                  
-                Scene scene = new Scene(root, stage.getWidth(), stage.getHeight());
-                stage.setScene(scene);
-
-                controller.resizable();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/reservarFXML.fxml"));
+            Parent root = loader.load();
+            stage.getScene().setRoot(root);
                     
-            }catch(Exception e){System.out.println("Problemas en ir a reservar: " + e);}*/
+            }catch(Exception e){System.out.println("Problemas en ir a reservar: " + e);}
 
     }
 
     @FXML
     private void cerrar_sesion_clicked(MouseEvent event) {
-        /**try{
+        try{
             // HAY QUE PONER EL MEMBER A NULL, HACE FALTA UN MÉTODO SET MEMBER EN AUTENTICARSE
             AutenticarseFXMLController.setMember(null);
             
-            stage.getIcons().add(new Image(this.getClass().getResourceAsStream("/img/Pelota.png")));
+            Stage stage;
+            stage = main.getStage();
             
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/disponibilidadDelDiaFXML.fxml"));
             Parent root = loader.load();
-            
-            DisponibilidadDelDiaFXMLController controller = loader.getController();
-            controller.setStage(stage);
-            
-            Scene scene = new Scene(root, stage.getWidth(), stage.getHeight());
-            stage.setScene(scene);
-            
-            controller.resizable();
+            stage.getScene().setRoot(root);
                     
-        }catch(Exception e){System.out.println("Problemas en cerrar sesión: " + e);}*/
+        }catch(Exception e){System.out.println("Problemas en cerrar sesión: " + e);}
         
     }
     
@@ -682,32 +695,6 @@ public class ActualizarDatosFXMLController implements Initializable {
         error_svc_label.setVisible(b);
     }
     
-    public void setStage(Stage s){
-        this.stage = s;
-    }
-    
-    public void resizable(){
-        stage.heightProperty().addListener((ob, oldval, newval)->{
-                if(!oldval.equals(Double.NaN)){
-                   
-                    //RELLENAR
-                    
-                    
-                    
-                    
-                }
-            });
-            
-            stage.widthProperty().addListener((ob, oldval, newval)->{
-                if(!oldval.equals(Double.NaN)){
-                    
-                    
-                    //RELLENAR
-                    
-                    
-                }
-            });
-    }
 
     @FXML
     private void seleccionarFoto(MouseEvent event) {
