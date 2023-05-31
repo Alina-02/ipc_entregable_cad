@@ -257,11 +257,11 @@
                      <children>
                         <TableView fx:id="bookings_table_view" maxWidth="611.0" minHeight="300.0" minWidth="611.0" onMouseClicked="#bookings_clicked" prefHeight="300.0" prefWidth="611.0" stylesheets="@../values/vermisreservasfxml.css">
                           <columns>
-                              <TableColumn fx:id="dia_table_column" editable="false" maxWidth="80.0" minWidth="80.0" prefWidth="76.0" sortable="false" text="Día" />
+                              <TableColumn fx:id="dia_table_column" editable="false" maxWidth="80.0" minWidth="90.0" prefWidth="90.0" sortable="false" text="Día / Mes" />
                               <TableColumn fx:id="pista_table_column" editable="false" maxWidth="90.0" minWidth="90.0" prefWidth="90.0" sortable="false" text="Pista" />
                               <TableColumn fx:id="entrada_table_column" editable="false" maxWidth="140.0" minWidth="140.0" prefWidth="127.0" sortable="false" text="Hora de Entrada" />
                               <TableColumn fx:id="salida_table_column" editable="false" maxWidth="130.0" minWidth="130.0" prefWidth="127.0" sortable="false" text="Hora de Salida" />
-                              <TableColumn fx:id="pagada_table_column" editable="false" maxWidth="155.0" minWidth="155.0" prefWidth="183.0" sortable="false" text="Pagada" />
+                              <TableColumn fx:id="pagada_table_column" editable="false" maxWidth="155.0" minWidth="140.0" prefWidth="160.0" sortable="false" text="Pagada" />
                           </columns>
                            <HBox.margin>
                               <Insets left="25.0" right="25.0" />

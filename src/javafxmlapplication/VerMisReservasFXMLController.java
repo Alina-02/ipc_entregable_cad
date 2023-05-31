@@ -140,7 +140,7 @@ public class VerMisReservasFXMLController implements Initializable {
         for(Booking b: bookingList){
             if(bookings.size() < 10){
                 String pista = b.getCourt().getName();
-                String day = "" + b.getMadeForDay().getDayOfMonth();
+                String day = "" + b.getMadeForDay().getDayOfMonth() + " / " + b.getMadeForDay().getMonthValue();
                 String entrada = "" + b.getFromTime().getHour();
                 String salida = "" + (b.getFromTime().getHour() + 1);
                 String pagada; 
