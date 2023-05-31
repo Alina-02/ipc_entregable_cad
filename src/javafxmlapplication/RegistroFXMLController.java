@@ -310,8 +310,7 @@ public class RegistroFXMLController implements Initializable {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/DisponibilidadDelDiaFXML.fxml"));
                 Parent root = loader.load();
                   
-                Scene scene = new Scene(root, 1200, 750);
-            stage.setScene(scene);
+                stage.getScene().setRoot(root);
                 }
             
             }catch(Exception e){System.out.println(e);}
@@ -336,8 +335,7 @@ public class RegistroFXMLController implements Initializable {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/autenticarseFXML.fxml"));
                 Parent root = loader.load();
                 
-                Scene scene = new Scene(root, 1200, 750);
-                stage.setScene(scene);
+               stage.getScene().setRoot(root);
                     
             }catch(Exception e){System.out.println(e);}
         
