@@ -161,6 +161,14 @@ public class ActualizarDatosFXMLController implements Initializable {
         contraseñaEditado = new SimpleBooleanProperty(false);
         nickname_label.setText(m.getNickName());
         
+        pane_slide.setTranslateX(-490);
+        menu_button1.setVisible(true);
+        menu_button2.setVisible(false);
+        ir_Ver.setDisable(true);
+        ir_Actualizar.setDisable(true);
+        ir_Reservar.setDisable(true);
+        cerrar_sesion_label.setDisable(true);
+        
         //Quitar la visibilidad de los botones
         aceptar_edicion_button.setVisible(false);
         cancelar_button.setVisible(false);
