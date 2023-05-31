@@ -114,13 +114,17 @@ public class VerMisReservasFXMLController implements Initializable {
     private int sumIndex;
     @FXML
     private Circle pictureFrame1;
+    @FXML
+    private Circle circle_image;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
         cancelar_reserva_button.setDisable(true);
         
-        
+        //circle_image.setRadius(150);
+        //Image image = new Image("img/LogoApp.png");
+        //circle_image.setFill(new ImagePattern(image));
         
         
         //Consigue al miembro loggeado e inicializa club
