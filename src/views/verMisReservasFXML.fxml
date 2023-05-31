@@ -46,7 +46,7 @@
                                  <children>
                                     <ImageView fitHeight="567.0" fitWidth="393.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../img/360d9506-f13f-4c71-8501-6f10c28b9d58-01.jpeg" />
+                                          <Image url="@../img/5ce4c879-601e-426b-94f0-545b66c6cbf4.jpeg" />
                                        </image>
                                        <VBox.margin>
                                           <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
