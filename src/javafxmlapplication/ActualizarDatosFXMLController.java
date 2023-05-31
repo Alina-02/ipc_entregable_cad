@@ -747,6 +747,7 @@ public class ActualizarDatosFXMLController implements Initializable {
 
     @FXML
     private void closeMenuAvatares(MouseEvent event) {
+        fotos_menu.setVisible(false);
     }
 
      
