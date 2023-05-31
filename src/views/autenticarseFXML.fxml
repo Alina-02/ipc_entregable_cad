@@ -41,13 +41,13 @@
                   <Insets />
                </BorderPane.margin>
                <children>
-                  <AnchorPane prefHeight="61.0" prefWidth="2000.0">
+                  <AnchorPane prefHeight="78.0" prefWidth="710.0">
                      <children>
                         <HBox alignment="BOTTOM_LEFT" prefHeight="60.0" prefWidth="60.0" AnchorPane.leftAnchor="25.0">
                            <children>
                               <Button fx:id="back_button_autenticarse" mnemonicParsing="false" onMouseClicked="#backAutenticarse" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: transparent;">
                                  <HBox.margin>
-                                    <Insets top="15.0" />
+                                    <Insets top="30.0" />
                                  </HBox.margin>
                                  <graphic>
                                     <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
@@ -63,7 +63,7 @@
                            <children>
                               <Button fx:id="exit_button_autenticarse" mnemonicParsing="false" onMouseClicked="#exitAutenticarse" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: transparent;">
                                  <HBox.margin>
-                                    <Insets top="15.0" />
+                                    <Insets top="30.0" />
                                  </HBox.margin>
                                  <graphic>
                                     <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">

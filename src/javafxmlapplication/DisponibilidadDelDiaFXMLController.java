@@ -256,6 +256,7 @@ public class DisponibilidadDelDiaFXMLController implements Initializable {
             
         club = Club.getInstance();
         
+        
         find_hour_textfield.setFocusTraversable(false);
         
         //coloca todas las pistas en el toggle group pistas
