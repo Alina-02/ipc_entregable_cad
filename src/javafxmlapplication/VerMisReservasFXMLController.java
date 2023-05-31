@@ -292,8 +292,7 @@ public class VerMisReservasFXMLController implements Initializable {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/actualizarDatosFXML.fxml"));
                 Parent root = loader.load();
                   
-                Scene scene = new Scene(root, 1200, 750);
-                stage.setScene(scene);
+                stage.getScene().setRoot(root);
 
                     
             }catch(Exception e){System.out.println(e);}
@@ -308,8 +307,7 @@ public class VerMisReservasFXMLController implements Initializable {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/verMisReservasFXML.fxml"));
                 Parent root = loader.load();
                   
-                Scene scene = new Scene(root, 1200, 750);
-                stage.setScene(scene);
+                stage.getScene().setRoot(root);
 
                     
             }catch(Exception e){System.out.println(e);}
@@ -324,8 +322,7 @@ public class VerMisReservasFXMLController implements Initializable {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/reservarFXML.fxml"));
                 Parent root = loader.load();
                   
-                Scene scene = new Scene(root, 1200, 750);
-                stage.setScene(scene);
+                stage.getScene().setRoot(root);
 
                     
             }catch(Exception e){System.out.println(e);}
