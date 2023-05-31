@@ -41,6 +41,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.DialogPane;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.DragEvent;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -139,6 +140,10 @@ public class ActualizarDatosFXMLController implements Initializable {
     private Button subir_foto_button;
     @FXML
     private Circle pictureFrame2;
+    @FXML
+    private Button mensaje_foto;
+    @FXML
+    private VBox fotos_menu;
     
 
     /**
@@ -233,6 +238,9 @@ public class ActualizarDatosFXMLController implements Initializable {
         pictureFrame2.setStrokeWidth(20);
         pictureFrame2.setStroke(Color.WHITE);
         
+        
+        pictureFrame.setOnMouseEntered(event -> mensaje_foto.setVisible(true));
+        mensaje_foto.setOnMouseExited(event -> mensaje_foto.setVisible(false));
         
         
     }
@@ -702,6 +710,7 @@ public class ActualizarDatosFXMLController implements Initializable {
 
     @FXML
     private void seleccionarFoto(MouseEvent event) {
+        fotos_menu.setVisible(true);
     }
 
     @FXML
@@ -728,5 +737,17 @@ public class ActualizarDatosFXMLController implements Initializable {
         pictureFrame.setFill(new ImagePattern(im));
         AutenticarseFXMLController.getMember().setImage(im);
     }
-    
+
+    @FXML
+    private void aparecer(MouseEvent event) {
+        //mensaje_foto.setVisible(true);
+        
+        
+    }
+
+    @FXML
+    private void closeMenuAvatares(MouseEvent event) {
+    }
+
+     
 }
