@@ -735,7 +735,7 @@
                                  </VBox.margin>
                                  <children>
                                     <Line endX="257.69293212890625" endY="-0.41421353816986084" startX="513.785888671875" startY="-0.4132881164550781" />
-                                    <Label fx:id="cerrar_sesion_label" onMouseClicked="#cerrar_sesion_clicked" prefHeight="39.0" prefWidth="128.0" text="Cerrar Sesion" underline="true">
+                                    <Label fx:id="cerrar_sesion_label" onMouseClicked="#cerrar_sesion_clicked" prefHeight="39.0" prefWidth="128.0" text="Cerrar Sesión" underline="true">
                                        <font>
                                           <Font name="System Bold" size="20.0" />
                                        </font>
