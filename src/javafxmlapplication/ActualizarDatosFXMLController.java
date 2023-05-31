@@ -516,7 +516,7 @@ public class ActualizarDatosFXMLController implements Initializable {
         try{
                 
                 
-                stage.getIcons().add(new Image(this.getClass().getResourceAsStream("/img/Pelota.png")));
+                //stage.getIcons().add(new Image(this.getClass().getResourceAsStream("/img/Pelota.png")));
             
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/actualizarDatosFXML.fxml"));
                 Parent root = loader.load();
@@ -524,6 +524,7 @@ public class ActualizarDatosFXMLController implements Initializable {
                 ActualizarDatosFXMLController controller = loader.getController();
                 controller.setStage(stage);
                   
+                
                 Scene scene = new Scene(root, stage.getWidth(), stage.getHeight());
                 stage.setScene(scene);
                 
@@ -750,4 +751,5 @@ public class ActualizarDatosFXMLController implements Initializable {
         fotos_menu.setVisible(false);
     }
 
+     
 }
