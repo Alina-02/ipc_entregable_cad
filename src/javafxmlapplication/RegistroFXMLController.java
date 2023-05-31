@@ -2,18 +2,10 @@
 
 package javafxmlapplication;
 
-import com.sun.tools.javac.Main;
 import ipc_project.main;
 import ipc_project.utils;
-import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.PrintWriter;
-import java.io.StringWriter;
-import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -27,35 +19,26 @@ import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.DialogPane;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleButton;
 import javafx.scene.effect.BlurType;
-import javafx.scene.effect.Glow;
 import javafx.scene.effect.Shadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Priority;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import model.*;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 //import img.*;
@@ -124,7 +107,6 @@ public class RegistroFXMLController implements Initializable {
     private Button ojo_cerrado_button;
     @FXML
     private Button ojo_abierto_button;
-    private VBox confirmacion_box;
     @FXML
     private Label error_confirmacion_label;
     @FXML
@@ -133,17 +115,13 @@ public class RegistroFXMLController implements Initializable {
     private Label error_svc_label;
     @FXML
     private Label general_error_label;
-    private Label error_vario;
     @FXML
     private Label error_nickname_label;
     
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-              
-        //miembro acutal
-        
+
         //Quitar la visibilidad de los botones
         ojo_abierto_button.setVisible(false);
         password_ver_text.setVisible(false); 
@@ -188,8 +166,7 @@ public class RegistroFXMLController implements Initializable {
         mensaje_foto.setVisible(false);
         pictureFrame.setOnMouseEntered(event -> mensaje_foto.setVisible(true));
         mensaje_foto.setOnMouseExited(event -> mensaje_foto.setVisible(false));
-        
-        
+     
         
         try{club = Club.getInstance();
         }catch (ClubDAOException ex){
@@ -294,7 +271,7 @@ public class RegistroFXMLController implements Initializable {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/autenticarseFXML.fxml"));
                 Parent root = loader.load();
                 
-                stage.getScene().setRoot(root);
+               stage.getScene().setRoot(root);
                     
             }catch(Exception e){System.out.println(e);}
         
@@ -479,4 +456,3 @@ public class RegistroFXMLController implements Initializable {
     
 
 }
-

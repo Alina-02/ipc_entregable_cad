@@ -145,6 +145,8 @@ public class ActualizarDatosFXMLController implements Initializable {
     private Button mensaje_foto;
     @FXML
     private VBox fotos_menu;
+    @FXML
+    private Circle pictureFrame1;
     
 
     /**
@@ -730,6 +732,14 @@ public class ActualizarDatosFXMLController implements Initializable {
     @FXML
     private void closeMenuAvatares(MouseEvent event) {
         fotos_menu.setVisible(false);
+    }
+
+    @FXML
+    private void showChange(MouseEvent event) {
+    }
+
+    @FXML
+    private void changeProfile(MouseEvent event) {
     }
 
      
