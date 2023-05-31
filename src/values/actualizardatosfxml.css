@@ -233,7 +233,6 @@
     -fx-background-radius: 8; /* Radio de los bordes del TextField */
     -fx-border-color: #dedede; /* Color del borde del TextField */
     -fx-border-radius: 8; /* Radio de los bordes del TextField */
-    -fx-effect: dropshadow(gaussian, rgba(222, 222, 222, 0.4), 15, 0.2, 0, 0);
     }
 
 .menu-button{

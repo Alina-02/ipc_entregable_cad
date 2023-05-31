@@ -38,6 +38,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.DialogPane;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -131,6 +132,10 @@ public class ActualizarDatosFXMLController implements Initializable {
     private Button ir_Ver;
     
     private Stage stage;
+    @FXML
+    private Button perfil1;
+    @FXML
+    private Button subir_foto_button;
     
 
     /**
@@ -690,6 +695,17 @@ public class ActualizarDatosFXMLController implements Initializable {
 
     @FXML
     private void seleccionarFoto(MouseEvent event) {
+    }
+
+    @FXML
+    private void selectAvatar(MouseEvent event) {
+        Button b = (Button) event.getSource();
+        Image avatar = ((ImageView) b.getGraphic()).getImage();
+        pictureFrame.setFill(new ImagePattern(avatar));
+    }
+
+    @FXML
+    private void subirFoto(MouseEvent event) {
     }
     
 }
