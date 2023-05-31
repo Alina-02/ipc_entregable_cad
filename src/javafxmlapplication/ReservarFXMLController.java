@@ -886,8 +886,7 @@ public class ReservarFXMLController implements Initializable {
             
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/actualizarDatosFXML.fxml"));
             Parent root = loader.load();
-            Scene scene = new Scene(root, 1200, 750);
-            stage.setScene(scene);
+            stage.getScene().setRoot(root);
                     
         }catch(Exception e){System.out.println("Problemas en ir aactualizar los datos: " + e);}
         

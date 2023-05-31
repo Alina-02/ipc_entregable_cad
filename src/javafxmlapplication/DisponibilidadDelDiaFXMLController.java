@@ -656,8 +656,7 @@ public class DisponibilidadDelDiaFXMLController implements Initializable {
             
             FXMLLoader loader= new  FXMLLoader(getClass().getResource("/views/registroFXML.fxml"));
             Parent root = loader.load();
-            Scene scene = new Scene(root, 1200,750);
-            stage.setScene(scene);
+            stage.getScene().setRoot(root);
             
         }catch(Exception e){System.out.println("Fallo en registerUser: " + e);}
     }  
@@ -670,30 +669,5 @@ public class DisponibilidadDelDiaFXMLController implements Initializable {
         disponibilidadGo = bool;
     }
     
-    public void setStage(Stage s){
-        this.stage = s;
-    }
     
-    public void resizable(){
-        
-            stage.heightProperty().addListener((ob, oldval, newval)->{
-                if(!oldval.equals(Double.NaN)){
-                    for(ToggleButton tb: pistasList){
-                        tb.setPrefHeight(tb.getHeight()+(newval.doubleValue()-oldval.doubleValue())*0.33);
-                        
-                    }
-                }
-                //pistas_vbox.setPrefHeight(newval.doubleValue()*750/474);
-            });
-            
-            stage.widthProperty().addListener((ob, oldval, newval)->{
-                if(!oldval.equals(Double.NaN)){
-                    for(ToggleButton tb: pistasList){
-                        tb.setPrefWidth(tb.getWidth() + (newval.doubleValue() - oldval.doubleValue()) * 0.33);
-                    }
-                }
-                //pistas_vbox.setPrefWidth(newval.doubleValue()*1200/860);
-            });
-              
-    }
 }

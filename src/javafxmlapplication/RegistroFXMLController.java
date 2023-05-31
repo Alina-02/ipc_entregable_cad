@@ -224,8 +224,7 @@ public class RegistroFXMLController implements Initializable {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/AutenticarseFXML.fxml"));
                 Parent root = loader.load();
 
-                Scene scene = new Scene(root, 1200, 750);
-                stage.setScene(scene);
+                stage.getScene().setRoot(root);
                 
             }else if(DisponibilidadDelDiaFXMLController.getDisponibilidadGo()){
                 DisponibilidadDelDiaFXMLController.setDisponibilidadGo(false);

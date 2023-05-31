@@ -511,8 +511,7 @@ public class ActualizarDatosFXMLController implements Initializable {
                 ActualizarDatosFXMLController controller = loader.getController();
                 controller.setStage(stage);
                   
-                Scene scene = new Scene(root, stage.getWidth(), stage.getHeight());
-                stage.setScene(scene);
+                stage.getScene().setRoot(root);
                 
                 controller.resizable();
 
@@ -573,16 +572,15 @@ public class ActualizarDatosFXMLController implements Initializable {
             
             stage.getIcons().add(new Image(this.getClass().getResourceAsStream("/img/Pelota.png")));
             
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/disponibilidadDelDiaFXML.fxml"));
+            
+            Stage stage;
+            stage = main.getStage();
+            
+            FXMLLoader loader= new  FXMLLoader(getClass().getResource("/views/DisponibilidadDelDiaFXML.fxml"));
             Parent root = loader.load();
-            
-            DisponibilidadDelDiaFXMLController controller = loader.getController();
-            controller.setStage(stage);
-            
-            Scene scene = new Scene(root, stage.getWidth(), stage.getHeight());
+            Scene scene = new Scene(root, 1200,750);
             stage.setScene(scene);
             
-            controller.resizable();
                     
         }catch(Exception e){System.out.println("Problemas en cerrar sesión: " + e);}
         

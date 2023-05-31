@@ -126,8 +126,8 @@ public class AutenticarseFXMLController implements Initializable {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/disponibilidadDelDiaFXML.fxml"));
                 Parent root = loader.load();
                   
-                Scene scene = new Scene(root, 1200, 750);
-                stage.setScene(scene);
+                stage.getScene().setRoot(root);
+                
             }else if(RegistroFXMLController.getRegistroGo()){
                 RegistroFXMLController.setRegistroGo(false);
                 Stage stage;
