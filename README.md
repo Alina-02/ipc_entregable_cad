@@ -4,5 +4,4 @@
 TeamWork with @  dantr and @  Camila 
 
 > [!NOTE]
-> Libraries are from the UPV
-
+> Highlights information that users should take into account, even when skimming.
